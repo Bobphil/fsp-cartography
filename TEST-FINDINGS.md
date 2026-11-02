@@ -4,13 +4,13 @@
 
 Date: 2026-11-01
 
-Command:
+Baseline command:
 
 ```bash
 npm test
 ```
 
-Result:
+Baseline result:
 
 - 7 tests passed
 - 0 failed
@@ -22,8 +22,37 @@ Result:
 - No-shared-task micro-test: PASS
 - Privacy firewall micro-test: PASS
 
-The current milestone demonstrates deterministic state behavior only. It does **not** yet establish human usability, interface clarity, distinctive value over a worksheet, or readiness for AI/VR.
+## Kernel hardening + persistence + seven-view shell
 
-Implementation note: the runtime could not download npm packages, so the first harness uses TypeScript plus Node's built-in test runner rather than Vitest. The test assertions are framework-independent; this does not alter the frozen kernel behavior.
+Date: 2026-11-02
 
-Local baseline commit before GitHub import: `6639993`.
+Added direct tests for:
+
+- reducer determinism and input immutability
+- missing-target reducer no-ops
+- rejected-Coach suppression at the reducer boundary
+- privacy projection integrity
+- duplicate IDs
+- single SELF_PRF
+- invariant enforcement before persistence
+- Memory persistence
+- LocalStorage-compatible persistence
+- seven-view shell order, contract, empty-state, and navigation behavior
+
+Target command:
+
+```bash
+npm test
+npm run build:browser
+```
+
+Expected deterministic harness after this milestone:
+
+- 21 tests total
+- 7 frozen acceptance/micro tests
+- 14 direct unit tests
+- browser shell compiles separately
+
+The milestone still does **not** establish human usability, interface clarity, distinctive value over a worksheet, or readiness for AI/VR.
+
+Implementation note: the project continues to use TypeScript plus Node's built-in test runner rather than adding a package dependency. The test assertions remain framework-independent.

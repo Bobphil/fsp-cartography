@@ -1,12 +1,47 @@
 import { FSPMapState } from "./types";
 
+type Identified = { id: string };
+
+function collectIdentified(state: FSPMapState): Array<{ collection: string; value: Identified }> {
+  const collections: Array<[string, Identified[]]> = [
+    ["nodes", state.nodes],
+    ["claims", state.claims],
+    ["connections", state.connections],
+    ["paths", state.paths],
+    ["constraints", state.constraints],
+    ["sharedTasks", state.sharedTasks],
+    ["actions", state.actions],
+    ["coachRecords", state.coachRecords],
+    ["rejectedInterpretations", state.rejectedInterpretations],
+    ["mapChanges", state.mapChanges],
+    ["reopenItems", state.reopenItems],
+    ["returns", state.returns],
+    ["outputCards", state.outputCards]
+  ];
+
+  if (state.task) collections.push(["task", [state.task]]);
+
+  return collections.flatMap(([collection, values]) =>
+    values.map(value => ({ collection, value }))
+  );
+}
+
 export function validateInvariants(state: FSPMapState): string[] {
   const errors: string[] = [];
 
-  for (const node of state.nodes) {
-    if (node.nodeType === "INSTITUTION" && node.id === state.nodes.find(n => n.nodeType === "SELF_PRF")?.id) {
-      errors.push("Institution cannot also be SELF_PRF");
+  const seen = new Map<string, string>();
+  for (const { collection, value } of collectIdentified(state)) {
+    const prior = seen.get(value.id);
+    if (prior) {
+      errors.push(`Duplicate id ${value.id} appears in ${prior} and ${collection}`);
+    } else {
+      seen.set(value.id, collection);
     }
+  }
+
+  const selfNodes = state.nodes.filter(n => n.nodeType === "SELF_PRF");
+  if (selfNodes.length > 1) {
+    errors.push("Map may contain at most one SELF_PRF node");
   }
 
   const privateIds = new Set([
@@ -19,11 +54,19 @@ export function validateInvariants(state: FSPMapState): string[] {
     ...state.returns.filter(x => x.privacy === "COURSE").map(x => x.id),
     ...state.outputCards.filter(x => x.privacy === "COURSE").map(x => x.id)
   ]);
-  for (const id of privateIds) if (courseIds.has(id)) errors.push(`Object ${id} cannot be both PRIVATE and COURSE`);
+  for (const id of privateIds) {
+    if (courseIds.has(id)) {
+      errors.push(`Object ${id} cannot be both PRIVATE and COURSE`);
+    }
+  }
 
-  const rejectedKeys = new Set(state.rejectedInterpretations.filter(x => x.doNotReuse).map(x => x.semanticKey));
+  const rejectedKeys = new Set(
+    state.rejectedInterpretations
+      .filter(x => x.doNotReuse)
+      .map(x => x.semanticKey)
+  );
   for (const rec of state.coachRecords) {
-    if (rejectedKeys.has(rec.semanticKey) && rec.disposition === "PENDING" && !state.rejectedInterpretations.some(r => r.id === `rejected_${rec.id}`)) {
+    if (rejectedKeys.has(rec.semanticKey) && rec.disposition === "PENDING") {
       errors.push(`Rejected coach key ${rec.semanticKey} cannot be pending again`);
     }
   }
