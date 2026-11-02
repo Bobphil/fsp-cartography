@@ -70,7 +70,7 @@ export function presentView(state: FSPMapState): InteractionView {
           .filter(c => people.some(p => p.id === c.subjectId))
           .map(c => ({
             heading: c.text,
-            detail: c.claimType.replaceAll("_", " "),
+            detail: c.claimType.replace(/_/g, " "),
             meta: c.verification
           }))
       });
@@ -92,7 +92,7 @@ export function presentView(state: FSPMapState): InteractionView {
         emptyText: "No institutional or practical constraint has been recorded yet.",
         items: state.constraints.map(c => ({
           heading: c.text,
-          detail: `${c.epistemicStatus.replaceAll("_", " ")} · ${c.rigidity.replaceAll("_", " ")}`,
+          detail: `${c.epistemicStatus.replace(/_/g, " ")} · ${c.rigidity.replace(/_/g, " ")}`,
           meta: c.scope
         }))
       });
@@ -120,7 +120,7 @@ export function presentView(state: FSPMapState): InteractionView {
         emptyText: contract.emptyState,
         items: state.connections.map(c => ({
           heading: `${nodeLabel(state, c.sourceId)} → ${nodeLabel(state, c.targetId)}`,
-          detail: c.connectionType.replaceAll("_", " "),
+          detail: c.connectionType.replace(/_/g, " "),
           meta: c.note
         }))
       });
@@ -130,7 +130,7 @@ export function presentView(state: FSPMapState): InteractionView {
         items: state.sharedTasks.map(s => ({
           heading: s.status === "NONE_IDENTIFIED"
             ? "No shared task identified"
-            : s.text || s.status.replaceAll("_", " "),
+            : s.text || s.status.replace(/_/g, " "),
           detail: s.participantIds.map(id => nodeLabel(state, id)).join(", "),
           meta: s.outsideScope.length ? `Outside scope: ${s.outsideScope.join("; ")}` : undefined
         }))
@@ -143,7 +143,7 @@ export function presentView(state: FSPMapState): InteractionView {
         emptyText: "No path has been mapped yet.",
         items: state.paths.map(p => ({
           heading: p.name,
-          detail: p.status.replaceAll("_", " "),
+          detail: p.status.replace(/_/g, " "),
           meta: p.origin === "SYSTEM_CANDIDATE" && !p.acceptedIntoMap
             ? "System candidate — not yet accepted into the map"
             : p.unknowns.length ? `Unknowns: ${p.unknowns.join("; ")}` : undefined
@@ -154,7 +154,7 @@ export function presentView(state: FSPMapState): InteractionView {
         emptyText: contract.emptyState,
         items: state.actions.map(a => ({
           heading: a.text,
-          detail: a.actionType.replaceAll("_", " "),
+          detail: a.actionType.replace(/_/g, " "),
           meta: a.status
         }))
       });
@@ -165,7 +165,7 @@ export function presentView(state: FSPMapState): InteractionView {
         title: "Authorial return",
         emptyText: contract.emptyState,
         items: state.returns.map(r => ({
-          heading: r.currentJudgment || r.whatBecameClearer || r.returnType.replaceAll("_", " "),
+          heading: r.currentJudgment || r.whatBecameClearer || r.returnType.replace(/_/g, " "),
           detail: r.notClaiming ? `Not claiming: ${r.notClaiming}` : undefined,
           meta: r.remainingUncertainty
         }))
