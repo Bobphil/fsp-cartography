@@ -87,7 +87,7 @@ export function mountBrowserShell(
       for (const domain of ["PRIVATE", "TEMP_SESSION", "SHARED_CONSENTED", "COURSE", "PUBLIC_SOURCE"] as PrivacyDomain[]) {
         const option = document.createElement("option");
         option.value = domain;
-        option.textContent = domain.replaceAll("_", " ");
+        option.textContent = domain.replace(/_/g, " ");
         option.selected = state.defaultPrivacy === domain;
         privacySelect.append(option);
       }
