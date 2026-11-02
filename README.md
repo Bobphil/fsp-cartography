@@ -1,31 +1,24 @@
-# FSP Cartography — CODE-0 Prototype 0
+# FSP Cartography — CODE-0.1
 
 This repository is the first executable implementation of the frozen FSP Cartography specification.
 
-Prototype 0 is intentionally thin. It tests whether typed, provenance-aware, task-bounded mapping can preserve the distinctions that matter before any polished interface, generative AI, public-data layer, multi-user collaboration, or VR is added.
+CODE-0.1 freezes the deterministic state machine after a green 21-test regression gate and begins the usability phase around that tested kernel.
 
-## Current milestone
+## Frozen baseline
 
-The deterministic CODE-0 state machine is now protected by three layers:
+The CODE-0.1 regression gate tested commit:
 
-1. acceptance journeys and frozen micro-tests;
-2. direct reducer/invariant/persistence/shell unit tests; and
-3. a thin seven-view browser shell compiled directly from the tested state machine.
+`a58766f3340716d2b71102fe0b855264f8e88288`
 
-The required acceptance journeys remain:
+Result:
 
-- Maya — standard healthcare exploration
-- Leila — practical power, verified constraint, no manufactured cooperation
-- Jordan — orientation without a formed task
+- 21 tests passed
+- 0 failed
+- browser TypeScript build passed
 
-Required micro-tests remain:
+See `CODE-0.1-FREEZE.md` for the frozen boundary.
 
-- verified institutional barrier remains verified
-- rejected Coach interpretation remains rejected
-- no shared task is a valid state
-- private content does not mutate into course content
-
-The seven shell views are:
+## Seven views
 
 - Start
 - People
@@ -35,7 +28,7 @@ The seven shell views are:
 - Investigate
 - Return
 
-Persistence is deliberately local and minimal: an in-memory adapter for deterministic testing and a LocalStorage-compatible adapter for the browser boundary.
+Persistence remains deliberately local and minimal: an in-memory adapter for deterministic tests and a LocalStorage-compatible adapter for the browser boundary.
 
 ## Run
 
@@ -44,11 +37,11 @@ npm test
 npm run build:browser
 ```
 
-The repository uses TypeScript plus Node's built-in test runner so the deterministic harness can run without downloading external packages. The test assertions are framework-independent and may later be moved to Vitest without changing kernel behavior.
-
 ## Architectural boundary
 
-The reducer is pure: it does not read the clock, storage, network, or browser globals. Persistence and rendering live outside the kernel.
+The reducer is pure: it does not read the clock, storage, network, or browser globals. Presentation and persistence live outside the kernel.
+
+During the CODE-0.1 usability phase, interface code may dispatch existing actions and render existing state, but it must not silently alter kernel semantics.
 
 ## Not building now
 
