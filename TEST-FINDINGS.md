@@ -53,3 +53,28 @@ Observed result:
 The gate was executed against a local reconstruction of the exact GitHub commit contents using Node 22.16.0 and TypeScript 5.8.3 after the runtime's direct network path to GitHub was unavailable.
 
 CODE-0.1 is therefore frozen. The next phase is usability work outside the kernel; the state machine remains closed unless the Change Gate is explicitly reopened.
+
+## CODE-0.1 interaction slice 1 gate
+
+Date: 2026-11-02
+
+Scope:
+
+- interaction controller outside the kernel
+- invariant check after each dispatched interaction
+- existing persistence adapter wiring
+- human-facing presenters for all seven frozen views
+- usable Start form for map title, task/orientation, task text, and privacy
+- readable summaries and explicit empty states for the remaining six views
+
+Observed result after the ES2020 compatibility correction:
+
+- 25 tests passed
+- 0 failed
+- 0 skipped
+- original 21-test CODE-0.1 regression set remains green
+- 4 interaction-layer unit tests pass
+- browser TypeScript build: PASS
+- no files under `src/kernel/` changed
+
+The initial interaction commit exposed an ES2020 compile incompatibility from `String.replaceAll`. The gate caught it; the interaction files were corrected to use ES2020-compatible replacement before this slice was accepted.
