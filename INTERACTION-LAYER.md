@@ -31,3 +31,11 @@ The next slices should add direct editing controls, one view at a time, in this 
 6. H/S/F — only after we determine whether existing add-time H/S/F tagging is usable enough without adding a mutation action.
 
 Each slice should run the full regression gate before the next one begins.
+
+## Slice 1 status
+
+PASS.
+
+Regression result: 25/25 tests green, browser build green, frozen kernel untouched.
+
+Accepted base for the next slice: People editing controls.
