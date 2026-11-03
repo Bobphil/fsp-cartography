@@ -1,5 +1,6 @@
 import { FSPAction } from "./actions";
 import { FSPMapState } from "./types";
+import { normalizeHSFRegions, sameHSFRegions } from "./hsf";
 
 function bump(state: FSPMapState): FSPMapState {
   // Reducers must be deterministic. Timestamps are supplied by the outer application boundary,
@@ -23,6 +24,34 @@ export function reducer(state: FSPMapState, action: FSPAction): FSPMapState {
 
     case "CLAIM_ADD":
       return bump({ ...state, claims: [...state.claims, action.payload] });
+
+    case "HSF_SET": {
+      const regions = normalizeHSFRegions(action.regions);
+
+      if (action.targetType === "NODE") {
+        const target = state.nodes.find(n => n.id === action.targetId);
+        if (!target) return state;
+        if (sameHSFRegions(target.hsf, regions)) return state;
+
+        return bump({
+          ...state,
+          nodes: state.nodes.map(n =>
+            n.id === action.targetId ? { ...n, hsf: regions } : n
+          )
+        });
+      }
+
+      const target = state.claims.find(c => c.id === action.targetId);
+      if (!target) return state;
+      if (sameHSFRegions(target.hsf, regions)) return state;
+
+      return bump({
+        ...state,
+        claims: state.claims.map(c =>
+          c.id === action.targetId ? { ...c, hsf: regions } : c
+        )
+      });
+    }
 
     case "CLAIM_RECLASSIFY": {
       if (!state.claims.some(c => c.id === action.claimId)) return state;
