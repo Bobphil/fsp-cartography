@@ -3,7 +3,7 @@ import { createInitialState } from "../kernel/defaults";
 import { assertInvariants } from "../kernel/invariants";
 import { PersistenceAdapter } from "../kernel/persistence";
 import { reducer } from "../kernel/reducer";
-import { ClaimType, ConstraintRigidity, ConstraintVerification, FSPMapState, PrivacyDomain, TaskStatus, ViewId } from "../kernel/types";
+import { ClaimType, ConnectionType, ConstraintRigidity, ConstraintVerification, FSPMapState, PrivacyDomain, SharedTaskStatus, TaskStatus, ViewId } from "../kernel/types";
 
 export type PeopleClaimType = Extract<ClaimType, "OTHER_REPORT" | "USER_INFERENCE">;
 
@@ -186,6 +186,58 @@ export class InteractionController {
         rigidity,
         scope: cleanScope,
         targetPathIds: [],
+        privacy: this.state.defaultPrivacy
+      }
+    });
+  }
+
+  addConnection(
+    sourceId: string,
+    targetId: string,
+    connectionType: ConnectionType,
+    note?: string
+  ): FSPMapState {
+    const source = this.state.nodes.find(n => n.id === sourceId);
+    const target = this.state.nodes.find(n => n.id === targetId);
+
+    if (!source) throw new Error("Connection source must already exist in the map");
+    if (!target) throw new Error("Connection target must already exist in the map");
+
+    return this.dispatch({
+      type: "CONNECTION_ADD",
+      payload: {
+        id: this.nextId("connection"),
+        sourceId,
+        targetId,
+        connectionType,
+        note: note?.trim() || undefined,
+        status: "USER_CONFIRMED",
+        privacy: this.state.defaultPrivacy
+      }
+    });
+  }
+
+  setSharedTask(
+    status: SharedTaskStatus,
+    participantIds: string[],
+    text?: string,
+    outsideScope: string[] = []
+  ): FSPMapState {
+    const uniqueParticipantIds = [...new Set(participantIds)];
+    for (const participantId of uniqueParticipantIds) {
+      if (!this.state.nodes.some(n => n.id === participantId)) {
+        throw new Error("Shared-task participants must already exist in the map");
+      }
+    }
+
+    return this.dispatch({
+      type: "SHARED_TASK_SET",
+      payload: {
+        id: this.nextId("shared_task"),
+        participantIds: uniqueParticipantIds,
+        status,
+        text: text?.trim() || undefined,
+        outsideScope: outsideScope.map(x => x.trim()).filter(Boolean),
         privacy: this.state.defaultPrivacy
       }
     });
