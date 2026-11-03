@@ -106,18 +106,22 @@ export function presentView(state: FSPMapState): InteractionView {
     }
 
     case "HSF":
-      for (const region of ["H", "S", "F"] as const) {
-        const names = state.nodes.filter(n => n.hsf.includes(region)).map(n => n.label);
-        const claims = state.claims.filter(c => c.hsf.includes(region)).map(c => c.text);
-        sections.push({
-          title: region === "H" ? "Historical / inherited" : region === "S" ? "Situated / current" : "Forward / possible",
-          emptyText: `Nothing has been placed in ${region} yet.`,
-          items: [
-            ...names.map(name => ({ heading: name, detail: "Map element" })),
-            ...claims.map(text => ({ heading: text, detail: "Claim" }))
-          ]
-        });
-      }
+      sections.push({
+        title: "H/S/F-bearing objects",
+        emptyText: "No H/S/F-bearing nodes or claims have been recorded yet.",
+        items: [
+          ...state.nodes.map(n => ({
+            heading: n.label,
+            detail: `Node · Relevant in: ${n.hsf.join("+")}`,
+            meta: "H/S/F marks relevance in this inquiry, not intrinsic temporal location."
+          })),
+          ...state.claims.map(c => ({
+            heading: c.text,
+            detail: `Claim · Relevant in: ${c.hsf.join("+")}`,
+            meta: "H/S/F marks relevance in this inquiry; F is not prediction or recommendation."
+          }))
+        ]
+      });
       break;
 
     case "CONNECTIONS":
