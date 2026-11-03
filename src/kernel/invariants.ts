@@ -1,4 +1,5 @@
 import { FSPMapState } from "./types";
+import { isCanonicalHSFRegions } from "./hsf";
 
 type Identified = { id: string };
 
@@ -36,6 +37,18 @@ export function validateInvariants(state: FSPMapState): string[] {
       errors.push(`Duplicate id ${value.id} appears in ${prior} and ${collection}`);
     } else {
       seen.set(value.id, collection);
+    }
+  }
+
+  for (const node of state.nodes) {
+    if (!isCanonicalHSFRegions(node.hsf)) {
+      errors.push(`Node ${node.id} must have non-empty, valid, duplicate-free H/S/F regions in canonical H,S,F order`);
+    }
+  }
+
+  for (const claim of state.claims) {
+    if (!isCanonicalHSFRegions(claim.hsf)) {
+      errors.push(`Claim ${claim.id} must have non-empty, valid, duplicate-free H/S/F regions in canonical H,S,F order`);
     }
   }
 
