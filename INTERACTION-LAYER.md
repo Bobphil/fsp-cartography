@@ -178,3 +178,25 @@ Accepted behavior:
 - F remains explicitly separate from prediction and recommendation.
 
 Regression result: 90/90 tests green and browser build green on GitHub Actions run `41632144985`.
+
+## SEVEN-VIEW-CONTINUITY-1
+
+Status: PASS.
+
+The interaction architecture has now passed an end-to-end continuity test across all seven views.
+
+Certified continuity:
+
+- Start can remain formed or unformed;
+- People preserves self / my-map-of-other and report / inference distinctions;
+- Institution preserves constraint verification and rigidity;
+- H/S/F can change relevance without replacing object identity;
+- Connections preserves power / authority and optional shared-task distinctions;
+- Investigate preserves possibility / recommendation and inquiry / commitment distinctions;
+- Return remains bounded, revisable, and linked to earlier inquiry actions.
+
+Maya, Leila, and Jordan each completed the full seven-view route without semantic collapse.
+
+Regression result: 97/97 tests green and browser build green on GitHub Actions run `41634487210`.
+
+No kernel or interaction repair was required by this continuity pass.

@@ -347,3 +347,53 @@ Implementation result:
 - prior Maya/Leila/Jordan and all previous regression coverage remain green
 
 HSF-CHANGE-IMPL-1: PASS.
+
+## SEVEN-VIEW-CONTINUITY-1
+
+Date: 2026-11-03
+
+Purpose:
+
+- test the seven-view architecture as one unfolding inquiry rather than seven isolated screens;
+- stress continuity of identity, provenance, H/S/F relevance, institutional constraint, connection type, possibility, and Authorial Return;
+- test sparse-state legitimacy and unformed-task continuity;
+- classify any discovered failure before repair.
+
+Cases:
+
+- Maya — differentiation without manufactured convergence;
+- Leila — practical power without authority;
+- Jordan — open orientation without forced task formation or recommendation.
+
+Cross-view assertions:
+
+- navigation itself does not mutate substantive map state;
+- sparse Institution/Connections/Investigate views remain valid;
+- H/S/F reassignment preserves identity and provenance;
+- Return links backward to existing inquiry actions;
+- claim ceilings and REOPEN preserve bounded revisability.
+
+GitHub Actions run:
+
+- run id: `41634487210`
+- tested head: `87f0fc3a4aa4d08d5b2d967bb066dc45ad878566`
+- result: SUCCESS
+- 97 tests passed
+- 0 failed
+- browser TypeScript build: PASS
+
+Continuity findings:
+
+- Maya: PASS — report/inference distinction survives, H/S/F relevance can evolve on the same object, multiple paths remain unranked, bounded shared task does not imply agreement on final profession, and Return stays below its claim ceiling.
+- Leila: PASS — practical power remains distinct from authority, verified/hard-currently funding constraint remains scoped, NONE_IDENTIFIED shared task remains legitimate, and Return does not convert leverage into authority.
+- Jordan: PASS — UNFORMED task survives the entire sequence, Institution/Connections/Paths may remain empty, inquiry actions can exist without path construction, and Return does not manufacture a career recommendation.
+- Cross-view identity continuity: PASS.
+- Provenance continuity: PASS.
+- H/S/F continuity: PASS.
+- Sparse-state legitimacy: PASS.
+- Possibility-without-recommendation: PASS.
+- Authorial Return boundedness: PASS.
+
+No new Change Gate was earned by this pass.
+
+SEVEN-VIEW-CONTINUITY-1: PASS.
