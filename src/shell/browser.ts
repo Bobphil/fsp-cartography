@@ -1,5 +1,5 @@
 import { LocalStoragePersistenceAdapter } from "../kernel/persistence";
-import { ConnectionType, ConstraintRigidity, ConstraintVerification, FSPMapState, PrivacyDomain, SharedTaskStatus, TaskStatus, ViewId } from "../kernel/types";
+import { ConnectionType, ConstraintRigidity, ConstraintVerification, FSPMapState, PathStatus, PrivacyDomain, SharedTaskStatus, TaskStatus, ViewId } from "../kernel/types";
 import { InteractionController, PeopleClaimType } from "../interaction/controller";
 import { presentView } from "../interaction/presenter";
 import { VIEW_ORDER, VIEW_CONTRACTS } from "./contract";
@@ -478,6 +478,108 @@ export function mountBrowserShell(
       });
 
       main.append(sharedTaskForm);
+    }
+
+    if (state.currentView === "INVESTIGATE") {
+      const intro = document.createElement("p");
+      intro.textContent = "Investigate maps possibilities and learning moves. Paths are not rankings, recommendations, or predictions, and next actions here are for gathering information rather than committing to a path.";
+      main.append(intro);
+
+      const pathForm = document.createElement("form");
+      pathForm.dataset.role = "add-path-form";
+
+      const pathName = document.createElement("input");
+      pathName.name = "pathName";
+      pathName.required = true;
+
+      const pathStatus = document.createElement("select");
+      pathStatus.name = "pathStatus";
+      const pathStatusValues: Array<[PathStatus, string]> = [
+        ["EXPLORATORY", "Exploratory"],
+        ["ACTIVE", "Active"],
+        ["CONDITIONAL", "Conditional"],
+        ["CURRENTLY_BLOCKED", "Currently blocked"],
+        ["UNMAPPED", "Unmapped"]
+      ];
+      for (const [value, label] of pathStatusValues) {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = label;
+        pathStatus.append(option);
+      }
+
+      const unknownsInput = document.createElement("input");
+      unknownsInput.name = "unknowns";
+      unknownsInput.placeholder = "Unknowns, separated by semicolons";
+
+      const constraintSelect = document.createElement("select");
+      constraintSelect.name = "constraintIds";
+      constraintSelect.multiple = true;
+      constraintSelect.size = Math.min(Math.max(state.constraints.length, 2), 6);
+      for (const constraint of state.constraints) {
+        const option = document.createElement("option");
+        option.value = constraint.id;
+        option.textContent = constraint.text;
+        constraintSelect.append(option);
+      }
+
+      const pathHelp = document.createElement("p");
+      pathHelp.textContent = "A path is a possibility to investigate. Adding it does not mean the system recommends it or predicts that it will happen.";
+
+      const addPath = document.createElement("button");
+      addPath.type = "submit";
+      addPath.textContent = "Add possibility";
+
+      pathForm.append(
+        labeledField("Path or possibility", pathName),
+        labeledField("Current status", pathStatus),
+        labeledField("What is still unknown?", unknownsInput),
+        labeledField("Applicable constraints", constraintSelect),
+        pathHelp,
+        addPath
+      );
+
+      pathForm.addEventListener("submit", event => {
+        event.preventDefault();
+        const constraintIds = Array.from(constraintSelect.selectedOptions).map(option => option.value);
+        controller.addPath(
+          pathName.value,
+          pathStatus.value as PathStatus,
+          unknownsInput.value.split(";"),
+          constraintIds
+        );
+        render();
+      });
+
+      main.append(pathForm);
+
+      const actionForm = document.createElement("form");
+      actionForm.dataset.role = "add-inquiry-action-form";
+
+      const actionText = document.createElement("textarea");
+      actionText.name = "inquiryAction";
+      actionText.required = true;
+
+      const actionHelp = document.createElement("p");
+      actionHelp.textContent = "This next action should generate information or experience. It is not a commitment to any path.";
+
+      const addAction = document.createElement("button");
+      addAction.type = "submit";
+      addAction.textContent = "Add information-generating action";
+
+      actionForm.append(
+        labeledField("What could you do to learn more?", actionText),
+        actionHelp,
+        addAction
+      );
+
+      actionForm.addEventListener("submit", event => {
+        event.preventDefault();
+        controller.addInquiryAction(actionText.value);
+        render();
+      });
+
+      main.append(actionForm);
     }
 
     for (const section of vm.sections) {
