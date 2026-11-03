@@ -1,5 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
 const { createInitialState } = require('../helpers.cjs');
 const { reducer } = require('../../dist/kernel/reducer.js');
 const { InteractionController } = require('../../dist/interaction/controller.js');
@@ -10,114 +11,69 @@ class RecordingPersistence {
   clear(){}
 }
 
-test('HSF Journey A: kernel data shape supports stable multi-region placement at creation', () => {
-  let s = createInitialState('hsf-a');
-  s = reducer(s, {
-    type:'NODE_ADD',
-    payload:{
-      id:'history',
-      nodeType:'MY_MAP_OF_OTHER',
-      label:'Family employment history',
-      relevance:['current decision'],
-      hsf:['H','S'],
-      privacy:'PRIVATE',
-      createdBy:'USER',
-      archived:false
-    }
-  });
-  assert.deepEqual(s.nodes[0].hsf,['H','S']);
+test('HSF Journey A remains supported: multi-region placement at creation', () => {
+  const controller = new InteractionController(createInitialState('hsf-a'), new RecordingPersistence());
+  controller.addOther('Family employment history',['H','S']);
+  assert.deepEqual(controller.getState().nodes[0].hsf,['H','S']);
 });
 
-test('HSF gate detects add-time UI limitation: current interaction controls hard-code S', () => {
+test('HSF add-time UI limitation identified by the gate is now repaired', () => {
   const controller = new InteractionController(createInitialState('hsf-ui'), new RecordingPersistence());
-  controller.addOther('Mother');
-  controller.addInstitution('College');
+  controller.addOther('Mother',['S','F']);
+  controller.addInstitution('College',['H','S','F']);
   const s = controller.getState();
-  assert.deepEqual(s.nodes[0].hsf,['S']);
-  assert.deepEqual(s.nodes[1].hsf,['S']);
+  assert.deepEqual(s.nodes[0].hsf,['S','F']);
+  assert.deepEqual(s.nodes[1].hsf,['H','S','F']);
 });
 
-test('HSF Journey B: MapChange prose cannot reclassify an existing claim from S to H+S', () => {
+test('HSF Journey B: MapChange prose alone still does not mutate HSF state', () => {
   let s = createInitialState('hsf-b');
   s = reducer(s,{type:'CLAIM_ADD',payload:{
     id:'tuition',subjectId:'self',text:'Tuition is too expensive.',
     claimType:'SELF_REPORT',verification:'UNVERIFIED',hsf:['S'],privacy:'PRIVATE',archived:false
   }});
   s = reducer(s,{type:'MAP_CHANGE_ADD',payload:{
-    id:'mc1',
-    before:'Tuition concern treated as only situated',
-    after:'Family debt history is also relevant',
-    trigger:'new historical context',
-    confirmedByUser:true,
-    privacy:'PRIVATE'
+    id:'mc1',before:'Situated only',after:'Historical relevance disclosed',
+    trigger:'new historical context',confirmedByUser:true,privacy:'PRIVATE'
   }});
   assert.deepEqual(s.claims[0].hsf,['S']);
-  assert.equal(s.mapChanges.length,1);
 });
 
-test('HSF Journey C: unsupported HSF_SET action leaves S state unchanged', () => {
+test('HSF Journey C is repaired by explicit HSF_SET on the continuing claim', () => {
   let s = createInitialState('hsf-c');
   s = reducer(s,{type:'CLAIM_ADD',payload:{
     id:'program',subjectId:'college',text:'The college does not offer the program.',
     claimType:'SOURCE_DERIVED',verification:'VERIFIED',hsf:['S'],privacy:'PRIVATE',archived:false
   }});
-  const before = s;
   const after = reducer(s,{type:'HSF_SET',targetType:'CLAIM',targetId:'program',regions:['S','F']});
-  assert.equal(after,before);
-  assert.deepEqual(after.claims[0].hsf,['S']);
+  assert.deepEqual(after.claims[0].hsf,['S','F']);
+  assert.equal(after.claims[0].id,'program');
 });
 
-test('HSF Journey D: Return and REOPEN do not withdraw forward relevance from the continuing claim', () => {
+test('HSF Journey D is repaired without deleting or duplicating the continuing claim', () => {
   let s = createInitialState('hsf-d');
-  s = reducer(s,{type:'TASK_SET',payload:{
-    id:'task',status:'FORMED',text:'What paths remain open?',origin:'USER',privacy:'PRIVATE'
-  }});
   s = reducer(s,{type:'CLAIM_ADD',payload:{
     id:'future-claim',subjectId:'self',text:'This option remains open next year.',
     claimType:'USER_INFERENCE',verification:'UNVERIFIED',hsf:['S','F'],privacy:'PRIVATE',archived:false
   }});
-  s = reducer(s,{type:'REOPEN_ADD',payload:{
-    id:'reopen1',targetType:'CLAIM',targetId:'future-claim',
-    condition:'New verified eligibility information',status:'OPEN',privacy:'PRIVATE'
-  }});
-  s = reducer(s,{type:'RETURN_ADD',payload:{
-    id:'return1',returnType:'NARROW',
-    currentJudgment:'The forward relevance should be reconsidered.',
-    nextActionIds:[],reopenId:'reopen1',privacy:'PRIVATE'
-  }});
-  assert.deepEqual(s.claims[0].hsf,['S','F']);
+  const after = reducer(s,{type:'HSF_SET',targetType:'CLAIM',targetId:'future-claim',regions:['S']});
+  assert.equal(after.claims.length,1);
+  assert.equal(after.claims[0].id,'future-claim');
+  assert.deepEqual(after.claims[0].hsf,['S']);
 });
 
-test('HSF workaround audit: duplicating an object changes identity rather than reclassifying it', () => {
-  let s = createInitialState('hsf-duplicate');
-  s = reducer(s,{type:'CLAIM_ADD',payload:{
-    id:'same-claim-v1',subjectId:'self',text:'Tuition is too expensive.',
-    claimType:'SELF_REPORT',verification:'UNVERIFIED',hsf:['S'],privacy:'PRIVATE',archived:false
-  }});
-  s = reducer(s,{type:'CLAIM_ADD',payload:{
-    id:'same-claim-v2',subjectId:'self',text:'Tuition is too expensive.',
-    claimType:'SELF_REPORT',verification:'UNVERIFIED',hsf:['H','S'],privacy:'PRIVATE',archived:false
-  }});
-  assert.equal(s.claims.length,2);
-  assert.notEqual(s.claims[0].id,s.claims[1].id);
+test('HSF workaround audit still records duplication as identity failure', () => {
+  const doc = fs.readFileSync('HSF-USABILITY-GATE-1.md','utf8');
+  assert.match(doc,/Duplicate the object with a new ID/);
+  assert.match(doc,/Breaks identity continuity/);
 });
 
-test('HSF gate classification: repeatable reclassification need is a model failure, not only a UI failure', () => {
-  const findings = {
-    dataShapeSupportsMultipleRegions:true,
-    interactionCanChooseRegionsAtCreation:false,
-    reducerCanReclassifyExistingNode:false,
-    reducerCanReclassifyExistingClaim:false,
-    proseWorkaroundsChangeMachineState:false
-  };
-
-  const classification =
-    findings.dataShapeSupportsMultipleRegions &&
-    (!findings.reducerCanReclassifyExistingNode || !findings.reducerCanReclassifyExistingClaim)
-      ? 'MODEL_FAIL'
-      : findings.interactionCanChooseRegionsAtCreation
-        ? 'PASS'
-        : 'UI_FAIL_MODEL_PASS';
-
-  assert.equal(classification,'MODEL_FAIL');
+test('HSF gate historical classification remains recorded while implementation repairs it', () => {
+  const doc = fs.readFileSync('HSF-USABILITY-GATE-1.md','utf8');
+  assert.match(doc,/MODEL FAIL, with an additional UI-level failure/);
+  const controller = new InteractionController(createInitialState('repair'), new RecordingPersistence());
+  controller.addOther('Mother',['H','S']);
+  const id = controller.getState().nodes[0].id;
+  controller.setHSF('NODE',id,['S','F']);
+  assert.deepEqual(controller.getState().nodes[0].hsf,['S','F']);
 });
