@@ -3,7 +3,8 @@ import { createInitialState } from "../kernel/defaults";
 import { assertInvariants } from "../kernel/invariants";
 import { PersistenceAdapter } from "../kernel/persistence";
 import { reducer } from "../kernel/reducer";
-import { ClaimType, ConnectionType, ConstraintRigidity, ConstraintVerification, FSPMapState, PathStatus, PrivacyDomain, ReturnType, SharedTaskStatus, TaskStatus, ViewId } from "../kernel/types";
+import { normalizeHSFRegions } from "../kernel/hsf";
+import { ClaimType, ConnectionType, ConstraintRigidity, ConstraintVerification, FSPMapState, HSFRegion, PathStatus, PrivacyDomain, ReturnType, SharedTaskStatus, TaskStatus, ViewId } from "../kernel/types";
 
 export type PeopleClaimType = Extract<ClaimType, "OTHER_REPORT" | "USER_INFERENCE">;
 
@@ -77,7 +78,7 @@ export class InteractionController {
     return `${prefix}_${index}`;
   }
 
-  addSelf(label: string): FSPMapState {
+  addSelf(label: string, regions: HSFRegion[] = ["S"]): FSPMapState {
     if (this.state.nodes.some(n => n.nodeType === "SELF_PRF")) {
       throw new Error("This map already has a self representation");
     }
@@ -89,7 +90,7 @@ export class InteractionController {
         nodeType: "SELF_PRF",
         label: label.trim() || "Me",
         relevance: [],
-        hsf: ["S"],
+        hsf: normalizeHSFRegions(regions),
         privacy: this.state.defaultPrivacy,
         createdBy: "USER",
         archived: false
@@ -97,7 +98,7 @@ export class InteractionController {
     });
   }
 
-  addOther(label: string): FSPMapState {
+  addOther(label: string, regions: HSFRegion[] = ["S"]): FSPMapState {
     const clean = label.trim();
     if (!clean) throw new Error("A label is required for another person");
 
@@ -108,7 +109,7 @@ export class InteractionController {
         nodeType: "MY_MAP_OF_OTHER",
         label: clean,
         relevance: [],
-        hsf: ["S"],
+        hsf: normalizeHSFRegions(regions),
         privacy: this.state.defaultPrivacy,
         createdBy: "USER",
         archived: false
@@ -119,7 +120,8 @@ export class InteractionController {
   addPersonClaim(
     subjectId: string,
     text: string,
-    claimType: PeopleClaimType
+    claimType: PeopleClaimType,
+    regions: HSFRegion[] = ["S"]
   ): FSPMapState {
     const subject = this.state.nodes.find(
       n => n.id === subjectId && n.nodeType === "MY_MAP_OF_OTHER"
@@ -139,14 +141,14 @@ export class InteractionController {
         text: clean,
         claimType,
         verification: "UNVERIFIED",
-        hsf: ["S"],
+        hsf: normalizeHSFRegions(regions),
         privacy: this.state.defaultPrivacy,
         archived: false
       }
     });
   }
 
-  addInstitution(label: string): FSPMapState {
+  addInstitution(label: string, regions: HSFRegion[] = ["S"]): FSPMapState {
     const clean = label.trim();
     if (!clean) throw new Error("An institution label is required");
 
@@ -157,11 +159,24 @@ export class InteractionController {
         nodeType: "INSTITUTION",
         label: clean,
         relevance: [],
-        hsf: ["S"],
+        hsf: normalizeHSFRegions(regions),
         privacy: this.state.defaultPrivacy,
         createdBy: "USER",
         archived: false
       }
+    });
+  }
+
+  setHSF(
+    targetType: "NODE" | "CLAIM",
+    targetId: string,
+    regions: HSFRegion[]
+  ): FSPMapState {
+    return this.dispatch({
+      type: "HSF_SET",
+      targetType,
+      targetId,
+      regions: normalizeHSFRegions(regions)
     });
   }
 
