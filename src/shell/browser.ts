@@ -1,5 +1,5 @@
 import { LocalStoragePersistenceAdapter } from "../kernel/persistence";
-import { ConstraintRigidity, ConstraintVerification, FSPMapState, PrivacyDomain, TaskStatus, ViewId } from "../kernel/types";
+import { ConnectionType, ConstraintRigidity, ConstraintVerification, FSPMapState, PrivacyDomain, SharedTaskStatus, TaskStatus, ViewId } from "../kernel/types";
 import { InteractionController, PeopleClaimType } from "../interaction/controller";
 import { presentView } from "../interaction/presenter";
 import { VIEW_ORDER, VIEW_CONTRACTS } from "./contract";
@@ -327,6 +327,157 @@ export function mountBrowserShell(
       });
 
       main.append(constraintForm);
+    }
+
+    if (state.currentView === "CONNECTIONS") {
+      const intro = document.createElement("p");
+      intro.textContent = "Connections are user-chosen relations. Practical power and authority are separate relation types. A shared task is optional, and 'No shared task identified' is a valid judgment.";
+      main.append(intro);
+
+      if (state.nodes.length >= 2) {
+        const connectionForm = document.createElement("form");
+        connectionForm.dataset.role = "add-connection-form";
+
+        const sourceSelect = document.createElement("select");
+        sourceSelect.name = "source";
+        const targetSelect = document.createElement("select");
+        targetSelect.name = "target";
+
+        for (const node of state.nodes) {
+          const sourceOption = document.createElement("option");
+          sourceOption.value = node.id;
+          sourceOption.textContent = node.label;
+          sourceSelect.append(sourceOption);
+
+          const targetOption = document.createElement("option");
+          targetOption.value = node.id;
+          targetOption.textContent = node.label;
+          targetSelect.append(targetOption);
+        }
+
+        const relationSelect = document.createElement("select");
+        relationSelect.name = "connectionType";
+        const relationValues: Array<[ConnectionType, string]> = [
+          ["COMMUNICATION", "Communication"],
+          ["DEPENDENCY", "Dependency"],
+          ["PRACTICAL_POWER", "Practical power"],
+          ["AUTHORITY", "Authority"],
+          ["SHARED_HISTORY", "Shared history"],
+          ["AFFECTS", "Affects"],
+          ["SUPPORTS", "Supports"],
+          ["CONSTRAINS", "Constrains"]
+        ];
+        for (const [value, label] of relationValues) {
+          const option = document.createElement("option");
+          option.value = value;
+          option.textContent = label;
+          relationSelect.append(option);
+        }
+
+        const noteInput = document.createElement("input");
+        noteInput.name = "connectionNote";
+        noteInput.placeholder = "Optional note";
+
+        const help = document.createElement("p");
+        help.textContent = "Choose the relation explicitly. Practical power is not the same as authority.";
+
+        const addConnection = document.createElement("button");
+        addConnection.type = "submit";
+        addConnection.textContent = "Add connection";
+
+        connectionForm.append(
+          labeledField("From", sourceSelect),
+          labeledField("To", targetSelect),
+          labeledField("Relation type", relationSelect),
+          labeledField("Note", noteInput),
+          help,
+          addConnection
+        );
+
+        connectionForm.addEventListener("submit", event => {
+          event.preventDefault();
+          controller.addConnection(
+            sourceSelect.value,
+            targetSelect.value,
+            relationSelect.value as ConnectionType,
+            noteInput.value
+          );
+          render();
+        });
+
+        main.append(connectionForm);
+      } else {
+        const needNodes = document.createElement("p");
+        needNodes.textContent = "Add at least two map nodes before recording a connection.";
+        main.append(needNodes);
+      }
+
+      const sharedTaskForm = document.createElement("form");
+      sharedTaskForm.dataset.role = "shared-task-form";
+
+      const statusSelect = document.createElement("select");
+      statusSelect.name = "sharedTaskStatus";
+      const sharedTaskValues: Array<[SharedTaskStatus, string]> = [
+        ["CONFIRMED", "Confirmed shared task"],
+        ["POSSIBLE_UNCONFIRMED", "Possible, not confirmed"],
+        ["NONE_IDENTIFIED", "No shared task identified"],
+        ["NOT_APPROPRIATE", "Shared task not appropriate"]
+      ];
+      for (const [value, label] of sharedTaskValues) {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = label;
+        statusSelect.append(option);
+      }
+
+      const participantSelect = document.createElement("select");
+      participantSelect.name = "participants";
+      participantSelect.multiple = true;
+      participantSelect.size = Math.min(Math.max(state.nodes.length, 2), 6);
+      for (const node of state.nodes) {
+        const option = document.createElement("option");
+        option.value = node.id;
+        option.textContent = node.label;
+        participantSelect.append(option);
+      }
+
+      const taskText = document.createElement("input");
+      taskText.name = "sharedTaskText";
+      taskText.placeholder = "Optional shared task description";
+
+      const outsideScope = document.createElement("input");
+      outsideScope.name = "outsideScope";
+      outsideScope.placeholder = "Optional items outside scope, separated by semicolons";
+
+      const sharedHelp = document.createElement("p");
+      sharedHelp.textContent = "You do not need to manufacture cooperation. 'No shared task identified' may be the correct result.";
+
+      const saveSharedTask = document.createElement("button");
+      saveSharedTask.type = "submit";
+      saveSharedTask.textContent = "Save shared-task judgment";
+
+      sharedTaskForm.append(
+        labeledField("Shared-task status", statusSelect),
+        labeledField("Participants", participantSelect),
+        labeledField("Shared task", taskText),
+        labeledField("Outside scope", outsideScope),
+        sharedHelp,
+        saveSharedTask
+      );
+
+      sharedTaskForm.addEventListener("submit", event => {
+        event.preventDefault();
+        const participantIds = Array.from(participantSelect.selectedOptions).map(option => option.value);
+        controller.setSharedTask(
+          statusSelect.value as SharedTaskStatus,
+          participantIds,
+          taskText.value,
+          outsideScope.value.split(";")
+        );
+        render();
+      });
+
+      main.append(sharedTaskForm);
     }
 
     for (const section of vm.sections) {
