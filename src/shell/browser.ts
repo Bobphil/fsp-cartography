@@ -1,5 +1,5 @@
 import { LocalStoragePersistenceAdapter } from "../kernel/persistence";
-import { ConnectionType, ConstraintRigidity, ConstraintVerification, FSPMapState, PathStatus, PrivacyDomain, ReturnType, SharedTaskStatus, TaskStatus, ViewId } from "../kernel/types";
+import { ConnectionType, ConstraintRigidity, ConstraintVerification, FSPMapState, HSFRegion, PathStatus, PrivacyDomain, ReturnType, SharedTaskStatus, TaskStatus, ViewId } from "../kernel/types";
 import { InteractionController, PeopleClaimType } from "../interaction/controller";
 import { presentView } from "../interaction/presenter";
 import { VIEW_ORDER, VIEW_CONTRACTS } from "./contract";
@@ -15,6 +15,41 @@ function labeledField(labelText: string, input: HTMLElement): HTMLElement {
   text.textContent = labelText;
   label.append(text, input);
   return label;
+}
+
+function hsfSelector(name: string, selected: HSFRegion[] = ["S"]): { element: HTMLElement; getRegions: () => HSFRegion[] } {
+  const fieldset = document.createElement("fieldset");
+  const legend = document.createElement("legend");
+  legend.textContent = "Where is this relevant in your map?";
+  fieldset.append(legend);
+
+  const values: Array<[HSFRegion, string]> = [
+    ["H", "Historical / inherited"],
+    ["S", "Situated / current"],
+    ["F", "Forward / possible"]
+  ];
+  const inputs: HTMLInputElement[] = [];
+
+  for (const [value, labelText] of values) {
+    const label = document.createElement("label");
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.name = name;
+    input.value = value;
+    input.checked = selected.includes(value);
+    inputs.push(input);
+    label.append(input, document.createTextNode(labelText));
+    fieldset.append(label);
+  }
+
+  const help = document.createElement("p");
+  help.textContent = "These mark where something matters in this inquiry. They do not predict the future or recommend a possibility.";
+  fieldset.append(help);
+
+  return {
+    element: fieldset,
+    getRegions: () => inputs.filter(input => input.checked).map(input => input.value as HSFRegion)
+  };
 }
 
 export function mountBrowserShell(
@@ -129,18 +164,21 @@ export function mountBrowserShell(
         selfLabel.name = "selfLabel";
         selfLabel.placeholder = "Me";
 
+        const selfHSF = hsfSelector("selfHSF");
+
         const addSelf = document.createElement("button");
         addSelf.type = "submit";
         addSelf.textContent = "Add myself to this map";
 
         selfForm.append(
           labeledField("How should you be labeled in this map?", selfLabel),
+          selfHSF.element,
           addSelf
         );
 
         selfForm.addEventListener("submit", event => {
           event.preventDefault();
-          controller.addSelf(selfLabel.value);
+          controller.addSelf(selfLabel.value, selfHSF.getRegions());
           render();
         });
 
@@ -154,18 +192,21 @@ export function mountBrowserShell(
       otherLabel.name = "otherLabel";
       otherLabel.required = true;
 
+      const otherHSF = hsfSelector("otherHSF");
+
       const addOther = document.createElement("button");
       addOther.type = "submit";
       addOther.textContent = "Add my map of this person";
 
       otherForm.append(
         labeledField("Person label", otherLabel),
+        otherHSF.element,
         addOther
       );
 
       otherForm.addEventListener("submit", event => {
         event.preventDefault();
-        controller.addOther(otherLabel.value);
+        controller.addOther(otherLabel.value, otherHSF.getRegions());
         render();
       });
 
@@ -199,6 +240,8 @@ export function mountBrowserShell(
         claimText.name = "claimText";
         claimText.required = true;
 
+        const claimHSF = hsfSelector("claimHSF");
+
         const provenanceHelp = document.createElement("p");
         provenanceHelp.textContent = "Choose provenance before saving. A report and your inference are different map claims.";
 
@@ -210,6 +253,7 @@ export function mountBrowserShell(
           labeledField("Whose map entry is this about?", subjectSelect),
           labeledField("Where did this claim come from?", provenanceSelect),
           labeledField("What should the map record?", claimText),
+          claimHSF.element,
           provenanceHelp,
           addClaim
         );
@@ -219,7 +263,8 @@ export function mountBrowserShell(
           controller.addPersonClaim(
             subjectSelect.value,
             claimText.value,
-            provenanceSelect.value as PeopleClaimType
+            provenanceSelect.value as PeopleClaimType,
+            claimHSF.getRegions()
           );
           render();
         });
@@ -240,18 +285,21 @@ export function mountBrowserShell(
       institutionLabel.name = "institutionLabel";
       institutionLabel.required = true;
 
+      const institutionHSF = hsfSelector("institutionHSF");
+
       const addInstitution = document.createElement("button");
       addInstitution.type = "submit";
       addInstitution.textContent = "Add institution";
 
       institutionForm.append(
         labeledField("Institution label", institutionLabel),
+        institutionHSF.element,
         addInstitution
       );
 
       institutionForm.addEventListener("submit", event => {
         event.preventDefault();
-        controller.addInstitution(institutionLabel.value);
+        controller.addInstitution(institutionLabel.value, institutionHSF.getRegions());
         render();
       });
 
@@ -327,6 +375,39 @@ export function mountBrowserShell(
       });
 
       main.append(constraintForm);
+    }
+
+    if (state.currentView === "HSF") {
+      const intro = document.createElement("p");
+      intro.textContent = "Update where each object is relevant in your inquiry. H/S/F is not intrinsic time, and F is not prediction or recommendation.";
+      main.append(intro);
+
+      const objects = [
+        ...state.nodes.map(node => ({ targetType: "NODE" as const, id: node.id, label: node.label, hsf: node.hsf })),
+        ...state.claims.map(claim => ({ targetType: "CLAIM" as const, id: claim.id, label: claim.text, hsf: claim.hsf }))
+      ];
+
+      for (const object of objects) {
+        const form = document.createElement("form");
+        form.dataset.role = "hsf-reassignment-form";
+
+        const label = document.createElement("strong");
+        label.textContent = object.label;
+
+        const selector = hsfSelector(`hsf-${object.id}`, object.hsf);
+        const save = document.createElement("button");
+        save.type = "submit";
+        save.textContent = "Update relevance";
+
+        form.append(label, selector.element, save);
+        form.addEventListener("submit", event => {
+          event.preventDefault();
+          controller.setHSF(object.targetType, object.id, selector.getRegions());
+          render();
+        });
+
+        main.append(form);
+      }
     }
 
     if (state.currentView === "CONNECTIONS") {
