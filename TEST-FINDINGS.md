@@ -109,3 +109,32 @@ GitHub Actions run:
 The six new People tests cover single-self enforcement, `MY_MAP_OF_OTHER` creation, report provenance, inference provenance, invalid self targeting, and visible provenance/map-of-other presentation.
 
 People editing slice: PASS.
+
+## CODE-0.1 Institution editing slice gate
+
+Date: 2026-11-02
+
+Scope:
+
+- add institutions only as `INSTITUTION`
+- add constraints through existing `CONSTRAINT_ADD`
+- keep constraint verification and rigidity as independent fields
+- require explicit constraint scope
+- keep institutions separate from persons
+- do not invent an institution-to-constraint relation not represented by the frozen kernel
+- keep Connections and Investigate untouched
+
+GitHub Actions run:
+
+- run id: `41555738633`
+- tested head: `3f3e17c9a0c7ee46ca129a19eb6d016009b87a6e`
+- result: SUCCESS
+- 37 tests passed
+- 0 failed
+- kernel TypeScript build: PASS
+- browser TypeScript build: PASS
+- no file under `src/kernel/` changed
+
+The six new Institution tests cover typed institution creation, blank-label rejection, independent verification/rigidity combinations, required constraint text/scope, and explicit presenter labeling of verification, rigidity, and scope.
+
+Institution editing slice: PASS.

@@ -58,3 +58,22 @@ Accepted behavior:
 Regression result: 31/31 tests green and browser build green on GitHub Actions run `41554882727`.
 
 Accepted base for the next slice: Institution editing controls for institution representation plus constraint verification and rigidity.
+
+## Slice 3 — Institution editing controls
+
+Status: PASS.
+
+Accepted behavior:
+
+- an institution is represented only as `INSTITUTION`;
+- institution representation remains separate from people;
+- constraints are separate map objects;
+- verification and rigidity are chosen independently;
+- constraint scope is explicit;
+- the UI does not invent an institution identifier on constraints because the frozen kernel has no such field;
+- Connections and Investigate remain untouched;
+- the kernel remains frozen.
+
+Regression result: 37/37 tests green and browser build green on GitHub Actions run `41555738633`.
+
+Accepted base for the next slice: Connections editing controls for typed connection relations plus optional shared-task judgment.
