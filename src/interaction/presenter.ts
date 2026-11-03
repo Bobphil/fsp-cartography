@@ -21,6 +21,12 @@ export interface InteractionView {
   sections: InteractionSection[];
 }
 
+function peopleClaimLabel(claimType: string): string {
+  if (claimType === "OTHER_REPORT") return "Reported by this person";
+  if (claimType === "USER_INFERENCE") return "My inference about this person";
+  return claimType.replace(/_/g, " ");
+}
+
 function nodeLabel(state: FSPMapState, id: string): string {
   return state.nodes.find(n => n.id === id)?.label ?? id;
 }
@@ -70,8 +76,8 @@ export function presentView(state: FSPMapState): InteractionView {
           .filter(c => people.some(p => p.id === c.subjectId))
           .map(c => ({
             heading: c.text,
-            detail: c.claimType.replace(/_/g, " "),
-            meta: c.verification
+            detail: peopleClaimLabel(c.claimType),
+            meta: `Provenance: ${c.claimType} · ${c.verification}`
           }))
       });
       break;
