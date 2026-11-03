@@ -98,8 +98,8 @@ export function presentView(state: FSPMapState): InteractionView {
         emptyText: "No institutional or practical constraint has been recorded yet.",
         items: state.constraints.map(c => ({
           heading: c.text,
-          detail: `${c.epistemicStatus.replace(/_/g, " ")} · ${c.rigidity.replace(/_/g, " ")}`,
-          meta: c.scope
+          detail: `Verification: ${c.epistemicStatus.replace(/_/g, " ")} · Rigidity: ${c.rigidity.replace(/_/g, " ")}`,
+          meta: `Scope: ${c.scope}`
         }))
       });
       break;
