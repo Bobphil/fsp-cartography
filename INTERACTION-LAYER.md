@@ -39,3 +39,22 @@ PASS.
 Regression result: 25/25 tests green, browser build green, frozen kernel untouched.
 
 Accepted base for the next slice: People editing controls.
+
+## Slice 2 — People editing controls
+
+Status: PASS.
+
+Accepted behavior:
+
+- the user may add one self representation;
+- another person is always added as "my map of this person";
+- a person-related claim requires an explicit provenance choice;
+- "They reported this" maps to `OTHER_REPORT`;
+- "This is my inference" maps to `USER_INFERENCE`;
+- provenance remains visible after the claim is saved;
+- the People-specific claim control cannot target `SELF_PRF`;
+- the kernel remains frozen.
+
+Regression result: 31/31 tests green and browser build green on GitHub Actions run `41554882727`.
+
+Accepted base for the next slice: Institution editing controls for institution representation plus constraint verification and rigidity.

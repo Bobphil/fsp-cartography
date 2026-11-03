@@ -78,3 +78,34 @@ Observed result after the ES2020 compatibility correction:
 - no files under `src/kernel/` changed
 
 The initial interaction commit exposed an ES2020 compile incompatibility from `String.replaceAll`. The gate caught it; the interaction files were corrected to use ES2020-compatible replacement before this slice was accepted.
+
+## CODE-0.1 People editing slice gate
+
+Date: 2026-11-02
+
+Scope:
+
+- add one `SELF_PRF` through the interaction controller
+- add other people only as `MY_MAP_OF_OTHER`
+- add person claims only against `MY_MAP_OF_OTHER`
+- force provenance choice between `OTHER_REPORT` and `USER_INFERENCE`
+- keep provenance visible in the human-facing presenter
+- keep "my map of this person" visible in the People screen
+- refuse a second self representation
+- refuse People-claim targeting of `SELF_PRF`
+- add a GitHub Actions regression gate for future slices
+
+GitHub Actions run:
+
+- run id: `41554882727`
+- tested head: `01cd25db600d0e52db1ab5a6a0189b781074620a`
+- result: SUCCESS
+- 31 tests passed
+- 0 failed
+- kernel TypeScript build: PASS
+- browser TypeScript build: PASS
+- no file under `src/kernel/` changed
+
+The six new People tests cover single-self enforcement, `MY_MAP_OF_OTHER` creation, report provenance, inference provenance, invalid self targeting, and visible provenance/map-of-other presentation.
+
+People editing slice: PASS.
