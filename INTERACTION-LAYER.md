@@ -140,3 +140,21 @@ Accepted behavior:
 Regression result: 57/57 tests green and browser build green on GitHub Actions run `41623591194`.
 
 Accepted base for the next slice: H/S/F usability review and, only if the existing add-time H/S/F tagging is insufficient, a narrowly justified Change Gate decision.
+
+## HSF-USABILITY-GATE-1
+
+Status: PASS as an evaluation gate.
+
+Result:
+
+- stable multi-region representation is already supported by the node/claim data shape;
+- add-time usable controls are insufficient because current interaction helpers force `S`;
+- later H/S/F reclassification is not representable by the frozen action grammar;
+- workaround strategies either leave stale machine state or break object identity;
+- Change Gate criterion 3 is satisfied.
+
+Classification: **MODEL FAIL + ADD-TIME UI FAIL**.
+
+Regression result: 64/64 tests green and browser build green on GitHub Actions run `41626183556`.
+
+Next step: specify the smallest admissible H/S/F reassignment amendment before implementing it.

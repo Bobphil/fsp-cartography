@@ -229,3 +229,36 @@ GitHub Actions run:
 The six new Return tests cover bounded Return/output-card/REOPEN creation, required judgment/claim ceiling, existing-action linkage, REOPEN target validity, non-final current judgment without REOPEN, and visible uncertainty/claim-ceiling/REOPEN presentation.
 
 Return editing slice: PASS.
+
+## HSF-USABILITY-GATE-1
+
+Date: 2026-11-03
+
+Purpose:
+
+- test add-time H/S/F adequacy before changing the frozen kernel;
+- distinguish UI insufficiency from model insufficiency;
+- audit prose/duplication workarounds;
+- determine whether the Change Gate is earned.
+
+Observed result:
+
+- current data shape permits multiple H/S/F regions on nodes and claims;
+- current interaction controls hard-code those created objects to `["S"]`;
+- no existing action can change H/S/F on an existing node or claim;
+- MapChange, Return, and REOPEN can describe a changed understanding but leave machine-readable H/S/F state stale;
+- duplicating the object changes identity rather than reclassifying it.
+
+Classification: **MODEL FAIL + ADD-TIME UI FAIL**.
+
+GitHub Actions run:
+
+- run id: `41626183556`
+- tested head: `f775da3d91facc7001841a8dea59e8331cb02c6d`
+- 64 tests passed
+- 0 failed
+- kernel TypeScript build: PASS
+- browser TypeScript build: PASS
+- no file under `src/kernel/` changed
+
+Change Gate: **OPEN — narrowly justified**.
