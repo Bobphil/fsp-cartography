@@ -12,7 +12,7 @@ test('HSF change spec limits targets to NODE and CLAIM', () => {
 
 test('HSF change spec requires non-empty region sets', () => {
   assert.match(spec,/must contain at least one valid H\/S\/F region/);
-  assert.match(spec,/\[\]\s*is invalid/);
+  assert.match(spec,/\[\][\s\S]{0,20}is invalid/);
 });
 
 test('HSF change spec defines duplicate normalization and canonical H,S,F order', () => {
