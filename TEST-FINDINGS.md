@@ -168,3 +168,33 @@ GitHub Actions run:
 The seven new Connections tests cover practical-power/authority separation, missing-endpoint rejection, `NONE_IDENTIFIED` shared task, confirmed shared task with outside scope, unknown-participant rejection, and visible connection/shared-task presentation.
 
 Connections editing slice: PASS.
+
+## CODE-0.1 Investigate editing slice gate
+
+Date: 2026-11-02
+
+Scope:
+
+- add user-entered paths through existing `PATH_ADD`
+- preserve paths as possibilities rather than rankings, recommendations, or predictions
+- record path unknowns explicitly
+- link only existing constraints to paths
+- add next actions only as `INFORMATION_GENERATING`
+- keep inquiry actions distinct from commitments
+- keep possibility/inquiry firewalls visible in presentation
+- keep Return untouched
+
+GitHub Actions run:
+
+- run id: `41559583753`
+- tested head: `a55c630047acf6c4bd404454c62f0ba31dd19cbf`
+- result: SUCCESS
+- 51 tests passed
+- 0 failed
+- kernel TypeScript build: PASS
+- browser TypeScript build: PASS
+- no file under `src/kernel/` changed
+
+The seven new Investigate tests cover user-path creation without ranking metadata, existing-constraint linkage, unknown preservation, required path name, information-generating action type, required action text, and visible possibility/inquiry firewalls.
+
+Investigate editing slice: PASS.

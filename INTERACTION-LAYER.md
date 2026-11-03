@@ -98,3 +98,23 @@ Accepted behavior:
 Regression result: 44/44 tests green and browser build green on GitHub Actions run `41556033238`.
 
 Accepted base for the next slice: Investigate editing controls for paths, unknowns, constraints, and information-generating next actions without ranking or recommendation.
+
+## Slice 5 — Investigate editing controls
+
+Status: PASS.
+
+Accepted behavior:
+
+- a path entered here is a possibility to investigate, not a score, ranking, recommendation, or prediction;
+- path status remains descriptive rather than evaluative;
+- unknowns are recorded explicitly;
+- only existing constraints may be linked to a path;
+- next actions created here are `INFORMATION_GENERATING`;
+- Investigate does not create commitment actions;
+- the UI states the possibility/recommendation/prediction firewall explicitly;
+- Return remains untouched;
+- the kernel remains frozen.
+
+Regression result: 51/51 tests green and browser build green on GitHub Actions run `41559583753`.
+
+Accepted base for the next slice: Return editing controls for bounded judgment, claim ceiling, remaining uncertainty, next action linkage, and REOPEN.
