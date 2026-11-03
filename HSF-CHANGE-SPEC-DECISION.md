@@ -25,3 +25,14 @@ No schema-version bump is authorized by this spec because the stored shape remai
 Next authorized build:
 
 `HSF-CHANGE-IMPL-1 — HSF_SET Action, Canonical Normalizer, Invariants, Reducer Preservation Tests, Add-Time Selectors, H/S/F Reassignment Controls, and Full Regression Gate.`
+
+## Regression certification
+
+GitHub Actions run `41631287905` passed:
+
+- 72 tests
+- 72 passed
+- 0 failed
+- browser build PASS
+
+The implementation contract is therefore accepted.

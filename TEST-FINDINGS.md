@@ -262,3 +262,43 @@ GitHub Actions run:
 - no file under `src/kernel/` changed
 
 Change Gate: **OPEN — narrowly justified**.
+
+## HSF-CHANGE-SPEC-1
+
+Date: 2026-11-03
+
+Purpose:
+
+- freeze the smallest admissible H/S/F reassignment contract before implementation;
+- resolve target-type, empty-set, normalization, no-op, invariant, migration, and interaction semantics;
+- keep the kernel untouched during specification.
+
+Frozen design decisions:
+
+- action: `HSF_SET`;
+- target types: `NODE | CLAIM` only;
+- at least one H/S/F region required;
+- valid runtime values limited to H/S/F;
+- duplicate regions normalize away;
+- canonical stored order: H,S,F;
+- unknown targets are exact no-ops;
+- same-value normalized assignments are exact no-ops;
+- only `hsf` may change;
+- invariant validation enforces non-empty, valid, duplicate-free, canonical H/S/F arrays;
+- add-time controls expose H/S/F with S selected by default;
+- later reassignment occurs through the H/S/F view;
+- F carries no prediction, ranking, recommendation, probability, inevitability, or commitment semantics;
+- no schema-version bump authorized.
+
+GitHub Actions run:
+
+- run id: `41631287905`
+- tested head: `4e4cfd2d59d5d127872658931fdb5204c733d9ec`
+- 72 tests passed
+- 0 failed
+- browser TypeScript build: PASS
+- kernel implementation files unchanged
+
+Two earlier spec-test runs failed because of brittle literal-string assertions in the new contract tests. The specification itself was unchanged; the assertions were corrected to test the actual semantic language.
+
+HSF-CHANGE-SPEC-1: PASS.

@@ -24,3 +24,13 @@ Authorized design scope:
 Evidence: `HSF-USABILITY-GATE-1.md` and `HSF-CHANGE-GATE-DECISION.md`.
 
 Regression floor at gate opening: 64/64 tests green.
+
+## HSF implementation contract frozen
+
+HSF-CHANGE-SPEC-1 has passed its specification gate.
+
+Implementation is now authorized only within the frozen contract in `HSF-CHANGE-SPEC-1.md`.
+
+Protected regression floor before implementation: 72/72 tests green.
+
+Next authorized build: `HSF-CHANGE-IMPL-1`.
