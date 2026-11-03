@@ -3,7 +3,7 @@ import { createInitialState } from "../kernel/defaults";
 import { assertInvariants } from "../kernel/invariants";
 import { PersistenceAdapter } from "../kernel/persistence";
 import { reducer } from "../kernel/reducer";
-import { ClaimType, ConnectionType, ConstraintRigidity, ConstraintVerification, FSPMapState, PrivacyDomain, SharedTaskStatus, TaskStatus, ViewId } from "../kernel/types";
+import { ClaimType, ConnectionType, ConstraintRigidity, ConstraintVerification, FSPMapState, PathStatus, PrivacyDomain, SharedTaskStatus, TaskStatus, ViewId } from "../kernel/types";
 
 export type PeopleClaimType = Extract<ClaimType, "OTHER_REPORT" | "USER_INFERENCE">;
 
@@ -238,6 +238,55 @@ export class InteractionController {
         status,
         text: text?.trim() || undefined,
         outsideScope: outsideScope.map(x => x.trim()).filter(Boolean),
+        privacy: this.state.defaultPrivacy
+      }
+    });
+  }
+
+  addPath(
+    name: string,
+    status: PathStatus,
+    unknowns: string[],
+    constraintIds: string[]
+  ): FSPMapState {
+    const cleanName = name.trim();
+    if (!cleanName) throw new Error("Path name is required");
+
+    const uniqueConstraintIds = [...new Set(constraintIds)];
+    for (const constraintId of uniqueConstraintIds) {
+      if (!this.state.constraints.some(c => c.id === constraintId)) {
+        throw new Error("Path constraints must already exist in the map");
+      }
+    }
+
+    return this.dispatch({
+      type: "PATH_ADD",
+      payload: {
+        id: this.nextId("path"),
+        name: cleanName,
+        status,
+        requirements: [],
+        unknowns: unknowns.map(x => x.trim()).filter(Boolean),
+        constraintIds: uniqueConstraintIds,
+        nextActionIds: [],
+        privacy: this.state.defaultPrivacy,
+        origin: "USER",
+        acceptedIntoMap: true
+      }
+    });
+  }
+
+  addInquiryAction(text: string): FSPMapState {
+    const clean = text.trim();
+    if (!clean) throw new Error("Inquiry action text is required");
+
+    return this.dispatch({
+      type: "ACTION_ADD",
+      payload: {
+        id: this.nextId("inquiry_action"),
+        actionType: "INFORMATION_GENERATING",
+        text: clean,
+        status: "PLANNED",
         privacy: this.state.defaultPrivacy
       }
     });
