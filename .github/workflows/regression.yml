@@ -1,0 +1,27 @@
+name: CODE-0.1 regression gate
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout committed tree
+        uses: actions/checkout@v4
+
+      - name: Use Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Provide frozen TypeScript compiler
+        run: npm install --no-save --ignore-scripts typescript@5.8.3
+
+      - name: Run deterministic regression suite
+        run: npm test
+
+      - name: Compile browser shell
+        run: npm run build:browser
