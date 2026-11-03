@@ -149,10 +149,14 @@ export function presentView(state: FSPMapState): InteractionView {
         emptyText: "No path has been mapped yet.",
         items: state.paths.map(p => ({
           heading: p.name,
-          detail: p.status.replace(/_/g, " "),
-          meta: p.origin === "SYSTEM_CANDIDATE" && !p.acceptedIntoMap
-            ? "System candidate — not yet accepted into the map"
-            : p.unknowns.length ? `Unknowns: ${p.unknowns.join("; ")}` : undefined
+          detail: `Possibility status: ${p.status.replace(/_/g, " ")}`,
+          meta: [
+            p.origin === "SYSTEM_CANDIDATE" && !p.acceptedIntoMap
+              ? "System candidate — not yet accepted into the map"
+              : "Possibility, not recommendation or prediction",
+            p.unknowns.length ? `Unknowns: ${p.unknowns.join("; ")}` : "",
+            p.constraintIds.length ? `Linked constraints: ${p.constraintIds.length}` : ""
+          ].filter(Boolean).join(" · ")
         }))
       });
       sections.push({
@@ -160,8 +164,8 @@ export function presentView(state: FSPMapState): InteractionView {
         emptyText: contract.emptyState,
         items: state.actions.map(a => ({
           heading: a.text,
-          detail: a.actionType.replace(/_/g, " "),
-          meta: a.status
+          detail: a.actionType === "INFORMATION_GENERATING" ? "Information-generating action" : a.actionType.replace(/_/g, " "),
+          meta: `${a.status} · Intended to learn more, not commit to a path`
         }))
       });
       break;
