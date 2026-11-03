@@ -1,6 +1,6 @@
 import { LocalStoragePersistenceAdapter } from "../kernel/persistence";
 import { FSPMapState, PrivacyDomain, TaskStatus, ViewId } from "../kernel/types";
-import { InteractionController } from "../interaction/controller";
+import { InteractionController, PeopleClaimType } from "../interaction/controller";
 import { presentView } from "../interaction/presenter";
 import { VIEW_ORDER, VIEW_CONTRACTS } from "./contract";
 
@@ -113,6 +113,119 @@ export function mountBrowserShell(
       });
 
       main.append(form);
+    }
+
+    if (state.currentView === "PEOPLE") {
+      const peopleIntro = document.createElement("p");
+      peopleIntro.textContent = "This screen records your map. Adding another person creates MY_MAP_OF_OTHER — not a claim that the map is the person.";
+      main.append(peopleIntro);
+
+      const selfNode = state.nodes.find(n => n.nodeType === "SELF_PRF");
+      if (!selfNode) {
+        const selfForm = document.createElement("form");
+        selfForm.dataset.role = "add-self-form";
+
+        const selfLabel = document.createElement("input");
+        selfLabel.name = "selfLabel";
+        selfLabel.placeholder = "Me";
+
+        const addSelf = document.createElement("button");
+        addSelf.type = "submit";
+        addSelf.textContent = "Add myself to this map";
+
+        selfForm.append(
+          labeledField("How should you be labeled in this map?", selfLabel),
+          addSelf
+        );
+
+        selfForm.addEventListener("submit", event => {
+          event.preventDefault();
+          controller.addSelf(selfLabel.value);
+          render();
+        });
+
+        main.append(selfForm);
+      }
+
+      const otherForm = document.createElement("form");
+      otherForm.dataset.role = "add-other-form";
+
+      const otherLabel = document.createElement("input");
+      otherLabel.name = "otherLabel";
+      otherLabel.required = true;
+
+      const addOther = document.createElement("button");
+      addOther.type = "submit";
+      addOther.textContent = "Add my map of this person";
+
+      otherForm.append(
+        labeledField("Person label", otherLabel),
+        addOther
+      );
+
+      otherForm.addEventListener("submit", event => {
+        event.preventDefault();
+        controller.addOther(otherLabel.value);
+        render();
+      });
+
+      main.append(otherForm);
+
+      const mappedOthers = state.nodes.filter(n => n.nodeType === "MY_MAP_OF_OTHER");
+      if (mappedOthers.length) {
+        const claimForm = document.createElement("form");
+        claimForm.dataset.role = "add-person-claim-form";
+
+        const subjectSelect = document.createElement("select");
+        subjectSelect.name = "subject";
+        for (const person of mappedOthers) {
+          const option = document.createElement("option");
+          option.value = person.id;
+          option.textContent = `My map of ${person.label}`;
+          subjectSelect.append(option);
+        }
+
+        const provenanceSelect = document.createElement("select");
+        provenanceSelect.name = "provenance";
+        const reportOption = document.createElement("option");
+        reportOption.value = "OTHER_REPORT";
+        reportOption.textContent = "They reported this";
+        const inferenceOption = document.createElement("option");
+        inferenceOption.value = "USER_INFERENCE";
+        inferenceOption.textContent = "This is my inference";
+        provenanceSelect.append(reportOption, inferenceOption);
+
+        const claimText = document.createElement("textarea");
+        claimText.name = "claimText";
+        claimText.required = true;
+
+        const provenanceHelp = document.createElement("p");
+        provenanceHelp.textContent = "Choose provenance before saving. A report and your inference are different map claims.";
+
+        const addClaim = document.createElement("button");
+        addClaim.type = "submit";
+        addClaim.textContent = "Add claim to my map";
+
+        claimForm.append(
+          labeledField("Whose map entry is this about?", subjectSelect),
+          labeledField("Where did this claim come from?", provenanceSelect),
+          labeledField("What should the map record?", claimText),
+          provenanceHelp,
+          addClaim
+        );
+
+        claimForm.addEventListener("submit", event => {
+          event.preventDefault();
+          controller.addPersonClaim(
+            subjectSelect.value,
+            claimText.value,
+            provenanceSelect.value as PeopleClaimType
+          );
+          render();
+        });
+
+        main.append(claimForm);
+      }
     }
 
     for (const section of vm.sections) {
