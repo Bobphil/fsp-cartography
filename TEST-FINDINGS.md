@@ -138,3 +138,33 @@ GitHub Actions run:
 The six new Institution tests cover typed institution creation, blank-label rejection, independent verification/rigidity combinations, required constraint text/scope, and explicit presenter labeling of verification, rigidity, and scope.
 
 Institution editing slice: PASS.
+
+## CODE-0.1 Connections editing slice gate
+
+Date: 2026-11-02
+
+Scope:
+
+- add typed connections through existing `CONNECTION_ADD`
+- require existing source and target nodes
+- preserve `PRACTICAL_POWER` and `AUTHORITY` as separate relation types
+- add optional shared-task judgments through existing `SHARED_TASK_SET`
+- permit `NONE_IDENTIFIED` with no manufactured task text
+- require any shared-task participants to already exist in the map
+- keep connection type and shared-task status visible in presentation
+- keep Investigate untouched
+
+GitHub Actions run:
+
+- run id: `41556033238`
+- tested head: `44bdc4d03c376a223ac11de11a4304a91908648d`
+- result: SUCCESS
+- 44 tests passed
+- 0 failed
+- kernel TypeScript build: PASS
+- browser TypeScript build: PASS
+- no file under `src/kernel/` changed
+
+The seven new Connections tests cover practical-power/authority separation, missing-endpoint rejection, `NONE_IDENTIFIED` shared task, confirmed shared task with outside scope, unknown-participant rejection, and visible connection/shared-task presentation.
+
+Connections editing slice: PASS.

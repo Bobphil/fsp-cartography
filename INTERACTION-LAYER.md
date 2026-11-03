@@ -77,3 +77,24 @@ Accepted behavior:
 Regression result: 37/37 tests green and browser build green on GitHub Actions run `41555738633`.
 
 Accepted base for the next slice: Connections editing controls for typed connection relations plus optional shared-task judgment.
+
+## Slice 4 — Connections editing controls
+
+Status: PASS.
+
+Accepted behavior:
+
+- connection endpoints must already exist in the map;
+- relation type is chosen explicitly by the user;
+- `PRACTICAL_POWER` and `AUTHORITY` remain separate;
+- the UI does not infer a relation automatically;
+- shared-task judgment is optional;
+- `NONE_IDENTIFIED` is a valid first-class shared-task result;
+- a shared task may include explicit outside-scope content;
+- shared-task participants must already exist in the map;
+- Investigate remains untouched;
+- the kernel remains frozen.
+
+Regression result: 44/44 tests green and browser build green on GitHub Actions run `41556033238`.
+
+Accepted base for the next slice: Investigate editing controls for paths, unknowns, constraints, and information-generating next actions without ranking or recommendation.
