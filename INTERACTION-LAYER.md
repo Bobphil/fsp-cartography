@@ -158,3 +158,23 @@ Classification: **MODEL FAIL + ADD-TIME UI FAIL**.
 Regression result: 64/64 tests green and browser build green on GitHub Actions run `41626183556`.
 
 Next step: specify the smallest admissible H/S/F reassignment amendment before implementing it.
+
+## HSF-CHANGE-IMPL-1
+
+Status: PASS.
+
+The seventh view is now editable under the narrow contract earned by HSF-USABILITY-GATE-1 and frozen in HSF-CHANGE-SPEC-1.
+
+Accepted behavior:
+
+- eligible nodes and claims may be created with one or more H/S/F regions;
+- S remains the default for low-friction continuity;
+- H/S/F can later be reassigned without changing object identity;
+- empty selections are rejected;
+- duplicate selections normalize;
+- stored order is canonical H,S,F;
+- the H/S/F view is the primary reassignment surface;
+- H/S/F wording describes inquiry relevance, not intrinsic temporal location;
+- F remains explicitly separate from prediction and recommendation.
+
+Regression result: 90/90 tests green and browser build green on GitHub Actions run `41632144985`.

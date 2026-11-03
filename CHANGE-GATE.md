@@ -34,3 +34,18 @@ Implementation is now authorized only within the frozen contract in `HSF-CHANGE-
 Protected regression floor before implementation: 72/72 tests green.
 
 Next authorized build: `HSF-CHANGE-IMPL-1`.
+
+## H/S/F reassignment gate closed
+
+HSF-CHANGE-IMPL-1 has passed the full implementation regression gate.
+
+The narrow Change Gate opened for H/S/F reassignment is now CLOSED.
+
+Accepted implementation:
+
+- `HSF_SET` targets `NODE | CLAIM` only;
+- canonical normalizer and H/S/F invariants are active;
+- add-time H/S/F selection and later reassignment are available;
+- no generic editing, inference, prediction, ranking, or recommendation capability was introduced.
+
+Regression certification: 90/90 tests green on GitHub Actions run `41632144985`.

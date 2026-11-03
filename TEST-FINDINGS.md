@@ -302,3 +302,48 @@ GitHub Actions run:
 Two earlier spec-test runs failed because of brittle literal-string assertions in the new contract tests. The specification itself was unchanged; the assertions were corrected to test the actual semantic language.
 
 HSF-CHANGE-SPEC-1: PASS.
+
+## HSF-CHANGE-IMPL-1
+
+Date: 2026-11-03
+
+Scope:
+
+- add canonical H/S/F normalizer;
+- add `HSF_SET` action for `NODE | CLAIM`;
+- implement exact no-op behavior for unknown and same-value targets;
+- enforce non-empty, valid, duplicate-free, canonical H/S/F invariants;
+- preserve every non-H/S/F field during reassignment;
+- expose H/S/F at creation time for self, other, institution, and person claims;
+- add later reassignment controls in the H/S/F view;
+- preserve relevance-not-intrinsic-time language and the F != prediction/recommendation firewall;
+- update historical usability-gate tests to verify that the authorized repair resolves the previously documented blocker.
+
+GitHub Actions run:
+
+- run id: `41632144985`
+- tested head: `85126e8bc196c6c6ce2d3462eb1b3e9c9d3cc16d`
+- result: SUCCESS
+- 90 tests passed
+- 0 failed
+- browser TypeScript build: PASS
+
+Implementation result:
+
+- node S -> H+S: PASS
+- claim S -> S+F: PASS
+- claim S+F -> S: PASS
+- H+S+F: PASS
+- duplicate normalization: PASS
+- canonical H,S,F ordering: PASS
+- empty/invalid rejection: PASS
+- unknown target no-op: PASS
+- same-value no-op: PASS
+- node preservation contract: PASS
+- claim preservation contract: PASS
+- add-time selectors: PASS
+- H/S/F reassignment controls: PASS
+- F adds no prediction/recommendation fields: PASS
+- prior Maya/Leila/Jordan and all previous regression coverage remain green
+
+HSF-CHANGE-IMPL-1: PASS.
