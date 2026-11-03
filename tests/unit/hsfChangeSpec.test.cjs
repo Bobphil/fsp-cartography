@@ -39,10 +39,11 @@ test('HSF change spec requires add-time and later reassignment interaction desig
 });
 
 test('HSF change spec keeps F separate from prediction and recommendation', () => {
-  assert.match(spec,/F = prediction/);
+  assert.match(spec,/future event will occur/);
   assert.match(spec,/never say "move this into the future"/);
-  assert.match(spec,/prediction;/);
-  assert.match(spec,/recommendation;/);
+  assert.match(spec,/ranking/);
+  assert.match(spec,/recommendation/);
+  assert.match(spec,/prediction/);
 });
 
 test('HSF change spec protects the 64-test baseline', () => {
