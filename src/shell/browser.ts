@@ -1,5 +1,5 @@
 import { LocalStoragePersistenceAdapter } from "../kernel/persistence";
-import { FSPMapState, PrivacyDomain, TaskStatus, ViewId } from "../kernel/types";
+import { ConstraintRigidity, ConstraintVerification, FSPMapState, PrivacyDomain, TaskStatus, ViewId } from "../kernel/types";
 import { InteractionController, PeopleClaimType } from "../interaction/controller";
 import { presentView } from "../interaction/presenter";
 import { VIEW_ORDER, VIEW_CONTRACTS } from "./contract";
@@ -226,6 +226,107 @@ export function mountBrowserShell(
 
         main.append(claimForm);
       }
+    }
+
+    if (state.currentView === "INSTITUTION") {
+      const intro = document.createElement("p");
+      intro.textContent = "Institutions are represented separately from people. Constraints are separate map objects with independent verification and rigidity.";
+      main.append(intro);
+
+      const institutionForm = document.createElement("form");
+      institutionForm.dataset.role = "add-institution-form";
+
+      const institutionLabel = document.createElement("input");
+      institutionLabel.name = "institutionLabel";
+      institutionLabel.required = true;
+
+      const addInstitution = document.createElement("button");
+      addInstitution.type = "submit";
+      addInstitution.textContent = "Add institution";
+
+      institutionForm.append(
+        labeledField("Institution label", institutionLabel),
+        addInstitution
+      );
+
+      institutionForm.addEventListener("submit", event => {
+        event.preventDefault();
+        controller.addInstitution(institutionLabel.value);
+        render();
+      });
+
+      main.append(institutionForm);
+
+      const constraintForm = document.createElement("form");
+      constraintForm.dataset.role = "add-constraint-form";
+
+      const constraintText = document.createElement("textarea");
+      constraintText.name = "constraintText";
+      constraintText.required = true;
+
+      const verificationSelect = document.createElement("select");
+      verificationSelect.name = "verification";
+      const verificationValues: Array<[ConstraintVerification, string]> = [
+        ["VERIFIED", "Verified"],
+        ["PARTIALLY_VERIFIED", "Partially verified"],
+        ["ASSUMED", "Assumed"],
+        ["UNKNOWN", "Unknown"]
+      ];
+      for (const [value, label] of verificationValues) {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = label;
+        verificationSelect.append(option);
+      }
+
+      const rigiditySelect = document.createElement("select");
+      rigiditySelect.name = "rigidity";
+      const rigidityValues: Array<[ConstraintRigidity, string]> = [
+        ["HARD_CURRENTLY", "Hard currently"],
+        ["MODIFIABLE", "Modifiable"],
+        ["CONDITIONAL", "Conditional"],
+        ["UNKNOWN", "Unknown"]
+      ];
+      for (const [value, label] of rigidityValues) {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = label;
+        rigiditySelect.append(option);
+      }
+
+      const scopeInput = document.createElement("input");
+      scopeInput.name = "scope";
+      scopeInput.required = true;
+      scopeInput.placeholder = "Where does this constraint apply?";
+
+      const help = document.createElement("p");
+      help.textContent = "Verification asks how well established the constraint is. Rigidity asks how changeable it is. These are separate judgments.";
+
+      const addConstraint = document.createElement("button");
+      addConstraint.type = "submit";
+      addConstraint.textContent = "Add constraint";
+
+      constraintForm.append(
+        labeledField("Constraint", constraintText),
+        labeledField("Verification", verificationSelect),
+        labeledField("Rigidity", rigiditySelect),
+        labeledField("Scope", scopeInput),
+        help,
+        addConstraint
+      );
+
+      constraintForm.addEventListener("submit", event => {
+        event.preventDefault();
+        controller.addConstraint(
+          constraintText.value,
+          verificationSelect.value as ConstraintVerification,
+          rigiditySelect.value as ConstraintRigidity,
+          scopeInput.value
+        );
+        render();
+      });
+
+      main.append(constraintForm);
     }
 
     for (const section of vm.sections) {
