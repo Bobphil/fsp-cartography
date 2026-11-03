@@ -126,7 +126,7 @@ export function presentView(state: FSPMapState): InteractionView {
         emptyText: contract.emptyState,
         items: state.connections.map(c => ({
           heading: `${nodeLabel(state, c.sourceId)} → ${nodeLabel(state, c.targetId)}`,
-          detail: c.connectionType.replace(/_/g, " "),
+          detail: `Relation: ${c.connectionType.replace(/_/g, " ")}`,
           meta: c.note
         }))
       });
@@ -137,7 +137,7 @@ export function presentView(state: FSPMapState): InteractionView {
           heading: s.status === "NONE_IDENTIFIED"
             ? "No shared task identified"
             : s.text || s.status.replace(/_/g, " "),
-          detail: s.participantIds.map(id => nodeLabel(state, id)).join(", "),
+          detail: `Status: ${s.status.replace(/_/g, " ")}${s.participantIds.length ? ` · Participants: ${s.participantIds.map(id => nodeLabel(state, id)).join(", ")}` : ""}`,
           meta: s.outsideScope.length ? `Outside scope: ${s.outsideScope.join("; ")}` : undefined
         }))
       });
