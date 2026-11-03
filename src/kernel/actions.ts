@@ -1,6 +1,6 @@
 import {
   AuthorialReturn, ClaimState, ConnectionState, ConstraintState, InquiryActionState,
-  MapChange, NodeState, OutputCardState, PathState, PrivacyDomain, ReopenItem,
+  HSFRegion, MapChange, NodeState, OutputCardState, PathState, PrivacyDomain, ReopenItem,
   SharedTaskState, TaskState, ViewId
 } from "./types";
 
@@ -9,6 +9,7 @@ export type FSPAction =
   | { type: "NODE_ADD"; payload: NodeState }
   | { type: "CLAIM_ADD"; payload: ClaimState }
   | { type: "CLAIM_RECLASSIFY"; claimId: string; claimType: ClaimState["claimType"] }
+  | { type: "HSF_SET"; targetType: "NODE" | "CLAIM"; targetId: string; regions: HSFRegion[] }
   | { type: "CONNECTION_ADD"; payload: ConnectionState }
   | { type: "PATH_ADD"; payload: PathState }
   | { type: "PATH_ACCEPT"; pathId: string }
