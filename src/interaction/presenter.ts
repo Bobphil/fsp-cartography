@@ -176,8 +176,12 @@ export function presentView(state: FSPMapState): InteractionView {
         emptyText: contract.emptyState,
         items: state.returns.map(r => ({
           heading: r.currentJudgment || r.whatBecameClearer || r.returnType.replace(/_/g, " "),
-          detail: r.notClaiming ? `Not claiming: ${r.notClaiming}` : undefined,
-          meta: r.remainingUncertainty
+          detail: [
+            `Return type: ${r.returnType.replace(/_/g, " ")}`,
+            r.notClaiming ? `Not claiming: ${r.notClaiming}` : "",
+            r.remainingUncertainty ? `Remaining uncertainty: ${r.remainingUncertainty}` : ""
+          ].filter(Boolean).join(" · "),
+          meta: r.reopenId ? "Current judgment remains reopenable" : "Current judgment; no REOPEN condition recorded"
         }))
       });
       sections.push({
@@ -186,7 +190,10 @@ export function presentView(state: FSPMapState): InteractionView {
         items: state.outputCards.map(o => ({
           heading: o.currentJudgment || o.taskText,
           detail: `Claim ceiling: ${o.claimCeiling}`,
-          meta: o.reopenCondition
+          meta: [
+            o.nextActions.length ? `Next actions: ${o.nextActions.join("; ")}` : "",
+            o.reopenCondition ? `REOPEN when: ${o.reopenCondition}` : "No REOPEN condition recorded"
+          ].filter(Boolean).join(" · ")
         }))
       });
       break;
