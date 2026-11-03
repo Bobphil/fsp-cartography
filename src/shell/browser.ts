@@ -1,5 +1,5 @@
 import { LocalStoragePersistenceAdapter } from "../kernel/persistence";
-import { ConnectionType, ConstraintRigidity, ConstraintVerification, FSPMapState, PathStatus, PrivacyDomain, SharedTaskStatus, TaskStatus, ViewId } from "../kernel/types";
+import { ConnectionType, ConstraintRigidity, ConstraintVerification, FSPMapState, PathStatus, PrivacyDomain, ReturnType, SharedTaskStatus, TaskStatus, ViewId } from "../kernel/types";
 import { InteractionController, PeopleClaimType } from "../interaction/controller";
 import { presentView } from "../interaction/presenter";
 import { VIEW_ORDER, VIEW_CONTRACTS } from "./contract";
@@ -580,6 +580,98 @@ export function mountBrowserShell(
       });
 
       main.append(actionForm);
+    }
+
+    if (state.currentView === "RETURN") {
+      const intro = document.createElement("p");
+      intro.textContent = "Return records a current bounded judgment, not a permanently closed conclusion. State what you can claim now, what remains uncertain, what you are not claiming, and what would reopen the judgment.";
+      main.append(intro);
+
+      const returnForm = document.createElement("form");
+      returnForm.dataset.role = "add-return-form";
+
+      const returnTypeSelect = document.createElement("select");
+      returnTypeSelect.name = "returnType";
+      const returnTypeValues: Array<[ReturnType, string]> = [
+        ["JUDGMENT", "Current judgment"],
+        ["INVESTIGATE", "Investigate further"],
+        ["NARROW", "Narrow the question"],
+        ["CONFIRM_CONSTRAINT", "Confirm a constraint"],
+        ["REJECT_INTERPRETATION", "Reject an interpretation"],
+        ["UNRESOLVED", "Remain unresolved"],
+        ["SUSPEND", "Suspend judgment"]
+      ];
+      for (const [value, label] of returnTypeValues) {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = label;
+        returnTypeSelect.append(option);
+      }
+
+      const judgmentInput = document.createElement("textarea");
+      judgmentInput.name = "currentJudgment";
+      judgmentInput.required = true;
+
+      const ceilingInput = document.createElement("textarea");
+      ceilingInput.name = "claimCeiling";
+      ceilingInput.required = true;
+
+      const uncertaintyInput = document.createElement("textarea");
+      uncertaintyInput.name = "remainingUncertainty";
+
+      const notClaimingInput = document.createElement("textarea");
+      notClaimingInput.name = "notClaiming";
+
+      const actionSelect = document.createElement("select");
+      actionSelect.name = "nextActionIds";
+      actionSelect.multiple = true;
+      actionSelect.size = Math.min(Math.max(state.actions.length, 2), 6);
+      for (const action of state.actions) {
+        const option = document.createElement("option");
+        option.value = action.id;
+        option.textContent = action.text;
+        actionSelect.append(option);
+      }
+
+      const reopenInput = document.createElement("textarea");
+      reopenInput.name = "reopenCondition";
+      reopenInput.placeholder = "Optional: what new information or event should reopen this judgment?";
+
+      const help = document.createElement("p");
+      help.textContent = "A claim ceiling limits what this Return licenses. REOPEN is optional but, when used, marks the judgment as revisable under stated conditions.";
+
+      const saveReturn = document.createElement("button");
+      saveReturn.type = "submit";
+      saveReturn.textContent = "Save bounded Return";
+
+      returnForm.append(
+        labeledField("Return type", returnTypeSelect),
+        labeledField("Current judgment", judgmentInput),
+        labeledField("Claim ceiling", ceilingInput),
+        labeledField("Remaining uncertainty", uncertaintyInput),
+        labeledField("What are you not claiming?", notClaimingInput),
+        labeledField("Existing next actions", actionSelect),
+        labeledField("REOPEN condition", reopenInput),
+        help,
+        saveReturn
+      );
+
+      returnForm.addEventListener("submit", event => {
+        event.preventDefault();
+        const nextActionIds = Array.from(actionSelect.selectedOptions).map(option => option.value);
+        controller.addBoundedReturn(
+          returnTypeSelect.value as ReturnType,
+          judgmentInput.value,
+          ceilingInput.value,
+          uncertaintyInput.value,
+          nextActionIds,
+          reopenInput.value,
+          notClaimingInput.value
+        );
+        render();
+      });
+
+      main.append(returnForm);
     }
 
     for (const section of vm.sections) {
