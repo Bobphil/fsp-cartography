@@ -3,7 +3,7 @@ import { createInitialState } from "../kernel/defaults";
 import { assertInvariants } from "../kernel/invariants";
 import { PersistenceAdapter } from "../kernel/persistence";
 import { reducer } from "../kernel/reducer";
-import { ClaimType, ConnectionType, ConstraintRigidity, ConstraintVerification, FSPMapState, PathStatus, PrivacyDomain, SharedTaskStatus, TaskStatus, ViewId } from "../kernel/types";
+import { ClaimType, ConnectionType, ConstraintRigidity, ConstraintVerification, FSPMapState, PathStatus, PrivacyDomain, ReturnType, SharedTaskStatus, TaskStatus, ViewId } from "../kernel/types";
 
 export type PeopleClaimType = Extract<ClaimType, "OTHER_REPORT" | "USER_INFERENCE">;
 
@@ -288,6 +288,89 @@ export class InteractionController {
         text: clean,
         status: "PLANNED",
         privacy: this.state.defaultPrivacy
+      }
+    });
+  }
+
+  addBoundedReturn(
+    returnType: ReturnType,
+    currentJudgment: string,
+    claimCeiling: string,
+    remainingUncertainty: string,
+    nextActionIds: string[],
+    reopenCondition?: string,
+    notClaiming?: string
+  ): FSPMapState {
+    const cleanJudgment = currentJudgment.trim();
+    const cleanCeiling = claimCeiling.trim();
+    const cleanUncertainty = remainingUncertainty.trim();
+    const cleanReopen = reopenCondition?.trim() || "";
+    const cleanNotClaiming = notClaiming?.trim() || "";
+
+    if (!cleanJudgment) throw new Error("Current judgment is required");
+    if (!cleanCeiling) throw new Error("Claim ceiling is required");
+
+    const uniqueActionIds = [...new Set(nextActionIds)];
+    for (const actionId of uniqueActionIds) {
+      if (!this.state.actions.some(a => a.id === actionId)) {
+        throw new Error("Return next actions must already exist in the map");
+      }
+    }
+
+    let reopenId: string | undefined;
+    if (cleanReopen) {
+      if (!this.state.task) {
+        throw new Error("A task or orientation is required before adding a REOPEN condition");
+      }
+      reopenId = this.nextId("reopen");
+      this.dispatch({
+        type: "REOPEN_ADD",
+        payload: {
+          id: reopenId,
+          targetType: "TASK",
+          targetId: this.state.task.id,
+          condition: cleanReopen,
+          status: "OPEN",
+          privacy: this.state.defaultPrivacy
+        }
+      });
+    }
+
+    const returnId = this.nextId("return");
+    this.dispatch({
+      type: "RETURN_ADD",
+      payload: {
+        id: returnId,
+        returnType,
+        currentJudgment: cleanJudgment,
+        notClaiming: cleanNotClaiming || undefined,
+        nextActionIds: uniqueActionIds,
+        remainingUncertainty: cleanUncertainty || undefined,
+        reopenId,
+        privacy: this.state.defaultPrivacy
+      }
+    });
+
+    const nextActionTexts = uniqueActionIds
+      .map(actionId => this.state.actions.find(a => a.id === actionId)?.text)
+      .filter((text): text is string => Boolean(text));
+
+    return this.dispatch({
+      type: "OUTPUT_CARD_ADD",
+      payload: {
+        id: this.nextId("output_card"),
+        returnId,
+        taskText: this.state.task?.text || "Open orientation",
+        currentJudgment: cleanJudgment,
+        nextActions: nextActionTexts,
+        claimCeiling: cleanCeiling,
+        reopenCondition: cleanReopen || undefined,
+        privacy: this.state.defaultPrivacy,
+        sourceObjectIds: [
+          returnId,
+          ...uniqueActionIds,
+          ...(reopenId ? [reopenId] : [])
+        ]
       }
     });
   }
