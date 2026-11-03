@@ -118,3 +118,25 @@ Accepted behavior:
 Regression result: 51/51 tests green and browser build green on GitHub Actions run `41559583753`.
 
 Accepted base for the next slice: Return editing controls for bounded judgment, claim ceiling, remaining uncertainty, next action linkage, and REOPEN.
+
+## Slice 6 — Return editing controls
+
+Status: PASS.
+
+Accepted behavior:
+
+- Return records a current bounded judgment rather than final closure;
+- current judgment and claim ceiling are both required;
+- remaining uncertainty is preserved;
+- "not claiming" may be recorded explicitly;
+- next actions must already exist in the map;
+- an optional REOPEN condition targets the current task/orientation;
+- the Return points to the REOPEN item when one exists;
+- the Output Card carries the bounded judgment, claim ceiling, selected next-action text, and REOPEN condition;
+- a Return without REOPEN is still presented as a current judgment, not as permanently closed;
+- H/S/F remains untouched;
+- the kernel remains frozen.
+
+Regression result: 57/57 tests green and browser build green on GitHub Actions run `41623591194`.
+
+Accepted base for the next slice: H/S/F usability review and, only if the existing add-time H/S/F tagging is insufficient, a narrowly justified Change Gate decision.

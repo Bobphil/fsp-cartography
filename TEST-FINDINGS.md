@@ -198,3 +198,34 @@ GitHub Actions run:
 The seven new Investigate tests cover user-path creation without ranking metadata, existing-constraint linkage, unknown preservation, required path name, information-generating action type, required action text, and visible possibility/inquiry firewalls.
 
 Investigate editing slice: PASS.
+
+## CODE-0.1 Return editing slice gate
+
+Date: 2026-11-03
+
+Scope:
+
+- create bounded authorial returns through existing `RETURN_ADD`
+- require a current judgment
+- require an explicit claim ceiling
+- preserve remaining uncertainty and optional "not claiming" content
+- link only existing next actions
+- optionally create a task-targeted `REOPEN_ADD` item
+- create an `OUTPUT_CARD_ADD` record carrying the bounded judgment, claim ceiling, next actions, and REOPEN condition
+- keep current judgment distinct from final closure
+- keep H/S/F untouched
+
+GitHub Actions run:
+
+- run id: `41623591194`
+- tested head: `c5ff40132471f291c2b7e914d25553d65f46bfd0`
+- result: SUCCESS
+- 57 tests passed
+- 0 failed
+- kernel TypeScript build: PASS
+- browser TypeScript build: PASS
+- no file under `src/kernel/` changed
+
+The six new Return tests cover bounded Return/output-card/REOPEN creation, required judgment/claim ceiling, existing-action linkage, REOPEN target validity, non-final current judgment without REOPEN, and visible uncertainty/claim-ceiling/REOPEN presentation.
+
+Return editing slice: PASS.
