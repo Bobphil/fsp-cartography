@@ -3,7 +3,7 @@ import { createInitialState } from "../kernel/defaults";
 import { assertInvariants } from "../kernel/invariants";
 import { PersistenceAdapter } from "../kernel/persistence";
 import { reducer } from "../kernel/reducer";
-import { ClaimType, FSPMapState, PrivacyDomain, TaskStatus, ViewId } from "../kernel/types";
+import { ClaimType, ConstraintRigidity, ConstraintVerification, FSPMapState, PrivacyDomain, TaskStatus, ViewId } from "../kernel/types";
 
 export type PeopleClaimType = Extract<ClaimType, "OTHER_REPORT" | "USER_INFERENCE">;
 
@@ -142,6 +142,51 @@ export class InteractionController {
         hsf: ["S"],
         privacy: this.state.defaultPrivacy,
         archived: false
+      }
+    });
+  }
+
+  addInstitution(label: string): FSPMapState {
+    const clean = label.trim();
+    if (!clean) throw new Error("An institution label is required");
+
+    return this.dispatch({
+      type: "NODE_ADD",
+      payload: {
+        id: this.nextId("institution"),
+        nodeType: "INSTITUTION",
+        label: clean,
+        relevance: [],
+        hsf: ["S"],
+        privacy: this.state.defaultPrivacy,
+        createdBy: "USER",
+        archived: false
+      }
+    });
+  }
+
+  addConstraint(
+    text: string,
+    epistemicStatus: ConstraintVerification,
+    rigidity: ConstraintRigidity,
+    scope: string
+  ): FSPMapState {
+    const cleanText = text.trim();
+    const cleanScope = scope.trim();
+
+    if (!cleanText) throw new Error("Constraint text is required");
+    if (!cleanScope) throw new Error("Constraint scope is required");
+
+    return this.dispatch({
+      type: "CONSTRAINT_ADD",
+      payload: {
+        id: this.nextId("constraint"),
+        text: cleanText,
+        epistemicStatus,
+        rigidity,
+        scope: cleanScope,
+        targetPathIds: [],
+        privacy: this.state.defaultPrivacy
       }
     });
   }
