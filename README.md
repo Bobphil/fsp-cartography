@@ -132,3 +132,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-INTEGRATION-2` adds a seven-view human compression grammar, formal-to-ordinary-language dictionary, progressive disclosure driven by case pressure, and hard cognitive-load budgets. BASE views remain at one or two prompts; PRESSURE allows at most three total; DEEP allows at most four with at most one rare prompt. The full Revision encyclopedia remains underneath and the kernel remains unchanged.
+
+
+`FSP-INTEGRATION-3` adds lived-Doing continuity audits, user-language anchor preservation, optional recognition prompts for There-I-Am / Yes-Here-I-Am / I-See-Me, and an adversarial form-filling audit. Maya, Leila, and Jordan pass structurally after the audit caught and corrected two fixture-level losses of exact user language. Human phenomenological validation remains PENDING.

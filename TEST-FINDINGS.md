@@ -2242,3 +2242,91 @@ Research ceiling:
 - TRANSLATION-12 human-validation status remains PENDING.
 
 FSP-INTEGRATION-2: PASS as a human-compression / progressive-disclosure / cognitive-load-gate build.
+
+## FSP-INTEGRATION-3
+
+Date: 2026-11-05
+
+Purpose:
+
+- prototype lived-Doing continuity across all seven views;
+- preserve user-language anchors through the journey;
+- distinguish recognition opportunities from actual user-reported recognition;
+- detect form-filling drift;
+- keep sparse states valid;
+- preserve authorial Return and progressive disclosure.
+
+Lived continuity:
+
+- Maya all seven views present: PASS;
+- Maya task language preserved: PASS;
+- Maya debt-language anchor preserved through declared views: PASS;
+- Maya unresolved questions carried to Return: PASS;
+- Maya Return reconnects to lived journey: PASS;
+- Leila all seven views present: PASS;
+- Leila direct funding report preserved through declared views: PASS;
+- Leila authorship distinction preserved: PASS;
+- Jordan sparse seven-view journey: PASS;
+- Jordan unformed orientation preserved without manufactured closure: PASS.
+
+Adversarial continuity:
+
+- dropped anchor detected: PASS;
+- silent system rewording detected: PASS;
+- lost unresolved question at Return detected: PASS;
+- missing view breaks prototype: PASS.
+
+Recognition architecture:
+
+- THERE_I_AM prompt is invitational: PASS;
+- YES_HERE_I_AM prompt is invitational: PASS;
+- I_SEE_ME prompt is invitational: PASS;
+- systemMayClaimRecognition = false: PASS;
+- explicit user-reported recognition can populate all three kinds in synthetic fixture: PASS;
+- architecture-only NOT_REPORTED records do not count as human recognition: PASS;
+- USER_REPORTED recognition without user text fails architecture audit: PASS.
+
+Form-filling audit:
+
+- low-risk signals pass: PASS;
+- forced view completion detected: PASS;
+- repeated entry detected: PASS;
+- generic/detached prompts detected: PASS;
+- fabricated empty-state content detected: PASS;
+- system-authored judgment detected: PASS;
+- recommendation pressure detected: PASS;
+- skip/backward/user-language reuse recorded as protective features: PASS.
+
+Integration-2 continuity:
+
+- Maya compression plans remain within budgets: PASS;
+- Leila compression plans remain within budgets: PASS;
+- Jordan remains BASE throughout sparse journey: PASS.
+
+Failure/repair history:
+
+- initial gate exposed declared lived anchors that were not actually carried into later views;
+- audit was not weakened;
+- fixtures were corrected to preserve exact user language through Investigate/Return;
+- repaired gate passed.
+
+GitHub Actions:
+
+- failed exploratory run: `42063764181` — 509/512, 3 failures;
+- second exploratory run: `42063899526` — 511/512, 1 failure;
+- repaired passing run: `42063997241`;
+- tested head: `2825f806def4771907c9dca164f848ba439ed5aa`;
+- 512 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- this is structural human-fidelity architecture, not actual human phenomenological validation;
+- synthetic USER_REPORTED fixtures do not count as human evidence;
+- recognition wording remains candidate wording;
+- form-filling thresholds are architectural heuristics, not validated psychological measures;
+- Cartography kernel remains frozen;
+- TRANSLATION-12 human-validation status remains PENDING.
+
+FSP-INTEGRATION-3: PASS as a lived-Doing continuity / recognition-ownership / anti-form-filling prototype build.
