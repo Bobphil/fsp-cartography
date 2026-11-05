@@ -117,3 +117,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-REVISION-9` adds ordered institutional repair sequencing, group-specific capability tradeoff auditing without aggregate net scores, independent exit/voice/appeal checks, repair reversibility, and multi-generation REOPEN governance that prevents first-generation approval from binding future generations.
+
+
+`FSP-REVISION-10` adds compensation/non-compensation boundaries, non-waivable protected capability floors, burden-shifting audits, repair-legitimacy conditions, and multi-party authorization without reason convergence, with coercion and missing standing as hard blockers.

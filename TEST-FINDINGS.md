@@ -1846,3 +1846,69 @@ Research ceiling:
 - TRANSLATION-12 human-validation status remains PENDING.
 
 FSP-REVISION-9: PASS as an institutional repair sequencing / corrigibility governance build.
+
+## FSP-REVISION-10
+
+Date: 2026-11-05
+
+Purpose:
+
+- distinguish compensable from non-compensable represented losses;
+- protect declared capability floors from tradeoff;
+- audit burden shifting;
+- evaluate repair legitimacy conditions;
+- model multi-party authorization without reason convergence.
+
+Compensation boundaries:
+
+- ordinary administrative burden may remain COMPENSABLE: PASS;
+- protected-floor breach converts proposed compensation to NON_COMPENSABLE: PASS;
+- protected floors are non-waivable in the model: PASS;
+- compensation status remains explicit rather than aggregated: PASS.
+
+Burden shifting:
+
+- burden recipient remains explicit: PASS;
+- newly created burdens remain explicit: PASS;
+- nominal consent is insufficient without meaningful exit/voice/appeal: PASS;
+- protected-floor risk independently blocks burden-shift legitimacy: PASS;
+- burdenShiftLegitimate requires no unconsented shifts and no protected-floor risk: PASS.
+
+Repair legitimacy:
+
+- protected-floor breach -> BLOCKED_PROTECTED_FLOOR: PASS;
+- illegitimate burden shift -> BLOCKED_BURDEN_SHIFT: PASS;
+- governance failure -> BLOCKED_GOVERNANCE: PASS;
+- unresolved compensation -> UNRESOLVED: PASS;
+- satisfactory represented conditions -> LEGITIMATE_WITH_REOPEN: PASS;
+- majorityApprovalSufficient = false: PASS;
+- legitimacyAuthorizesTruth = false: PASS.
+
+Multi-party authorization:
+
+- divergent reasons can still yield AUTHORIZED_WITHOUT_CONVERGENCE: PASS;
+- conditional authorization preserved: PASS;
+- severe coercion -> BLOCKED_COERCION: PASS;
+- missing affected-group standing -> BLOCKED_MISSING_STANDING: PASS;
+- inadequate party standing -> BLOCKED_MISSING_STANDING: PASS;
+- objection is not averaged away -> NOT_AUTHORIZED: PASS;
+- authorization audit requires at least two parties: PASS.
+
+GitHub Actions:
+
+- run id: `42052546821`;
+- tested head: `eeddfda3fd0f1d5675401c9d9a41a9a40661e436`;
+- 426 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- protected capability floors are declared normative research constraints, not a complete theory of rights;
+- compensation classifications are structured judgments, not universal moral facts;
+- authorization without convergence is governance authorization, not epistemic truth;
+- majority approval is neither necessary nor sufficient in all institutional settings;
+- no complete theory of democratic legitimacy, distributive justice, or compensation is established;
+- TRANSLATION-12 human-validation status remains PENDING.
+
+FSP-REVISION-10: PASS as a normative repair-boundary / plural-authorization build.
