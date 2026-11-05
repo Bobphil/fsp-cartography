@@ -96,3 +96,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-REVISION-2` adds a plural revision-reason grammar, Neptune/Vulcan/relativity tradeoff matrix, good-sense comparator profiles, path-dependence auditing with formation != justification, and a non-algorithmic choice boundary that forbids universal weighted theory-choice scores.
+
+
+`FSP-REVISION-3` adds diachronic reason change, evidence-triggered salience shifts without numeric utility, community disagreement, practical convergence without theory agreement, choice convergence with reason pluralism, and legitimate nonconvergence without forced consensus.

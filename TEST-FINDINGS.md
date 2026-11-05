@@ -1361,3 +1361,63 @@ Research ceiling:
 - TRANSLATION-12 human-validation status remains PENDING.
 
 FSP-REVISION-2: PASS as a plural revision-reason and non-algorithmic choice build.
+
+## FSP-REVISION-3
+
+Date: 2026-11-05
+
+Purpose:
+
+- make revision reasons diachronic rather than static;
+- track evidence-driven reason changes and salience changes without hidden utility;
+- model community disagreement and multiple forms of convergence/nonconvergence;
+- preserve cooperation without theoretical convergence.
+
+Temporal dynamics:
+
+- ordered revision moments: PASS;
+- added/removed evidence recovery: PASS;
+- Vulcan EVIDENCE_FIT can move UNRESOLVED -> STRONGLY_COUNTS_AGAINST: PASS;
+- relativity EVIDENCE_FIT and FECUNDITY can strengthen: PASS;
+- hiddenUtilityScore remains null: PASS.
+
+Evidence reweighting:
+
+- salience changes require explicit triggering evidence: PASS;
+- salience changes require explicit justification: PASS;
+- numericWeight remains null: PASS;
+- evidence salience may rise while conservatism remains represented separately: PASS.
+
+Community convergence grammar:
+
+- FULL_CONVERGENCE: PASS;
+- CHOICE_CONVERGENCE_WITH_REASON_PLURALISM: PASS;
+- PRACTICAL_CONVERGENCE_ONLY: PASS;
+- REASON_CONVERGENCE_WITH_CHOICE_DIVERGENCE: PASS;
+- NONCONVERGENCE: PASS;
+- forcedConsensus remains false in all cases: PASS.
+
+Mercury community findings:
+
+- early community can disagree on Vulcan vs relativity while sharing action to collect further evidence: PASS;
+- later community can converge on relativity while retaining different stated reasons: PASS;
+- same reasons need not imply same revision choice: PASS;
+- nonconvergence remains legitimate output: PASS.
+
+GitHub Actions:
+
+- run id: `42038275434`;
+- tested head: `27680abdce2403007112963ec59aa3402e5f0ccb`;
+- 309 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- community members are structured research fixtures, not empirical sociological subjects;
+- reason salience is categorical and researcher-authored;
+- no hidden utility, majority truth rule, or convergence mandate is licensed;
+- convergence of action, choice, reasons, and ontology remain distinct;
+- TRANSLATION-12 human-validation status remains PENDING.
+
+FSP-REVISION-3: PASS as a diachronic and social revision-governance build.
