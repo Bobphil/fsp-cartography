@@ -58,3 +58,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-TRANSLATION-2` adds a four-PRF forest stress case with a complete directed translation matrix, a narrowly scoped underdetermination candidate, negotiated shared-task logic, institutional power auditing, and multi-party capability-preserving repair.
+
+
+`FSP-TRANSLATION-3` adds time-indexed evidence snapshots, auxiliary-assumption comparison, translation-remainder dynamics, and a robustness test that distinguishes preserved underdetermination, task-relevant breakdown, and REOPEN conditions.

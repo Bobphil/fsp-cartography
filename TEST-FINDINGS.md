@@ -500,3 +500,60 @@ Research ceiling:
 - the forest PRFs are formal stress constructs, not complete anthropological representations.
 
 FSP-TRANSLATION-2: PASS as an integrated adversarial research case.
+
+## FSP-TRANSLATION-3
+
+Date: 2026-11-05
+
+Purpose:
+
+- test auxiliary-assumption divergence under evidence change;
+- make translation remainder explicitly time-varying;
+- distinguish robust underdetermination from task-relevant breakdown;
+- force REOPEN when auxiliary support changes even if the visible task signature remains equivalent.
+
+Perturbations:
+
+1. **Convergent evidence** — a new nitrate observation is added to all four PRFs with a common task-relevant update.
+   - candidate underdetermination remains supported;
+   - result: ROBUST_UNDER_PERTURBATION.
+
+2. **Divergent consequence** — C adds a non-substitutable sacred-spring consequence and an additional exclusion action.
+   - A/C task signatures no longer match;
+   - result: BROKEN_BY_TASK_RELEVANT_DIFFERENCE.
+
+3. **Auxiliary-only instability** — A's model-transfer assumption becomes uncertain while the current visible task signature remains unchanged.
+   - A->C translation remainder grows;
+   - result: REOPEN_AUXILIARIES.
+
+Executable findings:
+
+- auxiliary assumptions may differ even under task-equivalent signatures: PASS;
+- added/removed public evidence is tracked: PASS;
+- parallel task-signature change can preserve underdetermination: PASS;
+- task-relevant consequence divergence breaks the candidate: PASS;
+- changed PRFs are explicitly identified: PASS;
+- translation remainder can grow under new evidence: PASS;
+- remainder dynamics remain directional: PASS;
+- auxiliary support can change without current task-signature divergence: PASS;
+- such instability triggers REOPEN rather than false robustness: PASS;
+- robust results never license ontological uniqueness: PASS;
+- a non-established baseline is not retroactively promoted: PASS.
+
+GitHub Actions:
+
+- run id: `42027084807`;
+- tested head: `b827fe6d2c6e35c1ffd425a8dec4f9c652fb1ed5`;
+- 135 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- no Duhem-Quine proof is claimed;
+- robustness is relative to a specified perturbation class;
+- hand-authored perturbations remain a limitation;
+- auxiliary assumptions are represented explicitly but not yet causally generated;
+- no claim is made that task-equivalence implies theoretical equivalence.
+
+FSP-TRANSLATION-3: PASS as a temporal robustness test.
