@@ -764,3 +764,68 @@ Research ceiling:
 - universal PRF translatability and universal domain generality remain unlicensed.
 
 FSP-TRANSLATION-6: PASS as a third-domain comparative replication.
+
+## FSP-TRANSLATION-7
+
+Date: 2026-11-05
+
+Purpose:
+
+- move beyond exclusively FSP-authored cases;
+- reconstruct an externally specified AIF/xAIF sample;
+- compare CEA, AIF, and FSP as rival representational formalisms;
+- require independent coding agreement on native external structure;
+- freeze the canonical repository as monograph-scale and protect it from submission word-count compression.
+
+External-source findings:
+
+- public ARG Tech AIF tutorial sample reconstructed: PASS;
+- locution/content distinction preserved: PASS;
+- information nodes preserved: PASS;
+- inference relation represented: PASS;
+- participant attribution preserved: PASS;
+- native AIF strengths distinguished from later FSP augmentation: PASS;
+- public external corpus registry includes QT30 and AIFdb targets: PASS;
+- no corpus-scale import claim made: PASS.
+
+Rival-formalism findings:
+
+- CEA, AIF, and FSP comparator profiles present: PASS;
+- AIF-specific argument representation preserved rather than normalized away: PASS;
+- FSP delta includes claim ceiling, standing, translation remainder, agency audit, and REOPEN: PASS;
+- comparator framing remains functional rather than claiming AIF was designed for FSP tasks: PASS.
+
+Independent-coding findings:
+
+- independent coders agree on core information nodes: PASS;
+- relation-type agreement: PASS;
+- participant agreement: PASS;
+- task inference may disagree without invalidating native-source agreement: PASS;
+- FSP remainder coding may disagree without invalidating native-source agreement: PASS;
+- source mismatch is rejected: PASS.
+
+Canonical research architecture:
+
+- canonical mode: MONOGRAPH_SCALE;
+- compression policy: NO_SUBMISSION_LIMIT_ON_CANONICAL;
+- journal/conference papers are derived export profiles;
+- canonical support must never be deleted solely to satisfy a word count;
+- failed tests, repair history, alternative hypotheses, extended cases, comparator analyses, claim ceilings, and future branches are protected research assets.
+
+GitHub Actions:
+
+- run id: `42029769697`;
+- tested head: `be239a1731b38d4fbe78901b8368d99842e57096`;
+- 191 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- external AIF reconstruction currently uses a public tutorial sample, not a corpus-scale import;
+- QT30/AIFdb are registered external targets but not yet ingested;
+- rival-formalism set is still limited;
+- independent coding is simulated by two explicit codings, not yet by independent human researchers;
+- no human-fidelity validation is claimed.
+
+FSP-TRANSLATION-7: PASS as an external-source comparative research layer.

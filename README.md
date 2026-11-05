@@ -70,3 +70,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-TRANSLATION-6` adds a Galileo historical-interpretation third domain, a Claim-Evidence-Action external comparator, primitive-minimality challenges, and a publication architecture capped at three-domain replication with comparator delta.
+
+
+`FSP-TRANSLATION-7` adds external AIF reconstruction, CEA/AIF/FSP comparator profiles, independent coding agreement, and a canonical monograph-scale research architecture in which submission-length papers are derived exports rather than constraints on the research repository.
