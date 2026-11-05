@@ -1487,3 +1487,72 @@ Research ceiling:
 - TRANSLATION-12 human-validation status remains PENDING.
 
 FSP-REVISION-4: PASS as a persistent-disagreement / anti-distortion revision-governance build.
+
+## FSP-REVISION-5
+
+Date: 2026-11-05
+
+Purpose:
+
+- distinguish credibility distortion from interpretive-resource gaps;
+- model standing and contestability repair;
+- preserve counter-public evidence without auto-privileging it;
+- define revision re-entry conditions;
+- retain provenance and remainder through repair.
+
+Testimonial-distortion findings:
+
+- credibility deficit + prejudice indicators -> possible testimonial injustice candidate: PASS;
+- credibility excess separately representable: PASS;
+- no-opportunity-to-respond surfaced as procedural deficit: PASS;
+- testimonial audit does not infer testimony truth: PASS.
+
+Hermeneutical-distortion findings:
+
+- interpretive gap + exclusion from meaning-making -> possible hermeneutical injustice candidate: PASS;
+- interpretive gap without exclusion does not automatically count as injustice: PASS;
+- missing concepts and repair targets remain explicit: PASS.
+
+Standing/contestability repair:
+
+- testimony submission restoration: PASS;
+- question raising restoration: PASS;
+- hypothesis proposal restoration: PASS;
+- concept proposal restoration: PASS;
+- interpretive contestability restoration: PASS;
+- safer participation restoration: PASS.
+
+Counter-public evidence:
+
+- contributor/evidence/provenance validation: PASS;
+- dominant-interpretation challenge capacity required: PASS;
+- counter-public evidence auto-privileged = false: PASS;
+- missing provenance blocks validation: PASS.
+
+Revision re-entry:
+
+- fully repaired candidate -> REENTER: PASS;
+- candidate with remaining interpretive gap -> REENTER_WITH_REMAINDER: PASS;
+- unresolved retaliation -> BLOCKED_UNRESOLVED_DISTORTION: PASS;
+- invisible provenance -> BLOCKED_PROVENANCE: PASS;
+- unrestored standing -> BLOCKED_STANDING: PASS;
+- unrestored contestability -> BLOCKED_CONTESTABILITY: PASS;
+- re-entry authorizes truth = false: PASS.
+
+GitHub Actions:
+
+- run id: `42045268214`;
+- tested head: `826d3abfaa78d5ce2acacb2cca6e98ce379b2be1`;
+- 341 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- testimonial/hermeneutical injustice classifications are represented candidates, not complete sociological diagnoses;
+- credibility repair does not establish truth;
+- counter-public origin does not confer epistemic privilege;
+- interpretive gaps may persist after fair re-entry;
+- TRANSLATION-12 human-validation status remains PENDING.
+
+FSP-REVISION-5: PASS as an epistemic-standing / interpretive-repair revision-governance build.

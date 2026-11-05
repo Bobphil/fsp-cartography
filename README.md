@@ -102,3 +102,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-REVISION-4` adds persistent-disagreement auditing, minority-report preservation, evidence-access asymmetry, standing/reopenability checks, epistemic/procedural/practical authority separation, power-distortion detection, and legitimate nonconvergence classification.
+
+
+`FSP-REVISION-5` adds testimonial-credibility and hermeneutical-distortion audits, standing and contestability repair, counter-public evidence with provenance, and revision re-entry conditions that preserve remainder without auto-validating previously excluded claims.
