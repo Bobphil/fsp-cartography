@@ -131,7 +131,7 @@ export const leilaJourney:LivedDoingJourney={
       view:"INVESTIGATE",orientation:"Generate information without recommendation.",userLanguageRetained:["The funding condition constrains the route but does not settle my career.","I will stop paying tuition if you leave nursing."],newDistinctions:["alternative financing as inquiry path"],unansweredQuestions:["What alternative financing exists?"],nextMove:"Check part-time and financing routes.",compression:buildCompressionPlan("INVESTIGATE",["MULTIPLE_LIVE_PATHS"])
     },
     {
-      view:"RETURN",orientation:"Return authorship to Leila.",userLanguageRetained:["The funding condition constrains the route but does not settle my career."],newDistinctions:["constraint acknowledged without surrendering authorship"],unansweredQuestions:["What alternative financing exists?"],nextMove:"Reopen after verified financing information.",compression:buildCompressionPlan("RETURN",[])
+      view:"RETURN",orientation:"Return authorship to Leila.",userLanguageRetained:["The funding condition constrains the route but does not settle my career.","I will stop paying tuition if you leave nursing."],newDistinctions:["constraint acknowledged without surrendering authorship"],unansweredQuestions:["What alternative financing exists?"],nextMove:"Reopen after verified financing information.",compression:buildCompressionPlan("RETURN",[])
     }
   ],
   returnLanguage:"The funding condition constrains the route but does not settle my career. What alternative financing exists?"
