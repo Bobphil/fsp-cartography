@@ -692,3 +692,75 @@ Research ceiling:
 - no universal FSP translation theorem is licensed.
 
 FSP-TRANSLATION-5: PASS as a cross-domain replication.
+
+## FSP-TRANSLATION-6
+
+Date: 2026-11-05
+
+Purpose:
+
+- add a third structurally different domain;
+- compare FSP against a simpler external Claim-Evidence-Action baseline;
+- challenge the current primitive set for minimality;
+- convert the evidence into a publication architecture with explicit claim ceilings.
+
+Third domain:
+
+- Galileo 1633 trial / historical interpretation;
+- PRFs: archival-historical, history-of-science, institutional-political, public-memory.
+
+Third-domain findings:
+
+- complete 12-edge directed translation matrix: PASS;
+- shared primitive set across forest, persistent pain, and historical interpretation: PASS;
+- native topologies remain distinct: PASS;
+- archival incompleteness firewall: PASS;
+- science-versus-religion oversimplification firewall: PASS;
+- retrospective-projection firewall: PASS.
+
+CEA comparator findings:
+
+- Claim-Evidence-Action projection retains claim, evidence, and action: PASS;
+- loses warrant: PASS;
+- loses background commitments: PASS;
+- loses claim ceiling: PASS;
+- loses ontology commitments: PASS;
+- loses standing: PASS;
+- loses directed translation remainder: PASS;
+- loses auxiliary assumptions: PASS;
+- loses agency diagnostics: PASS;
+- comparator loss reproduced outside historical domain: PASS.
+
+Primitive-minimality findings:
+
+- full ten-primitive set preserves all tested capabilities: PASS;
+- CEA-like reduced subset is TOO_LOSSY: PASS;
+- removing STANDING and AGENCY loses anti-domination capability: PASS;
+- removing REMAINDER loses loss-tracking: PASS;
+- reduced subsets can preserve many capabilities while losing specific others: PASS.
+
+Publication architecture:
+
+- empirical/formal validation paper: specified;
+- formal philosophy paper: specified;
+- philosophical architecture paper: specified;
+- FSP-VR program paper: specified;
+- claim ceiling: THREE-DOMAIN REPLICATION WITH COMPARATOR DELTA.
+
+GitHub Actions:
+
+- run id: `42028969261`;
+- tested head: `7adb4d488cfc1401ae4548e930e386032e959bf1`;
+- 177 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- all three domains are still constructed cases;
+- CEA is a deliberately simple comparator, not an exhaustive survey of rival formalisms;
+- primitive minimality is tested relative to the current capability set, not proven logically minimal;
+- no external corpus or human validation has yet been incorporated;
+- universal PRF translatability and universal domain generality remain unlicensed.
+
+FSP-TRANSLATION-6: PASS as a third-domain comparative replication.

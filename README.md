@@ -67,3 +67,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-TRANSLATION-5` adds a persistent-pain comparator, cross-domain replication logic, primitive-ablation auditing, and an explicit publication-claim ceiling.
+
+
+`FSP-TRANSLATION-6` adds a Galileo historical-interpretation third domain, a Claim-Evidence-Action external comparator, primitive-minimality challenges, and a publication architecture capped at three-domain replication with comparator delta.
