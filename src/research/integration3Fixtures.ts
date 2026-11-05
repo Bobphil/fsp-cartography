@@ -73,7 +73,7 @@ export const mayaJourney:LivedDoingJourney={
     {
       view:"INVESTIGATE",
       orientation:"Keep paths live and information-generating.",
-      userLanguageRetained:["Healthcare remains a serious direction."],
+      userLanguageRetained:["Healthcare remains a serious direction.","I don't want to end up with huge debt."],
       newDistinctions:["next inquiry move vs final recommendation"],
       unansweredQuestions:["Which healthcare roles are worth direct exposure?","What are actual training costs and financing options?"],
       nextMove:"Meet adviser and shadow professionals.",
@@ -128,7 +128,7 @@ export const leilaJourney:LivedDoingJourney={
       view:"CONNECTIONS",orientation:"Distinguish practical power from decision authority.",userLanguageRetained:["The funding condition constrains the route but does not settle my career.","I will stop paying tuition if you leave nursing."],newDistinctions:["financial leverage is not automatically moral authority"],unansweredQuestions:["Is there any shared task with father?"],nextMove:"Investigate alternatives.",compression:buildCompressionPlan("CONNECTIONS",["POWER_AUTHORITY_TENSION"])
     },
     {
-      view:"INVESTIGATE",orientation:"Generate information without recommendation.",userLanguageRetained:["The funding condition constrains the route but does not settle my career."],newDistinctions:["alternative financing as inquiry path"],unansweredQuestions:["What alternative financing exists?"],nextMove:"Check part-time and financing routes.",compression:buildCompressionPlan("INVESTIGATE",["MULTIPLE_LIVE_PATHS"])
+      view:"INVESTIGATE",orientation:"Generate information without recommendation.",userLanguageRetained:["The funding condition constrains the route but does not settle my career.","I will stop paying tuition if you leave nursing."],newDistinctions:["alternative financing as inquiry path"],unansweredQuestions:["What alternative financing exists?"],nextMove:"Check part-time and financing routes.",compression:buildCompressionPlan("INVESTIGATE",["MULTIPLE_LIVE_PATHS"])
     },
     {
       view:"RETURN",orientation:"Return authorship to Leila.",userLanguageRetained:["The funding condition constrains the route but does not settle my career."],newDistinctions:["constraint acknowledged without surrendering authorship"],unansweredQuestions:["What alternative financing exists?"],nextMove:"Reopen after verified financing information.",compression:buildCompressionPlan("RETURN",[])
