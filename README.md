@@ -123,3 +123,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-REVISION-11` adds emergency-condition auditing, bounded temporary floor exceptions, necessity/less-restrictive-alternative safeguards, automatic sunset and non-self-renewal, constrained proxy authorization, and explicit restoration-to-normal-governance tests with detection of normalized emergency powers.
+
+
+`FSP-REVISION-12` closes the first Revision sequence with constitutional self-audit, exception-ratchet detection, governance-layer reflexivity, FSP-as-object reopening, and an integration freeze that treats REVISION-1 through REVISION-11 as a stable but explicitly provisional research base with future REOPEN required.

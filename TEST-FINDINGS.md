@@ -1987,3 +1987,84 @@ Research ceiling:
 - TRANSLATION-12 human-validation status remains PENDING.
 
 FSP-REVISION-11: PASS as an emergency-governance / restoration-to-normal-governance build.
+
+## FSP-REVISION-12
+
+Date: 2026-11-05
+
+Purpose:
+
+- turn FSP's revision-governance architecture upon itself;
+- audit constitutional provenance, challengeability, and reopen conditions;
+- detect exception-to-normal ratchets;
+- test governance-layer reflexivity without infinite regress;
+- permit FSP-as-object reopening;
+- freeze REVISION-1 through REVISION-11 only as a provisional research base.
+
+Constitutional self-audit:
+
+- healthy constitutional commitments pass provenance/challenge/reopen checks: PASS;
+- self-sealing commitment fails self-audit: PASS;
+- challengeable commitment without reopen conditions fails self-audit: PASS;
+- constitutionalStatusDoesNotAuthorizeTruth = true: PASS.
+
+Exception-to-normal ratchet:
+
+- silent emergency-default normalization without reauthorization detected: PASS;
+- persistenceAuthorizesNormalization = false: PASS;
+- same resulting rule may be legitimate when explicitly reauthorized with new evidence: PASS;
+- legitimacy history remains distinct from surface rule identity: PASS.
+
+Governance-layer reflexivity:
+
+- object/revision/constitutional layers cross-audit coherently: PASS;
+- self-sealing top layer detected: PASS;
+- reflexivity does not require infinite meta-governor hierarchy: PASS;
+- infiniteRegressClaim = false: PASS.
+
+FSP-as-object reopening:
+
+- FSP protected-floor commitment can be reopened under standing/provenance/evidence/counterargument conditions: PASS;
+- constrained reopen preserves missing counterargument obligation: PASS;
+- no-evidence challenge blocked: PASS;
+- inadequate-standing challenge blocked: PASS;
+- reopeningInvalidatesAllFSP = false: PASS;
+- current commitment remains operative until actual revision: PASS.
+
+Revision-program integration:
+
+- REVISION-1 through REVISION-11 present: PASS;
+- dependencies point to prior modules: PASS;
+- regression gates pass: PASS;
+- browser builds pass: PASS;
+- claim ceilings present: PASS;
+- missing module blocks freeze: PASS;
+- failed regression blocks freeze: PASS;
+- missing claim ceiling blocks freeze: PASS;
+- non-prior dependency blocks freeze: PASS.
+
+Freeze semantics:
+
+- integrationPass = true: PASS;
+- freezeStatus = FREEZE_AS_PROVISIONAL_RESEARCH_BASE: PASS;
+- freezeMeansFinalTruth = false: PASS;
+- futureReopenRequired = true: PASS;
+- pending human evidence remains visible through freeze: PASS.
+
+GitHub Actions:
+
+- run id: `42054859623`;
+- tested head: `f3926917f63a15c95811ecdc39239e08a183dfce`;
+- 462 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- self-audit demonstrates internal coherence under represented tests, not philosophical completeness;
+- reflexivity does not prove FSP uniquely correct;
+- a provisional freeze is a versioned research checkpoint, not closure;
+- the program remains reopenable through explicit challenge;
+- TRANSLATION-12 human-validation status remains PENDING.
+
+FSP-REVISION-12: PASS as a reflexive constitutional capstone / provisional program-freeze build.
