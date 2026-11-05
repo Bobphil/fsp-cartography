@@ -829,3 +829,74 @@ Research ceiling:
 - no human-fidelity validation is claimed.
 
 FSP-TRANSLATION-7: PASS as an external-source comparative research layer.
+
+## FSP-TRANSLATION-8
+
+Date: 2026-11-05
+
+Purpose:
+
+- import bounded raw AIF subgraphs from more than one external source;
+- preserve original node IDs exactly;
+- keep FSP governance fields as separate overlays;
+- recover native AIF and FSP-added audit queries;
+- test non-redundancy by compression ablation.
+
+External raw sources:
+
+1. `arg-tech/ACH-ArgNav/uploaded_data/FFkosciuszko00219.json`
+   - observed source scale: 1,195 nodes / 1,383 edges;
+   - imported bounded conflict subgraph around original CA node `610187`;
+   - original connected IDs preserved: `610172`, `610185`.
+
+2. `arg-tech/AMF_Scheme_Classifier2/data/corpespotway.json`
+   - observed source scale: 739 nodes / 784 edges;
+   - imported bounded inference subgraph around original RA node `1201647_164813044708340528`;
+   - original connected IDs preserved: `1196468_164813044708340528`, `1196586_164813044708340528`, `1201649_164813044708340528`.
+
+Raw-import findings:
+
+- original node IDs preserved exactly: PASS;
+- raw edge IDs preserved: PASS;
+- zero dangling edges in imported bounded subgraphs: PASS;
+- cross-corpus identity handled by <corpusId,nodeID>, not renumbering: PASS;
+- augmentation targeting unknown node rejected: PASS;
+- augmentation corpus mismatch rejected: PASS.
+
+Audit-query findings:
+
+- native CA conflict recovery: PASS;
+- native RA inference recovery: PASS;
+- FSP standing recovery: PASS;
+- FSP remainder recovery: PASS;
+- FSP claim-ceiling recovery: PASS;
+- FSP REOPEN recovery: PASS;
+- FSP overlays target original raw node IDs without altering raw graph: PASS.
+
+Compression-ablation findings:
+
+- RAW_ONLY preserves native relation query and loses FSP governance queries: PASS;
+- NO_REMAINDER selectively loses remainder query: PASS;
+- NO_STANDING selectively loses standing query: PASS;
+- NO_CLAIM_CEILING selectively loses claim-ceiling query: PASS;
+- NO_REOPEN selectively loses reopen query: PASS;
+- unrelated native AIF relation queries survive each governance-field ablation: PASS;
+- FULL profile loses no tested queries: PASS.
+
+GitHub Actions:
+
+- run id: `42030668529`;
+- tested head: `35b5cb098bb039a2ba97b7dccf29e682295c6564`;
+- 207 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- this is multi-source raw-graph ingestion, not full-corpus QT30 ingestion;
+- bounded connected subgraphs are used rather than mirroring complete external datasets;
+- FSP overlays are hand-authored and not yet independently coded at corpus scale;
+- audit-query utility is demonstrated on the tested queries only;
+- no superiority claim over AIF is licensed.
+
+FSP-TRANSLATION-8: PASS as a raw multi-source AIF augmentation and compression-ablation test.
