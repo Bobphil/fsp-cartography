@@ -900,3 +900,79 @@ Research ceiling:
 - no superiority claim over AIF is licensed.
 
 FSP-TRANSLATION-8: PASS as a raw multi-source AIF augmentation and compression-ablation test.
+
+## FSP-TRANSLATION-9
+
+Date: 2026-11-05
+
+Purpose:
+
+- scale from isolated bounded subgraphs to a six-nodeset external batch;
+- preserve corpus-scoped original identities across overlapping local neighborhoods;
+- add sampled independent augmentation coding;
+- measure audit-query recovery as batch size grows;
+- compute compression-retention curves;
+- add corpus-level failure audits.
+
+Batch composition:
+
+- 6 nodesets;
+- 2 external corpora;
+- Kosciuszko: 2 conflict neighborhoods + 1 inference neighborhood;
+- Otway: 3 inference neighborhoods;
+- repeated source nodes permitted across nodesets when <corpusId,nodeID>, type, and text agree.
+
+Batch-ingestion findings:
+
+- six nodesets across two corpora: PASS;
+- original IDs preserved: PASS;
+- zero dangling edges: PASS;
+- repeated identical source nodes do not produce false conflicts: PASS;
+- conflicting reuse of the same corpus-scoped identity is detected: PASS.
+
+Sampled augmentation-coding findings:
+
+- target-node agreement: PASS;
+- task agreement: PASS;
+- claim-ceiling agreement: PASS;
+- structural agreement threshold: PASS;
+- remainder disagreement remains visible without forcing structural failure: PASS;
+- nodeset mismatch rejected: PASS.
+
+Query-scaling findings:
+
+- RA relation recovery is monotonic as RA-containing nodesets are added: PASS;
+- standing-query recovery increases with augmented batch size: PASS;
+- query semantics remain stable across batch growth: PASS.
+
+Compression-retention findings:
+
+- FULL retention = 1.0: PASS;
+- RAW_ONLY retention is lower than FULL: PASS;
+- each single-field governance ablation retains more than RAW_ONLY: PASS;
+- each single-field governance ablation causes selective nonzero loss: PASS.
+
+Corpus-level failure findings:
+
+- healthy batch passes required RA/CA/standing/remainder/claim-ceiling/REOPEN queries: PASS;
+- missing required MA relation family is detected as query failure: PASS;
+- nodeset without augmentation is surfaced separately from native-query integrity: PASS;
+- corpus-level failure audit distinguishes augmentation coverage from raw-graph validity: PASS.
+
+GitHub Actions:
+
+- run id: `42031578466`;
+- tested head: `8ce24ed913e132ea97f0c62f16c705949b2c205e`;
+- 223 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- batch size is six bounded nodesets, not full-corpus ingestion;
+- sampled independent coding is represented by two explicit codings, not independent human coders;
+- query scaling is semantic/count scaling, not performance benchmarking;
+- no automatic extraction or augmentation is claimed;
+- no statistical generalization to arbitrary AIF corpora is licensed.
+
+FSP-TRANSLATION-9: PASS as a batch nodeset scaling and corpus-level failure test.

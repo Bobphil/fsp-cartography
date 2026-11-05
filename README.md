@@ -76,3 +76,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-TRANSLATION-8` adds bounded raw AIF imports from multiple external ARG Tech sources, exact original-node-ID preservation, separate FSP governance overlays, audit-query recovery, and selective compression ablation.
+
+
+`FSP-TRANSLATION-9` adds six-nodeset batch ingestion across two external AIF corpora, overlapping-ID coherence, sampled augmentation coding, query-scaling tests, compression-retention curves, and corpus-level failure auditing.
