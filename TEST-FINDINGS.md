@@ -2437,3 +2437,105 @@ Research ceiling:
 - TRANSLATION-12 human-validation status remains PENDING.
 
 FSP-HUMAN-FIDELITY-1: PASS as a live-participant protocol / human-evidence-gate build, with empirical human evidence PENDING.
+
+## FSP-HUMAN-FIDELITY-1A
+
+Date: 2026-11-05
+
+Purpose:
+
+- operationalize the first real participant session;
+- provide participant information/consent language;
+- provide facilitator checkpoints and prohibited moves;
+- provide a participant record template;
+- provide a coding sheet;
+- rehearse the packet end to end with a synthetic dry run;
+- verify that operational rehearsal cannot become human evidence.
+
+Packet materials:
+
+- FSP-HUMAN-FIDELITY-1A.md: PASS;
+- FSP-HUMAN-FIDELITY-1A-CONSENT.md: PASS;
+- FSP-HUMAN-FIDELITY-1A-CODING-SHEET.md: PASS;
+- FSP-HUMAN-FIDELITY-1A-TRIAL-RUN.md: PASS.
+
+Consent/information boundary:
+
+- voluntary participation explicit: PASS;
+- skip right explicit: PASS;
+- withdrawal right explicit: PASS;
+- no sensitive disclosure required: PASS;
+- participant-owned case explicit: PASS;
+- system-not-decision-maker boundary explicit: PASS;
+- institutional/IRB approval is not implied: PASS.
+
+Facilitator architecture:
+
+- BEFORE checkpoint present: PASS;
+- START checkpoint present: PASS;
+- DURING checkpoint present: PASS;
+- RETURN checkpoint present: PASS;
+- RECOGNITION checkpoint present: PASS;
+- FORM_PROBE checkpoint present: PASS;
+- INTERVIEW checkpoint present: PASS;
+- CLOSE checkpoint present: PASS;
+- every checkpoint carries a prohibited move: PASS.
+
+Participant record:
+
+- all seven views represented: PASS;
+- all three recognition dimensions represented: PASS;
+- all eight frozen interview questions represented: PASS;
+- withdrawal field preserved: PASS;
+- researcher-note field preserved: PASS.
+
+Coding sheet:
+
+- source field preserved: PASS;
+- consent / lived-case / completion / withdrawal preserved: PASS;
+- recognition responses preserved: PASS;
+- recognition verbatim requirement preserved: PASS;
+- form-filling / authorship / continuity concerns preserved: PASS;
+- sparse-view permission preserved: PASS;
+- research-vocabulary priming preserved: PASS;
+- system-claimed recognition preserved: PASS;
+- facilitator-led conclusion preserved: PASS.
+
+Trial-run execution:
+
+- source = SYNTHETIC: PASS;
+- consent flow rehearsal completed: PASS;
+- facilitator flow rehearsal completed: PASS;
+- participant record rehearsal completed: PASS;
+- coding rehearsal completed: PASS;
+- evidence gate invoked: PASS;
+- eligible human evidence count = 0: PASS;
+- human evidence status = PENDING: PASS;
+- countsAsHumanEvidence = false: PASS;
+- real-participant records are refused by trial-run executor: PASS.
+
+Operational readiness:
+
+- packetVersion = FSP-HUMAN-FIDELITY-1A.0: PASS;
+- firstLiveSessionReady = true: PASS;
+- readiness does not imply institutional ethics approval: PASS;
+- readiness does not imply human evidence: PASS.
+
+GitHub Actions:
+
+- run id: `42066191297`;
+- tested head: `4a44f460d7b0a41c60aeac3966ed0a41f213b907`;
+- 550 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- operational readiness is not empirical validation;
+- the consent sheet is not institutional or IRB approval;
+- the dry run is synthetic and not human evidence;
+- no live participant has yet been run;
+- empirical human-fidelity status remains PENDING;
+- TRANSLATION-12 human-validation status remains PENDING.
+
+FSP-HUMAN-FIDELITY-1A: PASS as an operational first-live-session packet / synthetic trial-run build, with human evidence PENDING.

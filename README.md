@@ -138,3 +138,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-HUMAN-FIDELITY-1` adds an executable live-participant protocol for lived-continuity, There-I-Am / Yes-Here-I-Am / I-See-Me recognition elicitation, form-filling and authorship detection, non-leading journey interviews, and a human-evidence gate. Synthetic and model records are constitutionally excluded from human evidence. Current live participant count is 0 and actual evidence status remains PENDING.
+
+
+`FSP-HUMAN-FIDELITY-1A` adds the first operational live-session packet: participant information/consent language, facilitator script with prohibited moves, participant record form, coding sheet, and a synthetic end-to-end dry run. The dry run passes while eligible human evidence remains 0 and the human-fidelity gate remains PENDING.
