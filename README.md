@@ -79,3 +79,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-TRANSLATION-9` adds six-nodeset batch ingestion across two external AIF corpora, overlapping-ID coherence, sampled augmentation coding, query-scaling tests, compression-retention curves, and corpus-level failure auditing.
+
+
+`FSP-TRANSLATION-10` adds deterministic raw-AIF relation-neighborhood extraction, RA/CA/MA stratified sampling, a frozen future human-coder protocol, query-performance benchmarking, and a multi-dimensional scale-up acceptance gate.

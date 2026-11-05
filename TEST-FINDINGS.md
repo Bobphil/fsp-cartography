@@ -976,3 +976,77 @@ Research ceiling:
 - no statistical generalization to arbitrary AIF corpora is licensed.
 
 FSP-TRANSLATION-9: PASS as a batch nodeset scaling and corpus-level failure test.
+
+## FSP-TRANSLATION-10
+
+Date: 2026-11-05
+
+Purpose:
+
+- replace hand-selected relation neighborhoods with deterministic raw-AIF extraction;
+- stratify sampling across RA, CA, and MA relation families;
+- freeze a future human-coder protocol before human validation;
+- add query-performance benchmarking;
+- require a multi-dimensional scale-up acceptance gate.
+
+Automatic extraction findings:
+
+- Kosciuszko raw document yields RA, CA, and MA neighborhoods: PASS;
+- Otway raw document yields RA, CA, and MA neighborhoods: PASS;
+- repeated extraction is deterministic: PASS;
+- original relation-node IDs preserved: PASS;
+- connected original edge IDs preserved: PASS.
+
+Stratified sampling findings:
+
+- one-per-stratum RA/CA/MA sample: PASS;
+- missing relation strata reported rather than substituted: PASS;
+- invalid zero sample request rejected: PASS.
+
+Human-coder protocol:
+
+- protocol version: FSP-AIF-CODER-1.0;
+- protocol frozen before human coding: PASS;
+- coder independence required: PASS;
+- other-coder record hidden until submission: PASS;
+- target/task/claim-ceiling/standing/remainder/REOPEN required: PASS;
+- original AIF ID rewriting forbidden: PASS;
+- disagreement erasure forbidden: PASS;
+- malformed protocol detected: PASS.
+
+Query-performance findings:
+
+- benchmark executes declared iteration/query count: PASS;
+- benchmark returns nonzero matches: PASS;
+- nonpositive iterations rejected: PASS;
+- current committed fixture benchmark remains below 25 ms mean execution threshold: PASS.
+
+Scale-up gate findings:
+
+- healthy current fixture state: PASS;
+- missing MA coverage blocks scale-up: PASS;
+- source-ID failure blocks scale-up: PASS;
+- dangling edges block scale-up: PASS;
+- unfrozen coder protocol blocks scale-up: PASS;
+- structural coding agreement below 0.80 blocks scale-up: PASS;
+- mean query time above 25 ms blocks scale-up: PASS;
+- required-query failures block scale-up: PASS;
+- fewer than six extracted nodesets blocks scale-up: PASS.
+
+GitHub Actions:
+
+- run id: `42032280909`;
+- tested head: `9cea7d3c9c2ce0151a80f157ec2780d8ed26adc3`;
+- 239 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- human-coder protocol is frozen but no genuine human inter-coder data exist yet;
+- performance threshold is a regression guard, not a hardware-independent benchmark claim;
+- raw-document fixtures are bounded extracts from external corpora, not full-corpus mirrors;
+- automatic extraction is structural, not automatic semantic FSP augmentation;
+- no statistical generalization across arbitrary AIF corpora is licensed.
+
+FSP-TRANSLATION-10: PASS as a reproducible extraction and scale-up-gate build.
