@@ -397,3 +397,51 @@ Continuity findings:
 No new Change Gate was earned by this pass.
 
 SEVEN-VIEW-CONTINUITY-1: PASS.
+
+## FSP-TRANSLATION-1
+
+Date: 2026-11-05
+
+Purpose:
+
+- establish an ontologically agnostic research formalism outside the Cartography kernel;
+- decompose claims into proposition, evidence, warrant, background commitment, task, claim ceiling, ontology commitment, and standing;
+- represent task-relative PRF-to-PRF translation without assuming a universal metalanguage;
+- make translation remainder and translation failure first-class results;
+- distinguish cooperation from mere coordination;
+- add a coarse, transparent agency/anti-domination diagnostic;
+- test repair as agency improvement without hidden worsening;
+- preserve the Wittgensteinian ladder principle: the formalism is a reusable scaffold, not an ultimate ontology.
+
+Executable research results:
+
+- FULL_LOCAL translation: represented;
+- PARTIAL / STRUCTURAL / TASK_ONLY distinctions: represented;
+- translation FAILURE: represented;
+- asymmetric translation remainder: represented;
+- cooperation without ontological convergence: represented;
+- shared-task rejection: preserved;
+- coordination without full shared-task acceptance: preserved;
+- severe agency-risk trigger under multiple blocked dimensions: represented;
+- constrained agency does not automatically equal domination: preserved;
+- agency-improving repair: represented;
+- repair that worsens another agency dimension: rejected by minimal repair test.
+
+GitHub Actions run:
+
+- run id: `42021433363`
+- tested head: `f54e20a25ae99be136aa5f39dafe320bee66db3a`
+- result: SUCCESS
+- 109 tests passed
+- 0 failed
+- browser TypeScript build: PASS
+
+Research ceiling:
+
+- no Duhem-Quine theorem is claimed;
+- no universal PRF translatability is claimed;
+- no normative domination theorem is claimed;
+- the agency heuristic remains transparent and replaceable;
+- no Cartography kernel semantics were changed.
+
+FSP-TRANSLATION-1: PASS as a first executable research scaffold.

@@ -46,3 +46,12 @@ During the CODE-0.1 usability phase, interface code may dispatch existing action
 ## Not building now
 
 No generative AI. No VR. No public-data integration. No multi-user collaboration. No recommendation engine. No personality model. No hidden personalization. No cloud account system.
+
+
+## Research layer
+
+The repository now also contains a deliberately non-constitutional research layer under `src/research/`.
+
+`FSP-TRANSLATION-1` explores task-relative translation among divergent PRFs, explicit translation remainder/failure, cooperation without ontological convergence, and transparent agency/repair diagnostics.
+
+These research constructs are not part of the frozen Cartography kernel unless separately justified through a future Change Gate.
