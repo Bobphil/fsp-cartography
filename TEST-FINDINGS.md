@@ -1421,3 +1421,69 @@ Research ceiling:
 - TRANSLATION-12 human-validation status remains PENDING.
 
 FSP-REVISION-3: PASS as a diachronic and social revision-governance build.
+
+## FSP-REVISION-4
+
+Date: 2026-11-05
+
+Purpose:
+
+- distinguish legitimate persistent disagreement from disagreement distorted by evidence asymmetry, constrained standing, or practical power;
+- preserve minority reports under majority uptake;
+- separate epistemic authority, procedural authority, and practical power;
+- audit reopenability and retaliation risk;
+- protect nonconvergence without making dissent epistemically privileged.
+
+Minority-report findings:
+
+- minority report can be preserved under a majority candidate: PASS;
+- provenance/evidence/reopen conditions remain attached: PASS;
+- majority convergence does not authorize truth: PASS;
+- minority dissent does not authorize truth: PASS;
+- lost minority report is governance failure: PASS.
+
+Evidence-asymmetry findings:
+
+- blocked evidence access detected: PASS;
+- asymmetric evidence IDs detected: PASS;
+- blocked interpretive contestability separately visible: PASS;
+- persistent disagreement under material evidence asymmetry classified DISTORTED_BY_ASYMMETRY: PASS.
+
+Authority/power findings:
+
+- procedural authority alone does not create distortion: PASS;
+- practical power is represented separately from epistemic authority: PASS;
+- uncontestable practical power presented as technical/expert basis produces SEVERE distortion risk: PASS;
+- power-distorted disagreement classified DISTORTED_BY_POWER: PASS.
+
+Standing/reopen findings:
+
+- constrained or denied standing surfaced: PASS;
+- inability to submit dissent surfaced: PASS;
+- inability to request REOPEN surfaced: PASS;
+- severe retaliation risk surfaced: PASS;
+- denied reopenability prevents classification as clean legitimate pluralism: PASS.
+
+Legitimate nonconvergence:
+
+- symmetric access + full standing + preserved dissent + open REOPEN + live unresolved questions -> LEGITIMATE_PENDING_INQUIRY: PASS;
+- same fair conditions with exhausted represented unresolved questions -> LEGITIMATE_PERSISTENT_PLURALISM: PASS;
+- forced truth from majority or minority status remains prohibited: PASS.
+
+GitHub Actions:
+
+- run id: `42039273198`;
+- tested head: `3208877a99c8e43a3f9d549e7ca08e2a2539bfc0`;
+- 324 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- authority/power classifications are research constructs, not a complete political theory;
+- practical power may coexist with genuine expertise, but power itself supplies no epistemic warrant;
+- legitimate nonconvergence requires fair-enough inquiry conditions in the represented case;
+- minority preservation is a governance requirement, not a truth privilege;
+- TRANSLATION-12 human-validation status remains PENDING.
+
+FSP-REVISION-4: PASS as a persistent-disagreement / anti-distortion revision-governance build.

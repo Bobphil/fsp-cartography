@@ -99,3 +99,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-REVISION-3` adds diachronic reason change, evidence-triggered salience shifts without numeric utility, community disagreement, practical convergence without theory agreement, choice convergence with reason pluralism, and legitimate nonconvergence without forced consensus.
+
+
+`FSP-REVISION-4` adds persistent-disagreement auditing, minority-report preservation, evidence-access asymmetry, standing/reopenability checks, epistemic/procedural/practical authority separation, power-distortion detection, and legitimate nonconvergence classification.
