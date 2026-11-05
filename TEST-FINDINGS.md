@@ -1556,3 +1556,66 @@ Research ceiling:
 - TRANSLATION-12 human-validation status remains PENDING.
 
 FSP-REVISION-5: PASS as an epistemic-standing / interpretive-repair revision-governance build.
+
+## FSP-REVISION-6
+
+Date: 2026-11-05
+
+Purpose:
+
+- represent concept formation and concept provenance;
+- compare competing interpretive resources without selecting a forced winner;
+- formalize partial, structural, task-only, and failed concept translation;
+- audit institutional concept capture/co-option;
+- preserve practical coordination under lexical nonconvergence.
+
+Concept-formation findings:
+
+- concept ID/label/contributor/evidence/definition/scope/provenance structure: PASS;
+- missing provenance invalidates concept record: PASS;
+- counter-public, dominant, shared, emergent, and institutional origins remain distinguishable: PASS;
+- concept origin does not authorize truth: PASS.
+
+Interpretive-resource competition:
+
+- multiple vocabularies remain representable simultaneously: PASS;
+- partial translation bridges remain visible: PASS;
+- failed translation is represented as incompatibility rather than forced equivalence: PASS;
+- unresolved translation remainder preserved: PASS;
+- resource winner remains null: PASS.
+
+Concept capture/co-option:
+
+- healthy institutional adoption preserving definition/provenance/contributors/contestability is not capture: PASS;
+- semantic change alone is insufficient for co-option: PASS;
+- semantic shift + provenance loss/contributor displacement/contestability loss -> possible capture: PASS;
+- retained label + expanded institutional authority + capture conditions -> possible co-option: PASS;
+- audit claim ceiling does not infer wrongful intent: PASS.
+
+Shared-language outcomes:
+
+- SHARED_LANGUAGE_CONVERGENCE: PASS;
+- PARTIAL_TRANSLATION_BRIDGE: PASS;
+- PRACTICAL_COORDINATION_WITH_LEXICAL_PLURALISM: PASS;
+- IRREDUCIBLE_LEXICAL_NONCONVERGENCE: PASS;
+- DISTORTED_BY_CONCEPT_CAPTURE: PASS;
+- shared action does not require one vocabulary: PASS;
+- one vocabulary does not authorize truth: PASS.
+
+GitHub Actions:
+
+- run id: `42047881429`;
+- tested head: `1fc63184366a5b14433f30aaa28ea26a029952a5`;
+- 358 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- concept-capture classifications are governance diagnostics, not complete semantic histories;
+- semantic change and institutional adoption are not automatically wrongful;
+- partial translation does not imply global equivalence;
+- lexical nonconvergence may remain legitimate;
+- TRANSLATION-12 human-validation status remains PENDING.
+
+FSP-REVISION-6: PASS as a concept-formation / vocabulary-governance revision build.

@@ -105,3 +105,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-REVISION-5` adds testimonial-credibility and hermeneutical-distortion audits, standing and contestability repair, counter-public evidence with provenance, and revision re-entry conditions that preserve remainder without auto-validating previously excluded claims.
+
+
+`FSP-REVISION-6` adds concept provenance, interpretive-resource competition, partial/failed concept translation, concept-capture/co-option auditing, and shared-language nonconvergence with practical coordination across plural vocabularies.
