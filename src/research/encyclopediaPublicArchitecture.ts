@@ -576,5 +576,5 @@ export function toolsForCase(caseId:string):PublicTool[]{
 
 export function comparisonsForCase(caseId:string):PublicComparisonPath[]{
   publicCase(caseId);
-  return PUBLIC_ARCHITECTURE.comparisons.filter(c=>c.caseIds.includes(caseId)).map(structuredClone);
+  return PUBLIC_ARCHITECTURE.comparisons.filter(c=>c.caseIds.includes(caseId)).map(item=>structuredClone(item));
 }
