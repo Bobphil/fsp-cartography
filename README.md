@@ -85,3 +85,8 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-TRANSLATION-11` scales automatic external extraction to a 30-nodeset, two-corpus RA/CA/MA-stratified sample, adds a frozen blank human-coder trial packet, measures query latency by distribution, and distinguishes infrastructure PASS from human-coding PENDING.
+
+
+`FSP-DUHEM-QUINE-APPLICATION` applies the translation machinery to Foucault optics, Uranus/Neptune, Mercury/Vulcan, and Quinean web-of-belief revision while preserving the ceiling that FSP represents underdetermination without uniquely solving theory choice.
+
+`FSP-TRANSLATION-12` freezes the first-human-trial evaluation architecture: protocol fidelity, structural/interpretive agreement separation, adjudication firewall, and a PASS/FAIL/PENDING post-human scale gate. Human evidence remains PENDING.

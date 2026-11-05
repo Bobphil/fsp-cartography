@@ -1129,3 +1129,97 @@ Research ceiling:
 - semantic FSP augmentation remains human-reviewed rather than automatic.
 
 FSP-TRANSLATION-11: PASS as a large-batch infrastructure regression with human-coder trial PENDING.
+
+## FSP Duhem–Quine Application
+
+Date: 2026-11-05
+
+Purpose:
+
+- apply current FSP translation machinery to canonical Duhemian and Quinean problem structures;
+- distinguish what FSP represents from what it does not solve.
+
+Applied cases:
+
+- Foucault light-speed / wave-versus-emission crucial-experiment case;
+- Uranus anomaly -> Neptune auxiliary repair;
+- Mercury perihelion -> failed Vulcan auxiliary repair -> deeper theoretical revision;
+- Quinean web-of-belief revision pressure.
+
+FSP mapping:
+
+- Duhemian grouped testing maps to claim/evidence/warrant/background/auxiliary/task/claim-ceiling representation;
+- Uranus/Neptune maps naturally to REOPEN_AUXILIARIES followed by successful evidential repair;
+- Mercury/Vulcan prevents an auxiliary-repair bias and requires temporally defeasible robustness;
+- Foucault discrimination can break a represented task-level prediction equivalence without licensing ontological uniqueness;
+- Quinean web revision can be represented as distributed revision pressure across claims, warrants, background, ontology, auxiliaries, and tasks.
+
+Claim ceiling:
+
+- FSP does not identify a uniquely correct revision target;
+- FSP does not prove all rival theories translatable;
+- FSP does not supply a universal simplicity metric or scientific-good-sense algorithm;
+- FSP does not prove realism, antirealism, or Duhem–Quine;
+- FSP's contribution is to make underdetermination/revision structure inspectable and governable.
+
+Artifact: `FSP-DUHEM-QUINE-APPLICATION.md`.
+
+## FSP-TRANSLATION-12
+
+Date: 2026-11-05
+
+Purpose:
+
+- freeze the human-coder execution and evaluation architecture before obtaining human coders;
+- separate structural from interpretive agreement;
+- audit protocol fidelity;
+- protect independent records during adjudication;
+- enforce a three-valued post-human gate.
+
+Frozen trial boundary:
+
+- packet version: `FSP-AIF-HUMAN-TRIAL-1.0`;
+- protocol version: `FSP-AIF-CODER-1.0`;
+- structural fields: targetNode, task, claimCeiling;
+- interpretive fields: standing, remainder, reopenCondition;
+- structural agreement threshold: 0.80;
+- adjudication occurs only after agreement measurement;
+- original independent records must be preserved;
+- gate states: PASS / FAIL / PENDING;
+- synthetic/model coding cannot count as human evidence.
+
+Executable findings:
+
+- complete coding records pass protocol fidelity: PASS;
+- version/required-field violations fail fidelity: PASS;
+- structural and interpretive agreement are separated: PASS;
+- interpretive disagreement may remain visible while structural threshold passes: PASS;
+- substantial structural divergence fails threshold: PASS;
+- missing coded items block structural pass: PASS;
+- provenance-preserving adjudication passes: PASS;
+- destructive adjudication fails: PASS;
+- zero-coder state remains PENDING: PASS;
+- one-coder state remains PENDING: PASS;
+- two-coder completed evidence can PASS only with all safeguards: PASS;
+- completed trial below 0.80 structural agreement FAILS: PASS;
+- adjudication-firewall violation FAILS: PASS;
+- unresolved critical disagreement FAILS: PASS;
+- infrastructure regression blocks post-human PASS: PASS.
+
+Current evidential state:
+
+- TRANSLATION-11 infrastructure: PASS;
+- human trial packet: READY;
+- independent human coders completed: 0;
+- human trial executed: NO;
+- post-human scale gate: PENDING.
+
+GitHub Actions:
+
+- run id: `42033951542`;
+- tested head: `171f3cdb21157a23584353126afa406cd5735bdf`;
+- 269 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+FSP-TRANSLATION-12: PROTOCOL ARCHITECTURE FROZEN / HUMAN EVIDENCE PENDING.
