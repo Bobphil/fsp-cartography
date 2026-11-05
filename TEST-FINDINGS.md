@@ -1694,3 +1694,82 @@ Research ceiling:
 - TRANSLATION-12 human-validation status remains PENDING.
 
 FSP-REVISION-7: PASS as a historical concept-genealogy / sedimentation-governance build.
+
+## FSP-REVISION-8
+
+Date: 2026-11-05
+
+Purpose:
+
+- move from single-concept genealogy to institutional sedimentation networks;
+- represent multi-concept coevolution;
+- model policy/practice feedback loops;
+- audit historical lock-in without equating it with justification;
+- expose bounded repair windows;
+- compare cross-generational capability effects.
+
+Institutional network findings:
+
+- concept/policy/practice/institution/capability/resource nodes represented: PASS;
+- network edge integrity enforced: PASS;
+- dangling-edge detection: PASS;
+- ENCODES/REINFORCES/CONSTRAINS/ENABLES/FEEDS_BACK_INTO relations represented: PASS.
+
+Multi-concept coevolution:
+
+- two concept genealogies may coevolve through shared institutions: PASS;
+- shared institutional uptake does not imply conceptual identity: PASS;
+- tensions and joint drift remain explicit: PASS;
+- single-genealogy pseudo-coevolution rejected: PASS.
+
+Policy/practice feedback:
+
+- policy shapes practice: PASS;
+- practice feeds back into policy: PASS;
+- reinforcing and dampening conditions preserved: PASS;
+- unknown feedback nodes rejected: PASS.
+
+Historical lock-in:
+
+- switching costs detected: PASS;
+- reinforcing loops detected: PASS;
+- suppressed alternatives detected: PASS;
+- LOW/MEDIUM/HIGH lock-in strength representable: PASS;
+- lockInJustifiesContinuation = false: PASS;
+- absent path-dependence indicators do not fabricate lock-in: PASS.
+
+Repair windows:
+
+- window opens only when all declared opening conditions are active: PASS;
+- missing opening conditions keep window closed: PASS;
+- severe retaliation / blocking conditions can close window: PASS;
+- repairMandatory = false: PASS.
+
+Cross-generational capability:
+
+- generations 1-2 may show expansion: PASS;
+- later generation may show MIXED effect: PASS;
+- later generation may show CONSTRAINS effect: PASS;
+- intergenerational asymmetry detected: PASS;
+- inherited network provenance retained: PASS;
+- historicalBenefitJustifiesCurrentBurden = false: PASS;
+- repair question asks how to preserve warranted inherited benefits while reducing avoidable current/future constraints: PASS.
+
+GitHub Actions:
+
+- run id: `42050121729`;
+- tested head: `8df562a8421e4b5d72482d873f5c8be42909c92f`;
+- 390 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- network relations are structured research representations, not complete causal models;
+- lock-in does not imply dysfunction;
+- repair windows identify opportunity conditions, not mandates;
+- capability effects are represented judgments, not population-level empirical measurements;
+- intergenerational asymmetry does not by itself establish injustice;
+- TRANSLATION-12 human-validation status remains PENDING.
+
+FSP-REVISION-8: PASS as an institutional-ecology / cross-generational capability build.

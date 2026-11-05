@@ -111,3 +111,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-REVISION-7` adds concept genealogy, semantic drift through institutional sedimentation, cross-generation translation and false-friend detection, a renewed formation != justification audit, and historical REOPEN triggers for inherited concepts.
+
+
+`FSP-REVISION-8` adds institutional sedimentation networks, multi-concept coevolution, policy/practice feedback loops, historical lock-in auditing, bounded repair windows, and cross-generational capability trajectories with past-benefit != present-justification safeguards.
