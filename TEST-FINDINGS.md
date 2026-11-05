@@ -1291,3 +1291,73 @@ Research ceiling:
 - human-validation state from TRANSLATION-12 remains PENDING.
 
 FSP-REVISION-1: PASS as the first governed revision-space build.
+
+## FSP-REVISION-2
+
+Date: 2026-11-05
+
+Purpose:
+
+- formalize reasons bearing on movement within the revision frontier;
+- keep evidence, coherence, simplicity, fecundity, scope, conservatism, and explanatory power distinct;
+- model Duhemian/Kuhnian good-sense disagreement without hidden weighting;
+- audit path dependence without confusing formation with justification;
+- enforce a non-algorithmic theory-choice boundary.
+
+Revision-reason grammar:
+
+- EVIDENCE_FIT
+- COHERENCE
+- SIMPLICITY
+- FECUNDITY
+- SCOPE
+- CONSERVATISM
+- EXPLANATORY_POWER
+
+Tradeoff findings:
+
+- three-candidate Neptune/Vulcan/relativity matrix constructed: PASS;
+- candidate profiles preserve conflicting virtues: PASS;
+- relativity can win on evidence/fecundity/scope while losing on conservatism/simplicity: PASS;
+- Vulcan can remain conservative while strongly disfavored by evidence: PASS;
+- no universal weighted sum or hidden recommendation is produced: PASS;
+- matrix recommendation remains null: PASS.
+
+Good-sense comparator:
+
+- evaluator profiles may order salient reasons differently: PASS;
+- underlying candidate facts remain unchanged across evaluator profiles: PASS;
+- provisional disagreement can be represented without declaring one evaluator uniquely rational: PASS.
+
+Path-dependence findings:
+
+- inherited framework/practice/infrastructure/training/institutional constraints represented: PASS;
+- path-dependent items must come from the declared context: PASS;
+- formation/justification firewall explicit: PASS;
+- historical familiarity may explain uptake without automatically counting as epistemic support: PASS.
+
+Non-algorithmic boundary:
+
+- evidence fit/coherence/simplicity/fecundity/scope/conservatism/explanatory power may be compared: PASS;
+- path-dependent costs and affordances may be compared: PASS;
+- universal weighted sum prohibited: PASS;
+- hidden recommendation score prohibited: PASS;
+- fixed lexical priority among virtues prohibited: PASS.
+
+GitHub Actions:
+
+- run id: `42036511717`;
+- tested head: `94d254067f7fbf67def1e4dbbcd54898ff844a74`;
+- 295 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- theory virtues are represented as inspectable reasons, not universal rational weights;
+- good-sense profiles are structured comparators, not empirical psychological models;
+- path-dependence classifications remain researcher-authored;
+- no universal theory-choice algorithm is licensed;
+- TRANSLATION-12 human-validation status remains PENDING.
+
+FSP-REVISION-2: PASS as a plural revision-reason and non-algorithmic choice build.

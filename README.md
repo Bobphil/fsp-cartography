@@ -93,3 +93,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-REVISION-1` begins the post-Translation revision branch: typed revision targets, Neptune/Vulcan comparison, explicit revision-scope cost, minimal-mutilation auditing, a non-recommending revision frontier, and a hard revision-choice claim ceiling.
+
+
+`FSP-REVISION-2` adds a plural revision-reason grammar, Neptune/Vulcan/relativity tradeoff matrix, good-sense comparator profiles, path-dependence auditing with formation != justification, and a non-algorithmic choice boundary that forbids universal weighted theory-choice scores.
