@@ -120,11 +120,22 @@ test('DESI claim ceiling remains open rather than declaring discovery',()=>{
   assert.ok(desiDossier.reopenConditions.some(x=>/new DESI data release/i.test(x)));
 });
 
-test('all five cases expose distinct transition signatures rather than one flattened topology',()=>{
+test('all five cases expose distinct ordered transition topologies rather than one flattened history',()=>{
   const signatures=FIVE_CASE_ATLAS.map(d=>
-    [...new Set(d.transitions.flatMap(t=>t.changedDimensions))].sort().join('|')
+    d.transitions
+      .map(t=>[...t.changedDimensions].sort().join('+'))
+      .join(' -> ')
   );
   assert.equal(new Set(signatures).size,5);
+});
+
+test('shared dimension coverage does not imply identical revision topology',()=>{
+  const neptuneUnion=[...new Set(neptuneVulcanDossier.transitions.flatMap(t=>t.changedDimensions))].sort();
+  const relativityUnion=[...new Set(relativityDossier.transitions.flatMap(t=>t.changedDimensions))].sort();
+  assert.deepEqual(neptuneUnion,relativityUnion);
+  const neptuneSequence=neptuneVulcanDossier.transitions.map(t=>[...t.changedDimensions].sort().join('+'));
+  const relativitySequence=relativityDossier.transitions.map(t=>[...t.changedDimensions].sort().join('+'));
+  assert.notDeepEqual(neptuneSequence,relativitySequence);
 });
 
 test('comparison table returns one row per case',()=>{
