@@ -2068,3 +2068,89 @@ Research ceiling:
 - TRANSLATION-12 human-validation status remains PENDING.
 
 FSP-REVISION-12: PASS as a reflexive constitutional capstone / provisional program-freeze build.
+
+## FSP-INTEGRATION-1
+
+Date: 2026-11-05
+
+Purpose:
+
+- map REVISION-1 through REVISION-12 onto the existing seven-view Cartography shell;
+- classify capabilities as USER_VISIBLE, HIDDEN_GOVERNANCE, and/or RESEARCH_ONLY_DETAIL;
+- preserve a full research encyclopedia while compressing human-facing interaction;
+- test whether the frozen kernel already carries the required human primitives;
+- gate kernel changes behind genuine representation gaps;
+- verify Maya/Leila/Jordan journeys without research-vocabulary exposure.
+
+Crosswalk coverage:
+
+- REVISION-1 through REVISION-12 all represented: PASS;
+- START coverage: PASS;
+- PEOPLE coverage: PASS;
+- INSTITUTION coverage: PASS;
+- H/S/F coverage: PASS;
+- CONNECTIONS coverage: PASS;
+- INVESTIGATE coverage: PASS;
+- RETURN coverage: PASS.
+
+Placement architecture:
+
+- user-visible compressed capabilities present: PASS;
+- hidden governance capabilities present: PASS;
+- research-only detailed capabilities present: PASS;
+- capabilities may retain both compressed and full-research forms: PASS;
+- every placement has an activation trigger: PASS;
+- every placement preserves full research-detail description: PASS;
+- user-visible placements carry ordinary-language cues: PASS.
+
+Kernel-change gate:
+
+- genuine representation gaps: none;
+- current status: NO_KERNEL_CHANGE;
+- existing carriers sufficient for human-facing integration:
+  TASK / NODE / CLAIM / CONNECTION / SHARED_TASK / CONSTRAINT / PATH / ACTION / MAP_CHANGE / RETURN / OUTPUT_CARD / REOPEN;
+- advanced formal detail remains in RESEARCH_OVERLAY;
+- no placement currently requests kernel mutation: PASS.
+
+Research encyclopedia boundary:
+
+- full Revision formalism retained: PASS;
+- human-facing compression does not delete research detail: PASS;
+- research richness != required user-visible complexity: PASS.
+
+Maya / Leila / Jordan gate:
+
+- Maya seven-view traversal: PASS;
+- Leila seven-view traversal: PASS;
+- Jordan seven-view traversal: PASS;
+- defined research vocabulary exposed to Maya: none;
+- defined research vocabulary exposed to Leila: none;
+- defined research vocabulary exposed to Jordan: none;
+- sparse Jordan state remains valid: PASS;
+- practical power remains ordinary-language representable: PASS;
+- report vs inference provenance remains ordinary-language representable: PASS;
+- bounded return / claim ceiling / REOPEN remain ordinary-language representable: PASS.
+
+Vocabulary-leak detector:
+
+- formal research vocabulary is detected when deliberately supplied: PASS;
+- zero leakage in acceptance journeys is therefore a tested absence rather than a disabled detector: PASS.
+
+GitHub Actions:
+
+- run id: `42060054043`;
+- tested head: `25d80a69fb0c9c909e5a04f6dc92d16c9fc5a9e4`;
+- 474 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- placement success does not establish human usability;
+- ordinary-language prompts are candidate compressions, not validated final wording;
+- zero leakage for Maya/Leila/Jordan does not prove zero leakage for all future cases;
+- RESEARCH_OVERLAY remains an architectural integration strategy, not yet the final persistence implementation;
+- kernel remains frozen because no genuine representation gap has been demonstrated;
+- TRANSLATION-12 human-validation status remains PENDING.
+
+FSP-INTEGRATION-1: PASS as a Revision-to-Cartography placement, encyclopedia-boundary, and no-kernel-change build.
