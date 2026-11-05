@@ -144,3 +144,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-FIVE-CASE-ATLAS` adds a canonical comparative backbone for the encyclopedia: Foucault light-speed, Neptune/Vulcan, Galileo, Newton→Einstein, and DESI 2024→2026 are encoded through the shared diachronic inquiry state `<D,C,E,W,A,B,M,O,T,S,P,X,R,GAMMA,F>`, explicit transition dimensions, controlled-revision probes, source ledgers, claim ceilings, and REOPEN conditions. The common schema preserves distinct ordered historical topologies rather than flattening the cases.
+
+
+`FSP-ENCYCLOPEDIA-NAVIGATION-1` adds bidirectional routing between the four-chapter philosophy-of-science sequence and the Five-Case Atlas. Every chapter section now links to canonical dossier states, transitions, controlled probes, source-ledger entries, and/or case claim ceilings, with reverse lookup from Atlas objects back to all narrative uses. The map is intended for later Pressbooks, web, and VR routing.

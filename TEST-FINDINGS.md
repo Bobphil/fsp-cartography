@@ -2651,3 +2651,88 @@ Research ceiling:
 - DESI remains a live inquiry frontier.
 
 FSP FIVE-CASE ATLAS: PASS as a canonical diachronic comparative backbone for the FSP encyclopedia.
+
+## FSP ENCYCLOPEDIA NAVIGATION 1
+
+Date: 2026-11-05
+
+Purpose:
+
+- link every section in the four-chapter sequence to canonical Five-Case Atlas objects;
+- support forward navigation from narrative section to state/transition/probe/source/claim ceiling;
+- support reverse navigation from canonical Atlas object back to all narrative uses;
+- preserve one canonical formal object with multiple narrative routes;
+- prepare a reusable routing layer for Pressbooks, web encyclopedia, and VR.
+
+Chapter coverage:
+
+- CH1-DUHEM-QUINE: PASS;
+- CH2-KUHN-MEANING: PASS;
+- CH3-THOUGHT-EXPERIMENTS: PASS;
+- CH4-DIACHRONIC-FORMALISM: PASS.
+
+Section coverage:
+
+- every declared chapter section has at least one navigation binding: PASS;
+- no binding has zero targets: PASS;
+- chapter source order preserved: PASS.
+
+Target integrity:
+
+- STATE targets resolve: PASS;
+- TRANSITION targets resolve: PASS;
+- PROBE targets resolve: PASS;
+- SOURCE targets resolve: PASS;
+- CASE_CLAIM_CEILING targets resolve: PASS;
+- fabricated state target detected: PASS;
+- unknown case detected: PASS.
+
+Narrative-to-Atlas examples:
+
+- CH1.2 Neptune/Vulcan routes to auxiliary opening, successful repair, framework revision, Vulcan probe, and case claim ceiling: PASS;
+- CH1.3 Foucault routes to experimental transition, Duhemian reconstruction, probe, and source: PASS;
+- CH1.4 Galileo routes to evidential, standing, and institutional transitions: PASS;
+- CH4.9 DESI routes to D0 / D1 / D2 and contemporary case ceiling: PASS;
+- CH4.11 routes to all five case-level claim ceilings: PASS.
+
+Thought-experiment / VR preparation:
+
+- Chapter Three contains at least eight controlled-probe routes: PASS;
+- all five cases are represented in perturbation/VR navigation: PASS.
+
+Reverse navigation:
+
+- RE0-RE1 resolves back to multiple Kuhn/formalism narrative uses: PASS;
+- DESI D1-D2 resolves back to Chapter One and multiple Chapter Four uses: PASS;
+- one canonical object may support multiple narrative sections without duplication: PASS.
+
+Coverage summary:
+
+- four chapters represented: PASS;
+- all sections bound: PASS;
+- target count exceeds section count: PASS;
+- more than twenty distinct canonical Atlas targets are reverse-navigable: PASS.
+
+Architecture findings:
+
+- narrative routing != ontological reduction: preserved;
+- source routing != exhaustive historiography: preserved;
+- probe routing != claim that historical event was literally a thought experiment: preserved;
+- one canonical formal object -> many narrative routes: PASS.
+
+GitHub Actions:
+
+- run id: `42093903300`;
+- tested head: `e5edc2e13918782681e5fd12f4adb31af164ccbe`;
+- 589 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- this navigation layer binds current canonical chapter sections and Atlas objects;
+- it does not yet create a rendered Pressbooks/web/VR interface;
+- section granularity is canonical for this sequence but may later be refined;
+- routing does not establish historical completeness or ontological equivalence.
+
+FSP ENCYCLOPEDIA NAVIGATION 1: PASS as the canonical chapter↔Atlas routing layer.
