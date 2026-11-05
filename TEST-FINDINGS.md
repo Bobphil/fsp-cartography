@@ -1223,3 +1223,71 @@ GitHub Actions:
 - browser TypeScript build: PASS.
 
 FSP-TRANSLATION-12: PROTOCOL ARCHITECTURE FROZEN / HUMAN EVIDENCE PENDING.
+
+## FSP-REVISION-1
+
+Date: 2026-11-05
+
+Purpose:
+
+- branch from the frozen translation program into explicit revision governance;
+- distinguish revision targets rather than treating all reopening as theory replacement;
+- compare Neptune-style successful auxiliary repair with Vulcan-style failed auxiliary repair;
+- audit minimal mutilation without converting it into a decision rule;
+- freeze a revision-choice claim ceiling.
+
+Revision-target grammar:
+
+- EVIDENCE_ASSESSMENT
+- AUXILIARY
+- WARRANT
+- BACKGROUND
+- CLAIM_CEILING
+- TASK
+- ONTOLOGY
+- FRAMEWORK
+
+Comparator findings:
+
+- Neptune auxiliary repair changes only the auxiliary dimension: PASS;
+- Neptune repair can be low-mutilation and empirically supported: PASS;
+- Vulcan repair can be low-mutilation and empirically FAILED: PASS;
+- relativity-style framework revision can be more disruptive yet empirically SUPPORTED: PASS;
+- claim-ceiling contraction is representable without theory replacement: PASS;
+- revision frontier separates least-mutilating, supported, unresolved, and failed candidates: PASS;
+- revision frontier returns recommendation = null: PASS.
+
+Minimal-mutilation audit:
+
+- initial run exposed a model weakness: simple changed-item counting treated one auxiliary replacement and one framework replacement as equally mutilating;
+- initial run `42035569822`: 283/284 passed, 1 failed;
+- failure classified as metric-design failure, not historical-fixture failure;
+- repair: add transparent revision-scope cost by target type while keeping empirical status independent;
+- auxiliary scope cost remains lower than framework scope cost;
+- corrected run: PASS.
+
+Revision-choice firewall:
+
+- least mutilation does not imply empirical support: PASS;
+- least mutilation does not imply rational mandate: PASS;
+- successful auxiliary repair does not prove retained ontology/framework uniquely true: PASS;
+- failed auxiliary repair does not mandate immediate framework replacement: PASS;
+- untouched dimensions remain preserved by typed revision operations: PASS.
+
+GitHub Actions:
+
+- corrected run id: `42035699148`;
+- tested head: `d7e416499a648b7c15794365a7c02fdf009e050c`;
+- 284 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- revision-scope costs are transparent research parameters, not universal rational weights;
+- FSP does not identify the uniquely correct revision target;
+- minimal mutilation is an audit dimension, not a theory-choice algorithm;
+- Neptune/Vulcan are structured comparators, not complete historical reconstructions;
+- human-validation state from TRANSLATION-12 remains PENDING.
+
+FSP-REVISION-1: PASS as the first governed revision-space build.

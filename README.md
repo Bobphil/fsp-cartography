@@ -90,3 +90,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 `FSP-DUHEM-QUINE-APPLICATION` applies the translation machinery to Foucault optics, Uranus/Neptune, Mercury/Vulcan, and Quinean web-of-belief revision while preserving the ceiling that FSP represents underdetermination without uniquely solving theory choice.
 
 `FSP-TRANSLATION-12` freezes the first-human-trial evaluation architecture: protocol fidelity, structural/interpretive agreement separation, adjudication firewall, and a PASS/FAIL/PENDING post-human scale gate. Human evidence remains PENDING.
+
+
+`FSP-REVISION-1` begins the post-Translation revision branch: typed revision targets, Neptune/Vulcan comparison, explicit revision-scope cost, minimal-mutilation auditing, a non-recommending revision frontier, and a hard revision-choice claim ceiling.
