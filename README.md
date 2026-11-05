@@ -129,3 +129,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-INTEGRATION-1` maps the full REVISION-1 through REVISION-12 research base onto the seven-view Cartography shell, preserving a complete research encyclopedia while exposing only compressed ordinary-language capabilities. The current kernel-change gate is NO_KERNEL_CHANGE, and Maya/Leila/Jordan traverse all seven views without defined research-vocabulary leakage.
+
+
+`FSP-INTEGRATION-2` adds a seven-view human compression grammar, formal-to-ordinary-language dictionary, progressive disclosure driven by case pressure, and hard cognitive-load budgets. BASE views remain at one or two prompts; PRESSURE allows at most three total; DEEP allows at most four with at most one rare prompt. The full Revision encyclopedia remains underneath and the kernel remains unchanged.

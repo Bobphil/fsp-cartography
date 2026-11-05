@@ -2154,3 +2154,91 @@ Research ceiling:
 - TRANSLATION-12 human-validation status remains PENDING.
 
 FSP-INTEGRATION-1: PASS as a Revision-to-Cartography placement, encyclopedia-boundary, and no-kernel-change build.
+
+## FSP-INTEGRATION-2
+
+Date: 2026-11-05
+
+Purpose:
+
+- define a human compression grammar for the seven-view shell;
+- map research primitives to ordinary-language prompts;
+- control progressive disclosure with case-pressure signals;
+- enforce prompt budgets and rare-prompt gating;
+- preserve the full research encyclopedia beneath the human-facing layer;
+- prevent ordinary-language overload from replacing formal jargon overload.
+
+Base grammar:
+
+- START base prompts <= 2: PASS;
+- PEOPLE base prompts <= 2: PASS;
+- INSTITUTION base prompts <= 2: PASS;
+- H/S/F base prompts <= 2: PASS;
+- CONNECTIONS base prompts <= 2: PASS;
+- INVESTIGATE base prompts <= 2: PASS;
+- RETURN base prompts <= 2: PASS;
+- BASE mode exposes no Revision-derived prompt: PASS.
+
+Progressive disclosure:
+
+- BASE depth with no pressure: PASS;
+- PRESSURE depth for ordinary local conflict: PASS;
+- DEEP depth for interpretive/historical/institutional/emergency/framework pressure: PASS;
+- PRESSURE prompt budget <= 3: PASS;
+- DEEP prompt budget <= 4: PASS;
+- at most one RARE prompt in a view: PASS;
+- rare prompt before DEEP mode fails gate: PASS;
+- suppressed triggered capabilities remain explicit for later disclosure: PASS.
+
+Compression dictionary:
+
+- formal and ordinary layers preserved side by side: PASS;
+- revision target -> "What might need to change?": PASS;
+- vocabulary translation -> ordinary carry-across question: PASS;
+- power/authority -> ordinary expertise/authority/consequence question: PASS;
+- protected-floor/emergency/framework challenges remain rare: PASS;
+- defined research vocabulary leaks in ordinary dictionary: none.
+
+Case behavior:
+
+- Jordan-style sparse journey remains BASE across views: PASS;
+- Maya-style multi-path/evidence pressure adds bounded Investigate depth: PASS;
+- Leila-style power/authority pressure adds ordinary-language Connections depth: PASS;
+- deep interpretive/vocabulary pressure remains within budget: PASS;
+- emergency pressure remains within DEEP budget: PASS;
+- framework challenge appears only at DEEP disclosure: PASS.
+
+Cognitive-load gate:
+
+- prompt-budget overflow detected: PASS;
+- research-vocabulary leakage detected: PASS;
+- premature rare prompt detected: PASS;
+- base-mode Revision prompt detected by rule: PASS;
+- passing plans remain within configured budgets: PASS.
+
+Architecture findings:
+
+- encyclopedia carries complexity; user need not: PASS;
+- triggered != immediately displayed: PASS;
+- research-only formalism remains intact beneath compression: PASS;
+- kernel remains unchanged: PASS;
+- INTEGRATION-1 NO_KERNEL_CHANGE disposition preserved: PASS.
+
+GitHub Actions:
+
+- run id: `42060826654`;
+- tested head: `303941d84f185c785b23f355330c3b269a30b4ad`;
+- 492 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- deterministic prompt budgets are architecture, not psychological measurement;
+- ordinary-language wording remains candidate wording pending human-fidelity trials;
+- case-pressure detection rules are current research heuristics, not validated cognitive diagnostics;
+- the configured budgets are not yet empirically optimal;
+- kernel remains frozen;
+- TRANSLATION-12 human-validation status remains PENDING.
+
+FSP-INTEGRATION-2: PASS as a human-compression / progressive-disclosure / cognitive-load-gate build.
