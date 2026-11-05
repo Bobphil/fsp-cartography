@@ -620,3 +620,75 @@ Research ceiling:
 - false-equivalence detection is local to the represented task dimensions.
 
 FSP-TRANSLATION-4: PASS as a broader adversarial robustness test.
+
+## FSP-TRANSLATION-5
+
+Date: 2026-11-05
+
+Purpose:
+
+- replicate the translation grammar in a structurally different domain;
+- use persistent-pain care as a domain-native comparator;
+- test whether the same primitives survive without flattening domain differences;
+- audit primitive necessity through ablation;
+- impose an evidence-based publication-claim ceiling.
+
+Comparator domain:
+
+- P — patient lived-experience framework;
+- C — clinical biomedical framework;
+- I — insurance/utilization framework;
+- S — cultural-spiritual meaning framework.
+
+Domain-native boundaries preserved:
+
+- first-person pain report has standing without proving a unique mechanism;
+- clinical expertise licenses bounded recommendations without exhausting lived meaning;
+- insurer authorization has institutional power without clinical or ontological authority;
+- cultural-spiritual meaning may affect acceptable care without universalizing its metaphysics.
+
+Cross-domain findings:
+
+- persistent-pain comparator has a complete 12-edge directed translation matrix: PASS;
+- forest and persistent-pain cases share the full current primitive set: PASS;
+- replication does not require native-topology identity: PASS;
+- incomplete translation matrices block replication: PASS;
+- domain-specific primitive differences remain visible when introduced: PASS.
+
+Primitive-ablation findings:
+
+- TASK -> task-boundedness loss: PASS;
+- EVIDENCE -> evidence-provenance loss: PASS;
+- WARRANT -> licensing loss: PASS;
+- BACKGROUND -> context-sensitivity loss: PASS;
+- CLAIM_CEILING -> claim-restraint loss: PASS;
+- ONTOLOGY -> ontological-pluralism loss: PASS;
+- STANDING -> standing/anti-domination loss: PASS;
+- REMAINDER -> loss-tracking and ontological-pluralism loss: PASS;
+- AUXILIARY -> auxiliary-sensitivity loss: PASS;
+- AGENCY -> anti-domination loss: PASS.
+
+Publication ceiling:
+
+- result: CROSS_DOMAIN_REPLICATION;
+- universal/domain-general claims remain prohibited;
+- Duhem-Quine proof remains prohibited;
+- universal PRF translatability remains prohibited.
+
+GitHub Actions:
+
+- run id: `42028479399`;
+- tested head: `f7b6173c16e5d11064c19d999a014d98c968ed38`;
+- 163 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- both domains are still constructed cases;
+- no external corpus or empirical human validation has yet been used;
+- primitive ablation shows current non-redundancy, not logical minimality;
+- only two domains have been replicated;
+- no universal FSP translation theorem is licensed.
+
+FSP-TRANSLATION-5: PASS as a cross-domain replication.

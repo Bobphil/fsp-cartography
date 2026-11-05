@@ -64,3 +64,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-TRANSLATION-4` adds a deterministic out-of-sample perturbation grammar, auxiliary-network sensitivity/ablation, and false-equivalence detection so matching surface actions cannot substitute for deeper task-signature comparison.
+
+
+`FSP-TRANSLATION-5` adds a persistent-pain comparator, cross-domain replication logic, primitive-ablation auditing, and an explicit publication-claim ceiling.
