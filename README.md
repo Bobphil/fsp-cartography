@@ -120,3 +120,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-REVISION-10` adds compensation/non-compensation boundaries, non-waivable protected capability floors, burden-shifting audits, repair-legitimacy conditions, and multi-party authorization without reason convergence, with coercion and missing standing as hard blockers.
+
+
+`FSP-REVISION-11` adds emergency-condition auditing, bounded temporary floor exceptions, necessity/less-restrictive-alternative safeguards, automatic sunset and non-self-renewal, constrained proxy authorization, and explicit restoration-to-normal-governance tests with detection of normalized emergency powers.

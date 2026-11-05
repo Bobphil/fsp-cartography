@@ -1912,3 +1912,78 @@ Research ceiling:
 - TRANSLATION-12 human-validation status remains PENDING.
 
 FSP-REVISION-10: PASS as a normative repair-boundary / plural-authorization build.
+
+## FSP-REVISION-11
+
+Date: 2026-11-05
+
+Purpose:
+
+- stress-test protected floors under genuine emergency constraint;
+- require necessity and less-restrictive-alternative review;
+- preserve residual capability under temporary exceptions;
+- add sunset/review architecture;
+- distinguish non-ideal emergency authorization from normal authorization;
+- require restoration to ordinary governance;
+- detect normalization of temporary emergency powers.
+
+Temporary floor exceptions:
+
+- ordinary governance sufficiency blocks exception: PASS;
+- necessity rationale required: PASS;
+- less restrictive alternative blocks exception: PASS;
+- residual capability required: PASS;
+- valid bounded sunset required: PASS;
+- independent review required: PASS;
+- minority-report preservation required: PASS;
+- exceptionCreatesNewFloor = false: PASS;
+- exceptionAuthorizesPermanentChange = false: PASS.
+
+Sunset/review architecture:
+
+- interim review schedule validated: PASS;
+- automatic expiration required: PASS;
+- renewal requires new authorization: PASS;
+- renewal requires new evidence: PASS;
+- renewal requires independent review: PASS;
+- silent self-renewal exposed as failure: PASS.
+
+Non-ideal authorization:
+
+- unavailable group may receive explicit proxy representation: PASS;
+- constrained authorization returns TEMPORARILY_AUTHORIZED_UNDER_CONSTRAINT: PASS;
+- temporaryAuthorizationOnly = true: PASS;
+- normalAuthorizationPresumed = false: PASS;
+- retrospective review preserved: PASS;
+- missing proxy standing blocks authorization: PASS;
+- severe coercion still blocks authorization: PASS;
+- invisible emergency evidence blocks authorization: PASS;
+- independent review remains required: PASS.
+
+Restoration:
+
+- full steps + normal conditions + terminated exception -> RESTORED_TO_NORMAL_GOVERNANCE: PASS;
+- incomplete restoration before deadline -> RESTORATION_IN_PROGRESS: PASS;
+- active exception past deadline with unrestored normal conditions -> EXCEPTION_NORMALIZED: PASS;
+- incomplete restoration after deadline without active exception -> FAILED_RESTORATION: PASS;
+- emergencyPersistenceJustifiesContinuation = false: PASS;
+- post-restoration REOPEN preserved: PASS.
+
+GitHub Actions:
+
+- run id: `42053750408`;
+- tested head: `2bb15a48a410aae2f9c7ae6b8f39774f9c6eec94`;
+- 444 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- emergency-condition severity and necessity remain represented judgments;
+- temporary floor exceptions are not a universal constitutional doctrine;
+- proxy representation is a non-ideal governance device, not equivalent to direct participation;
+- restoration tests identify governance state, not legal validity;
+- no complete theory of emergency powers, constitutional law, or public-health ethics is established;
+- TRANSLATION-12 human-validation status remains PENDING.
+
+FSP-REVISION-11: PASS as an emergency-governance / restoration-to-normal-governance build.
