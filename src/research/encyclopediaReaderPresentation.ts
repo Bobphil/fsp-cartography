@@ -110,19 +110,6 @@ export function buildProsePanel(
   };
 }
 
-function timelineModel(session:ReaderSession,dossier:CanonicalCaseDossier[]){
-  return {
-    nodes:[...dossier].sort((a,b)=>a.ordinal-b.ordinal).map(state=>({
-      stateId:state.stateId,
-      periodLabel:state.periodLabel,
-      ordinal:state.ordinal,
-      active:session.selection?.kind==="STATE" && session.selection.targetId===state.stateId,
-      contextual:contextual(session,"STATE",state.stateId)
-    })),
-    edges:dossier.length<2 ? [] : []
-  };
-}
-
 function fullTimeline(session:ReaderSession,dossier:CanonicalCaseDossier){
   return {
     nodes:[...dossier.states].sort((a,b)=>a.ordinal-b.ordinal).map(state=>({
