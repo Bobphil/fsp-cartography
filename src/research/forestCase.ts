@@ -93,10 +93,10 @@ const pair = (
   sourcePrfId,
   targetPrfId,
   task: FOREST_TASK,
-  correspondences: preserved.map((item, index) => ({
+  correspondences: preserved.map(item => ({
     sourceElement: item,
     targetElement: item,
-    relation: index === 0 ? relation : "DIRECT"
+    relation
   })),
   preserved,
   remainder,
