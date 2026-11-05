@@ -2330,3 +2330,110 @@ Research ceiling:
 - TRANSLATION-12 human-validation status remains PENDING.
 
 FSP-INTEGRATION-3: PASS as a lived-Doing continuity / recognition-ownership / anti-form-filling prototype build.
+
+## FSP-HUMAN-FIDELITY-1
+
+Date: 2026-11-05
+
+Purpose:
+
+- define a real-participant human-fidelity protocol;
+- elicit THERE_I_AM / YES_HERE_I_AM / I_SEE_ME without leading recognition claims;
+- detect form-filling, authorship, and lived-continuity concerns;
+- preserve verbatim participant evidence;
+- exclude synthetic/model evidence from human validation;
+- provide bounded PENDING / INSUFFICIENT / MIXED / PASS / FAIL gate states.
+
+Protocol readiness:
+
+- protocol id FSP-HUMAN-FIDELITY-1.0: PASS;
+- minimum formative participant count = 5: PASS;
+- independent consent required: PASS;
+- participant-owned lived case required: PASS;
+- skip option required: PASS;
+- withdrawal option required: PASS;
+- post-journey interview required: PASS;
+- recognition elicitation required: PASS;
+- form-filling probe required: PASS;
+- research-vocabulary priming prohibited: PASS;
+- leading recognition claims prohibited: PASS.
+
+Journey interview:
+
+- eight questions: PASS;
+- all questions non-leading: PASS;
+- lived continuity covered: PASS;
+- own-language preservation covered: PASS;
+- local recognition covered: PASS;
+- architectural self-location covered: PASS;
+- diachronic recognition covered: PASS;
+- form-filling covered: PASS;
+- authorship covered: PASS;
+- missing/distorted context covered: PASS.
+
+Evidence-source firewall:
+
+- perfect SYNTHETIC records -> eligible human evidence 0: PASS;
+- perfect MODEL_SIMULATION records -> eligible human evidence 0: PASS;
+- synthetic plus real records do not inflate eligible count: PASS;
+- current no-live-record repository state -> PENDING: PASS.
+
+Session eligibility:
+
+- missing/invalid protocol conditions exclude session: PASS;
+- research-vocabulary priming excludes session: PASS;
+- system-claimed recognition excludes session: PASS;
+- withdrawal excludes session: PASS;
+- facilitator-led conclusion excludes session: PASS;
+- excluded sessions remain visible in excludedSessionIds: PASS.
+
+Recognition evidence:
+
+- YES with verbatim counts as affirmation: PASS;
+- PARTLY with verbatim counts as bounded affirmation: PASS;
+- YES/PARTLY without verbatim does not count: PASS;
+- NO preserved as rejection: PASS;
+- recognition dimensions remain separate: PASS.
+
+Human evidence gate transitions using artificial gate fixtures only:
+
+- 0 eligible real records -> PENDING: PASS;
+- 2 eligible real records -> INSUFFICIENT: PASS;
+- artificial 5-record clean case -> PASS: PASS;
+- artificial single-adverse case -> MIXED: PASS;
+- artificial majority-adverse case -> FAIL: PASS.
+
+Adverse evidence preservation:
+
+- form-filling concern preserved: PASS;
+- authorship concern preserved: PASS;
+- lived-continuity concern preserved: PASS;
+- adverse participant is not erased by favorable majority: PASS;
+- adverseCasesPreserved = true: PASS.
+
+Important evidence boundary:
+
+- REAL_PARTICIPANT fixtures in unit tests are artificial gate-transition fixtures only;
+- they are not empirical participant records;
+- they must not be reported as completed human trials;
+- actual live participant count remains 0;
+- actual human evidence status remains PENDING.
+
+GitHub Actions:
+
+- run id: `42065316743`;
+- tested head: `f5af82181be295c5b3cd0922ff641873843e7b4f`;
+- 534 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- protocol readiness does not establish human fidelity;
+- five participants is a formative gate, not a generalizable sample;
+- majority recognition does not establish psychological efficacy;
+- PASS is a bounded formative evidence state, not population validation;
+- no actual participant evidence has yet been collected in this repository;
+- TRANSLATION-12 human-validation status remains PENDING.
+
+FSP-HUMAN-FIDELITY-1: PASS as a live-participant protocol / human-evidence-gate build, with empirical human evidence PENDING.

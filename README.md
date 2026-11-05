@@ -135,3 +135,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-INTEGRATION-3` adds lived-Doing continuity audits, user-language anchor preservation, optional recognition prompts for There-I-Am / Yes-Here-I-Am / I-See-Me, and an adversarial form-filling audit. Maya, Leila, and Jordan pass structurally after the audit caught and corrected two fixture-level losses of exact user language. Human phenomenological validation remains PENDING.
+
+
+`FSP-HUMAN-FIDELITY-1` adds an executable live-participant protocol for lived-continuity, There-I-Am / Yes-Here-I-Am / I-See-Me recognition elicitation, form-filling and authorship detection, non-leading journey interviews, and a human-evidence gate. Synthetic and model records are constitutionally excluded from human evidence. Current live participant count is 0 and actual evidence status remains PENDING.
