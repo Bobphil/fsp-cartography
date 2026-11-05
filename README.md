@@ -55,3 +55,6 @@ The repository now also contains a deliberately non-constitutional research laye
 `FSP-TRANSLATION-1` explores task-relative translation among divergent PRFs, explicit translation remainder/failure, cooperation without ontological convergence, and transparent agency/repair diagnostics.
 
 These research constructs are not part of the frozen Cartography kernel unless separately justified through a future Change Gate.
+
+
+`FSP-TRANSLATION-2` adds a four-PRF forest stress case with a complete directed translation matrix, a narrowly scoped underdetermination candidate, negotiated shared-task logic, institutional power auditing, and multi-party capability-preserving repair.

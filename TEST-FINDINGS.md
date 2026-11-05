@@ -445,3 +445,58 @@ Research ceiling:
 - no Cartography kernel semantics were changed.
 
 FSP-TRANSLATION-1: PASS as a first executable research scaffold.
+
+## FSP-TRANSLATION-2
+
+Date: 2026-11-05
+
+Purpose:
+
+- instantiate four divergent PRFs in one contested forest case;
+- require all 12 directed pairwise translations;
+- preserve asymmetric remainder;
+- operationalize a task-relative underdetermination candidate;
+- negotiate rather than assume a shared task;
+- audit institutional concentration of agenda, information, and decision power;
+- test multi-party capability-preserving repair.
+
+Integrated findings:
+
+- complete 12-edge directed translation matrix: PASS;
+- asymmetric translation remainder: PASS;
+- STRUCTURAL and TASK_ONLY translation outcomes: PASS;
+- missing directed translation is surfaced rather than inferred: PASS;
+- candidate underdetermination supported when task signatures match and ontology differs: PASS;
+- candidate theorem withheld when one task-relevant consequence differs: PASS;
+- first task ("maximize economic value") rejected without manufactured cooperation: PASS;
+- second task negotiated into cooperation without ontological convergence: PASS;
+- institutional power audit identifies severe risk for the most blocked participant and concentration of agenda/information/decision power: PASS;
+- capability-preserving multi-party repair: PASS;
+- repair that increases information while worsening contestability/reopenability: FAILS as intended;
+- relational and religious ontological remainders remain explicit after task agreement: PASS;
+- property/market PRF retains bounded standing and is not modeled as unlimited-use entitlement: PASS.
+
+GitHub Actions:
+
+- initial integrated run `42025229645`: 122/123 tests passed, 1 failed;
+- failure classification: fixture-construction mismatch, not formalism failure;
+- cause: intended STRUCTURAL routes mixed STRUCTURAL and DIRECT correspondences, so the pre-existing classifier correctly returned PARTIAL;
+- repair: align the forest fixture with the already frozen classification semantics; no TRANSLATION-1 classifier change.
+
+Final regression:
+
+- run id: `42025294279`;
+- tested head: `5203c0fac89a994011f9cb0cffbe34c13f313910`;
+- 123 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- the underdetermination result is task-relative and candidate only;
+- equal task signatures do not establish global theoretical equivalence;
+- no claim is made that all PRFs are mutually translatable;
+- no claim is made that cooperation proves institutional legitimacy;
+- the forest PRFs are formal stress constructs, not complete anthropological representations.
+
+FSP-TRANSLATION-2: PASS as an integrated adversarial research case.
