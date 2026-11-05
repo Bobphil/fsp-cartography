@@ -1050,3 +1050,82 @@ Research ceiling:
 - no statistical generalization across arbitrary AIF corpora is licensed.
 
 FSP-TRANSLATION-10: PASS as a reproducible extraction and scale-up-gate build.
+
+## FSP-TRANSLATION-11
+
+Date: 2026-11-05
+
+Purpose:
+
+- increase the external batch from six to thirty automatically selected nodesets;
+- preserve a stratified 10 RA / 10 CA / 10 MA sample;
+- prepare an executable external human-coder trial packet under the frozen protocol;
+- replace mean-only latency with latency-distribution measurement;
+- distinguish infrastructure scale-up PASS from human-coding evidence PENDING.
+
+Large-batch findings:
+
+- committed sample size: 30 nodesets;
+- RA: 10;
+- CA: 10;
+- MA: 10;
+- source corpora: 2;
+- Kosciuszko contribution: 17;
+- Otway contribution: 13;
+- MA source imbalance preserved rather than normalized away: 7 Kosciuszko / 3 Otway;
+- deterministic large-sample reconstruction: PASS;
+- relation shortfall reporting without fabricated substitutes: PASS.
+
+Human-coder trial packet:
+
+- packet version: FSP-AIF-HUMAN-TRIAL-1.0;
+- protocol version: FSP-AIF-CODER-1.0;
+- protocol frozen: PASS;
+- packet samples all RA/CA/MA strata: PASS;
+- raw source node/edge identities preserved: PASS;
+- coding fields blank at distribution: PASS;
+- other-coder interpretation not embedded: PASS;
+- human validation status remains PENDING.
+
+Latency-distribution findings:
+
+- mean latency recorded: PASS;
+- p50 latency recorded: PASS;
+- p95 latency recorded: PASS;
+- maximum latency recorded: PASS;
+- requested query workload executed: PASS;
+- native relation matches recovered: PASS;
+- committed 30-nodeset fixture remains below current 25 ms p95 CI threshold: PASS.
+
+Scale-up regression:
+
+- baseline: 6 nodesets;
+- large batch: 30 nodesets;
+- strict scale increase: PASS;
+- RA/CA/MA coverage: PASS;
+- two-corpus coverage: PASS;
+- native-query recovery: PASS;
+- p95 threshold: PASS;
+- infrastructureStatus: PASS;
+- humanCodingStatus: PENDING;
+- deliberately excessive p95 blocks regression: PASS;
+- missing MA family blocks regression: PASS;
+- non-increasing scale blocks regression: PASS.
+
+GitHub Actions:
+
+- run id: `42033055250`;
+- tested head: `02c55eb77cfd4e756d30ddca808a8d79374e32be`;
+- 255 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- this is infrastructure-scale evidence, not completed human inter-coder reliability;
+- the 30-node sample is materially larger but still not full-corpus ingestion;
+- source sampling is relation-stratified, not statistically representative of all AIF corpora;
+- performance figures remain CI regression metrics rather than hardware-independent benchmarks;
+- semantic FSP augmentation remains human-reviewed rather than automatic.
+
+FSP-TRANSLATION-11: PASS as a large-batch infrastructure regression with human-coder trial PENDING.

@@ -82,3 +82,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-TRANSLATION-10` adds deterministic raw-AIF relation-neighborhood extraction, RA/CA/MA stratified sampling, a frozen future human-coder protocol, query-performance benchmarking, and a multi-dimensional scale-up acceptance gate.
+
+
+`FSP-TRANSLATION-11` scales automatic external extraction to a 30-nodeset, two-corpus RA/CA/MA-stratified sample, adds a frozen blank human-coder trial packet, measures query latency by distribution, and distinguishes infrastructure PASS from human-coding PENDING.
