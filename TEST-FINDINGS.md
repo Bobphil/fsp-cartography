@@ -1619,3 +1619,78 @@ Research ceiling:
 - TRANSLATION-12 human-validation status remains PENDING.
 
 FSP-REVISION-6: PASS as a concept-formation / vocabulary-governance revision build.
+
+## FSP-REVISION-7
+
+Date: 2026-11-05
+
+Purpose:
+
+- add concept genealogy and ordered historical versions;
+- represent semantic drift through institutional sedimentation;
+- formalize cross-generation translation and false-friend risk;
+- re-audit formation versus justification;
+- add historical REOPEN conditions.
+
+Genealogy findings:
+
+- ordered concept versions validated: PASS;
+- sedimentation links validated: PASS;
+- policy/curriculum/institutional carriers preserved: PASS;
+- continuity does not imply identity: PASS.
+
+Semantic-drift findings:
+
+- definition drift detected: PASS;
+- scope drift detected: PASS;
+- contrast-set drift detected: PASS;
+- provenance loss detected: PASS;
+- contestability loss detected: PASS;
+- accumulated omissions preserved: PASS;
+- accumulated additions preserved: PASS;
+- historical persistence never establishes justification: PASS.
+
+Cross-generation translation:
+
+- origin -> policy = CONTINUITY_WITH_REMAINDER: PASS;
+- origin -> training = PARTIAL_INHERITANCE: PASS;
+- later generic meaning projected backward = FALSE_FRIEND: PASS;
+- back-projection risk preserved explicitly: PASS;
+- unknown-version translation rejected: PASS.
+
+Formation/justification re-audit:
+
+- persistence evidence separated from formation explanation: PASS;
+- independent current justification remains separately required: PASS;
+- persistenceJustifiesCurrentUse = false: PASS;
+- formationExplainsPersistence may be true without licensing current use: PASS.
+
+Historical REOPEN:
+
+- SEMANTIC_DRIFT trigger: PASS;
+- PROVENANCE_LOSS trigger: PASS;
+- CONTESTABILITY_LOSS trigger: PASS;
+- TASK_CHANGE trigger: PASS;
+- NEW_EVIDENCE trigger: PASS;
+- CROSS_GENERATION_FALSE_FRIEND trigger: PASS;
+- CAPTURED_SEDIMENTATION trigger: PASS;
+- historical persistence authorizes present use = false: PASS;
+- false-friend or captured-sedimentation cases block provisional continuation: PASS.
+
+GitHub Actions:
+
+- run id: `42049129281`;
+- tested head: `03b617512a2e7d2fcec45f09bfd9d937736c88d5`;
+- 375 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- genealogies are structured research reconstructions, not complete intellectual histories;
+- sedimentation events do not by themselves establish causal sufficiency;
+- semantic drift does not imply corruption;
+- inheritance may remain provisionally usable after REOPEN where serious capture/back-projection risks are absent;
+- TRANSLATION-12 human-validation status remains PENDING.
+
+FSP-REVISION-7: PASS as a historical concept-genealogy / sedimentation-governance build.

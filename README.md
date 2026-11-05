@@ -108,3 +108,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-REVISION-6` adds concept provenance, interpretive-resource competition, partial/failed concept translation, concept-capture/co-option auditing, and shared-language nonconvergence with practical coordination across plural vocabularies.
+
+
+`FSP-REVISION-7` adds concept genealogy, semantic drift through institutional sedimentation, cross-generation translation and false-friend detection, a renewed formation != justification audit, and historical REOPEN triggers for inherited concepts.
