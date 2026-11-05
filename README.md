@@ -141,3 +141,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-HUMAN-FIDELITY-1A` adds the first operational live-session packet: participant information/consent language, facilitator script with prohibited moves, participant record form, coding sheet, and a synthetic end-to-end dry run. The dry run passes while eligible human evidence remains 0 and the human-fidelity gate remains PENDING.
+
+
+`FSP-FIVE-CASE-ATLAS` adds a canonical comparative backbone for the encyclopedia: Foucault light-speed, Neptune/Vulcan, Galileo, Newton→Einstein, and DESI 2024→2026 are encoded through the shared diachronic inquiry state `<D,C,E,W,A,B,M,O,T,S,P,X,R,GAMMA,F>`, explicit transition dimensions, controlled-revision probes, source ledgers, claim ceilings, and REOPEN conditions. The common schema preserves distinct ordered historical topologies rather than flattening the cases.

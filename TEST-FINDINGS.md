@@ -2539,3 +2539,115 @@ Research ceiling:
 - TRANSLATION-12 human-validation status remains PENDING.
 
 FSP-HUMAN-FIDELITY-1A: PASS as an operational first-live-session packet / synthetic trial-run build, with human evidence PENDING.
+
+## FSP FIVE-CASE ATLAS
+
+Date: 2026-11-05
+
+Purpose:
+
+- create one canonical dossier each for Foucault, Neptune/Vulcan, Galileo, Newton→Einstein, and DESI 2024→2026;
+- encode every case through the same diachronic FSP inquiry fields;
+- represent explicit transition operators rather than prose-only historical change;
+- add controlled-revision probes, source ledgers, claim ceilings, and REOPEN conditions;
+- preserve distinct historical topologies rather than flattening cases into one pattern.
+
+Shared schema:
+
+- D / C / E / W / A / B / M / O / T / S / P / X / R / GAMMA / F represented: PASS;
+- ordered inquiry states: PASS;
+- typed transition dimensions: PASS;
+- controlled revision probes: PASS;
+- source provenance: PASS;
+- case-level claim ceilings: PASS;
+- may-not-infer boundaries: PASS;
+- REOPEN conditions: PASS.
+
+Canonical dossiers:
+
+- Foucault light-speed: PASS;
+- Neptune/Vulcan: PASS;
+- Galileo: PASS;
+- Newton→Einstein: PASS;
+- DESI 2024→2026: PASS.
+
+Foucault:
+
+- evidence/claim-ceiling transition represented: PASS;
+- discrimination preserved without ontological uniqueness: PASS;
+- historical wave/particle semantic caution preserved: PASS.
+
+Neptune/Vulcan:
+
+- successful auxiliary repair represented: PASS;
+- failed structurally similar repair represented: PASS;
+- deeper framework revision represented: PASS;
+- universal auxiliary-first rule blocked: PASS.
+
+Galileo:
+
+- evidence change represented: PASS;
+- meaning change represented: PASS;
+- standing change represented: PASS;
+- power/authority change represented: PASS;
+- institutional settlement separated from epistemic demonstration: PASS.
+
+Newton→Einstein:
+
+- meaning change represented: PASS;
+- ontology change represented: PASS;
+- framework change represented: PASS;
+- translation remainder represented: PASS;
+- limiting continuity preserved without identity: PASS.
+
+DESI 2024→2026:
+
+- April 2024 inquiry state represented: PASS;
+- March 2025 strengthened combined-data hint represented: PASS;
+- July 2026 Lyman-alpha full-shape shift toward Lambda-CDM represented: PASS;
+- 2026 update does not erase prior evidence history: PASS;
+- discovery overclaim blocked: PASS;
+- future data/model/systematics REOPEN conditions represented: PASS.
+
+Source/provenance:
+
+- every ledger source used by at least one state/transition: PASS;
+- unknown source IDs fail validation: PASS;
+- official DESI sources used for current DESI states: PASS;
+- reference sources used for historical/philosophical cases: PASS.
+
+Comparative topology:
+
+- ordered transition signatures distinct across all five cases: PASS;
+- shared union of changed dimensions does not imply same topology: PASS;
+- Neptune/Vulcan and Newton→Einstein intentionally demonstrate this distinction: PASS;
+- common schema does not impose common ontology: PASS.
+
+Failure/repair history:
+
+- initial comparator required five unique unions of changed dimensions;
+- Neptune/Vulcan and Newton→Einstein legitimately touched the same overall dimension set across their histories;
+- that test incorrectly treated shared coverage as historical flattening;
+- dossier content was not changed;
+- comparator was refined to ordered transition topology;
+- repaired gate passed.
+
+GitHub Actions:
+
+- failed exploratory run: `42090223442` — 571/572, 1 comparator failure;
+- repaired passing run: `42090311671`;
+- tested head: `a4b0dff4b18e46e9daa4a0ee00ec2d6c9a36b727`;
+- 573 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- the Atlas is a structured historical/philosophical reconstruction, not a claim of exhaustive historiography;
+- the common field decomposition is not proven unique;
+- retrospective encoding does not reproduce the first-person experience of historical actors;
+- common representation does not imply common ontology;
+- source ledgers are canonical starting points, not exhaustive bibliographies;
+- DESI remains a live inquiry frontier.
+
+FSP FIVE-CASE ATLAS: PASS as a canonical diachronic comparative backbone for the FSP encyclopedia.
