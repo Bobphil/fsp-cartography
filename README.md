@@ -61,3 +61,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-TRANSLATION-3` adds time-indexed evidence snapshots, auxiliary-assumption comparison, translation-remainder dynamics, and a robustness test that distinguishes preserved underdetermination, task-relevant breakdown, and REOPEN conditions.
+
+
+`FSP-TRANSLATION-4` adds a deterministic out-of-sample perturbation grammar, auxiliary-network sensitivity/ablation, and false-equivalence detection so matching surface actions cannot substitute for deeper task-signature comparison.

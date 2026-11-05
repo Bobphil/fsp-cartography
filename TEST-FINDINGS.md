@@ -557,3 +557,66 @@ Research ceiling:
 - no claim is made that task-equivalence implies theoretical equivalence.
 
 FSP-TRANSLATION-3: PASS as a temporal robustness test.
+
+## FSP-TRANSLATION-4
+
+Date: 2026-11-05
+
+Purpose:
+
+- reduce hand-tuning by adding a deterministic predeclared perturbation grammar;
+- expose the underdetermination candidate to a broader perturbation suite;
+- represent auxiliary assumptions as a sensitivity network;
+- ablate auxiliary support nodes;
+- detect false equivalence when matching actions hide deeper divergence.
+
+Perturbation grammar:
+
+- ADD_SHARED_EVIDENCE
+- ADD_PRF_SPECIFIC_EVIDENCE
+- REMOVE_SHARED_EVIDENCE
+- ALTER_AUXILIARY
+- ADD_CONSEQUENCE
+- ADD_ACTION
+- REMOVE_ACTION
+
+Out-of-sample findings:
+
+- generated suite is deterministic: PASS;
+- duplicate perturbation IDs rejected: PASS;
+- shared evidence can update all PRFs in parallel: PASS;
+- PRF-specific evidence alters only its target structure: PASS;
+- shared evidence can preserve the A/C candidate: PASS;
+- PRF-specific evidence can break A/C task equivalence: PASS;
+- auxiliary-only perturbation triggers REOPEN_AUXILIARIES: PASS.
+
+Auxiliary-network findings:
+
+- all declared auxiliary assumptions are exposed as network nodes: PASS;
+- declared dependency ablation identifies task-level sensitivity: PASS;
+- auxiliary ablation remains localized to the relevant PRF: PASS;
+- unknown auxiliary nodes are rejected: PASS.
+
+False-equivalence findings:
+
+- same action + different auxiliary support is flagged: PASS;
+- same action + different predicted consequences is flagged: PASS;
+- genuinely matching local structures are not falsely flagged: PASS.
+
+GitHub Actions:
+
+- run id: `42027864066`;
+- tested head: `206b9e63a574a0e054a4e499005f590eba695876`;
+- 149 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- perturbation grammar is broader but still human-designed;
+- auxiliary dependencies are declared rather than inferred;
+- no autonomous hypothesis generator exists;
+- survival under this suite does not establish global robustness;
+- false-equivalence detection is local to the represented task dimensions.
+
+FSP-TRANSLATION-4: PASS as a broader adversarial robustness test.
