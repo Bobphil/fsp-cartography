@@ -48,6 +48,7 @@ export interface RevisionCandidateAudit {
   newLiabilities:string[];
   empiricalStatus:"SUPPORTED"|"UNRESOLVED"|"FAILED";
   explanatoryGain:string[];
+  revisionScopeCost:number;
   minimalMutilationScore:number;
 }
 
@@ -189,6 +190,17 @@ function commonCount(before:RevisionState,after:RevisionState):number{
   return common;
 }
 
+const revisionScopeCost:Record<RevisionTarget,number>={
+  EVIDENCE_ASSESSMENT:1,
+  AUXILIARY:1,
+  WARRANT:2,
+  BACKGROUND:2,
+  CLAIM_CEILING:1,
+  TASK:3,
+  ONTOLOGY:4,
+  FRAMEWORK:5
+};
+
 export function auditRevisionCandidate(
   application:RevisionApplication,
   result:{
@@ -202,6 +214,9 @@ export function auditRevisionCandidate(
   const preservedItemCount=commonCount(application.before,application.after);
   const changedItemCount=Math.max(0,beforeCount-preservedItemCount);
 
+  const scopeCost=revisionScopeCost[application.operation.target];
+  const effectiveChangeCost=changedItemCount+Math.max(0,scopeCost-1);
+
   return {
     candidateId:application.operation.id,
     target:application.operation.target,
@@ -212,8 +227,9 @@ export function auditRevisionCandidate(
     newLiabilities:result.newLiabilities??[],
     empiricalStatus:result.empiricalStatus,
     explanatoryGain:result.explanatoryGain??[],
+    revisionScopeCost:scopeCost,
     minimalMutilationScore:
-      beforeCount===0 ? 1 : preservedItemCount/beforeCount
+      beforeCount===0 ? 1 : Math.max(0,1-(effectiveChangeCost/beforeCount))
   };
 }
 
