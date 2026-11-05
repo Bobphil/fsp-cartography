@@ -1773,3 +1773,76 @@ Research ceiling:
 - TRANSLATION-12 human-validation status remains PENDING.
 
 FSP-REVISION-8: PASS as an institutional-ecology / cross-generational capability build.
+
+## FSP-REVISION-9
+
+Date: 2026-11-05
+
+Purpose:
+
+- govern institutional repair sequencing;
+- preserve capability tradeoffs across groups without aggregate netting;
+- audit meaningful exit, voice, and appeal separately;
+- distinguish reversible from irreversible repair;
+- preserve REOPEN across generations.
+
+Repair sequencing:
+
+- typed ordered repair steps: PASS;
+- explicit preconditions: PASS;
+- evidence/standing repair may precede policy/authority change: PASS;
+- invalid irreversible rollback declaration rejected: PASS;
+- recommendation remains null: PASS.
+
+Capability tradeoffs:
+
+- gains preserved by group: PASS;
+- losses preserved by group: PASS;
+- unknowns preserved by group: PASS;
+- aggregateNetScore = null: PASS;
+- distributional conflict detected: PASS;
+- limited Pareto-style improvement detected only when no represented losses/unknowns remain: PASS.
+
+Exit / voice / appeal:
+
+- meaningful exit requires non-prohibitive cost: PASS;
+- meaningful voice requires usable channels and non-severe retaliation risk: PASS;
+- meaningful appeal requires independent review and non-severe retaliation risk: PASS;
+- exit, voice, and appeal remain independently auditable: PASS.
+
+Repair reversibility:
+
+- rollback availability explicitly tested: PASS;
+- reversible label alone does not imply practical reversibility: PASS;
+- reversible step can support bounded experimentation when rollback remains available: PASS;
+- irreversible step or irreversible consequence triggers higher-evidence-burden flag: PASS.
+
+Multi-generation REOPEN:
+
+- generations 1-4 covered: PASS;
+- evidence review required: PASS;
+- capability review required: PASS;
+- minority-report review required: PASS;
+- later generation can challenge inherited repair: PASS;
+- missing generation breaks REOPEN continuity: PASS;
+- firstGenerationApprovalBindsFutureGenerations = false: PASS.
+
+GitHub Actions:
+
+- run id: `42051413513`;
+- tested head: `bc141ac82a0ebc0c20ae469a9e7ba3b49b07f70c`;
+- 408 tests passed;
+- 0 failed;
+- browser TypeScript build: PASS.
+
+Research ceiling:
+
+- repair sequencing is a governed dependency structure, not a universal optimal sequence;
+- group tradeoffs are represented judgments, not commensurated welfare quantities;
+- Pareto-style improvement is descriptive and does not settle legitimacy;
+- exit/voice/appeal availability does not by itself establish justice;
+- reversibility is one governance virtue, not an absolute requirement;
+- future-generation REOPEN preserves corrigibility but does not solve intergenerational justice;
+- TRANSLATION-12 human-validation status remains PENDING.
+
+FSP-REVISION-9: PASS as an institutional repair sequencing / corrigibility governance build.
