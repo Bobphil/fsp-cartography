@@ -272,12 +272,12 @@ export function buildReaderPanel(
       lede:dossier.canonicalQuestion,
       sections:[
         {heading:"Why this case matters",items:dossier.philosophicalRole},
-        {heading:"This chapter opens onto",items:session.contextualTargets.map(t=>t.rationale)}
+        {heading:"What to watch for",items:["The same kind of local repair can be rationally available in more than one inquiry without becoming a universal rule for what scientists should revise."]},
+        {heading:"Suggested path",items:["Follow the timeline first. Then inspect the Vulcan controlled-revision probe, check the source support, and finish at the case claim ceiling."]}
       ],
       actions:[
-        {id:"timeline",label:"View state timeline",kind:"TIMELINE",primary:true},
-        ...targetActions(session),
-        {id:"full-case",label:"Explore full case",kind:"FULL_CASE"},
+        {id:"timeline",label:"Follow the inquiry through time",kind:"TIMELINE",primary:true},
+        {id:"ceiling",label:"See the case claim ceiling",kind:"CASE_CLAIM_CEILING",targetId:dossier.caseId},
         ...commonActions(session)
       ]
     };
@@ -291,11 +291,11 @@ export function buildReaderPanel(
       lede:"Each node is a complete inquiry state; each edge records a governed revision rather than mere chronological succession.",
       timeline:fullTimeline(session,dossier),
       sections:[
-        {heading:"Contextual aperture",items:session.contextualTargets.map(t=>t.rationale)}
+        {heading:"How to use this timeline",items:["Start with a chapter-routed transition. Open the probe only after you have seen the historical change it is meant to illuminate. Disabled items belong to the larger case but are outside this chapter’s current aperture."]}
       ],
       actions:[
-        ...targetActions(session).filter(a=>a.kind==="STATE" || a.kind==="TRANSITION" || a.kind==="PROBE"),
-        {id:"full-case",label:"Explore full case",kind:"FULL_CASE"},
+        ...targetActions(session).filter(a=>a.kind==="TRANSITION" || a.kind==="PROBE"),
+        {id:"full-case",label:"Show the full case beyond this chapter",kind:"FULL_CASE"},
         ...commonActions(session)
       ]
     };
