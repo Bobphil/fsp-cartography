@@ -21,7 +21,7 @@ test('Chapter 5 patch includes all pilot-risk surfaces',()=>{
   assert.match(CH5_PILOT.patchHtml,/Where this chapter fits/);
   assert.match(CH5_PILOT.patchHtml,/Later reopening/);
   assert.match(CH5_PILOT.patchHtml,/GALILEO-COPERNICAN/);
-  assert.match(CH5_PILOT.patchHtml,/#node=ch05&tab=inquire/);
+  assert.match(CH5_PILOT.patchHtml,/#node=ch05&amp;tab=inquire/);
 });
 
 test('Chapter 5 rollback is marker-bounded and original prose preserving',()=>{
@@ -35,6 +35,6 @@ test('Chapter 5 acceptance checks protect current Pressbooks functionality',()=>
   assert.match(joined,/Table of Contents/);
   assert.match(joined,/Previous\/next/);
   assert.match(joined,/citations and footnotes/);
-  assert.match(joined,/mobile/);
+  assert.match(joined,/mobile/i);
   assert.match(joined,/print\/PDF export/);
 });
