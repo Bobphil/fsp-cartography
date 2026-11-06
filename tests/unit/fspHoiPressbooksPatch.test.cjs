@@ -32,7 +32,7 @@ test('Bridge C preserves shared Chapter 4 page identity',()=>{
 });
 
 test('chapter patch set is thin and covers exactly fourteen chapters',()=>{
-  const patches=productionPatchSet().filter(x=>/^ch\\d\\d$/.test(x.nodeId));
+  const patches=productionPatchSet().filter(x=>/^ch\d\d$/.test(x.nodeId));
   assert.equal(patches.length,14);
   for(const p of patches){
     assert.ok(p.html.length<8000,p.nodeId);
