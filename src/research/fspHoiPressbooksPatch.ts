@@ -216,9 +216,9 @@ export function validatePressbooksPatchSet(patches=productionPatchSet()):{passes
     if(/<script|<iframe|<form|<style/i.test(p.html)) failures.push(p.nodeId+":unsafe-active-html");
     if(/state vector|relation graph|canonical fingerprint|projection profile|reducer|invariant suite/i.test(p.html)) failures.push(p.nodeId+":formal-fsp-leak");
   }
-  const chapterPatches=patches.filter(p=>/^ch\\d\\d$/.test(p.nodeId));
+  const chapterPatches=patches.filter(p=>/^ch\d\d$/.test(p.nodeId));
   if(chapterPatches.length!==14) failures.push("chapter-patch-count");
-  if(patches.some(p=>/^lab\\d/.test(p.nodeId))) failures.push("labs-must-remain-unpatched-in-this-pass");
+  if(patches.some(p=>/^lab\d/.test(p.nodeId))) failures.push("labs-must-remain-unpatched-in-this-pass");
   if(bindingForNode("intC").pressbooksUrl!==bindingForNode("ch04").pressbooksUrl) failures.push("bridge-c-page-identity");
   return {passes:failures.length===0,failures:[...new Set(failures)].sort()};
 }
