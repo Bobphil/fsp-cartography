@@ -52,7 +52,7 @@ export function validateChapter5Pilot(p:PressbooksPilotPackage=CH5_PILOT):{passe
   if(!p.patchHtml.includes("FSP-HOI-PRESSBOOKS-PATCH-1:ch05:END")) failures.push("missing-end-marker");
   if(!p.patchHtml.includes("Later reopening")) failures.push("missing-later-reopening");
   if(!p.patchHtml.includes("GALILEO-COPERNICAN")) failures.push("missing-galileo-link");
-  if(!p.patchHtml.includes("#node=ch05&tab=inquire")) failures.push("missing-super-link");
+  if(!p.patchHtml.includes("#node=ch05&amp;tab=inquire")) failures.push("missing-super-link");
   if(p.acceptanceChecks.length<10) failures.push("acceptance-checks-too-thin");
   if(!p.rollbackRule.includes("leaving all original Chapter 5 content untouched")) failures.push("rollback-not-bounded");
   return {passes:failures.length===0,failures};
