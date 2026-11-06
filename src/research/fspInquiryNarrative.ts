@@ -301,9 +301,132 @@ export const GALILEO_NARRATIVE:InquiryNarrativeSpine={
   ]
 };
 
+
+export const NEWTON_EINSTEIN_NARRATIVE:InquiryNarrativeSpine={
+  caseId:"NEWTON-EINSTEIN",
+  title:"Newton to Einstein: Conceptual Transformation with Preserved Bounded Success",
+  orientingQuestion:"How can a later scientific framework reorganize space, time, motion, gravity, and explanation while still preserving much of an earlier framework's empirical success in bounded regimes?",
+  whyWholeStoryMatters:"Newton→Einstein is a test of whether the narrative-spine architecture can represent scientific change without forcing a choice between two misleading pictures: complete continuity, as if the same concepts simply received better numerical values, or complete replacement, as if Newtonian mechanics became irrational or useless after relativity. The history contains both deep conceptual reorganization and structured preservation. FSP is useful here only if it can track meaning change, framework change, limiting relations, controlled thought experiments, empirical discrimination, and residual usefulness without collapsing them into either sameness or total incomparability.",
+  narrativeParagraphs:[
+    "Newtonian mechanics and gravitation became extraordinarily successful because they provided a unified mathematical framework for terrestrial and celestial motion. Within that framework, bodies move in space and time according to laws connecting force, mass, acceleration, and gravitation. Over centuries, this framework accumulated immense predictive and engineering success. That success matters historically because the Einsteinian transition did not begin from a failed or worthless science; it began from one of the most powerful frameworks physics had produced.",
+    "By the late nineteenth century, however, classical mechanics had to coexist with increasingly important electromagnetic and optical structures that did not fit comfortably with an unchanged Newtonian account of space, time, and motion. Einstein's 1905 special theory of relativity reorganized the kinematics of inertial physics around the relativity principle and the invariant role of light propagation. Spatially separated simultaneity was no longer an observer-independent relation in the Newtonian sense. Space and time did not merely receive corrected measurements; their inferential roles changed.",
+    "Yet special relativity did not solve gravitation. Newton's gravitational theory still worked extremely well across ordinary terrestrial and solar-system conditions, while special relativity supplied a new framework only where gravity was excluded. The resulting problem was therefore not 'Newton was simply wrong.' It was how to preserve the earlier theory's extraordinary bounded successes while constructing a relativistically coherent account of gravitation.",
+    "Einstein's equivalence-principle reasoning supplied a crucial bridge. A freely falling observer can, within a sufficiently small region, describe local physics as if gravity were absent. This did not show that gravity and acceleration were globally identical. Tidal effects and larger-scale structure remained. The bridge was powerful precisely because it was bounded: local equivalence opened a new route toward gravitation while carrying its own remainder and claim ceiling.",
+    "By 1915, general relativity represented gravitation through dynamical spacetime geometry rather than an unchanged Newtonian force acting within a fixed background of space and time. Einstein's account reproduced Mercury's anomalous perihelion advance, and later observations—including early light-deflection tests—helped establish the new framework. But general relativity did not erase Newtonian mechanics. In weak gravitational fields, at low velocities, and where relativistic corrections are negligible, Newtonian calculations remain extraordinarily accurate and useful.",
+    "The philosophical challenge is therefore double. Terms such as time, simultaneity, inertia, mass, gravity, and spacetime do not simply preserve identical theoretical roles across the transition. But the theories are not therefore sealed into incomparable worlds. Approximation relations, shared empirical tasks, mathematical limiting behavior, instrument practices, and overlapping predictions make disciplined comparison possible. FSP represents the transition diachronically so that conceptual discontinuity, preserved structure, empirical gain, and residual usefulness can all be visible at once."
+  ],
+  milestones:[
+    {
+      milestoneId:"RE-T0",label:"Newtonian mechanics and gravitation become the classical framework",
+      start:"1687",end:"1905",precision:"RANGE",
+      narrative:"From the publication of Newton's Principia onward, classical mechanics and gravitation develop into a highly successful framework for terrestrial and celestial prediction.",
+      stateIds:["RE0"],transitionIds:[],sourceIds:["SEP-SPACETIME-NARRATIVE","EO-NEWTON-EINSTEIN"],
+      significance:"Establishes the depth of the earlier framework's empirical and practical standing; later change must explain preservation as well as rejection."
+    },
+    {
+      milestoneId:"RE-T1",label:"Special relativity reorganizes space-time kinematics",
+      start:"1905",precision:"YEAR",
+      narrative:"Special relativity introduces a new inertial framework in which simultaneity and temporal-spatial relations depend on frame and synchronization structure, while gravity remains outside the theory's full scope.",
+      stateIds:["RE1"],transitionIds:["RE0-RE1"],sourceIds:["EO-SPECIAL-RELATIVITY","SEP-SPACETIME-NARRATIVE"],
+      significance:"Deep conceptual change occurs without erasing the bounded empirical success of Newtonian mechanics."
+    },
+    {
+      milestoneId:"RE-T2",label:"Equivalence-principle bridge toward gravitation",
+      start:"1907",end:"1911",precision:"RANGE",
+      narrative:"Einstein develops the equivalence-principle route: sufficiently local freely falling descriptions recover gravity-free special-relativistic physics, while tidal and global effects remain unresolved.",
+      stateIds:["RE2"],transitionIds:["RE1-RE2"],sourceIds:["EO-EQUIVALENCE"],
+      significance:"A controlled local equivalence creates a bridge without licensing global identity."
+    },
+    {
+      milestoneId:"RE-T3",label:"General relativity and Mercury's perihelion",
+      start:"1915",precision:"YEAR",
+      narrative:"General relativity supplies a new gravitational framework and accounts for Mercury's anomalous perihelion advance without retaining Newtonian gravitation as universally fundamental.",
+      stateIds:["RE3"],transitionIds:["RE2-RE3"],sourceIds:["EO-NEWTON-EINSTEIN","EO-GR-TESTS"],
+      significance:"A changed framework gains explanatory standing while preserving Newtonian accuracy in appropriate limiting regimes."
+    },
+    {
+      milestoneId:"RE-T4",label:"Early observational testing and framework stabilization",
+      start:"1919",end:"PRESENT",precision:"ERA",
+      narrative:"Light-deflection observations and a widening range of later tests support general relativity, while Newtonian mechanics continues to function as a highly effective approximation across everyday and many astronomical tasks.",
+      stateIds:["RE3"],transitionIds:[],sourceIds:["EO-GR-TESTS","EO-TEST-BED"],
+      significance:"Later empirical success strengthens the new framework without turning historical replacement into total practical erasure."
+    }
+  ],
+  apertures:[
+    {
+      chapterId:"CH1-DUHEM-QUINE",sectionIds:["CH1.5"],
+      title:"Revision pressure without retrospective inevitability",
+      chapterQuestion:"When classical structures encounter incompatibilities or anomalies, what should be revised—and what does later success fail to prove about what was rationally mandatory earlier?",
+      currentFocus:"Treat Newtonian mechanics as a highly successful conjunction of claims, background assumptions, and domain conditions rather than as one isolated proposition that relativity simply falsifies.",
+      wholeInquiryConnection:"The whole history shows that revision pressure can accumulate while an earlier framework remains strongly warranted within many tasks.",
+      whatFspAdds:["separates framework-wide pressure from local empirical failure","tracks what is preserved as revision deepens","blocks the inference that later success made one earlier revision path logically mandatory"],
+      returnPrompt:"Return to the whole narrative and ask which Newtonian commitments were under pressure at each stage and which remained evidentially secure."
+    },
+    {
+      chapterId:"CH2-KUHN-MEANING",sectionIds:["CH2.2","CH2.3","CH2.5","CH2.7","CH2.9"],
+      title:"Meaning change with translation and remainder",
+      chapterQuestion:"How can time, simultaneity, mass, inertia, space, and gravity change theoretical role while comparison across frameworks remains possible?",
+      currentFocus:"Track semantic versions and inferential roles rather than assuming either same-word identity or total untranslatability.",
+      wholeInquiryConnection:"The transition reorganizes a network of concepts, yet shared problems, limiting relations, measurements, and mathematical correspondences preserve disciplined cross-framework comparison.",
+      whatFspAdds:["marks semantic-version differences","records translation relations and translation remainder","distinguishes conceptual discontinuity from total empirical incomparability"],
+      returnPrompt:"Return to the whole narrative and identify one concept that changed role and one predictive or operational relation that survived."
+    },
+    {
+      chapterId:"CH3-THOUGHT-EXPERIMENTS",sectionIds:["CH3.5","CH3.6"],
+      title:"Controlled revision through frames and elevators",
+      chapterQuestion:"How do thought experiments expose conceptual dependencies without becoming evidence-free replacements for empirical inquiry?",
+      currentFocus:"Use simultaneity and elevator probes to vary frame or local gravitational description while holding explicit constraints fixed.",
+      wholeInquiryConnection:"The probes operate inside the historical development from special to general relativity; they clarify dependency structures but do not by themselves establish the final gravitational theory.",
+      whatFspAdds:["makes hold-fixed/vary structure explicit","marks locality and tidal remainder","separates conceptual possibility, licensed inference, and later empirical standing"],
+      returnPrompt:"Return to the historical sequence and distinguish what the thought experiment clarified from what still required mathematical development and observational test."
+    },
+    {
+      chapterId:"CH4-DIACHRONIC-FORMALISM",sectionIds:["CH4.1","CH4.2","CH4.5","CH4.8","CH4.9","CH4.10","CH4.11","CH4.12"],
+      title:"Change plus preservation across frameworks",
+      chapterQuestion:"Can a diachronic formalism represent conceptual reorganization while also preserving limiting relations, inherited successes, and unresolved remainder?",
+      currentFocus:"Follow RE0→RE3 while tracking changed meanings, ontology, warrants, framework, and claim ceilings alongside preserved low-velocity, weak-field, and local structures.",
+      wholeInquiryConnection:"The formal sequence must neither redescribe Newton as secretly Einsteinian nor portray Einstein as making Newtonian success unintelligible.",
+      whatFspAdds:["tracks gain/loss/preservation separately","represents local and limiting equivalence without global identity","keeps empirical continuity and conceptual discontinuity simultaneously inspectable"],
+      returnPrompt:"Return to the continuous narrative and ask which parts of Newtonian practice were rejected, reinterpreted, approximated, or preserved."
+    }
+  ],
+  sources:[
+    {sourceId:"SEP-SPACETIME-NARRATIVE",title:"Absolute and Relational Space and Motion: Post-Newtonian Theories — Stanford Encyclopedia of Philosophy",url:"https://plato.stanford.edu/entries/spacetime-theories/",supports:["Newtonian and relativistic spacetime comparison","conceptual transformation of space and time"]},
+    {sourceId:"EO-SPECIAL-RELATIVITY",title:"Special Relativity — Einstein Online",url:"https://www.einstein-online.info/en/explandict/special-relativity/",supports:["special relativity as a theory of space time and motion excluding gravity","relativistic framework context"]},
+    {sourceId:"EO-EQUIVALENCE",title:"The Elevator, the Rocket, and Gravity: The Equivalence Principle — Einstein Online",url:"https://www.einstein-online.info/en/spotlight/equivalence_principle/",supports:["1905 special-relativity background","equivalence-principle bridge","locality restriction","path toward general relativity"]},
+    {sourceId:"EO-NEWTON-EINSTEIN",title:"Step by Step from Newton to Einstein — Einstein Online",url:"https://www.einstein-online.info/en/spotlight/postnewton/",supports:["Newtonian weak-field success","Mercury discrepancy","transition to Einsteinian gravitation"]},
+    {sourceId:"EO-GR-TESTS",title:"Classical Tests of General Relativity — Einstein Online",url:"https://www.einstein-online.info/en/explandict/tests-of-general-relativity-classical/",supports:["Mercury perihelion","light deflection","classical empirical tests"]},
+    {sourceId:"EO-TEST-BED",title:"A Test Bed for the General Theory of Relativity — Einstein Online",url:"https://www.einstein-online.info/en/spotlight/A-Test-Bed-for-the-General-Theory-of-Relativity/",supports:["1919 light-deflection measurements","later empirical testing of general relativity"]}
+  ],
+  contextPrompts:{
+    whole:"What is changing across the Newton→Einstein inquiry, and what earlier successes still have to be recovered or explained?",
+    temporal:"Where are we historically, and which later relativistic concepts or empirical successes are not yet available at this stage?",
+    local:"Are we currently inspecting a conceptual change, a controlled probe, an empirical test, a limiting relation, or a framework transition?",
+    fsp:"What is FSP helping us separate here—semantic change, empirical preservation, local equivalence, framework revision, or translation remainder?"
+  },
+  returnPolicy:{
+    localReturn:"Return to the exact chapter sentence or local inspection origin.",
+    wholeInquiryReturn:"Return to the Newton→Einstein narrative spine with the relevant milestone, changed concepts, and preserved structures restored.",
+    rule:"Every Newton→Einstein inspection must support exact local return and recovery of both what changed and what remained valid in bounded regimes."
+  },
+  firewalls:[
+    "Formal state order is anchored in historical time but is not identical with calendar time.",
+    "Later theory ≠ simple deletion of earlier theory.",
+    "Preserved empirical success ≠ unchanged conceptual meaning.",
+    "Same term ≠ same inferential role.",
+    "Conceptual discontinuity ≠ total incomparability.",
+    "Approximation or limiting recovery ≠ global theoretical identity.",
+    "Local equivalence ≠ global ontological identity.",
+    "Thought-experiment insight ≠ empirical confirmation.",
+    "Historical chronology ≠ canonical state identity.",
+    "Whole-inquiry recovery complements rather than replaces exact Authorial Return."
+  ]
+};
+
 export const INQUIRY_NARRATIVES:Record<string,InquiryNarrativeSpine>={
   "NEPTUNE-VULCAN":NEPTUNE_VULCAN_NARRATIVE,
-  "GALILEO-COPERNICAN":GALILEO_NARRATIVE
+  "GALILEO-COPERNICAN":GALILEO_NARRATIVE,
+  "NEWTON-EINSTEIN":NEWTON_EINSTEIN_NARRATIVE
 };
 
 export function narrativeForCase(caseId:string):InquiryNarrativeSpine{
