@@ -106,12 +106,13 @@ test('contextual timeline visually distinguishes routed and unrouted states',()=
   assert.equal(s.fullCaseExploration,true);
 });
 
-test('case card does not silently promote full-case exploration',()=>{
+test('case card defers full-case exploration until the timeline',()=>{
   const s=enter('CH1.2','NEPTUNE-VULCAN');
-  const m=buildReaderPanel(s,FIVE_CASE_ATLAS);
-  const full=m.actions.find(x=>x.kind==='FULL_CASE');
-  assert.ok(full);
+  const card=buildReaderPanel(s,FIVE_CASE_ATLAS);
+  assert.equal(card.actions.some(x=>x.kind==='FULL_CASE'),false);
   assert.equal(s.fullCaseExploration,false);
+  const timeline=buildReaderPanel(openTimeline(s),FIVE_CASE_ATLAS);
+  assert.ok(timeline.actions.some(x=>x.kind==='FULL_CASE'));
 });
 
 test('reader presentation never changes the canonical Atlas objects',()=>{
