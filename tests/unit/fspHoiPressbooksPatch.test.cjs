@@ -79,7 +79,7 @@ test('Later Reopening explicitly blocks retroactive prediction language',()=>{
 test('Encyclopedia links use the certified live public base and remain optional',()=>{
   assert.equal(ENCYCLOPEDIA_PUBLIC_BASE,'https://bobphil.github.io/fsp-cartography/');
   const p=renderChapterPatch(8);
-  assert.match(p.html,/bobphil\\.github\\.io\\/fsp-cartography\\/#\\/narrative\\/NEPTUNE-VULCAN/);
+  assert.ok(p.html.includes('https://bobphil.github.io/fsp-cartography/#/narrative/NEPTUNE-VULCAN'));
   assert.match(p.html,/optional/i);
 });
 
