@@ -170,7 +170,7 @@ export const HOI_CHAPTERS:HoiChapterReconciliation[]=[
       link("Historical sedimentation","#/concepts/HISTORICAL-SEDIMENTATION","CONCEPT","Optional reference for persistence without automatic legitimacy.")
     ],
     allowedPatches:basePatches,preserve:["Historical Bridge C","documented transmission discipline","reason/revelation problem","no pseudo-genealogy"],
-    noFspRequirement:"Students can understand inheritance and transmission historically without learning relation-graph or projection terminology."
+    noFspRequirement:"Students can understand inheritance and transmission historically without prior FSP knowledge and without learning relation-graph or projection terminology."
   },
   {
     nodeId:"HOI-C05",kind:"CHAPTER",ordinal:5,title:"Rebuilding the Map",
