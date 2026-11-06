@@ -157,6 +157,7 @@ function renderCase(id:string):HTMLElement{
   const concepts=el("section","fsp-public__section"); concepts.append(el("h2","","Key concepts"),pills(c.conceptIds.map(id=>PUBLIC_ARCHITECTURE.concepts.find(x=>x.conceptId===id)?.title??id))); main.append(concepts);
   if(id==="NEPTUNE-VULCAN"){const live=el("section","fsp-public__section");live.append(el("h2","","Whole inquiry and live reader"),el("p","","Begin with the continuous dated narrative; then open the Chapter 1 aperture and Atlas inspection."),narrativeLink(),livePilotLink());main.append(live);}
   else if(id==="GALILEO-COPERNICAN"){const whole=el("section","fsp-public__section");whole.append(el("h2","","Whole inquiry narrative"),el("p","","Galileo is the second narrative-spine test: evidence, instrument standing, meaning, jurisdiction, and institutional power change together."),narrativeLinkFor("GALILEO-COPERNICAN","Read the whole Galileo inquiry"));main.append(whole);}
+  else if(id==="NEWTON-EINSTEIN"){const whole=el("section","fsp-public__section");whole.append(el("h2","","Whole inquiry narrative"),el("p","","Newton→Einstein is the third narrative-spine test: deep conceptual reorganization with preserved bounded empirical success and translation across frameworks."),narrativeLinkFor("NEWTON-EINSTEIN","Read the whole Newton→Einstein inquiry"));main.append(whole);}
   else main.append(el("p","fsp-public__notice","This case is mapped into the public architecture, but its full public reader has not yet been produced."));
   return main;
 }
