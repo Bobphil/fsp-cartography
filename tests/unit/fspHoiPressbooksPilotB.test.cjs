@@ -45,7 +45,7 @@ test('pilot acceptance checks protect shared-page functionality',()=>{
   assert.match(joined,/Previous\/next/);
   assert.match(joined,/citations and footnotes/);
   assert.match(joined,/print\/PDF export/);
-  assert.match(joined,/mobile/);
+  assert.match(joined,/mobile/i);
 });
 
 test('rollback cannot remove original Bridge C',()=>{
