@@ -194,7 +194,7 @@ export function mountPublicEncyclopedia(root:HTMLElement):{render:()=>void}{
       if(route.sectionId===ENCYCLOPEDIA_PILOT.sectionId && route.caseId===ENCYCLOPEDIA_PILOT.caseId){
         document.title=ENCYCLOPEDIA_PILOT.pageTitle+" · FSP Encyclopedia";
         root.replaceChildren();
-        mountEncyclopediaReader(root,{sectionId:route.sectionId,caseId:route.caseId,prose:ENCYCLOPEDIA_PILOT.prose,anchorId:"ch1-2-neptune-vulcan",routeContext:"public-shell"});
+        mountEncyclopediaReader(root,{sectionId:route.sectionId,caseId:route.caseId,prose:ENCYCLOPEDIA_PILOT.prose,anchorId:"ch1-2-neptune-vulcan",routeContext:"public-shell",publicBackHref:"#/chapters/CH1-DUHEM-QUINE",publicBackLabel:"← Back to Chapter 1 map"});
         return;
       }
       location.hash="#/cases/"+route.caseId; return;
