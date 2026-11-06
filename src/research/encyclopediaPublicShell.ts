@@ -10,6 +10,7 @@ import { CHAPTER_SECTIONS } from "./encyclopediaNavigation";
 import { mountEncyclopediaReader } from "./encyclopediaReaderBrowser";
 import { ENCYCLOPEDIA_PILOT } from "./encyclopediaPilotConfig";
 import { narrativeForCase } from "./fspInquiryNarrative";
+import { ENCYCLOPEDIA_SCOPE } from "./fspEncyclopediaScope";
 
 type PublicRoute =
   | {kind:"HOME"}
@@ -99,6 +100,27 @@ function renderHome():HTMLElement{
   const intro=el("section","fsp-public__section");
   intro.append(el("h2","","What is FSP doing here?"),el("p","fsp-public__lede","Scientific disagreements are rarely just contests between one claim and another. Evidence arrives through instruments, assumptions, inherited concepts, institutions, and judgments about what should change when inquiry is under pressure. Full-Stack Philosophy makes those layers inspectable without replacing the argument with a diagram."),el("p","","You can simply read the philosophical narrative. When a question deserves a closer look, the Encyclopedia lets you inspect the case, follow how the inquiry changed, test a bounded alternative, check the source support, and see where the evidence requires us to stop."));
   main.append(intro);
+  const scope=el("section","fsp-public__section");
+  scope.append(
+    el("div","fsp-public__eyebrow","Scope"),
+    el("h2","","One Encyclopedia, multiple domain libraries"),
+    el("p","fsp-public__lede",ENCYCLOPEDIA_SCOPE.publicIdentity),
+    el("p","","The shared FSP core provides cross-domain distinctions, while each field keeps its own native objects, practices, and standards. Inquiry & Science is the first mature public collection—not the definition of the whole Encyclopedia.")
+  );
+  const domainGrid=el("div","fsp-public__grid");
+  for(const d of ENCYCLOPEDIA_SCOPE.domains.filter(d=>d.domainId!=="CORE" && d.domainId!=="FORMAL-EXECUTABLE")){
+    const cardNode=el("article","fsp-public__card");
+    cardNode.append(
+      el("div","fsp-public__eyebrow",d.maturity),
+      el("h3","",d.title),
+      el("p","",d.publicQuestion),
+      el("p","fsp-public__meta",d.purpose)
+    );
+    domainGrid.append(cardNode);
+  }
+  scope.append(domainGrid);
+  main.append(scope);
+
   const start=el("section","fsp-public__section");
   start.append(el("div","fsp-public__eyebrow","Recommended first visit"),el("h2","","Begin with one complete worked journey"),el("p","fsp-public__lede","Neptune/Vulcan remains the best first doorway because it currently connects the whole historical narrative to the deepest live Atlas inspection. It is one worked example within a larger five-case program, not the sole center of the Encyclopedia."),narrativeLink("Read Neptune/Vulcan as a whole"),livePilotLink());
   main.append(start);
