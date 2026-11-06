@@ -9,6 +9,7 @@ import {
 import { CHAPTER_SECTIONS } from "./encyclopediaNavigation";
 import { mountEncyclopediaReader } from "./encyclopediaReaderBrowser";
 import { ENCYCLOPEDIA_PILOT } from "./encyclopediaPilotConfig";
+import { NEPTUNE_VULCAN_NARRATIVE } from "./fspInquiryNarrative";
 
 type PublicRoute =
   | {kind:"HOME"}
@@ -22,6 +23,7 @@ type PublicRoute =
   | {kind:"TOOL";id:string}
   | {kind:"COMPARISONS"}
   | {kind:"COMPARISON";id:string}
+  | {kind:"NARRATIVE";caseId:string}
   | {kind:"READER";sectionId:string;caseId:string};
 
 const CSS=`
@@ -37,6 +39,7 @@ function routeFromHash(hash:string):PublicRoute{
   if(raw[0]==="concepts") return raw[1]?{kind:"CONCEPT",id:raw[1]}:{kind:"CONCEPTS"};
   if(raw[0]==="tools") return raw[1]?{kind:"TOOL",id:raw[1]}:{kind:"TOOLS"};
   if(raw[0]==="comparisons") return raw[1]?{kind:"COMPARISON",id:raw[1]}:{kind:"COMPARISONS"};
+  if(raw[0]==="narrative" && raw[1]) return {kind:"NARRATIVE",caseId:raw[1]};
   if(raw[0]==="reader" && raw[1] && raw[2]) return {kind:"READER",sectionId:raw[1],caseId:raw[2]};
   return {kind:"HOME"};
 }
@@ -81,7 +84,10 @@ function hero(eyebrow:string,title:string,lede:string):HTMLElement{
   return h;
 }
 function livePilotLink():HTMLAnchorElement{
-  return link("Open the live Neptune/Vulcan reader","#/reader/CH1.2/NEPTUNE-VULCAN","fsp-public__button fsp-public__button--primary");
+  return link("Inspect the Neptune/Vulcan inquiry","#/reader/CH1.2/NEPTUNE-VULCAN","fsp-public__button fsp-public__button--primary");
+}
+function narrativeLink(label="Read the whole Neptune/Vulcan inquiry"):HTMLAnchorElement{
+  return link(label,"#/narrative/NEPTUNE-VULCAN","fsp-public__button");
 }
 
 function renderHome():HTMLElement{
@@ -91,7 +97,7 @@ function renderHome():HTMLElement{
   intro.append(el("h2","","What is FSP doing here?"),el("p","fsp-public__lede","Scientific disagreements are rarely just contests between one claim and another. Evidence arrives through instruments, assumptions, inherited concepts, institutions, and judgments about what should change when inquiry is under pressure. Full-Stack Philosophy makes those layers inspectable without replacing the argument with a diagram."),el("p","","You can simply read the philosophical narrative. When a question deserves a closer look, the Encyclopedia lets you inspect the case, follow how the inquiry changed, test a bounded alternative, check the source support, and see where the evidence requires us to stop."));
   main.append(intro);
   const start=el("section","fsp-public__section");
-  start.append(el("div","fsp-public__eyebrow","Recommended first visit"),el("h2","","Start with one complete journey"),el("p","fsp-public__lede","Chapter 1 asks a deceptively simple question: when a prediction fails, what should scientists revise? Neptune and Vulcan show why no single revision rule is enough."),livePilotLink());
+  start.append(el("div","fsp-public__eyebrow","Recommended first visit"),el("h2","","Start with the whole inquiry"),el("p","fsp-public__lede","Before opening the FSP machinery, read the Neptune/Vulcan story as a continuous historical inquiry—from the Uranus discrepancy through the 1846 Neptune success, the 1859 Vulcan proposal and long failed search, to the 1915 general-relativistic explanation."),narrativeLink("Read the whole inquiry first"),livePilotLink());
   main.append(start);
   const entrances=el("section","fsp-public__section");
   entrances.append(el("h2","","Or explore the Encyclopedia your own way"));
@@ -119,7 +125,7 @@ function renderChapter(id:string):HTMLElement{
   main.append(el("p","fsp-public__lede",c.publicPromise));
   if(c.chapterId==="CH1-DUHEM-QUINE"){
     const start=el("section","fsp-public__section");
-    start.append(el("div","fsp-public__eyebrow","Start here"),el("h2","","2. Successful and failed auxiliary repair"),el("p","fsp-public__lede","Neptune and Vulcan provide the first complete public demonstration of the chapter’s central problem: the same kind of repair can be rational and successful in one inquiry yet fail to settle another."),livePilotLink());
+    start.append(el("div","fsp-public__eyebrow","Start here"),el("h2","","Recover the whole inquiry before opening the aperture"),el("p","fsp-public__lede","Neptune and Vulcan provide the first complete public demonstration of the chapter’s central problem. Read the dated inquiry as a whole, then inspect Chapter 1’s narrower question about revision pressure."),narrativeLink(),livePilotLink());
     main.append(start);
   }
   const secs=el("section","fsp-public__section"); secs.append(el("h2","","Chapter map"));
@@ -146,7 +152,7 @@ function renderCase(id:string):HTMLElement{
   const main=el("main"); main.append(link("← All cases","#/cases","fsp-public__back"),hero("Case",c.shortTitle,c.publicQuestion),el("p","fsp-public__lede",c.whyItMatters));
   const chapters=el("section","fsp-public__section"); chapters.append(el("h2","","Appears in"),pills(c.chapterIds.map(id=>PUBLIC_ARCHITECTURE.chapters.find(x=>x.chapterId===id)?.title??id))); main.append(chapters);
   const concepts=el("section","fsp-public__section"); concepts.append(el("h2","","Key concepts"),pills(c.conceptIds.map(id=>PUBLIC_ARCHITECTURE.concepts.find(x=>x.conceptId===id)?.title??id))); main.append(concepts);
-  if(id==="NEPTUNE-VULCAN"){const live=el("section","fsp-public__section");live.append(el("h2","","Live reader"),el("p","","This is currently the complete public vertical slice."),livePilotLink());main.append(live);}
+  if(id==="NEPTUNE-VULCAN"){const live=el("section","fsp-public__section");live.append(el("h2","","Whole inquiry and live reader"),el("p","","Begin with the continuous dated narrative; then open the Chapter 1 aperture and Atlas inspection."),narrativeLink(),livePilotLink());main.append(live);}
   else main.append(el("p","fsp-public__notice","This case is mapped into the public architecture, but its full public reader has not yet been produced."));
   return main;
 }
@@ -187,6 +193,40 @@ function renderComparison(id:string):HTMLElement{
   return main;
 }
 
+function renderNarrative(caseId:string):HTMLElement{
+  if(caseId!=="NEPTUNE-VULCAN"){
+    const main=el("main"); main.append(hero("Inquiry narrative","Not yet available","A whole-inquiry narrative spine has not yet been produced for this case.")); return main;
+  }
+  const n=NEPTUNE_VULCAN_NARRATIVE;
+  const main=el("main");
+  main.append(link("← Neptune/Vulcan case map","#/cases/NEPTUNE-VULCAN","fsp-public__back"),hero("Whole inquiry narrative",n.title,n.orientingQuestion),el("p","fsp-public__lede",n.whyWholeStoryMatters));
+  const story=el("section","fsp-public__section"); story.append(el("h2","","The inquiry as a continuous story"));
+  for(const paragraph of n.narrativeParagraphs) story.append(el("p","",paragraph));
+  main.append(story);
+  const timeline=el("section","fsp-public__section"); timeline.append(el("h2","","Dated inquiry timeline"));
+  const ul=el("ul","fsp-public__list");
+  for(const m of n.milestones){
+    const li=el("li");
+    const when=m.end?`${m.start}–${m.end}`:m.start;
+    li.append(el("strong","",`${when} · ${m.label}`),el("div","",m.narrative),el("div","fsp-public__meta",m.significance));
+    ul.append(li);
+  }
+  timeline.append(ul); main.append(timeline);
+  const apertures=el("section","fsp-public__section"); apertures.append(el("h2","","Four ways the chapters reopen this same inquiry"));
+  const grid=el("div","fsp-public__grid");
+  for(const a of n.apertures){
+    const chapter=PUBLIC_ARCHITECTURE.chapters.find(c=>c.chapterId===a.chapterId);
+    const c=el("article","fsp-public__card");
+    c.append(el("div","fsp-public__eyebrow",chapter?`Chapter ${chapter.ordinal}`:"Chapter"),el("h3","",a.title),el("p","",a.chapterQuestion),el("p","fsp-public__meta",a.currentFocus),link("Open chapter map",`#/chapters/${a.chapterId}`));
+    if(a.chapterId==="CH1-DUHEM-QUINE") c.append(livePilotLink());
+    grid.append(c);
+  }
+  apertures.append(grid); main.append(apertures);
+  const recovery=el("section","fsp-public__section"); recovery.append(el("h2","","Keep these four questions available"),el("p","fsp-public__notice",`${n.contextPrompts.whole}  ${n.contextPrompts.temporal}  ${n.contextPrompts.local}  ${n.contextPrompts.fsp}`));
+  main.append(recovery);
+  return main;
+}
+
 export function mountPublicEncyclopedia(root:HTMLElement):{render:()=>void}{
   const render=()=>{
     const route=routeFromHash(location.hash);
@@ -194,7 +234,7 @@ export function mountPublicEncyclopedia(root:HTMLElement):{render:()=>void}{
       if(route.sectionId===ENCYCLOPEDIA_PILOT.sectionId && route.caseId===ENCYCLOPEDIA_PILOT.caseId){
         document.title=ENCYCLOPEDIA_PILOT.pageTitle+" · FSP Encyclopedia";
         root.replaceChildren();
-        mountEncyclopediaReader(root,{sectionId:route.sectionId,caseId:route.caseId,prose:ENCYCLOPEDIA_PILOT.prose,anchorId:"ch1-2-neptune-vulcan",routeContext:"public-shell",publicBackHref:"#/chapters/CH1-DUHEM-QUINE",publicBackLabel:"← Back to Chapter 1 map"});
+        mountEncyclopediaReader(root,{sectionId:route.sectionId,caseId:route.caseId,prose:ENCYCLOPEDIA_PILOT.prose,anchorId:"ch1-2-neptune-vulcan",routeContext:"public-shell",publicBackHref:"#/narrative/NEPTUNE-VULCAN",publicBackLabel:"← Review the whole Neptune/Vulcan inquiry"});
         return;
       }
       location.hash="#/cases/"+route.caseId; return;
@@ -210,6 +250,7 @@ export function mountPublicEncyclopedia(root:HTMLElement):{render:()=>void}{
     else if(route.kind==="TOOLS") main=renderTools();
     else if(route.kind==="TOOL") main=renderTool(route.id);
     else if(route.kind==="COMPARISONS") main=renderComparisons();
+    else if(route.kind==="NARRATIVE") main=renderNarrative(route.caseId);
     else main=renderComparison(route.id);
     document.title=(route.kind==="HOME"?"FSP Encyclopedia":"FSP Encyclopedia · "+route.kind);
     root.replaceChildren(chrome(main));
