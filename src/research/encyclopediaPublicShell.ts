@@ -87,10 +87,14 @@ function livePilotLink():HTMLAnchorElement{
 function renderHome():HTMLElement{
   const main=el("main");
   main.append(hero("Public reader",PUBLIC_ARCHITECTURE.home.title,PUBLIC_ARCHITECTURE.home.subtitle));
-  const notice=el("p","fsp-public__notice","This is the first public shell. Neptune/Vulcan is the current complete vertical slice; the other indexes expose the architecture and content map while their deeper readers are built.");
-  main.append(notice);
+  const intro=el("section","fsp-public__section");
+  intro.append(el("h2","","What is FSP doing here?"),el("p","fsp-public__lede","Scientific disagreements are rarely just contests between one claim and another. Evidence arrives through instruments, assumptions, inherited concepts, institutions, and judgments about what should change when inquiry is under pressure. Full-Stack Philosophy makes those layers inspectable without replacing the argument with a diagram."),el("p","","You can simply read the philosophical narrative. When a question deserves a closer look, the Encyclopedia lets you inspect the case, follow how the inquiry changed, test a bounded alternative, check the source support, and see where the evidence requires us to stop."));
+  main.append(intro);
+  const start=el("section","fsp-public__section");
+  start.append(el("div","fsp-public__eyebrow","Recommended first visit"),el("h2","","Start with one complete journey"),el("p","fsp-public__lede","Chapter 1 asks a deceptively simple question: when a prediction fails, what should scientists revise? Neptune and Vulcan show why no single revision rule is enough."),livePilotLink());
+  main.append(start);
   const entrances=el("section","fsp-public__section");
-  entrances.append(el("h2","","Choose an entrance"));
+  entrances.append(el("h2","","Or explore the Encyclopedia your own way"));
   const grid=el("div","fsp-public__grid");
   grid.append(
     card("Read the argument","Follow the four-chapter sequence from revision pressure through meaning change, controlled revision, and the unified diachronic formalism.","#/chapters","Browse chapters"),
@@ -100,9 +104,6 @@ function renderHome():HTMLElement{
     card("Compare across cases","Follow one inquiry function across multiple cases without collapsing their historical differences.","#/comparisons","Browse comparisons")
   );
   entrances.append(grid); main.append(entrances);
-  const pilot=el("section","fsp-public__section");
-  pilot.append(el("h2","","Current complete vertical slice"),el("p","","CH1.2 · Neptune and Vulcan: successful and failed auxiliary repair, controlled revision, source support, claim ceiling, and exact return to prose."),livePilotLink());
-  main.append(pilot);
   return main;
 }
 
@@ -116,12 +117,17 @@ function renderChapter(id:string):HTMLElement{
   const c=PUBLIC_ARCHITECTURE.chapters.find(x=>x.chapterId===id); if(!c) return renderChapters();
   const main=el("main"); main.append(link("← All chapters","#/chapters","fsp-public__back"),hero(`Chapter ${c.ordinal}`,c.title,c.publicQuestion));
   main.append(el("p","fsp-public__lede",c.publicPromise));
-  const secs=el("section","fsp-public__section"); secs.append(el("h2","","Sections"));
+  if(c.chapterId==="CH1-DUHEM-QUINE"){
+    const start=el("section","fsp-public__section");
+    start.append(el("div","fsp-public__eyebrow","Start here"),el("h2","","2. Successful and failed auxiliary repair"),el("p","fsp-public__lede","Neptune and Vulcan provide the first complete public demonstration of the chapter’s central problem: the same kind of repair can be rational and successful in one inquiry yet fail to settle another."),livePilotLink());
+    main.append(start);
+  }
+  const secs=el("section","fsp-public__section"); secs.append(el("h2","","Chapter map"));
   const ul=el("ul","fsp-public__list");
   for(const sid of c.sectionIds){
     const s=CHAPTER_SECTIONS.find(x=>x.sectionId===sid); if(!s) continue;
     const li=el("li"); li.append(el("strong","",`${sid} · ${s.title}`),el("div","fsp-public__meta",s.summary));
-    if(sid==="CH1.2") li.append(livePilotLink());
+    if(sid==="CH1.2") li.append(el("div","fsp-public__meta","Complete public reader available above."));
     ul.append(li);
   }
   secs.append(ul); main.append(secs);
