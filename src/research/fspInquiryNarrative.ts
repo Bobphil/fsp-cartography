@@ -182,16 +182,146 @@ export const NEPTUNE_VULCAN_NARRATIVE:InquiryNarrativeSpine={
   ]
 };
 
+
+export const GALILEO_NARRATIVE:InquiryNarrativeSpine={
+  caseId:"GALILEO-COPERNICAN",
+  title:"Galileo: Evidence, Meaning, Standing, and Power in a Changing Inquiry",
+  orientingQuestion:"How did new observations, changing standards of demonstration, interpretive jurisdiction, and institutional power interact in the Copernican controversy without any one of them by itself settling the whole inquiry?",
+  whyWholeStoryMatters:"Galileo's case cannot be understood as a simple sequence in which a new observation immediately defeated an old worldview, nor as a simple contest between science and religion. Telescopic evidence changed what could be seen and what older cosmologies could plausibly maintain. At the same time, the standing of instruments, the meanings of demonstration and hypothesis, the relation between natural philosophy and scriptural interpretation, and the institutional authority to regulate teaching and publication all changed the inquiry conditions. FSP is useful here only if it can keep these dimensions distinct while still showing how they interacted through time.",
+  narrativeParagraphs:[
+    "At the beginning of the seventeenth century, European astronomy and natural philosophy inherited a complex Aristotelian-Ptolemaic order rather than one single proposition waiting to be falsified. The heavens and the terrestrial realm were commonly treated as importantly different, mathematical astronomy could be valued for prediction without automatically determining physical reality, and theological interpretation formed part of the institutional setting within which cosmological claims were discussed. Copernicus had already offered a Sun-centered mathematical system, while Tycho Brahe had developed an alternative system that preserved a stationary Earth. The inquiry therefore began with multiple intellectual and institutional structures already in place.",
+    "Galileo's telescopic work changed the evidential field. In late 1609 and early 1610 he used improved telescopes to study the Moon and Jupiter, and in March 1610 published Sidereus Nuncius. The mountains and irregularities of the Moon challenged a simple contrast between perfect heavens and an imperfect Earth. The satellites of Jupiter showed that not every celestial body revolved directly around Earth. Galileo's later observations of the phases of Venus constrained older Ptolemaic arrangements and supported Sun-centered orbital relations. These observations mattered because they were not merely new points of data: they also required arguments that the telescope itself was a trustworthy means of learning about the heavens.",
+    "Yet the new evidence did not by itself establish every element of the Copernican system. Some observations ruled out or pressured particular inherited arrangements while remaining compatible with alternatives such as Tychonic systems. The question therefore shifted from 'what did Galileo see?' to a more articulated set of problems: which cosmological systems could accommodate the observations, what counted as a physical demonstration of Earth's motion, and how much standing should be granted to instrument-mediated evidence. The evidential gain was real, but the claim ceiling remained lower than 'the whole Copernican system has now been deductively demonstrated.'",
+    "From 1613 through 1616, the inquiry widened further. Galileo openly defended Copernicanism and entered disputes about how natural knowledge and scriptural interpretation should relate. In the Letter to Castelli and the Letter to the Grand Duchess Christina, he argued that genuine truths about nature and Scripture could not ultimately conflict, while also insisting that both nature and texts required disciplined interpretation. In 1616 Copernicus's book was suspended pending correction, and Cardinal Bellarmine admonished Galileo not to hold or defend Copernican doctrine. At this point, evidential standing, standards of demonstration, theological interpretation, and institutional jurisdiction had become entangled without becoming identical.",
+    "The controversy did not end in 1616. Galileo continued to work, published The Assayer in 1623, and under Pope Urban VIII eventually completed the Dialogue Concerning the Two Chief World Systems, published in 1632. The Dialogue compared competing cosmologies but strongly favored Earth's motion. Its publication occurred inside a negotiated environment of permissions, previous warnings, patronage, censorship, and political pressures. In 1633 Galileo was tried and condemned, and his sentence was commuted to house arrest. The legal and institutional outcome changed what Galileo could publicly do, but it did not constitute an empirical demonstration that geocentrism was true.",
+    "The later history can tempt readers to compress the episode into a morality tale in which modern science simply possessed the truth and authority simply opposed it. FSP instead treats the case diachronically and at several levels. It asks what evidence was available at each stage, which cosmological possibilities remained live, what terms such as 'demonstration' and 'hypothesis' meant in context, who had standing to interpret different kinds of claims, what institutional power could constrain, and what remained unresolved. The point is not to relativize truth into power. It is to prevent evidential support, semantic change, epistemic standing, interpretive jurisdiction, and coercive authority from being collapsed into one undifferentiated variable."
+  ],
+  milestones:[
+    {
+      milestoneId:"G-T0",label:"Inherited cosmological and institutional order",
+      start:"1543",end:"1609",precision:"RANGE",
+      narrative:"Copernican, Ptolemaic, Tychonic, Aristotelian, mathematical, natural-philosophical, and theological structures formed the inherited field before Galileo's telescopic intervention.",
+      stateIds:["G0"],transitionIds:[],sourceIds:["GALILEO-SEP-NARRATIVE"],
+      significance:"Establishes that Galileo entered an already plural and institutionally structured inquiry."
+    },
+    {
+      milestoneId:"G-T1",label:"Telescope, Moon, Jupiter, and the new evidential field",
+      start:"1609",end:"1610",precision:"RANGE",
+      narrative:"Galileo improved the telescope, observed the Moon and Jupiter's satellites, and published Sidereus Nuncius in March 1610; the new observations pressured inherited celestial assumptions and changed the standing of instrument-mediated evidence.",
+      stateIds:["G1"],transitionIds:["G0-G1"],sourceIds:["LOC-STARRY-MESSENGER","NASA-JUPITER-MOONS"],
+      significance:"New evidence changes the theory space, but instrument reliability and interpretation remain part of the inquiry."
+    },
+    {
+      milestoneId:"G-T2",label:"Venus phases and widening Copernican support",
+      start:"1610",end:"1613",precision:"RANGE",
+      narrative:"Galileo observed the phases of Venus and continued telescopic work; such evidence undermined older Ptolemaic arrangements and increased the plausibility of Sun-centered orbital relations without uniquely selecting every part of the Copernican system.",
+      stateIds:["G1"],transitionIds:[],sourceIds:["NASA-VENUS-PHASES","GALILEO-SEP-NARRATIVE"],
+      significance:"Shows strong evidential constraint without complete system determination."
+    },
+    {
+      milestoneId:"G-T3",label:"Interpretation, demonstration, and jurisdiction",
+      start:"1613",end:"1616",precision:"RANGE",
+      narrative:"Galileo's Copernican advocacy expanded into arguments about scriptural interpretation and standards of demonstration; in 1616 Copernicus's work was suspended pending correction and Bellarmine admonished Galileo not to hold or defend Copernican doctrine.",
+      stateIds:["G2"],transitionIds:["G1-G2"],sourceIds:["GALILEO-SEP-NARRATIVE"],
+      significance:"The inquiry expands from evidence alone into meaning, standing, interpretive jurisdiction, and institutional authority."
+    },
+    {
+      milestoneId:"G-T4",label:"Dialogue, trial, and condemnation",
+      start:"1632",end:"1633",precision:"RANGE",
+      narrative:"Galileo published the Dialogue in 1632; the Inquisition proceedings of 1633 ended in condemnation and house arrest, changing his practical freedom while leaving the epistemic question distinct from the legal settlement.",
+      stateIds:["G3"],transitionIds:["G2-G3"],sourceIds:["GALILEO-SEP-NARRATIVE"],
+      significance:"Makes the divergence between coercive institutional power and epistemic demonstration explicit."
+    }
+  ],
+  apertures:[
+    {
+      chapterId:"CH1-DUHEM-QUINE",sectionIds:["CH1.4"],
+      title:"Evidence without a single automatic theory verdict",
+      chapterQuestion:"What did Galileo's new evidence constrain, and what did it still leave open?",
+      currentFocus:"Inspect how telescopic observations altered the viable theory space without by themselves uniquely demonstrating the entire Copernican system.",
+      wholeInquiryConnection:"This aperture sits inside a larger history in which instrument standing, alternative cosmologies, and later institutional disputes all matter to what the evidence could responsibly license.",
+      whatFspAdds:["separates observed result from complete system choice","tracks which alternatives lose or retain standing","keeps evidential support distinct from institutional outcome"],
+      returnPrompt:"Return to the whole narrative and ask what was actually established by 1610–1613 before reading later outcomes backward into the evidence."
+    },
+    {
+      chapterId:"CH2-KUHN-MEANING",sectionIds:["CH2.4","CH2.8"],
+      title:"Meaning change and historical translation",
+      chapterQuestion:"How do terms such as demonstration, hypothesis, heavens, motion, and authority change role across the controversy?",
+      currentFocus:"Compare inherited meanings with the altered inferential and institutional roles those terms acquire as telescopic evidence and Copernican advocacy develop.",
+      wholeInquiryConnection:"The narrative shows that semantic change is not merely vocabulary replacement; it changes what counts as a licensed claim, a physical explanation, or an appropriate interpretive authority.",
+      whatFspAdds:["marks concept versions instead of assuming same-word identity","preserves historical translation remainder","separates formation and institutional sedimentation from justification"],
+      returnPrompt:"Return to the narrative and notice where a familiar word carries a different task or authority relation at a later stage."
+    },
+    {
+      chapterId:"CH3-THOUGHT-EXPERIMENTS",sectionIds:["CH3.2","CH3.7","CH3.8"],
+      title:"Controlled possibilities over evidence and standing",
+      chapterQuestion:"What can we vary analytically while holding Galileo's actual evidence fixed?",
+      currentFocus:"Use controlled probes to compare cosmological accommodations or standing/jurisdiction arrangements without rewriting the historical record.",
+      wholeInquiryConnection:"The historical spine supplies the evidence and institutional constraints; the probe lets us isolate one dependency at a time while preserving the distinction between counterfactual possibility and historical actuality.",
+      whatFspAdds:["makes hold-fixed/vary structure explicit","permits standing and theory-space perturbations without turning them into history","keeps probe consequences bounded by the historical case"],
+      returnPrompt:"Return to the dated inquiry and identify which relationships were historical and which were introduced only for controlled analysis."
+    },
+    {
+      chapterId:"CH4-DIACHRONIC-FORMALISM",sectionIds:["CH4.1","CH4.2","CH4.3","CH4.4","CH4.7","CH4.10","CH4.11","CH4.12"],
+      title:"Coupled change through time",
+      chapterQuestion:"Can one formalism track evidence, meaning, standing, and power together without collapsing them into one variable?",
+      currentFocus:"Follow G0→G3 as different dimensions change at different rates: observations gain standing, meanings shift, jurisdiction becomes explicit, and institutional power constrains action.",
+      wholeInquiryConnection:"The formal state sequence is anchored to the dated Galileo narrative, but neither the state labels nor a transition vector are identical with the historical episode.",
+      whatFspAdds:["keeps evidential, semantic, standing, and power dimensions distinct","shows when the inquiry problem itself widens","preserves claim ceilings and unresolved remainder across institutional change"],
+      returnPrompt:"Return from the formal sequence to the continuous narrative and ask which coupled relationships became clearer—and which historical texture the formalization still leaves out."
+    }
+  ],
+  sources:[
+    {sourceId:"GALILEO-SEP-NARRATIVE",title:"Galileo Galilei — Stanford Encyclopedia of Philosophy",url:"https://plato.stanford.edu/entries/galileo/",supports:["telescopic and Copernican trajectory","1613–1616 interpretive dispute","1616 admonition and censorship context","1632 Dialogue","1633 trial and condemnation","historical complexity of jurisdiction and politics"]},
+    {sourceId:"LOC-STARRY-MESSENGER",title:"Galileo and the Telescope / The Starry Messenger — Library of Congress",url:"https://www.loc.gov/collections/finding-our-place-in-the-cosmos-with-carl-sagan/articles-and-essays/modeling-the-cosmos/galileo-and-the-telescope",supports:["1609–1610 telescope work","Moon observations","Jupiter satellites","March 1610 Sidereus Nuncius","instrument-mediated evidence"]},
+    {sourceId:"NASA-JUPITER-MOONS",title:"Galileo Discovers Jupiter's Moons — NASA",url:"https://www.nasa.gov/general/415-years-ago-astronomer-galileo-discovers-jupiters-moons/",supports:["January 1610 Jupiter observations","four satellites","support for Copernican theory"]},
+    {sourceId:"NASA-VENUS-PHASES",title:"Galileo's Phases of Venus and Other Planets — NASA Science",url:"https://science.nasa.gov/resource/galileos-phases-of-venus-and-other-planets/",supports:["1610 Venus phases","evidence for Venus orbiting the Sun","pressure on older geocentric arrangements"]}
+  ],
+  contextPrompts:{
+    whole:"What is the whole Galileo inquiry problem, and which scientific, semantic, interpretive, and institutional threads are active?",
+    temporal:"Where are we historically, and which observations, arguments, warnings, permissions, or later outcomes are not yet available?",
+    local:"Which dimension of the larger Galileo problem are we isolating right now?",
+    fsp:"What is FSP helping us keep distinct here—evidence, meaning, standing, jurisdiction, power, possibility, or claim ceiling?"
+  },
+  returnPolicy:{
+    localReturn:"Return to the exact chapter sentence or local inspection origin.",
+    wholeInquiryReturn:"Return to the Galileo narrative spine with the relevant milestone, active dimensions, and chapter aperture restored.",
+    rule:"Every Galileo inspection must support exact local return and recovery of the coupled whole-inquiry context."
+  },
+  firewalls:[
+    "Formal state order is anchored in historical time but is not identical with calendar time.",
+    "Telescopic evidence constrains cosmological possibilities without by itself uniquely demonstrating the entire Copernican system.",
+    "Instrument standing ≠ automatic theory finality.",
+    "Interpretive jurisdiction ≠ epistemic truth.",
+    "Institutional condemnation ≠ empirical demonstration.",
+    "Power can constrain inquiry conditions without becoming identical to evidential warrant.",
+    "Probe possibility ≠ historical actuality.",
+    "Historical chronology ≠ canonical state identity.",
+    "Whole-inquiry recovery complements rather than replaces exact Authorial Return."
+  ]
+};
+
+export const INQUIRY_NARRATIVES:Record<string,InquiryNarrativeSpine>={
+  "NEPTUNE-VULCAN":NEPTUNE_VULCAN_NARRATIVE,
+  "GALILEO-COPERNICAN":GALILEO_NARRATIVE
+};
+
+export function narrativeForCase(caseId:string):InquiryNarrativeSpine{
+  const spine=INQUIRY_NARRATIVES[caseId];
+  if(!spine) throw new Error(`no narrative spine yet for case: ${caseId}`);
+  return structuredClone(spine);
+}
+
 export function apertureForChapter(caseId:string,chapterId:ChapterId):ChapterAperture{
-  if(caseId!=="NEPTUNE-VULCAN") throw new Error(`no narrative spine yet for case: ${caseId}`);
-  const a=NEPTUNE_VULCAN_NARRATIVE.apertures.find(x=>x.chapterId===chapterId);
+  const spine=narrativeForCase(caseId);
+  const a=spine.apertures.find(x=>x.chapterId===chapterId);
   if(!a) throw new Error(`no aperture for chapter: ${chapterId}`);
   return structuredClone(a);
 }
 
 export function milestoneForState(caseId:string,stateId:string):InquiryMilestone[]{
-  if(caseId!=="NEPTUNE-VULCAN") throw new Error(`no narrative spine yet for case: ${caseId}`);
-  return NEPTUNE_VULCAN_NARRATIVE.milestones.filter(m=>m.stateIds.includes(stateId)).map(m=>structuredClone(m));
+  const spine=narrativeForCase(caseId);
+  return spine.milestones.filter(m=>m.stateIds.includes(stateId)).map(m=>structuredClone(m));
 }
 
 export function recoverInquiryContext(args:{
@@ -200,19 +330,19 @@ export function recoverInquiryContext(args:{
   sectionId?:string;
   stateId?:string;
 }):InquiryContextRecovery{
-  if(args.caseId!=="NEPTUNE-VULCAN") throw new Error(`no narrative spine yet for case: ${args.caseId}`);
+  const spine=narrativeForCase(args.caseId);
   const aperture=args.chapterId ? apertureForChapter(args.caseId,args.chapterId) : undefined;
   const milestones=args.stateId ? milestoneForState(args.caseId,args.stateId) : [];
   return {
     caseId:args.caseId,
     chapterId:args.chapterId,
     sectionId:args.sectionId,
-    wholeProblem:NEPTUNE_VULCAN_NARRATIVE.orientingQuestion,
+    wholeProblem:spine.orientingQuestion,
     temporalLocation:milestones.length ? milestones.map(m=>`${m.label} (${m.start}${m.end?`–${m.end}`:""})`).join("; ") : "Use the full dated narrative timeline.",
     localProblem:aperture?.currentFocus ?? "Recover the whole inquiry before entering a local aperture.",
     fspContribution:aperture?.whatFspAdds.join(" · ") ?? "FSP separates historical chronology, inquiry states, evidence, revision targets, probes, and claim ceilings.",
-    wholeInquiryHref:"#/narrative/NEPTUNE-VULCAN",
-    localHref:args.sectionId ? `#/reader/${args.sectionId}/NEPTUNE-VULCAN` : undefined
+    wholeInquiryHref:`#/narrative/${args.caseId}`,
+    localHref:args.sectionId ? `#/reader/${args.sectionId}/${args.caseId}` : undefined
   };
 }
 
