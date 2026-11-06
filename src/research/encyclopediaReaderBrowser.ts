@@ -23,6 +23,8 @@ export interface EncyclopediaReaderOptions {
   prose?:string;
   anchorId?:string;
   routeContext?:string;
+  publicBackHref?:string;
+  publicBackLabel?:string;
 }
 
 export interface EncyclopediaReader {
@@ -33,7 +35,7 @@ export interface EncyclopediaReader {
 const CSS = `
 .fsp-reader{--ink:#172033;--muted:#5b6472;--line:#d8dde6;--paper:#ffffff;--wash:#f6f7f9;--accent:#243b67;--soft:#e9eef8;font:16px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper);max-width:1120px;margin:0 auto;padding:clamp(18px,4vw,48px)}
 .fsp-reader *{box-sizing:border-box}.fsp-reader button,.fsp-reader a{font:inherit}.fsp-reader button{border:1px solid var(--line);border-radius:999px;background:var(--paper);padding:.68rem 1rem;cursor:pointer}.fsp-reader button:hover,.fsp-reader button:focus-visible{border-color:var(--accent);outline:3px solid var(--soft);outline-offset:2px}.fsp-reader button[data-primary="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
-.fsp-reader__top{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:1rem;margin-bottom:2rem}.fsp-reader__brand{font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.8rem}.fsp-reader__origin{color:var(--muted);font-size:.9rem}
+.fsp-reader__top{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:1rem;margin-bottom:2rem}.fsp-reader__crumb{display:inline-block;margin-bottom:.55rem;color:var(--muted);text-decoration:none}.fsp-reader__crumb:hover,.fsp-reader__crumb:focus{color:var(--accent)}.fsp-reader__brand{font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.8rem}.fsp-reader__origin{color:var(--muted);font-size:.9rem}
 .fsp-reader__prose{max-width:760px}.fsp-reader__prose h1{font-family:Georgia,serif;font-size:clamp(2rem,5vw,3.7rem);line-height:1.08;margin:.2rem 0 1rem}.fsp-reader__prose p{font-family:Georgia,serif;font-size:1.15rem}.fsp-reader__inquiry-link{margin:2rem 0;padding:1.2rem;border-left:4px solid var(--accent);background:var(--wash)}
 .fsp-reader__workspace{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,320px);gap:2rem}.fsp-reader__eyebrow{text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-size:.8rem;font-weight:700}.fsp-reader__workspace h1{font-family:Georgia,serif;font-size:clamp(1.8rem,4vw,3rem);line-height:1.15}.fsp-reader__lede{font-size:1.08rem;color:#30394a}.fsp-reader__notice{padding:1rem 1.1rem;background:var(--soft);border-radius:14px}.fsp-reader__section{border-top:1px solid var(--line);padding-top:1rem;margin-top:1.2rem}.fsp-reader__section h2{font-size:1rem}.fsp-reader__section ul{padding-left:1.2rem}
 .fsp-reader__timeline{list-style:none;padding:0;margin:0;display:grid;gap:.7rem}.fsp-reader__timeline li{display:grid;grid-template-columns:auto 1fr;gap:.7rem;align-items:start}.fsp-reader__timeline button{border-radius:12px;width:100%;text-align:left}.fsp-reader__timeline button[aria-current="step"]{border-color:var(--accent);background:var(--soft)}.fsp-reader__timeline small{display:block;color:var(--muted)}.fsp-reader__rail{border-left:1px solid var(--line);padding-left:1.25rem}.fsp-reader__rail h2{font-size:1rem}.fsp-reader__actions{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:1.5rem}.fsp-reader__return{position:sticky;bottom:12px;margin-top:2rem;padding:.8rem;background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(8px)}
@@ -163,13 +165,22 @@ export function mountEncyclopediaReader(
 
     const top=document.createElement("header");
     top.className="fsp-reader__top";
+    const brandWrap=document.createElement("div");
+    if(options.publicBackHref){
+      const crumb=document.createElement("a");
+      crumb.className="fsp-reader__crumb";
+      crumb.href=options.publicBackHref;
+      crumb.textContent=options.publicBackLabel ?? "← Back to Encyclopedia";
+      brandWrap.append(crumb);
+    }
     const brand=document.createElement("div");
     brand.className="fsp-reader__brand";
     brand.textContent="FSP Inquiry Atlas";
+    brandWrap.append(brand);
     const origin=document.createElement("div");
     origin.className="fsp-reader__origin";
     origin.textContent=`Entered from ${session.origin.sectionId} · ${session.fullCaseExploration ? "full-case exploration" : "chapter aperture"}`;
-    top.append(brand,origin);
+    top.append(brandWrap,origin);
 
     const layout=document.createElement("div");
     layout.className="fsp-reader__workspace";
@@ -237,8 +248,7 @@ export function mountEncyclopediaReader(
     eyebrow.textContent=`${proseModel.chapterId} · ${proseModel.sectionId}`;
     const h=document.createElement("h1");
     h.textContent=proseModel.title;
-    const p=document.createElement("p");
-    p.textContent=prose;
+    const proseBlocks=prose.split(/\\n\\s*\\n/).map(x=>x.trim()).filter(Boolean);
 
     const inquiry=document.createElement("aside");
     inquiry.className="fsp-reader__inquiry-link";
@@ -261,7 +271,9 @@ export function mountEncyclopediaReader(
       render();
     });
     inquiry.append(label,explain,inspect);
-    article.append(eyebrow,h,p,inquiry);
+    article.append(eyebrow,h);
+    for(const paragraph of proseBlocks){ const p=document.createElement("p"); p.textContent=paragraph; article.append(p); }
+    article.append(inquiry);
     shell.append(style,article);
     root.replaceChildren(shell);
   };
