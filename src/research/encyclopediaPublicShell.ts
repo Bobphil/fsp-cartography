@@ -10,10 +10,17 @@ import { CHAPTER_SECTIONS } from "./encyclopediaNavigation";
 import { mountEncyclopediaReader } from "./encyclopediaReaderBrowser";
 import { ENCYCLOPEDIA_PILOT } from "./encyclopediaPilotConfig";
 import { narrativeForCase } from "./fspInquiryNarrative";
-import { ENCYCLOPEDIA_SCOPE } from "./fspEncyclopediaScope";
+import { ENCYCLOPEDIA_SCOPE, EncyclopediaDomainId } from "./fspEncyclopediaScope";
+import { DOMAIN_PUBLIC_NAV, TOP_LEVEL_PUBLIC_NAV, publicDomain } from "./fspEncyclopediaDomainNav";
 
 type PublicRoute =
   | {kind:"HOME"}
+  | {kind:"DOMAINS"}
+  | {kind:"DOMAIN";id:EncyclopediaDomainId}
+  | {kind:"CORE"}
+  | {kind:"RESOURCES"}
+  | {kind:"ROUTES"}
+  | {kind:"ABOUT"}
   | {kind:"CHAPTERS"}
   | {kind:"CHAPTER";id:string}
   | {kind:"CASES"}
@@ -35,6 +42,11 @@ const CSS=`
 function routeFromHash(hash:string):PublicRoute{
   const raw=(hash.replace(/^#\/?/,"")||"").split("/").filter(Boolean);
   if(raw.length===0) return {kind:"HOME"};
+  if(raw[0]==="domains") return raw[1]?{kind:"DOMAIN",id:raw[1] as EncyclopediaDomainId}:{kind:"DOMAINS"};
+  if(raw[0]==="core") return {kind:"CORE"};
+  if(raw[0]==="resources") return {kind:"RESOURCES"};
+  if(raw[0]==="routes") return {kind:"ROUTES"};
+  if(raw[0]==="about") return {kind:"ABOUT"};
   if(raw[0]==="chapters") return raw[1]?{kind:"CHAPTER",id:raw[1]}:{kind:"CHAPTERS"};
   if(raw[0]==="cases") return raw[1]?{kind:"CASE",id:raw[1]}:{kind:"CASES"};
   if(raw[0]==="concepts") return raw[1]?{kind:"CONCEPT",id:raw[1]}:{kind:"CONCEPTS"};
@@ -70,10 +82,7 @@ function chrome(main:HTMLElement):HTMLElement{
   const mast=el("header","fsp-public__mast");
   mast.append(link("FSP Encyclopedia","#/","fsp-public__brand"));
   const nav=el("nav","fsp-public__nav");
-  nav.append(
-    link("Chapters","#/chapters"),link("Cases","#/cases"),link("Concepts","#/concepts"),
-    link("Tools","#/tools"),link("Comparisons","#/comparisons")
-  );
+  for(const item of TOP_LEVEL_PUBLIC_NAV) nav.append(link(item.label,item.href));
   mast.append(nav);
   const footer=el("footer","fsp-public__footer","Public architecture: Read → Inspect → Formal. Canonical Atlas and routing contracts remain authoritative.");
   shell.append(style,mast,main,footer);
@@ -96,72 +105,167 @@ function narrativeLink(label="Read the whole Neptune/Vulcan inquiry"):HTMLAnchor
 
 function renderHome():HTMLElement{
   const main=el("main");
-  main.append(hero("Public reader",PUBLIC_ARCHITECTURE.home.title,PUBLIC_ARCHITECTURE.home.subtitle));
+  main.append(hero("Public reader","FSP Encyclopedia",ENCYCLOPEDIA_SCOPE.publicIdentity));
+
   const intro=el("section","fsp-public__section");
-  intro.append(el("h2","","What is FSP doing here?"),el("p","fsp-public__lede","Scientific disagreements are rarely just contests between one claim and another. Evidence arrives through instruments, assumptions, inherited concepts, institutions, and judgments about what should change when inquiry is under pressure. Full-Stack Philosophy makes those layers inspectable without replacing the argument with a diagram."),el("p","","You can simply read the philosophical narrative. When a question deserves a closer look, the Encyclopedia lets you inspect the case, follow how the inquiry changed, test a bounded alternative, check the source support, and see where the evidence requires us to stop."));
-  main.append(intro);
-  const scope=el("section","fsp-public__section");
-  scope.append(
-    el("div","fsp-public__eyebrow","Scope"),
+  intro.append(
     el("h2","","One Encyclopedia, multiple domain libraries"),
-    el("p","fsp-public__lede",ENCYCLOPEDIA_SCOPE.publicIdentity),
-    el("p","","The shared FSP core provides cross-domain distinctions, while each field keeps its own native objects, practices, and standards. Inquiry & Science is the first mature public collection—not the definition of the whole Encyclopedia.")
+    el("p","fsp-public__lede","FSP provides a shared set of distinctions for examining inquiry, judgment, interpretation, action, and institutions while allowing each domain to keep its own native objects, practices, and standards."),
+    el("p","","You do not need to learn FSP first. Enter through a domain, book, case, concept, tool, or route. Inquiry & Science is currently the most developed public collection, but it is one domain within the larger Encyclopedia.")
   );
-  const domainGrid=el("div","fsp-public__grid");
-  for(const d of ENCYCLOPEDIA_SCOPE.domains.filter(d=>d.domainId!=="CORE" && d.domainId!=="FORMAL-EXECUTABLE")){
-    const cardNode=el("article","fsp-public__card");
-    cardNode.append(
-      el("div","fsp-public__eyebrow",d.maturity),
-      el("h3","",d.title),
-      el("p","",d.publicQuestion),
-      el("p","fsp-public__meta",d.purpose)
-    );
-    domainGrid.append(cardNode);
-  }
-  scope.append(domainGrid);
-  main.append(scope);
+  main.append(intro);
 
-  const start=el("section","fsp-public__section");
-  start.append(el("div","fsp-public__eyebrow","Recommended first visit"),el("h2","","Begin with one complete worked journey"),el("p","fsp-public__lede","Neptune/Vulcan remains the best first doorway because it currently connects the whole historical narrative to the deepest live Atlas inspection. It is one worked example within a larger five-case program, not the sole center of the Encyclopedia."),narrativeLink("Read Neptune/Vulcan as a whole"),livePilotLink());
-  main.append(start);
-
-  const caseProgram=el("section","fsp-public__section");
-  caseProgram.append(el("h2","","Why these five cases?"),el("p","fsp-public__lede","The cases were chosen because they pressure different parts of the same inquiry architecture. Together they test whether FSP can clarify scientific change without forcing every episode into one pattern."));
-  const caseGrid=el("div","fsp-public__grid");
-  const narrativeCases=new Set(["NEPTUNE-VULCAN","GALILEO-COPERNICAN","NEWTON-EINSTEIN"]);
-  for(const c of PUBLIC_ARCHITECTURE.cases){
-    const cardNode=el("article","fsp-public__card");
-    const status=narrativeCases.has(c.caseId) ? "Whole-inquiry narrative available" : "Atlas case; narrative spine not yet public";
-    cardNode.append(el("div","fsp-public__eyebrow",status),el("h3","",c.shortTitle),el("p","",c.publicQuestion),el("p","fsp-public__meta",c.whyItMatters));
-    if(narrativeCases.has(c.caseId)) cardNode.append(narrativeLinkFor(c.caseId,"Read whole inquiry"));
-    cardNode.append(link("Open case map",`#/cases/${c.caseId}`));
-    caseGrid.append(cardNode);
-  }
-  caseProgram.append(caseGrid);
-  main.append(caseProgram);
-
-  const pattern=el("section","fsp-public__section");
-  pattern.append(
-    el("h2","","What each case contributes"),
-    el("p","","Neptune/Vulcan tests divergent repair trajectories: the same broad auxiliary strategy succeeds once and later fails to settle a different anomaly."),
-    el("p","","Galileo tests coupled change in evidence, instrument standing, meaning, jurisdiction, and institutional power without reducing truth to authority or authority to irrelevance."),
-    el("p","","Newton→Einstein tests strong conceptual transformation together with preserved bounded empirical success, translation, approximation, and limiting relations."),
-    el("p","","Foucault tests how much a discriminating experiment can establish without licensing stronger ontological conclusions than the evidence supports."),
-    el("p","","DESI 2024–2026 tests FSP on a live scientific frontier where evidence, model comparison, claim ceilings, and REOPEN conditions are still changing.")
-  );
-  main.append(pattern);
-  const entrances=el("section","fsp-public__section");
-  entrances.append(el("h2","","Or explore the Encyclopedia your own way"));
+  const domainSection=el("section","fsp-public__section");
+  domainSection.append(el("div","fsp-public__eyebrow","Domains"),el("h2","","Choose a field or practice"));
   const grid=el("div","fsp-public__grid");
-  grid.append(
-    card("Read the argument","Follow the four-chapter sequence from revision pressure through meaning change, controlled revision, and the unified diachronic formalism.","#/chapters","Browse chapters"),
-    card("Enter through a case","Begin with one of five scientific cases and see where it appears across the Encyclopedia.","#/cases","Browse cases"),
-    card("Look up a concept","Open plain-language explanations of the key ideas used across the chapters and Atlas.","#/concepts","Browse concepts"),
-    card("Use an inquiry tool","See the operations FSP uses to inspect revision, provenance, translation, standing, claim ceilings, and return.","#/tools","Browse tools"),
-    card("Compare across cases","Follow one inquiry function across multiple cases without collapsing their historical differences.","#/comparisons","Browse comparisons")
+  for(const d of DOMAIN_PUBLIC_NAV.filter(d=>d.domainId!=="CORE"&&d.domainId!=="FORMAL-EXECUTABLE")){
+    const scope=ENCYCLOPEDIA_SCOPE.domains.find(x=>x.domainId===d.domainId);
+    const c=el("article","fsp-public__card");
+    c.append(
+      el("div","fsp-public__eyebrow",d.readerStatus),
+      el("h3","",scope?.title??d.domainId),
+      el("p","",d.summary),
+      link("Open domain","#/domains/"+d.domainId)
+    );
+    grid.append(c);
+  }
+  domainSection.append(grid); main.append(domainSection);
+
+  const routes=el("section","fsp-public__section");
+  routes.append(
+    el("h2","","Books, courses, and other routes"),
+    el("p","fsp-public__lede","Books and courses are routes through canonical resources rather than separate owners of duplicated content."),
+    card("What May We Carry Forward?","History of philosophy as situated human inquiry, with fourteen chapters, interventions, and contemporary laboratories.","#/domains/HISTORY-PHILOSOPHY","Open History of Philosophy"),
+    card("Ethics course ecology","Historical Ethics, workbook practice, Output Cards, journals, and the Power & Flourishing Laboratory.","#/domains/ETHICS","Open Ethics"),
+    card("Inquiry & Science collection","The current mature Encyclopedia collection: chapters, cases, concepts, tools, comparisons, and whole-inquiry narratives.","#/domains/SCIENCE-INQUIRY","Open Inquiry & Science")
   );
-  entrances.append(grid); main.append(entrances);
+  main.append(routes);
+
+  const first=el("section","fsp-public__section");
+  first.append(
+    el("div","fsp-public__eyebrow","Recommended first visit"),
+    el("h2","","Try one complete worked inquiry"),
+    el("p","fsp-public__lede","Neptune/Vulcan remains the deepest completed public journey in the current Inquiry & Science collection. It is a demonstration of the Encyclopedia architecture, not the center of every domain."),
+    narrativeLink("Read Neptune/Vulcan as a whole"),
+    livePilotLink()
+  );
+  main.append(first);
   return main;
+}
+
+function renderDomains():HTMLElement{
+  const main=el("main");
+  main.append(hero("Domains","Domain libraries","Each domain keeps its own native inquiry structure while sharing only the FSP distinctions that genuinely transfer."));
+  const grid=el("div","fsp-public__grid");
+  for(const d of DOMAIN_PUBLIC_NAV.filter(d=>d.domainId!=="CORE"&&d.domainId!=="FORMAL-EXECUTABLE")){
+    const scope=ENCYCLOPEDIA_SCOPE.domains.find(x=>x.domainId===d.domainId);
+    grid.append(card(scope?.title??d.domainId,d.summary,"#/domains/"+d.domainId,"Open domain"));
+  }
+  main.append(grid); return main;
+}
+
+function renderDomain(id:EncyclopediaDomainId):HTMLElement{
+  let d;
+  try{ d=publicDomain(id); }catch{ return renderDomains(); }
+  const scope=ENCYCLOPEDIA_SCOPE.domains.find(x=>x.domainId===id);
+  const main=el("main");
+  main.append(link("← All domains","#/domains","fsp-public__back"),hero(d.readerStatus,scope?.title??id,d.summary));
+
+  if(d.nativeNavigation.length){
+    const nav=el("section","fsp-public__section");
+    nav.append(el("h2","","Explore this domain"));
+    const wrap=el("div","fsp-public__grid");
+    for(const item of d.nativeNavigation) wrap.append(card(item.label,"Open the existing Inquiry & Science "+item.label.toLowerCase()+" collection.",item.href,"Open "+item.label.toLowerCase()));
+    nav.append(wrap); main.append(nav);
+  }
+
+  if(d.resources.length){
+    const resources=el("section","fsp-public__section");
+    resources.append(el("h2","","Available resources"));
+    const grid=el("div","fsp-public__grid");
+    for(const r of d.resources){
+      const c=el("article","fsp-public__card");
+      c.append(el("div","fsp-public__eyebrow",r.status),el("h3","",r.title),el("p","",r.description),link("Open resource",r.href));
+      grid.append(c);
+    }
+    resources.append(grid); main.append(resources);
+  }
+
+  const available=el("section","fsp-public__section");
+  available.append(el("h2","","Available now"),pills(d.availableNow));
+  main.append(available);
+
+  if(id==="SCIENCE-INQUIRY"){
+    const program=el("section","fsp-public__section");
+    program.append(el("h2","","Why these five cases?"),el("p","fsp-public__lede","The cases pressure different parts of the same inquiry architecture without forcing every episode into one pattern."));
+    const grid=el("div","fsp-public__grid");
+    const narrativeCases=new Set(["NEPTUNE-VULCAN","GALILEO-COPERNICAN","NEWTON-EINSTEIN"]);
+    for(const c of PUBLIC_ARCHITECTURE.cases){
+      const cardNode=el("article","fsp-public__card");
+      const status=narrativeCases.has(c.caseId)?"Whole-inquiry narrative available":"Atlas case; narrative spine not yet public";
+      cardNode.append(el("div","fsp-public__eyebrow",status),el("h3","",c.shortTitle),el("p","",c.publicQuestion),el("p","fsp-public__meta",c.whyItMatters));
+      if(narrativeCases.has(c.caseId)) cardNode.append(narrativeLinkFor(c.caseId,"Read whole inquiry"));
+      cardNode.append(link("Open case map","#/cases/"+c.caseId));
+      grid.append(cardNode);
+    }
+    program.append(grid); main.append(program);
+  }
+
+  const limits=el("section","fsp-public__section");
+  limits.append(el("h2","","Current boundary"));
+  const ul=el("ul","fsp-public__list");
+  for(const x of d.notYetClaimed) ul.append(el("li","",x));
+  limits.append(ul); main.append(limits);
+  return main;
+}
+
+function renderCore():HTMLElement{
+  const d=publicDomain("CORE");
+  const main=el("main");
+  main.append(hero("Foundation","FSP Core",d.summary),el("p","fsp-public__notice","Shared FSP grammar does not imply shared domain ontology."));
+  const section=el("section","fsp-public__section");
+  section.append(el("h2","","Current universal core"),pills(d.availableNow));
+  main.append(section); return main;
+}
+
+function renderResources():HTMLElement{
+  const main=el("main");
+  main.append(hero("Resources","What you can open now","A cross-domain index of resources that are already public and verified."));
+  const grid=el("div","fsp-public__grid");
+  for(const d of DOMAIN_PUBLIC_NAV){
+    for(const r of d.resources){
+      const scope=ENCYCLOPEDIA_SCOPE.domains.find(x=>x.domainId===d.domainId);
+      const c=el("article","fsp-public__card");
+      c.append(el("div","fsp-public__eyebrow",scope?.title??d.domainId),el("h3","",r.title),el("p","",r.description),link("Open resource",r.href));
+      grid.append(c);
+    }
+  }
+  main.append(grid); return main;
+}
+
+function renderRoutes():HTMLElement{
+  const main=el("main");
+  main.append(hero("Routes","Books, courses, collections, and laboratories","Routes select and sequence canonical resources without becoming their canonical owners."));
+  const grid=el("div","fsp-public__grid");
+  for(const r of ENCYCLOPEDIA_SCOPE.routes){
+    const c=el("article","fsp-public__card");
+    c.append(el("div","fsp-public__eyebrow",r.routeType),el("h3","",r.title),el("p","",r.rule),link("Open primary domain","#/domains/"+r.primaryDomainId));
+    grid.append(c);
+  }
+  main.append(grid); return main;
+}
+
+function renderAbout():HTMLElement{
+  const main=el("main");
+  main.append(hero("About","How this Encyclopedia is organized","The Encyclopedia separates canonical resources, domain libraries, routes, and projections so that reuse does not become duplication."));
+  const section=el("section","fsp-public__section");
+  section.append(
+    el("h2","","Governing principles"),
+    el("p","fsp-public__lede","The shared core is deliberately thin. Domain-native objects remain primary where a field requires richer structures."),
+    el("p","","One canonical resource has one canonical owner. Books, courses, workbooks, laboratories, and applications may select or project that resource without silently creating a competing canonical version."),
+    el("p","","Production maturity does not imply philosophical priority: Inquiry & Science is simply the first mature public collection.")
+  );
+  main.append(section); return main;
 }
 
 function renderChapters():HTMLElement{
@@ -296,6 +400,12 @@ export function mountPublicEncyclopedia(root:HTMLElement):{render:()=>void}{
     }
     let main:HTMLElement;
     if(route.kind==="HOME") main=renderHome();
+    else if(route.kind==="DOMAINS") main=renderDomains();
+    else if(route.kind==="DOMAIN") main=renderDomain(route.id);
+    else if(route.kind==="CORE") main=renderCore();
+    else if(route.kind==="RESOURCES") main=renderResources();
+    else if(route.kind==="ROUTES") main=renderRoutes();
+    else if(route.kind==="ABOUT") main=renderAbout();
     else if(route.kind==="CHAPTERS") main=renderChapters();
     else if(route.kind==="CHAPTER") main=renderChapter(route.id);
     else if(route.kind==="CASES") main=renderCases();
