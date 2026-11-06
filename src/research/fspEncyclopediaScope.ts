@@ -142,7 +142,7 @@ export const ENCYCLOPEDIA_DOMAINS:EncyclopediaDomain[]=[
     maturity:"SUBSTANTIAL-INTEGRATION-PENDING",
     nativeTopology:["philosopher","text","inquiry topology","historical context","concept transformation","argument","dialogue","genealogy","system"],
     sharedCoreIds:["DOING","PROVENANCE","TRANSITION","REMAINDER","CLAIM-CEILING","REOPEN"],
-    routeIds:["ROUTE-HISTORY-PHILOSOPHY","ROUTE-TRANSFORMATION-CORRIDOR"],
+    routeIds:["ROUTE-HISTORY-PHILOSOPHY","ROUTE-HOI-PRESSBOOK","ROUTE-TRANSFORMATION-CORRIDOR"],
     publicStatus:["SCOPED"]
   },
   {
@@ -234,6 +234,11 @@ export const ENCYCLOPEDIA_ROUTES:EncyclopediaRoute[]=[
     routeId:"ROUTE-ETHICS-COURSE",title:"Intro Ethics Course",routeType:"COURSE",primaryDomainId:"ETHICS",
     includesDomainIds:["CORE","ETHICS","INSTITUTIONS-CONNECTED-DOING"],canonicalResourceIds:["CORE:CLAIM-CEILING","CORE:REOPEN"],projectionTargets:["CLASSROOM"],
     rule:"The course is a route through canonical resources and projections, not the owner of duplicated content."
+  },
+  {
+    routeId:"ROUTE-HOI-PRESSBOOK",title:"What May We Carry Forward? — History of Inquiry Pressbook",routeType:"BOOK",primaryDomainId:"HISTORY-PHILOSOPHY",
+    includesDomainIds:["CORE","HISTORY-PHILOSOPHY","SCIENCE-INQUIRY","INSTITUTIONS-CONNECTED-DOING"],canonicalResourceIds:["CORE:CLAIM-CEILING","CORE:REOPEN"],projectionTargets:["ENCYCLOPEDIA","CLASSROOM"],
+    rule:"The Pressbook remains a disciplinary history of philosophy. FSP supplies optional governance, context recovery, and canonical-resource links without becoming a student prerequisite or secret historical teleology."
   },
   {
     routeId:"ROUTE-HISTORY-PHILOSOPHY",title:"History of Philosophy",routeType:"BOOK",primaryDomainId:"HISTORY-PHILOSOPHY",
