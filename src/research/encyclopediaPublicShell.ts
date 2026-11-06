@@ -100,8 +100,34 @@ function renderHome():HTMLElement{
   intro.append(el("h2","","What is FSP doing here?"),el("p","fsp-public__lede","Scientific disagreements are rarely just contests between one claim and another. Evidence arrives through instruments, assumptions, inherited concepts, institutions, and judgments about what should change when inquiry is under pressure. Full-Stack Philosophy makes those layers inspectable without replacing the argument with a diagram."),el("p","","You can simply read the philosophical narrative. When a question deserves a closer look, the Encyclopedia lets you inspect the case, follow how the inquiry changed, test a bounded alternative, check the source support, and see where the evidence requires us to stop."));
   main.append(intro);
   const start=el("section","fsp-public__section");
-  start.append(el("div","fsp-public__eyebrow","Recommended first visit"),el("h2","","Start with the whole inquiry"),el("p","fsp-public__lede","Before opening the FSP machinery, read the Neptune/Vulcan story as a continuous historical inquiry—from the Uranus discrepancy through the 1846 Neptune success, the 1859 Vulcan proposal and long failed search, to the 1915 general-relativistic explanation."),narrativeLink("Read the whole inquiry first"),livePilotLink());
+  start.append(el("div","fsp-public__eyebrow","Recommended first visit"),el("h2","","Begin with one complete worked journey"),el("p","fsp-public__lede","Neptune/Vulcan remains the best first doorway because it currently connects the whole historical narrative to the deepest live Atlas inspection. It is one worked example within a larger five-case program, not the sole center of the Encyclopedia."),narrativeLink("Read Neptune/Vulcan as a whole"),livePilotLink());
   main.append(start);
+
+  const caseProgram=el("section","fsp-public__section");
+  caseProgram.append(el("h2","","Why these five cases?"),el("p","fsp-public__lede","The cases were chosen because they pressure different parts of the same inquiry architecture. Together they test whether FSP can clarify scientific change without forcing every episode into one pattern."));
+  const caseGrid=el("div","fsp-public__grid");
+  const narrativeCases=new Set(["NEPTUNE-VULCAN","GALILEO-COPERNICAN","NEWTON-EINSTEIN"]);
+  for(const c of PUBLIC_ARCHITECTURE.cases){
+    const cardNode=el("article","fsp-public__card");
+    const status=narrativeCases.has(c.caseId) ? "Whole-inquiry narrative available" : "Atlas case; narrative spine not yet public";
+    cardNode.append(el("div","fsp-public__eyebrow",status),el("h3","",c.shortTitle),el("p","",c.publicQuestion),el("p","fsp-public__meta",c.whyItMatters));
+    if(narrativeCases.has(c.caseId)) cardNode.append(narrativeLinkFor(c.caseId,"Read whole inquiry"));
+    cardNode.append(link("Open case map",`#/cases/${c.caseId}`));
+    caseGrid.append(cardNode);
+  }
+  caseProgram.append(caseGrid);
+  main.append(caseProgram);
+
+  const pattern=el("section","fsp-public__section");
+  pattern.append(
+    el("h2","","What each case contributes"),
+    el("p","","Neptune/Vulcan tests divergent repair trajectories: the same broad auxiliary strategy succeeds once and later fails to settle a different anomaly."),
+    el("p","","Galileo tests coupled change in evidence, instrument standing, meaning, jurisdiction, and institutional power without reducing truth to authority or authority to irrelevance."),
+    el("p","","Newton→Einstein tests strong conceptual transformation together with preserved bounded empirical success, translation, approximation, and limiting relations."),
+    el("p","","Foucault tests how much a discriminating experiment can establish without licensing stronger ontological conclusions than the evidence supports."),
+    el("p","","DESI 2024–2026 tests FSP on a live scientific frontier where evidence, model comparison, claim ceilings, and REOPEN conditions are still changing.")
+  );
+  main.append(pattern);
   const entrances=el("section","fsp-public__section");
   entrances.append(el("h2","","Or explore the Encyclopedia your own way"));
   const grid=el("div","fsp-public__grid");
