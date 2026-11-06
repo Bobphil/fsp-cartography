@@ -67,7 +67,7 @@ export function validateChapter4BridgeCPilot(p:PressbooksPilotBPackage=CH4_BRIDG
   if(!p.chapterPatchHtml.includes("FSP-HOI-PRESSBOOKS-PATCH-1:ch04:END")) failures.push("missing-ch04-end");
   if(!p.bridgePatchHtml.includes("FSP-HOI-PRESSBOOKS-PATCH-1:intC:START")) failures.push("missing-intc-start");
   if(!p.bridgePatchHtml.includes("FSP-HOI-PRESSBOOKS-PATCH-1:intC:END")) failures.push("missing-intc-end");
-  if(!p.bridgePatchHtml.includes("#node=intC&tab=inquire")) failures.push("missing-intc-super-link");
+  if(!p.bridgePatchHtml.includes("#node=intC&amp;tab=inquire")) failures.push("missing-intc-super-link");
   if(p.acceptanceChecks.length<12) failures.push("acceptance-checks-too-thin");
   if(!p.rollbackRule.includes("Never delete, move, or duplicate the original Bridge C text")) failures.push("rollback-not-bridge-safe");
   return {passes:failures.length===0,failures};
