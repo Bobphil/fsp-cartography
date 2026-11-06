@@ -153,7 +153,7 @@ function renderConcept(id:string):HTMLElement{
   const c=PUBLIC_ARCHITECTURE.concepts.find(x=>x.conceptId===id); if(!c)return renderConcepts();
   const main=el("main");main.append(link("← All concepts","#/concepts","fsp-public__back"),hero("Concept",c.title,c.shortDefinition));
   const explain=el("section","fsp-public__section");explain.append(el("h2","","Helps explain")); const ul=el("ul");c.explains.forEach(x=>ul.append(el("li","",x)));explain.append(ul);main.append(explain);
-  main.append(el("section","fsp-public__section")).append(el("h2","","Illustrated by"),pills(c.caseIds.map(id=>PUBLIC_ARCHITECTURE.cases.find(x=>x.caseId===id)?.shortTitle??id)));
+  const illustrated=el("section","fsp-public__section"); illustrated.append(el("h2","","Illustrated by"),pills(c.caseIds.map(id=>PUBLIC_ARCHITECTURE.cases.find(x=>x.caseId===id)?.shortTitle??id))); main.append(illustrated);
   return main;
 }
 
@@ -165,7 +165,7 @@ function renderTool(id:string):HTMLElement{
   const t=PUBLIC_ARCHITECTURE.tools.find(x=>x.toolId===id);if(!t)return renderTools();
   const main=el("main");main.append(link("← All tools","#/tools","fsp-public__back"),hero(`${t.minimumDepth} depth`,t.title,t.publicPurpose));
   main.append(el("p","fsp-public__notice",t.readerPrompt));
-  main.append(el("section","fsp-public__section")).append(el("h2","","Used with"),pills(t.caseIds.map(id=>PUBLIC_ARCHITECTURE.cases.find(x=>x.caseId===id)?.shortTitle??id)));
+  const used=el("section","fsp-public__section"); used.append(el("h2","","Used with"),pills(t.caseIds.map(id=>PUBLIC_ARCHITECTURE.cases.find(x=>x.caseId===id)?.shortTitle??id))); main.append(used);
   return main;
 }
 
