@@ -9,7 +9,7 @@ import {
 import { CHAPTER_SECTIONS } from "./encyclopediaNavigation";
 import { mountEncyclopediaReader } from "./encyclopediaReaderBrowser";
 import { ENCYCLOPEDIA_PILOT } from "./encyclopediaPilotConfig";
-import { NEPTUNE_VULCAN_NARRATIVE } from "./fspInquiryNarrative";
+import { narrativeForCase } from "./fspInquiryNarrative";
 
 type PublicRoute =
   | {kind:"HOME"}
@@ -86,8 +86,11 @@ function hero(eyebrow:string,title:string,lede:string):HTMLElement{
 function livePilotLink():HTMLAnchorElement{
   return link("Inspect the Neptune/Vulcan inquiry","#/reader/CH1.2/NEPTUNE-VULCAN","fsp-public__button fsp-public__button--primary");
 }
+function narrativeLinkFor(caseId:string,label:string):HTMLAnchorElement{
+  return link(label,`#/narrative/${caseId}`,"fsp-public__button");
+}
 function narrativeLink(label="Read the whole Neptune/Vulcan inquiry"):HTMLAnchorElement{
-  return link(label,"#/narrative/NEPTUNE-VULCAN","fsp-public__button");
+  return narrativeLinkFor("NEPTUNE-VULCAN",label);
 }
 
 function renderHome():HTMLElement{
@@ -153,6 +156,7 @@ function renderCase(id:string):HTMLElement{
   const chapters=el("section","fsp-public__section"); chapters.append(el("h2","","Appears in"),pills(c.chapterIds.map(id=>PUBLIC_ARCHITECTURE.chapters.find(x=>x.chapterId===id)?.title??id))); main.append(chapters);
   const concepts=el("section","fsp-public__section"); concepts.append(el("h2","","Key concepts"),pills(c.conceptIds.map(id=>PUBLIC_ARCHITECTURE.concepts.find(x=>x.conceptId===id)?.title??id))); main.append(concepts);
   if(id==="NEPTUNE-VULCAN"){const live=el("section","fsp-public__section");live.append(el("h2","","Whole inquiry and live reader"),el("p","","Begin with the continuous dated narrative; then open the Chapter 1 aperture and Atlas inspection."),narrativeLink(),livePilotLink());main.append(live);}
+  else if(id==="GALILEO-COPERNICAN"){const whole=el("section","fsp-public__section");whole.append(el("h2","","Whole inquiry narrative"),el("p","","Galileo is the second narrative-spine test: evidence, instrument standing, meaning, jurisdiction, and institutional power change together."),narrativeLinkFor("GALILEO-COPERNICAN","Read the whole Galileo inquiry"));main.append(whole);}
   else main.append(el("p","fsp-public__notice","This case is mapped into the public architecture, but its full public reader has not yet been produced."));
   return main;
 }
@@ -194,12 +198,14 @@ function renderComparison(id:string):HTMLElement{
 }
 
 function renderNarrative(caseId:string):HTMLElement{
-  if(caseId!=="NEPTUNE-VULCAN"){
+  let n;
+  try{ n=narrativeForCase(caseId); }
+  catch{
     const main=el("main"); main.append(hero("Inquiry narrative","Not yet available","A whole-inquiry narrative spine has not yet been produced for this case.")); return main;
   }
-  const n=NEPTUNE_VULCAN_NARRATIVE;
+  const publicCase=PUBLIC_ARCHITECTURE.cases.find(c=>c.caseId===caseId);
   const main=el("main");
-  main.append(link("← Neptune/Vulcan case map","#/cases/NEPTUNE-VULCAN","fsp-public__back"),hero("Whole inquiry narrative",n.title,n.orientingQuestion),el("p","fsp-public__lede",n.whyWholeStoryMatters));
+  main.append(link(`← ${publicCase?.shortTitle ?? caseId} case map`,`#/cases/${caseId}`,"fsp-public__back"),hero("Whole inquiry narrative",n.title,n.orientingQuestion),el("p","fsp-public__lede",n.whyWholeStoryMatters));
   const story=el("section","fsp-public__section"); story.append(el("h2","","The inquiry as a continuous story"));
   for(const paragraph of n.narrativeParagraphs) story.append(el("p","",paragraph));
   main.append(story);
@@ -218,7 +224,7 @@ function renderNarrative(caseId:string):HTMLElement{
     const chapter=PUBLIC_ARCHITECTURE.chapters.find(c=>c.chapterId===a.chapterId);
     const c=el("article","fsp-public__card");
     c.append(el("div","fsp-public__eyebrow",chapter?`Chapter ${chapter.ordinal}`:"Chapter"),el("h3","",a.title),el("p","",a.chapterQuestion),el("p","fsp-public__meta",a.currentFocus),link("Open chapter map",`#/chapters/${a.chapterId}`));
-    if(a.chapterId==="CH1-DUHEM-QUINE") c.append(livePilotLink());
+    if(caseId==="NEPTUNE-VULCAN" && a.chapterId==="CH1-DUHEM-QUINE") c.append(livePilotLink());
     grid.append(c);
   }
   apertures.append(grid); main.append(apertures);
