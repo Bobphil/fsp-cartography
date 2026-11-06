@@ -12,9 +12,11 @@ import { ENCYCLOPEDIA_PILOT } from "./encyclopediaPilotConfig";
 import { narrativeForCase } from "./fspInquiryNarrative";
 import { ENCYCLOPEDIA_SCOPE, EncyclopediaDomainId } from "./fspEncyclopediaScope";
 import { DOMAIN_PUBLIC_NAV, TOP_LEVEL_PUBLIC_NAV, publicDomain } from "./fspEncyclopediaDomainNav";
+import { FSP_PUBLIC_ORIENTATION } from "./fspEncyclopediaOrientation";
 
 type PublicRoute =
   | {kind:"HOME"}
+  | {kind:"ORIENTATION"}
   | {kind:"DOMAINS"}
   | {kind:"DOMAIN";id:EncyclopediaDomainId}
   | {kind:"CORE"}
@@ -42,6 +44,7 @@ const CSS=`
 function routeFromHash(hash:string):PublicRoute{
   const raw=(hash.replace(/^#\/?/,"")||"").split("/").filter(Boolean);
   if(raw.length===0) return {kind:"HOME"};
+  if(raw[0]==="orientation") return {kind:"ORIENTATION"};
   if(raw[0]==="domains") return raw[1]?{kind:"DOMAIN",id:raw[1] as EncyclopediaDomainId}:{kind:"DOMAINS"};
   if(raw[0]==="core") return {kind:"CORE"};
   if(raw[0]==="resources") return {kind:"RESOURCES"};
@@ -82,6 +85,7 @@ function chrome(main:HTMLElement):HTMLElement{
   const mast=el("header","fsp-public__mast");
   mast.append(link("FSP Encyclopedia","#/","fsp-public__brand"));
   const nav=el("nav","fsp-public__nav");
+  nav.append(link("What is FSP?","#/orientation"));
   for(const item of TOP_LEVEL_PUBLIC_NAV) nav.append(link(item.label,item.href));
   mast.append(nav);
   const footer=el("footer","fsp-public__footer","Public architecture: Read → Inspect → Formal. Canonical Atlas and routing contracts remain authoritative.");
@@ -111,7 +115,8 @@ function renderHome():HTMLElement{
   intro.append(
     el("h2","","One Encyclopedia, multiple domain libraries"),
     el("p","fsp-public__lede","FSP provides a shared set of distinctions for examining inquiry, judgment, interpretation, action, and institutions while allowing each domain to keep its own native objects, practices, and standards."),
-    el("p","","You do not need to learn FSP first. Enter through a domain, book, case, concept, tool, or route. Inquiry & Science is currently the most developed public collection, but it is one domain within the larger Encyclopedia.")
+    el("p","","You do not need to learn FSP first. Enter through a domain, book, case, concept, tool, or route. Inquiry & Science is currently the most developed public collection, but it is one domain within the larger Encyclopedia."),
+    link("What is Full-Stack Philosophy?","#/orientation","fsp-public__button fsp-public__button--primary")
   );
   main.append(intro);
 
@@ -150,6 +155,55 @@ function renderHome():HTMLElement{
     livePilotLink()
   );
   main.append(first);
+  return main;
+}
+
+function renderOrientation():HTMLElement{
+  const o=FSP_PUBLIC_ORIENTATION;
+  const main=el("main");
+  main.append(hero("Orientation",o.title,o.subtitle),el("p","fsp-public__lede",o.oneSentence));
+
+  const why=el("section","fsp-public__section");
+  why.append(el("h2","","Why does FSP exist?"));
+  for(const p of o.originProblem) why.append(el("p","",p));
+  main.append(why);
+
+  const full=el("section","fsp-public__section");
+  full.append(el("h2","","Why call it full-stack?"));
+  for(const p of o.fullStackMeaning) full.append(el("p","",p));
+  full.append(el("p","fsp-public__notice",o.inquiryArc.join(" → ")));
+  main.append(full);
+
+  const commitments=el("section","fsp-public__section");
+  commitments.append(el("h2","","Four constitutional commitments"));
+  const grid=el("div","fsp-public__grid");
+  for(const c of o.constitutionalCommitments){
+    const cardNode=el("article","fsp-public__card");
+    cardNode.append(el("h3","",c.title),el("p","",c.publicMeaning));
+    grid.append(cardNode);
+  }
+  commitments.append(grid); main.append(commitments);
+
+  const distinctions=el("section","fsp-public__section");
+  distinctions.append(el("h2","","Governing distinctions"),el("p","fsp-public__lede","FSP pays particular attention to transitions that can silently change the strength or meaning of a claim."));
+  const ul=el("ul","fsp-public__list");
+  for(const x of o.governingDistinctions) ul.append(el("li","",x));
+  distinctions.append(ul); main.append(distinctions);
+
+  const nots=el("section","fsp-public__section");
+  nots.append(el("h2","","What FSP is not"));
+  const notList=el("ul","fsp-public__list");
+  for(const x of o.notClaims) notList.append(el("li","",x));
+  nots.append(notList); main.append(nots);
+
+  const prereq=el("section","fsp-public__section");
+  prereq.append(el("h2","","Do I need to learn FSP first?"));
+  for(const p of o.noPrerequisiteBoundary) prereq.append(el("p","",p));
+  prereq.append(
+    link("Explore domains","#/domains","fsp-public__button fsp-public__button--primary"),
+    link("See the FSP Core","#/core","fsp-public__button")
+  );
+  main.append(prereq);
   return main;
 }
 
@@ -400,6 +454,7 @@ export function mountPublicEncyclopedia(root:HTMLElement):{render:()=>void}{
     }
     let main:HTMLElement;
     if(route.kind==="HOME") main=renderHome();
+    else if(route.kind==="ORIENTATION") main=renderOrientation();
     else if(route.kind==="DOMAINS") main=renderDomains();
     else if(route.kind==="DOMAIN") main=renderDomain(route.id);
     else if(route.kind==="CORE") main=renderCore();
