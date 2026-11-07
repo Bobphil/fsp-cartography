@@ -66,3 +66,10 @@ test("pending source ledgers fail closed rather than inventing provenance",()=>{
   assert.equal(f.sourceIds.length,0);
   assert.equal(f.sourceStatus,"PENDING_FULL_LEDGER");
 });
+
+test("scientific atlas index exposes all five cases",()=>{
+  const atlas=registry.nodes.find(x=>x.id==="SCI-ATLAS");
+  assert.ok(atlas);
+  assert.deepEqual(atlas.relatedIds,["CASE-SCI-01","CASE-SCI-02","CASE-SCI-03","CASE-SCI-04","CASE-SCI-05"]);
+  for(const id of atlas.relatedIds)assert.ok(registry.cases.some(c=>c.id===id),id);
+});

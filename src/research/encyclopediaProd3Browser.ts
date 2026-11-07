@@ -34,7 +34,7 @@ export async function mountProd3(root:HTMLElement){
     main.innerHTML='<div class="panel"><div class="muted">'+esc(n.id)+' · '+esc(n.status)+'</div><h2>'+esc(n.title)+'</h2><p>'+esc(n.summary)+'</p><p><strong>Canonical claim:</strong> '+esc(n.canonicalClaim)+'</p></div>';
     const a=document.createElement("div");a.className="actions";
     for(const rid of n.relatedIds||[]){
-      const kind=rid.startsWith("CT-T")?"TOOL":rid.startsWith("CT-F")?"FAILURE":"NODE";
+      const kind=rid.startsWith("CT-T")?"TOOL":rid.startsWith("CT-F")?"FAILURE":rid.startsWith("CASE-")?"CASE":"NODE";
       a.append(mkButton("Open "+rid,()=>go({kind,id:rid})));
     }
     for(const cid of n.claimCeilingIds||[])a.append(mkButton("Claim ceiling "+cid,()=>{state=openClaimCeiling(state,registry,cid);render()}));
@@ -128,7 +128,7 @@ export async function mountProd3(root:HTMLElement){
       ["NODE","CT-00","Home / Critical Thinking"],
       ["NODE","FSP-C01","FSP Constitution"],
       ["FAILURE","CT-F01","Failure Atlas"],
-      ["CASE","CASE-SCI-01","Scientific Atlas"],
+      ["NODE","SCI-ATLAS","Scientific Atlas"],
       ["TOOL","CT-T01","Twelve Tools"]
     ].forEach(([kind,id,label])=>{
       const b=mkButton(label,()=>go({kind,id,caseId:kind==="CASE"?id:undefined}));

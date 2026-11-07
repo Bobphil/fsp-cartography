@@ -307,6 +307,24 @@
         "CE-10"
       ],
       "status": "FROZEN"
+    },
+    {
+      "id": "SCI-ATLAS",
+      "family": "INDEX",
+      "title": "Scientific Atlas",
+      "summary": "Compare five canonical inquiry dossiers through shared state, transition, probe, source-ledger, and claim-ceiling fields.",
+      "canonicalClaim": "Shared comparative fields support disciplined comparison without implying historical or ontological identity.",
+      "relatedIds": [
+        "CASE-SCI-01",
+        "CASE-SCI-02",
+        "CASE-SCI-03",
+        "CASE-SCI-04",
+        "CASE-SCI-05"
+      ],
+      "claimCeilingIds": [
+        "CE-12"
+      ],
+      "status": "CANONICAL_INDEX"
     }
   ],
   "tools": [
