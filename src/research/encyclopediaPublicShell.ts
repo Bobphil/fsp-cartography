@@ -191,6 +191,35 @@ function renderOrientation():HTMLElement{
   full.append(deepArc);
   main.append(full);
 
+  const phenomenal=el("section","fsp-public__section");
+  phenomenal.append(el("h2","","Why the human being remains at the center of the inquiry relation"));
+  for(const p of o.phenomenalDoing) phenomenal.append(el("p","",p));
+  const centered=el("div","fsp-public__grid");
+  for(const p of o.humanCenteredInquiryRelation){
+    const c=el("article","fsp-public__card");
+    c.append(el("p","",p));
+    centered.append(c);
+  }
+  phenomenal.append(el("h3","","Human-centered inquiry without human-centered cosmology"),centered);
+  main.append(phenomenal);
+
+  const existential=el("section","fsp-public__section");
+  existential.append(el("h2","","Existential questions are full-stack inquiries"));
+  for(const p of o.existentialInquiry) existential.append(el("p","",p));
+  main.append(existential);
+
+  const meaning=el("section","fsp-public__section");
+  meaning.append(el("h2","","Explanation is not yet meaning"));
+  const meaningList=el("ul","fsp-public__list");
+  for(const x of o.explanationMeaningFirewall) meaningList.append(el("li","",x));
+  meaning.append(meaningList);
+  main.append(meaning);
+
+  const complexity=el("section","fsp-public__section");
+  complexity.append(el("h2","","Complexity, self-organization, and generative systems"));
+  for(const p of o.complexityComparatorBoundary) complexity.append(el("p","",p));
+  main.append(complexity);
+
   const commitments=el("section","fsp-public__section");
   commitments.append(el("h2","","Four constitutional commitments"));
   const grid=el("div","fsp-public__grid");

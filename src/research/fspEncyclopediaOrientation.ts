@@ -17,6 +17,11 @@ export interface FspPublicOrientation{
   humanInformationArc:string[];
   publicInquiryArc:string[];
   antiReductionFirewall:string[];
+  phenomenalDoing:string[];
+  existentialInquiry:string[];
+  humanCenteredInquiryRelation:string[];
+  explanationMeaningFirewall:string[];
+  complexityComparatorBoundary:string[];
   constitutionalCommitments:{
     title:string;
     publicMeaning:string;
@@ -29,7 +34,7 @@ export interface FspPublicOrientation{
 }
 
 export const FSP_PUBLIC_ORIENTATION:FspPublicOrientation={
-  buildId:"FSP-ENCYCLOPEDIA-ORIENTATION-1.1",
+  buildId:"FSP-ENCYCLOPEDIA-ORIENTATION-1.2",
   title:"What is Full-Stack Philosophy?",
   subtitle:"A governed architecture for inquiry, judgment, cooperation, and return to lived Doing.",
   oneSentence:"Full-Stack Philosophy applies the architectural insight of full-stack computing to human inquiry: it follows an inquiry from its earliest emergence in lived noticing through interpretation, representation, evidence, possibility, judgment, authorization, action, consequence, and return to ongoing lived Doing—without reducing persons to computers or pretending that every domain has the same ontology, evidence, authority, or method.",
@@ -85,6 +90,34 @@ export const FSP_PUBLIC_ORIENTATION:FspPublicOrientation={
     "Meaning, embodiment, affect, value, relationship, power, standing, agency, and authorship remain irreducible parts of the human inquiry architecture.",
     "Shared architectural grammar does not imply shared domain ontology."
   ],
+  phenomenalDoing:[
+    "Inquiry begins before a proposition is fully formed. Something becomes salient for a living person already engaged in an ongoing Doing: something is noticed, felt, resisted, desired, feared, questioned, or found puzzling enough to deserve attention.",
+    "Phenomenal Doing names this situated first-person field without treating first-person experience as infallible. It is the place from which an inquiry acquires salience and stakes, not a guarantee that the first interpretation is correct.",
+    "FSP is therefore phenomenology-first in entry and return: it begins from how a problem becomes present for a situated human being and eventually returns abstractions, models, reasons, and consequences to the life in which they matter."
+  ],
+  existentialInquiry:[
+    "Questions such as Why am I here?, What is the meaning of my life?, What am I?, What should I become?, and What may I carry forward? are legitimate full-stack inquiries because they begin in lived Doing and can recruit evidence and understanding from many domains without being reducible to any one of them.",
+    "An existential inquiry may expand through cosmology, biology, neuroscience, psychology, history, culture, relationships, institutions, ethics, religion, and philosophy, but FSP requires the inquiry to preserve the provenance and limits of what each domain can contribute.",
+    "The inquiry returns to the person as Authorial Return: not to manufacture a private truth immune to evidence, but to ask what a bounded human being may responsibly make of what has been learned."
+  ],
+  humanCenteredInquiryRelation:[
+    "The human being remains at the center of the inquiry relation because this is where salience, questioning, interpretation, judgment, authorization, responsibility, consequence, and authorship are lived.",
+    "Human-centered inquiry does not mean human-centered cosmology. FSP does not place humanity at the metaphysical center of the universe or assume that the world exists for human purposes.",
+    "Phenomenology-first means that human inquiry must begin from and eventually return to the situated conditions under which anything becomes a question for a human being.",
+    "Map ≠ World ≠ Person remains decisive: a cosmological map, biological explanation, cognitive model, or social-system account may illuminate a person without exhausting that person's lived relation to the inquiry."
+  ],
+  explanationMeaningFirewall:[
+    "Explanation of the conditions that produced a person ≠ authorship of that person's meaning.",
+    "Causal location in a system ≠ existential location within a life.",
+    "A successful explanation of how a person or capacity arose may constrain an existential inquiry without automatically determining what that person should value, which commitments they should own, or how they should live.",
+    "Existential appropriation must remain answerable to evidence and reasons while preserving the distinction between what explains a life and what a person may responsibly make of that explanation."
+  ],
+  complexityComparatorBoundary:[
+    "FSP can use complexity science, self-organization, computational models, generative systems, and rule-space exploration as powerful resources for understanding how patterns and possibilities arise.",
+    "A complexity-first or world-generative inquiry typically asks what global structures can emerge from local rules, interactions, or generative constraints. FSP adds the situated inquiry question: how does a bounded human being encounter, represent, test, interpret, and act within such a world?",
+    "FSP then adds an authorial question that system generation alone does not settle: what may this person responsibly make of the understanding in the course of a life?",
+    "Accordingly, world-generative explanation, inquiry-generative reconstruction, and authorial return are distinguishable layers. FSP may cooperate with a complexity ontology without becoming one."
+  ],
   constitutionalCommitments:[
     {
       title:"Authorial Capability",
@@ -112,6 +145,8 @@ export const FSP_PUBLIC_ORIENTATION:FspPublicOrientation={
     "Shared representation ≠ historical sameness",
     "Evidence ≠ full theory choice",
     "Authority ≠ truth",
+    "Explanation of the conditions that produced a person ≠ authorship of that person's meaning",
+    "Causal location in a system ≠ existential location within a life",
     "Current judgment ≠ final closure"
   ],
   inquiryArc:[
@@ -164,6 +199,52 @@ export const FSP_PUBLIC_ORIENTATION:FspPublicOrientation={
         "FSP applies that discipline to human inquiry from first noticing through attention, mapping, representation, evidence and interpretation, revision, possibility, judgment, authorization, action, consequence, Authorial Return, and changed lived Doing.",
         "Different domains instantiate that architecture differently. What counts as evidence, authority, object, relation, action, or responsible closure in physics may differ sharply from ethics, history, logic, or aesthetics.",
         "Human inquiry is not reducible to computation. Embodiment, salience, affect, meaning, value, relationship, institutional power, standing, agency, and authorship remain part of what must be followed."
+      ]
+    },
+    {
+      id:"PHENOMENAL-DOING",
+      title:"Why does inquiry begin in phenomenal Doing?",
+      purpose:"Locate the human origin and return point of inquiry without granting first-person infallibility.",
+      paragraphs:[
+        "FSP begins before a claim is fully formed, with something becoming salient inside a person's ongoing Doing. The first-person field gives the inquiry its stakes, but it does not guarantee that the person's first interpretation is correct.",
+        "Phenomenology-first therefore means first in inquiry order, not supreme in evidential authority. Inquiry may move outward through public evidence, other persons, models, institutions, histories, and sciences before returning to lived Doing."
+      ]
+    },
+    {
+      id:"EXISTENTIAL-INQUIRY",
+      title:"Can FSP address questions about who I am and why I am here?",
+      purpose:"Show why existential questions are full-stack rather than exceptional.",
+      paragraphs:[
+        "Yes. Questions such as Why am I here?, What is the meaning of my life?, What am I?, and What should I become? can recruit many domains while remaining questions asked by a particular bounded person.",
+        "FSP does not promise a universal answer. It provides a governed inquiry path that keeps evidence, interpretation, possibility, judgment, authorization, consequence, and Authorial Return distinguishable."
+      ]
+    },
+    {
+      id:"HUMAN-CENTER",
+      title:"What does it mean to keep the human being at the center?",
+      purpose:"Distinguish the center of an inquiry relation from the center of the cosmos.",
+      paragraphs:[
+        "The human being is central because salience, questioning, interpretation, judgment, responsibility, and consequence are lived here. That is a claim about the architecture of human inquiry, not a claim that human beings occupy a privileged metaphysical location in the universe.",
+        "Phenomenology-first does not mean human-centered cosmology. It means that inquiry must preserve the situated conditions under which something became a question and eventually return what was learned to the life in which it has consequences."
+      ]
+    },
+    {
+      id:"EXPLANATION-MEANING",
+      title:"Does explaining a person explain the meaning of that person's life?",
+      purpose:"Protect the explanation-to-meaning boundary.",
+      paragraphs:[
+        "No single causal or generative explanation automatically supplies existential authorship. Cosmology, evolution, neuroscience, psychology, social history, and computation may each explain important conditions of a person's existence while leaving open what that person should value or make of those explanations.",
+        "FSP therefore preserves two firewalls: Explanation of the conditions that produced a person ≠ authorship of that person's meaning; and Causal location in a system ≠ existential location within a life."
+      ]
+    },
+    {
+      id:"COMPLEXITY-COMPARATOR",
+      title:"How is FSP different from a complexity-first or generative-system philosophy?",
+      purpose:"State a cooperative comparator boundary rather than a rival universal ontology.",
+      paragraphs:[
+        "Complexity and generative-system approaches can explain how large-scale order, patterns, and possibility spaces arise from interactions, rules, or constraints. FSP can use those explanations without treating them as complete accounts of human inquiry.",
+        "FSP adds two layers: the inquiry-generative question of how a situated person comes to notice, represent, test, and understand some part of the system, and the authorial question of what that person may responsibly make of that understanding in a life.",
+        "The difference is therefore architectural rather than adversarial: world-generative explanation, situated inquiry, and Authorial Return must not be silently collapsed into one another."
       ]
     },
     {
@@ -225,6 +306,12 @@ export function validateFspPublicOrientation(o:FspPublicOrientation=FSP_PUBLIC_O
   if(!o.fullStackMeaning.some(x=>x.includes("architectural rather than reductionist"))) failures.push("missing-architectural-not-reductionist");
   if(!o.antiReductionFirewall.some(x=>x.includes("not exhausted by computation"))) failures.push("missing-computational-reduction-firewall");
   if(!o.antiReductionFirewall.some(x=>x.includes("Shared architectural grammar does not imply shared domain ontology"))) failures.push("missing-architectural-domain-firewall");
+  if(!o.phenomenalDoing.some(x=>x.includes("Phenomenal Doing"))) failures.push("missing-phenomenal-doing");
+  if(!o.humanCenteredInquiryRelation.some(x=>x.includes("does not mean human-centered cosmology"))) failures.push("missing-anti-anthropocentric-firewall");
+  if(!o.explanationMeaningFirewall.includes("Explanation of the conditions that produced a person ≠ authorship of that person's meaning.")) failures.push("missing-explanation-meaning-firewall");
+  if(!o.explanationMeaningFirewall.includes("Causal location in a system ≠ existential location within a life.")) failures.push("missing-causal-existential-firewall");
+  if(!o.complexityComparatorBoundary.some(x=>x.includes("world-generative explanation, inquiry-generative reconstruction, and authorial return"))) failures.push("missing-complexity-comparator-boundary");
+  if(!o.existentialInquiry.some(x=>x.includes("Why am I here?"))) failures.push("missing-existential-inquiry-entry");
   if(!o.humanInformationArc.includes("Authorization")||!o.humanInformationArc.includes("Consequence")||!o.humanInformationArc.includes("Changed Lived Doing")) failures.push("missing-downstream-human-arc");
   if(!o.noPrerequisiteBoundary.some(x=>x.includes("without first learning FSP"))) failures.push("missing-no-prerequisite-boundary");
   if(!o.notClaims.some(x=>x.includes("not another ethical theory"))) failures.push("missing-not-ethical-theory");

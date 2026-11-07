@@ -82,3 +82,49 @@ test('no-framework-prerequisite boundary remains explicit',()=>{
 test('orientation contains a direct reader question about prerequisite status',()=>{
   assert.ok(FSP_PUBLIC_ORIENTATION.sections.some(x=>x.title==='Do I need to learn FSP before using this Encyclopedia?'));
 });
+
+
+test('phenomenal Doing is the inquiry origin without first-person infallibility',()=>{
+  const text=FSP_PUBLIC_ORIENTATION.phenomenalDoing.join(' ');
+  assert.match(text,/Phenomenal Doing/);
+  assert.match(text,/not a guarantee that the first interpretation is correct/i);
+  assert.match(text,/phenomenology-first in entry and return/i);
+});
+
+test('existential questions are legitimate full-stack inquiries without universal answers',()=>{
+  const text=FSP_PUBLIC_ORIENTATION.existentialInquiry.join(' ');
+  assert.match(text,/Why am I here\?/);
+  assert.match(text,/What is the meaning of my life\?/);
+  assert.match(text,/What am I\?/);
+  assert.match(text,/Authorial Return/);
+});
+
+test('human-centered inquiry relation does not become human-centered cosmology',()=>{
+  const text=FSP_PUBLIC_ORIENTATION.humanCenteredInquiryRelation.join(' ');
+  assert.match(text,/center of the inquiry relation/i);
+  assert.match(text,/does not mean human-centered cosmology/i);
+  assert.match(text,/Map ≠ World ≠ Person/);
+});
+
+test('explanation and meaning remain constitutionally distinct',()=>{
+  assert.ok(FSP_PUBLIC_ORIENTATION.explanationMeaningFirewall.includes(
+    "Explanation of the conditions that produced a person ≠ authorship of that person's meaning."
+  ));
+  assert.ok(FSP_PUBLIC_ORIENTATION.explanationMeaningFirewall.includes(
+    "Causal location in a system ≠ existential location within a life."
+  ));
+});
+
+test('complexity comparator preserves world-generative inquiry-generative and authorial layers',()=>{
+  const text=FSP_PUBLIC_ORIENTATION.complexityComparatorBoundary.join(' ');
+  assert.match(text,/complexity science/i);
+  assert.match(text,/world-generative/i);
+  assert.match(text,/inquiry-generative/i);
+  assert.match(text,/authorial/i);
+  assert.match(text,/without becoming one/i);
+});
+
+test('orientation now exposes phenomenal existential explanation and complexity sections',()=>{
+  const ids=new Set(FSP_PUBLIC_ORIENTATION.sections.map(x=>x.id));
+  for(const id of ['PHENOMENAL-DOING','EXISTENTIAL-INQUIRY','HUMAN-CENTER','EXPLANATION-MEANING','COMPLEXITY-COMPARATOR']) assert.ok(ids.has(id),id);
+});
