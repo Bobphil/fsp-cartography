@@ -221,7 +221,7 @@ export function validateFspPublicOrientation(o:FspPublicOrientation=FSP_PUBLIC_O
   }
   if(o.inquiryArc.join(" -> ")!=="Lived Doing -> Noticing -> Attention -> Mapping -> Inquiry -> Representation -> Evidence & Interpretation -> Revision -> Possibility -> Judgment -> Authorization -> Action -> Consequence -> Authorial Return -> Changed Lived Doing -> REOPEN") failures.push("inquiry-arc-drift");
   if(o.humanInformationArc.join(" -> ")!==o.inquiryArc.join(" -> ")) failures.push("human-information-arc-drift");
-  if(!o.architecturalInheritance.some(x=>x.includes("full-stack computing"))) failures.push("missing-computing-architectural-inheritance");
+  if(!o.architecturalInheritance.some(x=>x.toLowerCase().includes("full-stack computing"))) failures.push("missing-computing-architectural-inheritance");
   if(!o.fullStackMeaning.some(x=>x.includes("architectural rather than reductionist"))) failures.push("missing-architectural-not-reductionist");
   if(!o.antiReductionFirewall.some(x=>x.includes("not exhausted by computation"))) failures.push("missing-computational-reduction-firewall");
   if(!o.antiReductionFirewall.some(x=>x.includes("Shared architectural grammar does not imply shared domain ontology"))) failures.push("missing-architectural-domain-firewall");
