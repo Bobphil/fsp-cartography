@@ -32,3 +32,7 @@ Foucault remains explicitly source-ledger pending. Neptune/Vulcan remains partia
 - Deterministic unit harness covers registry population, return-stack behavior, case/probe/source routing, claim-ceiling routing, and DESI's 2024→2026 timeline.
 
 Human browser certification remains pending until the Pages deployment is exercised in a real browser.
+
+## Human browser acceptance ledger
+
+- Failure Atlas → primary Tool → exact Return to originating failure node — **PASS**
