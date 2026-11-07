@@ -1,0 +1,1175 @@
+{
+  "schemaVersion": "1.0.0",
+  "buildId": "FSP-ENCYCLOPEDIA-PROD-3",
+  "generatedFrom": "FSP-ENCYCLOPEDIA-PROD-2",
+  "canonicalOwner": "FSP Encyclopedia",
+  "routeContract": {
+    "stages": [
+      "NODE",
+      "TOOL",
+      "FAILURE",
+      "CASE",
+      "PROBE",
+      "SOURCES",
+      "CLAIM_CEILING"
+    ],
+    "returnRule": "Every deep inspection pushes the current location; Return pops the exact prior location.",
+    "projectionRule": "Pedagogical adaptation ≠ conceptual redefinition."
+  },
+  "nodes": [
+    {
+      "id": "CT-00",
+      "family": "CT",
+      "title": "Critical Thinking as Governed Inquiry",
+      "summary": "Critical thinking governs movement from situation through map, argument, judgment, authorization, repair, and REOPEN.",
+      "canonicalClaim": "Good argumentation is necessary but not sufficient for responsible inquiry.",
+      "relatedIds": [
+        "CT-01",
+        "CT-05",
+        "FSP-C01",
+        "FSP-C05"
+      ],
+      "claimCeilingIds": [
+        "CE-03",
+        "CE-10"
+      ],
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-01",
+      "family": "CT",
+      "title": "Map, Argument, Judgment",
+      "summary": "A map represents a situation; an argument connects reasons to a claim; a judgment adopts a bounded conclusion for a purpose.",
+      "canonicalClaim": "Map ≠ Argument ≠ Judgment.",
+      "relatedIds": [
+        "FSP-C01",
+        "CT-05"
+      ],
+      "claimCeilingIds": [
+        "CE-01",
+        "CE-03",
+        "CE-06"
+      ],
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-02",
+      "family": "CT",
+      "title": "Traditional Critical Thinking and the FSP Extension",
+      "summary": "FSP retains logic, argument analysis, evidence, inference forms, fallacy analysis, counterexamples, and source evaluation, then makes representation, standing, authorization, repair, and reopening explicit.",
+      "canonicalClaim": "FSP extends rather than replaces traditional critical thinking.",
+      "relatedIds": [
+        "CT-00",
+        "CT-01"
+      ],
+      "claimCeilingIds": [
+        "CE-12"
+      ],
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-03",
+      "family": "CT",
+      "title": "Twelve-Tool Functional Grammar",
+      "summary": "The twelve Ethics Tools form a critical-thinking ecology in which each protects a different transition or vulnerability.",
+      "canonicalClaim": "Problem topology → Tool selection → Tool sequencing → bounded judgment.",
+      "relatedIds": [
+        "CT-T01",
+        "CT-T12"
+      ],
+      "claimCeilingIds": [
+        "CE-12"
+      ],
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-04",
+      "family": "CT",
+      "title": "Failure-Mode Atlas",
+      "summary": "Begin with a recognizable reasoning symptom, identify the likely failure mode, then route to the Tool and claim ceiling that can improve the map.",
+      "canonicalClaim": "Failure diagnosis routes inquiry; it does not decide the verdict.",
+      "relatedIds": [
+        "CT-F01",
+        "CT-F16"
+      ],
+      "claimCeilingIds": [
+        "CE-03"
+      ],
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-05",
+      "family": "CT",
+      "title": "Judgment, Standing, and Authorization",
+      "summary": "A supported conclusion can leave open whether an actor has standing to recommend, impose, classify, constrain, or intervene.",
+      "canonicalClaim": "Supported judgment ≠ unrestricted authorization.",
+      "relatedIds": [
+        "CT-T05",
+        "CT-T06",
+        "CT-T08",
+        "CT-T09"
+      ],
+      "claimCeilingIds": [
+        "CE-06",
+        "CE-07"
+      ],
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-06",
+      "family": "CT",
+      "title": "Repair and REOPEN",
+      "summary": "A repair targets an identified failure mode and preserves explicit conditions for reopening.",
+      "canonicalClaim": "Current warrant must preserve a route for correction.",
+      "relatedIds": [
+        "FSP-C05",
+        "CT-F16"
+      ],
+      "claimCeilingIds": [
+        "CE-10"
+      ],
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-07",
+      "family": "CT",
+      "title": "Cross-Domain Applications",
+      "summary": "The same inquiry grammar can travel across ethics, science, history, institutional reasoning, and ordinary argument while domain ontology remains distinct.",
+      "canonicalClaim": "Shared grammar ≠ shared ontology.",
+      "relatedIds": [
+        "FSP-C08"
+      ],
+      "claimCeilingIds": [
+        "CE-12"
+      ],
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-08",
+      "family": "CT",
+      "title": "Formal Tool and Transition Architecture",
+      "summary": "A Tool has a canonical question, admissible input, failure mode, output, claim ceiling, and neighboring transitions.",
+      "canonicalClaim": "A revised inquiry state cannot claim more standing than its licensed transition earns.",
+      "relatedIds": [
+        "FSP-C03",
+        "FSP-C04"
+      ],
+      "claimCeilingIds": [
+        "CE-03"
+      ],
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-09",
+      "family": "CT",
+      "title": "Source Ledger and Comparator Notes",
+      "summary": "Historical sources, scholarly reconstruction, contemporary project sources, and FSP reconstruction remain distinguishable.",
+      "canonicalClaim": "Historical source ≠ scholarly reconstruction ≠ FSP reconstruction.",
+      "relatedIds": [
+        "FSP-C03"
+      ],
+      "claimCeilingIds": [
+        "CE-03"
+      ],
+      "status": "CANONICAL"
+    },
+    {
+      "id": "FSP-C01",
+      "family": "FSP",
+      "title": "Map ≠ World ≠ Person",
+      "summary": "Inquiry operates through representations; a useful map is not identical to the world or person represented.",
+      "canonicalClaim": "Map ≠ World ≠ Person.",
+      "relatedIds": [
+        "CT-01"
+      ],
+      "claimCeilingIds": [
+        "CE-01",
+        "CE-02"
+      ],
+      "status": "FROZEN"
+    },
+    {
+      "id": "FSP-C02",
+      "family": "FSP",
+      "title": "Possibility ≠ Recommendation ≠ Authorization",
+      "summary": "Generating an option does not recommend it; recommending it does not authorize implementation.",
+      "canonicalClaim": "Generate ≠ Recommend ≠ Authorize.",
+      "relatedIds": [
+        "CT-05"
+      ],
+      "claimCeilingIds": [
+        "CE-06"
+      ],
+      "status": "FROZEN"
+    },
+    {
+      "id": "FSP-C03",
+      "family": "FSP",
+      "title": "Claim Ceiling",
+      "summary": "A claim ceiling marks the strongest conclusion the current evidence, Tool, model, or reconstruction licenses.",
+      "canonicalClaim": "Ask: what does not yet follow?",
+      "relatedIds": [
+        "CT-08",
+        "CT-09"
+      ],
+      "claimCeilingIds": [
+        "CE-03",
+        "CE-04"
+      ],
+      "status": "FROZEN"
+    },
+    {
+      "id": "FSP-C04",
+      "family": "FSP",
+      "title": "Tool ≠ Verdict",
+      "summary": "A Tool changes visibility, constrains inference, or exposes a distinction without automatically deciding the case.",
+      "canonicalClaim": "Tool → better inquiry, not automatic answer.",
+      "relatedIds": [
+        "CT-03"
+      ],
+      "claimCeilingIds": [
+        "CE-03"
+      ],
+      "status": "FROZEN"
+    },
+    {
+      "id": "FSP-C05",
+      "family": "FSP",
+      "title": "REOPEN",
+      "summary": "REOPEN specifies evidence, challenge, changed conditions, failed predictions, or unintended consequences that return a settlement to inquiry.",
+      "canonicalClaim": "Current judgment ≠ final closure.",
+      "relatedIds": [
+        "CT-06"
+      ],
+      "claimCeilingIds": [
+        "CE-10"
+      ],
+      "status": "FROZEN"
+    },
+    {
+      "id": "FSP-C06",
+      "family": "FSP",
+      "title": "Authorial Return",
+      "summary": "Inquiry aids may reconstruct, compare, simulate, and expose; final judgment returns to the human inquirer as authored judgment.",
+      "canonicalClaim": "Cognitive support ≠ outsourced authorship.",
+      "relatedIds": [],
+      "claimCeilingIds": [
+        "CE-10"
+      ],
+      "status": "FROZEN"
+    },
+    {
+      "id": "FSP-C07",
+      "family": "FSP",
+      "title": "Progressive Disclosure",
+      "summary": "Presentation may simplify while semantic identity remains stable across reader depths.",
+      "canonicalClaim": "Presentation compression ≠ semantic mutation.",
+      "relatedIds": [],
+      "claimCeilingIds": [
+        "CE-12"
+      ],
+      "status": "FROZEN"
+    },
+    {
+      "id": "FSP-C08",
+      "family": "FSP",
+      "title": "Shared Grammar ≠ Shared Ontology",
+      "summary": "The same inquiry transition may recur across domains without implying that the domains contain the same kinds of entities.",
+      "canonicalClaim": "Shared grammar ≠ shared domain ontology.",
+      "relatedIds": [
+        "CT-07"
+      ],
+      "claimCeilingIds": [
+        "CE-12"
+      ],
+      "status": "FROZEN"
+    },
+    {
+      "id": "FSP-C09",
+      "family": "FSP",
+      "title": "One Canonical Owner, Many Projections",
+      "summary": "Reusable concepts have one canonical owner while books, courses, apps, and labs provide pedagogical projections.",
+      "canonicalClaim": "Projection ≠ competing canonical definition.",
+      "relatedIds": [],
+      "claimCeilingIds": [
+        "CE-12"
+      ],
+      "status": "FROZEN"
+    },
+    {
+      "id": "FSP-C10",
+      "family": "FSP",
+      "title": "Return to Lived Doing",
+      "summary": "Formalization exists to improve situated human inquiry and action rather than replace them.",
+      "canonicalClaim": "The endpoint is better Doing, not formalism for its own sake.",
+      "relatedIds": [],
+      "claimCeilingIds": [
+        "CE-10"
+      ],
+      "status": "FROZEN"
+    }
+  ],
+  "tools": [
+    {
+      "id": "CT-T01",
+      "kind": "TOOL",
+      "title": "Ethical Attention / First Map Audit",
+      "function": "Inspect the representation before reasoning confidently from it.",
+      "question": "What happened? What am I adding? What am I failing to notice?",
+      "failureIds": [
+        "CT-F01",
+        "CT-F02"
+      ],
+      "claimCeiling": "Improved representation ≠ final judgment",
+      "projection": "Ethical History CH01",
+      "caseProjection": "Nail Through the Boot",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-T02",
+      "kind": "TOOL",
+      "title": "Examination / Reason-Giving Audit",
+      "function": "Test claims, reasons, explanatory direction, and inferential licenses.",
+      "question": "What is the claim? What reasons support it? What follows, and what does not?",
+      "failureIds": [
+        "CT-F03",
+        "CT-F04",
+        "CT-F10"
+      ],
+      "claimCeiling": "Failed justification ≠ opposite conclusion proved",
+      "projection": "Ethical History CH02",
+      "caseProjection": "Law and Direction of Justification",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-T03",
+      "kind": "TOOL",
+      "title": "Formation / Practical-Wisdom Audit",
+      "function": "Examine how habits and practices form practical perception and judgment.",
+      "question": "What is this practice forming people to notice, enjoy, avoid, choose, and become?",
+      "failureIds": [
+        "CT-F05"
+      ],
+      "claimCeiling": "Formation ≠ justification",
+      "projection": "Ethical History CH03",
+      "caseProjection": "Challenger / Boisjoly",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-T04",
+      "kind": "TOOL",
+      "title": "Control / Desire / Moral-Range Audit",
+      "function": "Calibrate agency and responsibility under constraint.",
+      "question": "What is controllable, influenceable, or outside control?",
+      "failureIds": [
+        "CT-F06"
+      ],
+      "claimCeiling": "Remaining agency ≠ unlimited responsibility",
+      "projection": "Ethical History CH04",
+      "caseProjection": "Saad Sirop Hanna",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-T05",
+      "kind": "TOOL",
+      "title": "Moral Authority / Common-Good Audit",
+      "function": "Test whether a rule has moral standing beyond enforceability.",
+      "question": "Why should this rule bind?",
+      "failureIds": [
+        "CT-F04",
+        "CT-F07"
+      ],
+      "claimCeiling": "Good purpose ≠ uniquely justified rule",
+      "projection": "Ethical History CH05",
+      "caseProjection": "Study Room",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-T06",
+      "kind": "TOOL",
+      "title": "Legitimacy / Standing Audit",
+      "function": "Test who may exercise consequential authority and under what limits.",
+      "question": "Why may this actor exercise consequential authority here?",
+      "failureIds": [
+        "CT-F07",
+        "CT-F15"
+      ],
+      "claimCeiling": "Illegitimacy ≠ unlimited resistance",
+      "projection": "Ethical History CH06",
+      "caseProjection": "Mandela",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-T07",
+      "kind": "TOOL",
+      "title": "Perspective / Moral-Visibility Audit",
+      "function": "Test how other persons are represented and where perspective remains incomplete.",
+      "question": "Whose situation is being represented, by whom, and with what limits?",
+      "failureIds": [
+        "CT-F01",
+        "CT-F02"
+      ],
+      "claimCeiling": "Sympathy ≠ direct access",
+      "projection": "Ethical History CH07",
+      "caseProjection": "Gulf Pines Nursing Home",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-T08",
+      "kind": "TOOL",
+      "title": "Respect / Duty / Autonomy Audit",
+      "function": "Test whether an action preserves another person as an agent.",
+      "question": "Does this action preserve the person as an agent rather than merely manage them?",
+      "failureIds": [
+        "CT-F08",
+        "CT-F15"
+      ],
+      "claimCeiling": "Autonomy ≠ preference sovereignty",
+      "projection": "Ethical History CH08",
+      "caseProjection": "Leila's Adviser",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-T09",
+      "kind": "TOOL",
+      "title": "Consequence / Welfare / Harm Audit",
+      "function": "Evaluate effects, uncertainty, distribution, and coercion.",
+      "question": "Who is affected, what happens, how certain are we, and who bears the burden?",
+      "failureIds": [
+        "CT-F09",
+        "CT-F10",
+        "CT-F15"
+      ],
+      "claimCeiling": "Benefit ≠ complete justification",
+      "projection": "Ethical History CH09",
+      "caseProjection": "Gulf Pines Respiratory Outbreak",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-T10",
+      "kind": "TOOL",
+      "title": "Background Power / Genealogy Audit",
+      "function": "Inspect conditions shaping choices, categories, and values before explicit decisions occur.",
+      "question": "What is shaping the choice before the choice appears?",
+      "failureIds": [
+        "CT-F11",
+        "CT-F12"
+      ],
+      "claimCeiling": "Origin ≠ validity",
+      "projection": "Ethical History CH10",
+      "caseProjection": "FlexWorks",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-T11",
+      "kind": "TOOL",
+      "title": "Fair-Structure / Veil-of-Ignorance Audit",
+      "function": "Evaluate institutional rules without privileging one's present position.",
+      "question": "Would I choose these rules without knowing which position would be mine?",
+      "failureIds": [
+        "CT-F09",
+        "CT-F13"
+      ],
+      "claimCeiling": "Inequality ≠ automatically unjust",
+      "projection": "Ethical History CH11",
+      "caseProjection": "Commonwealth Colleges",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-T12",
+      "kind": "TOOL",
+      "title": "Dependency / Effective-Capability Audit",
+      "function": "Test whether nominal resources become real possibilities for action.",
+      "question": "What can this person actually do and be under these conditions?",
+      "failureIds": [
+        "CT-F14"
+      ],
+      "claimCeiling": "Resource ≠ capability; capability ≠ functioning",
+      "projection": "Ethical History CH12",
+      "caseProjection": "Maathai",
+      "status": "CANONICAL"
+    }
+  ],
+  "failures": [
+    {
+      "id": "CT-F01",
+      "kind": "FAILURE",
+      "title": "Map Substitution",
+      "symptom": "A representation is treated as though it were the thing represented.",
+      "diagnosticQuestion": "What did I actually observe, and what did the map add?",
+      "primaryToolId": "CT-T01",
+      "secondaryToolIds": [
+        "CT-T07"
+      ],
+      "claimCeilingId": "CE-01",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-F02",
+      "kind": "FAILURE",
+      "title": "Omission Failure",
+      "symptom": "Relevant actors, facts, burdens, perspectives, or uncertainty never enter the map.",
+      "diagnosticQuestion": "What important thing or person is missing?",
+      "primaryToolId": "CT-T01",
+      "secondaryToolIds": [
+        "CT-T07",
+        "CT-T09",
+        "CT-T12"
+      ],
+      "claimCeilingId": "CE-02",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-F03",
+      "kind": "FAILURE",
+      "title": "Inferential Overreach",
+      "symptom": "The conclusion says more than the reasons establish.",
+      "diagnosticQuestion": "What is the strongest conclusion these reasons actually support?",
+      "primaryToolId": "CT-T02",
+      "secondaryToolIds": [
+        "CT-T09"
+      ],
+      "claimCeilingId": "CE-03",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-F04",
+      "kind": "FAILURE",
+      "title": "Direction-of-Justification Failure",
+      "symptom": "Something requiring justification is used as its own justification.",
+      "diagnosticQuestion": "What is supposed to explain what?",
+      "primaryToolId": "CT-T02",
+      "secondaryToolIds": [
+        "CT-T05",
+        "CT-T06"
+      ],
+      "claimCeilingId": "CE-03",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-F05",
+      "kind": "FAILURE",
+      "title": "Formation Blindness",
+      "symptom": "Choice is analyzed without examining practices that formed perception and judgment.",
+      "diagnosticQuestion": "What has this practice trained agents to notice or ignore?",
+      "primaryToolId": "CT-T03",
+      "secondaryToolIds": [
+        "CT-T10"
+      ],
+      "claimCeilingId": "CE-03",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-F06",
+      "kind": "FAILURE",
+      "title": "Agency Miscalibration",
+      "symptom": "Responsibility is assigned without regard to control or constraint.",
+      "diagnosticQuestion": "What was actually within the agent's range?",
+      "primaryToolId": "CT-T04",
+      "secondaryToolIds": [
+        "CT-T12"
+      ],
+      "claimCeilingId": "CE-08",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-F07",
+      "kind": "FAILURE",
+      "title": "Authority Substitution",
+      "symptom": "Power, office, expertise, or enforcement is mistaken for moral standing.",
+      "diagnosticQuestion": "Why may this actor decide or impose this?",
+      "primaryToolId": "CT-T06",
+      "secondaryToolIds": [
+        "CT-T05"
+      ],
+      "claimCeilingId": "CE-07",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-F08",
+      "kind": "FAILURE",
+      "title": "Agency Bypass",
+      "symptom": "A beneficial intervention treats a person as an object to manage rather than an agent.",
+      "diagnosticQuestion": "Was the person preserved as an agent?",
+      "primaryToolId": "CT-T08",
+      "secondaryToolIds": [
+        "CT-T06"
+      ],
+      "claimCeilingId": "CE-06",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-F09",
+      "kind": "FAILURE",
+      "title": "Aggregation Blindness",
+      "symptom": "Total or average benefit hides who bears burdens.",
+      "diagnosticQuestion": "Who gains, who loses, and how are burdens distributed?",
+      "primaryToolId": "CT-T09",
+      "secondaryToolIds": [
+        "CT-T11"
+      ],
+      "claimCeilingId": "CE-06",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-F10",
+      "kind": "FAILURE",
+      "title": "Causal Confidence Inflation",
+      "symptom": "Prediction, correlation, or association is treated as stronger causal knowledge than the evidence supports.",
+      "diagnosticQuestion": "What causal claim has actually been earned?",
+      "primaryToolId": "CT-T02",
+      "secondaryToolIds": [
+        "CT-T09"
+      ],
+      "claimCeilingId": "CE-03",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-F11",
+      "kind": "FAILURE",
+      "title": "Background-Condition Blindness",
+      "symptom": "A choice is treated as self-contained although structures shaped its available options.",
+      "diagnosticQuestion": "What shaped the choice field before the choice appeared?",
+      "primaryToolId": "CT-T10",
+      "secondaryToolIds": [
+        "CT-T11",
+        "CT-T12"
+      ],
+      "claimCeilingId": "CE-08",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-F12",
+      "kind": "FAILURE",
+      "title": "Genealogical Fallacy",
+      "symptom": "Showing how a belief or value arose is treated as proving it false.",
+      "diagnosticQuestion": "Does this origin story actually bear on validity?",
+      "primaryToolId": "CT-T10",
+      "secondaryToolIds": [],
+      "claimCeilingId": "CE-05",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-F13",
+      "kind": "FAILURE",
+      "title": "Procedural Neutrality Illusion",
+      "symptom": "A formally identical rule is assumed fair despite unequal background positions.",
+      "diagnosticQuestion": "Would the rule remain acceptable without knowing my position?",
+      "primaryToolId": "CT-T11",
+      "secondaryToolIds": [
+        "CT-T10",
+        "CT-T12"
+      ],
+      "claimCeilingId": "CE-08",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-F14",
+      "kind": "FAILURE",
+      "title": "Resource/Capability Collapse",
+      "symptom": "Having a resource or formal opportunity is treated as equivalent to being able to use it.",
+      "diagnosticQuestion": "What can the person actually do with the nominal resource?",
+      "primaryToolId": "CT-T12",
+      "secondaryToolIds": [],
+      "claimCeilingId": "CE-09",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-F15",
+      "kind": "FAILURE",
+      "title": "Judgment/Authorization Collapse",
+      "symptom": "Evidence sufficient for belief is treated as sufficient for intervention.",
+      "diagnosticQuestion": "What action is actually authorized by this evidence and standing?",
+      "primaryToolId": "CT-T06",
+      "secondaryToolIds": [
+        "CT-T08",
+        "CT-T09"
+      ],
+      "claimCeilingId": "CE-06",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CT-F16",
+      "kind": "FAILURE",
+      "title": "Closure Inflation",
+      "symptom": "A present judgment is treated as permanently settled.",
+      "diagnosticQuestion": "What would require us to reopen this judgment?",
+      "primaryToolId": "FSP-C05",
+      "secondaryToolIds": [],
+      "claimCeilingId": "CE-10",
+      "status": "CANONICAL"
+    }
+  ],
+  "claimCeilings": [
+    {
+      "id": "CE-01",
+      "kind": "CLAIM_CEILING",
+      "title": "Map / World",
+      "text": "Map ≠ World.",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CE-02",
+      "kind": "CLAIM_CEILING",
+      "title": "Map / Person",
+      "text": "Map of Person ≠ Person.",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CE-03",
+      "kind": "CLAIM_CEILING",
+      "title": "Evidence / Conclusion",
+      "text": "Evidence does not license a stronger conclusion than it supports.",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CE-04",
+      "kind": "CLAIM_CEILING",
+      "title": "Model / Ontology",
+      "text": "Model success ≠ ontology.",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CE-05",
+      "kind": "CLAIM_CEILING",
+      "title": "Origin / Validity",
+      "text": "Origin ≠ validity.",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CE-06",
+      "kind": "CLAIM_CEILING",
+      "title": "Benefit / Authorization",
+      "text": "Benefit ≠ authorization.",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CE-07",
+      "kind": "CLAIM_CEILING",
+      "title": "Power / Legitimacy",
+      "text": "Power ≠ legitimacy.",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CE-08",
+      "kind": "CLAIM_CEILING",
+      "title": "Formal Choice / Practical Freedom",
+      "text": "Formal choice ≠ equal practical freedom.",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CE-09",
+      "kind": "CLAIM_CEILING",
+      "title": "Resource / Capability",
+      "text": "Resource ≠ capability.",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CE-10",
+      "kind": "CLAIM_CEILING",
+      "title": "Current / Final",
+      "text": "Current judgment ≠ final closure.",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CE-11",
+      "kind": "CLAIM_CEILING",
+      "title": "Probe / Fact",
+      "text": "Probe result ≠ historical fact.",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "CE-12",
+      "kind": "CLAIM_CEILING",
+      "title": "Shared Grammar / Ontology",
+      "text": "Shared inquiry grammar ≠ shared domain ontology.",
+      "status": "CANONICAL"
+    }
+  ],
+  "sources": [
+    {
+      "id": "SRC-GALILEO-SEP",
+      "kind": "SCHOLARLY_RECONSTRUCTION",
+      "title": "Stanford Encyclopedia of Philosophy — Galileo Galilei",
+      "url": "https://plato.stanford.edu/entries/galileo/",
+      "supports": "Historical reconstruction of Galileo's observations, methodological context, and cosmological controversy."
+    },
+    {
+      "id": "SRC-EINSTEIN-ONLINE",
+      "kind": "TECHNICAL_COMPARATOR",
+      "title": "Einstein Online — Classical tests of general relativity",
+      "url": "https://www.einstein-online.info/en/explandict/tests-of-general-relativity-classical/",
+      "supports": "Mercury's perihelion advance as a classical test of general relativity."
+    },
+    {
+      "id": "SRC-DESI-2026-SURVEY",
+      "kind": "PROJECT_SOURCE",
+      "title": "DESI Surpasses Original Five-Year Survey Goals",
+      "url": "https://www.desi.lbl.gov/2026/04/15/desi-surpasses-original-five-year-survey-goals/",
+      "supports": "April 2026 completion of observations for the originally planned survey and continuation beyond it."
+    },
+    {
+      "id": "SRC-DESI-DR2-LYA",
+      "kind": "PROJECT_SOURCE",
+      "title": "DESI DR2 Lyman-alpha Results",
+      "url": "https://www.desi.lbl.gov/2026/07/30/new-desi-dr2-lyman-alpha-results-shed-light-on-dark-energy/",
+      "supports": "July 2026 full-shape Lyman-alpha results and their relation to ΛCDM and evolving-dark-energy models."
+    },
+    {
+      "id": "SRC-DESI-DR2-PAPERS",
+      "kind": "PRIMARY_DATA_INDEX",
+      "title": "DESI DR2 Publications",
+      "url": "https://data.desi.lbl.gov/doc/papers/dr2/",
+      "supports": "Canonical publication index for DESI DR2 cosmology analyses released in 2025 and 2026."
+    }
+  ],
+  "cases": [
+    {
+      "id": "CASE-SCI-01",
+      "slug": "FOUCAULT-LIGHT-SPEED",
+      "title": "Foucault and the Measurement of Light Speed",
+      "role": "Instrument-mediated revision",
+      "status": "SOURCE_COMPLETION_REQUIRED",
+      "question": "How much can a discriminating experiment actually establish?",
+      "summary": "Instrumental capability can make previously inaccessible differences publicly discriminable without settling every ontological question.",
+      "states": [
+        {
+          "id": "F0",
+          "label": "Pre-discrimination",
+          "text": "Competing optical accounts imply different expectations while terrestrial discrimination remains difficult."
+        },
+        {
+          "id": "F1",
+          "label": "Instrumental discrimination",
+          "text": "Rotating optical apparatus makes a previously inaccessible timing relation measurable."
+        },
+        {
+          "id": "F2",
+          "label": "Bounded reconstruction",
+          "text": "The result changes comparative standing while stronger ontological claims remain separately licensed."
+        }
+      ],
+      "transitions": [
+        {
+          "id": "F0-F1",
+          "from": "F0",
+          "to": "F1",
+          "label": "New instrument opens a discriminating observation."
+        },
+        {
+          "id": "F1-F2",
+          "from": "F1",
+          "to": "F2",
+          "label": "Result is retained while its claim ceiling is made explicit."
+        }
+      ],
+      "probes": [
+        {
+          "id": "F-PROBE-1",
+          "title": "Auxiliary reopening probe",
+          "prompt": "Which auxiliary commitments could be revised while preserving the measured relation?",
+          "firewall": "Probe result ≠ historical fact."
+        }
+      ],
+      "sourceIds": [],
+      "sourceStatus": "PENDING_FULL_LEDGER",
+      "claimCeilingIds": [
+        "CE-04",
+        "CE-11"
+      ],
+      "reopen": "REOPEN if stronger source work changes what the experiment was taken to discriminate."
+    },
+    {
+      "id": "CASE-SCI-02",
+      "slug": "NEPTUNE-VULCAN",
+      "title": "Neptune / Vulcan",
+      "role": "Same inferential strategy, divergent outcomes",
+      "status": "SOURCE_COMPLETION_REQUIRED",
+      "question": "Why can the same repair strategy succeed once and fail later?",
+      "summary": "A successful unseen-body repair in the Neptune case did not turn auxiliary repair into a universal rule for later anomalies.",
+      "states": [
+        {
+          "id": "NV0",
+          "label": "Anomaly",
+          "text": "Observed motion departs from the current model's expectation."
+        },
+        {
+          "id": "NV1",
+          "label": "Neptune auxiliary hypothesis",
+          "text": "An unseen planet is proposed as a perturbing body."
+        },
+        {
+          "id": "NV2",
+          "label": "Neptune confirmation",
+          "text": "Prediction guides observation and the repair gains strong standing."
+        },
+        {
+          "id": "NV3",
+          "label": "Mercury/Vulcan pressure",
+          "text": "A similar unseen-body strategy is applied to Mercury's residual discrepancy."
+        },
+        {
+          "id": "NV4",
+          "label": "Framework revision",
+          "text": "Vulcan lacks stable confirmation; general relativity later reorganizes the gravitational framework."
+        }
+      ],
+      "transitions": [
+        {
+          "id": "NV0-NV1",
+          "from": "NV0",
+          "to": "NV1",
+          "label": "Anomaly opens an auxiliary repair."
+        },
+        {
+          "id": "NV1-NV2",
+          "from": "NV1",
+          "to": "NV2",
+          "label": "Prediction and observation support the repair."
+        },
+        {
+          "id": "NV3-NV4",
+          "from": "NV3",
+          "to": "NV4",
+          "label": "Failed auxiliary repair is followed by deeper framework revision."
+        }
+      ],
+      "probes": [
+        {
+          "id": "NV-PROBE-NEPTUNE",
+          "title": "Neptune repair-world probe",
+          "prompt": "What additional observations should follow if the unseen-body repair is right?",
+          "firewall": "Possible repair ≠ guaranteed ontology."
+        },
+        {
+          "id": "NV-PROBE-VULCAN",
+          "title": "Vulcan comparator probe",
+          "prompt": "What changes if the auxiliary is retained versus the gravitational framework revised?",
+          "firewall": "Successful strategy in one case ≠ universal revision rule."
+        }
+      ],
+      "sourceIds": [
+        "SRC-EINSTEIN-ONLINE"
+      ],
+      "sourceStatus": "PARTIAL_LEDGER",
+      "claimCeilingIds": [
+        "CE-03",
+        "CE-04"
+      ],
+      "reopen": "REOPEN when new evidence changes the comparative standing of auxiliary and framework revisions."
+    },
+    {
+      "id": "CASE-SCI-03",
+      "slug": "GALILEO-COPERNICAN",
+      "title": "Galileo and Telescopic Astronomy",
+      "role": "Instrument, representation, and conceptual pressure",
+      "status": "SOURCE_SEED_VERIFIED",
+      "question": "How do new instruments alter what can count as publicly inspectable evidence?",
+      "summary": "Telescopic observations altered the evidence field and pressured inherited celestial categories without each observation deductively proving the entire Copernican system.",
+      "states": [
+        {
+          "id": "G0",
+          "label": "Inherited celestial map",
+          "text": "Pre-telescopic categories organize the terrestrial/celestial distinction."
+        },
+        {
+          "id": "G1",
+          "label": "Telescopic evidence",
+          "text": "Lunar topography, Jovian satellites, phases of Venus, and related observations alter the publicly inspectable evidence field."
+        },
+        {
+          "id": "G2",
+          "label": "Interpretive and institutional dispute",
+          "text": "Evidence, interpretation, demonstration, standing, and authority become coupled but non-identical issues."
+        }
+      ],
+      "transitions": [
+        {
+          "id": "G0-G1",
+          "from": "G0",
+          "to": "G1",
+          "label": "Instrument expands observable evidence."
+        },
+        {
+          "id": "G1-G2",
+          "from": "G1",
+          "to": "G2",
+          "label": "New evidence pressures inherited categories and shifts the dispute."
+        }
+      ],
+      "probes": [
+        {
+          "id": "G-PROBE-TELESCOPE",
+          "title": "Instrumental evidence probe",
+          "prompt": "Which inherited claims are directly pressured by the observations, and which require further inference?",
+          "firewall": "Observation ≠ automatic cosmological theory."
+        },
+        {
+          "id": "G-PROBE-STANDING",
+          "title": "Standing probe",
+          "prompt": "What changes if institutional authority is altered while observational evidence is held fixed?",
+          "firewall": "Power ≠ epistemic demonstration."
+        }
+      ],
+      "sourceIds": [
+        "SRC-GALILEO-SEP"
+      ],
+      "sourceStatus": "SEEDED",
+      "claimCeilingIds": [
+        "CE-03",
+        "CE-11"
+      ],
+      "reopen": "REOPEN if source work changes the historical reconstruction of what observations licensed."
+    },
+    {
+      "id": "CASE-SCI-04",
+      "slug": "NEWTON-EINSTEIN",
+      "title": "Newton → Einstein",
+      "role": "Framework revision without predecessor erasure",
+      "status": "SOURCE_SEED_VERIFIED",
+      "question": "How can a later framework transform concepts while preserving bounded earlier successes?",
+      "summary": "General relativity reorganizes gravitation while Newtonian mechanics retains strong practical standing in bounded regimes.",
+      "states": [
+        {
+          "id": "RE0",
+          "label": "Newtonian framework",
+          "text": "A highly successful gravitational framework supports broad prediction and explanation."
+        },
+        {
+          "id": "RE1",
+          "label": "Relativistic reconstruction",
+          "text": "Space, time, gravity, and admissible description are reorganized within relativity."
+        },
+        {
+          "id": "RE2",
+          "label": "Domain-bounded continuity",
+          "text": "Newtonian results remain powerful approximations in appropriate regimes."
+        }
+      ],
+      "transitions": [
+        {
+          "id": "RE0-RE1",
+          "from": "RE0",
+          "to": "RE1",
+          "label": "Framework and conceptual relations are revised."
+        },
+        {
+          "id": "RE1-RE2",
+          "from": "RE1",
+          "to": "RE2",
+          "label": "Predecessor success is retained under explicit domain limits."
+        }
+      ],
+      "probes": [
+        {
+          "id": "RE-PROBE-ELEVATOR",
+          "title": "Equivalence probe",
+          "prompt": "What can be made locally equivalent, and what remainder appears when scale or tidal structure is restored?",
+          "firewall": "Local task-equivalence ≠ global identity."
+        }
+      ],
+      "sourceIds": [
+        "SRC-EINSTEIN-ONLINE"
+      ],
+      "sourceStatus": "SEEDED",
+      "claimCeilingIds": [
+        "CE-04",
+        "CE-12"
+      ],
+      "reopen": "REOPEN if the comparison task or scale changes."
+    },
+    {
+      "id": "CASE-SCI-05",
+      "slug": "DESI-2024-2026",
+      "title": "DESI 2024 → 2026",
+      "role": "Live frontier inquiry and claim-ceiling revision",
+      "status": "ACTIVE_CONTEMPORARY_DOSSIER",
+      "question": "What should accumulating but model-dependent tension do to the standing of the baseline cosmological model?",
+      "summary": "DESI is represented as a diachronic evidence record: increasing precision can strengthen, weaken, or reorganize model preference without automatically settling ontology.",
+      "states": [
+        {
+          "id": "D0",
+          "label": "2024 first-year frontier",
+          "text": "First-year BAO results open a serious model-comparison question without licensing discovery language."
+        },
+        {
+          "id": "D1",
+          "label": "2025 DR2 three-year update",
+          "text": "A larger dataset strengthens some combined-data hints of evolving dark energy."
+        },
+        {
+          "id": "D2",
+          "label": "2026 extended evidence state",
+          "text": "The planned survey observations are completed and later DR2 Lyman-alpha full-shape results add tighter constraints; the newest Lyman-alpha result shifts toward ΛCDM relative to earlier evolving-dark-energy preference."
+        }
+      ],
+      "transitions": [
+        {
+          "id": "D0-D1",
+          "from": "D0",
+          "to": "D1",
+          "label": "More data tighten constraints and alter model preference."
+        },
+        {
+          "id": "D1-D2",
+          "from": "D1",
+          "to": "D2",
+          "label": "New probe structure and full-shape information reorganize the evidence frontier."
+        }
+      ],
+      "probes": [
+        {
+          "id": "D-PROBE-COMBINATION",
+          "title": "Dataset-combination probe",
+          "prompt": "How does model preference change across allowed combinations of DESI and other cosmological data?",
+          "firewall": "Combined-data preference ≠ final ontology."
+        },
+        {
+          "id": "D-PROBE-FULLSHAPE",
+          "title": "BAO versus full-shape probe",
+          "prompt": "What changes when the full Lyman-alpha correlation shape is used rather than BAO-only information?",
+          "firewall": "Greater precision ≠ guaranteed persistence of an earlier hint."
+        }
+      ],
+      "sourceIds": [
+        "SRC-DESI-2026-SURVEY",
+        "SRC-DESI-DR2-LYA",
+        "SRC-DESI-DR2-PAPERS"
+      ],
+      "sourceStatus": "CURRENT_SEEDS_VERIFIED",
+      "claimCeilingIds": [
+        "CE-03",
+        "CE-04",
+        "CE-10"
+      ],
+      "reopen": "REOPEN with new DESI releases, independent probes, or materially changed model comparison."
+    }
+  ],
+  "projections": [
+    {
+      "id": "PROJ-ETHICS",
+      "title": "Ethical History",
+      "rule": "Historical narrative and workbook projection; canonical Tool identity remains in CT-Txx."
+    },
+    {
+      "id": "PROJ-SUPER",
+      "title": "SUPER",
+      "rule": "Interactive workbook owner; consumes Tool metadata without owning Tool definitions."
+    },
+    {
+      "id": "PROJ-PFLAB",
+      "title": "PFLAB",
+      "rule": "Consumes the twelve Tool identities and adds selection, sequencing, bounded judgment, repair, and REOPEN."
+    },
+    {
+      "id": "PROJ-HISTINQ",
+      "title": "History of Inquiry",
+      "rule": "Projects evidence, instrumentation, model, concept, standing, and diachronic transition."
+    },
+    {
+      "id": "PROJ-PHSCI",
+      "title": "Philosophy of Science",
+      "rule": "Owns narrative treatment while shared formal concepts remain encyclopedia-owned."
+    }
+  ]
+}
