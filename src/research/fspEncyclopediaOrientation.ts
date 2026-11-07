@@ -13,6 +13,10 @@ export interface FspPublicOrientation{
   oneSentence:string;
   originProblem:string[];
   fullStackMeaning:string[];
+  architecturalInheritance:string[];
+  humanInformationArc:string[];
+  publicInquiryArc:string[];
+  antiReductionFirewall:string[];
   constitutionalCommitments:{
     title:string;
     publicMeaning:string;
@@ -25,19 +29,61 @@ export interface FspPublicOrientation{
 }
 
 export const FSP_PUBLIC_ORIENTATION:FspPublicOrientation={
-  buildId:"FSP-ENCYCLOPEDIA-ORIENTATION-1",
+  buildId:"FSP-ENCYCLOPEDIA-ORIENTATION-1.1",
   title:"What is Full-Stack Philosophy?",
   subtitle:"A governed architecture for inquiry, judgment, cooperation, and return to lived Doing.",
-  oneSentence:"Full-Stack Philosophy is a way of making the interacting layers of human inquiry inspectable without pretending that every domain has the same ontology, evidence, authority, or method.",
+  oneSentence:"Full-Stack Philosophy applies the architectural insight of full-stack computing to human inquiry: it follows an inquiry from its earliest emergence in lived noticing through interpretation, representation, evidence, possibility, judgment, authorization, action, consequence, and return to ongoing lived Doing—without reducing persons to computers or pretending that every domain has the same ontology, evidence, authority, or method.",
   originProblem:[
     "Human inquiry rarely happens only at the level of arguments or theories. People inherit concepts, institutions, practices, identities, technologies, evidence, relationships, and histories, then have to act under uncertainty inside those inheritances.",
     "Philosophical work often becomes fragmented across those levels. We may have a good argument but lose the person acting, a useful model but confuse it with the world, a possibility generator but mistake possibility for recommendation, or a historical explanation that is silently treated as present justification.",
     "FSP was developed to keep those layers connected and govern the transitions between them without collapsing them into one master theory."
   ],
   fullStackMeaning:[
-    "The phrase full-stack is borrowed as a metaphor for following inquiry across interacting levels rather than studying only one slice.",
-    "Depending on the problem, the stack may include lived experience, concepts, claims, evidence, provenance, models, institutions, power, possibilities, relations, judgment, and return to action.",
+    "The phrase full-stack is more than a loose analogy. FSP takes from computer science an architectural discipline: do not inspect only one layer of a system; follow information and transformation across layers, interfaces, dependencies, and downstream effects.",
+    "FSP applies that discipline to human inquiry. It asks how something first noticed becomes attended to, interpreted, mapped, questioned, represented, tested, revised, judged, authorized, acted upon, encountered in consequence, and reintegrated into ongoing lived Doing.",
+    "The mapping is architectural rather than reductionist. Human inquiry includes embodiment, salience, affect, meaning, value, relationships, institutions, power, standing, agency, and authorship; it is not exhausted by computation.",
     "The stack is not a universal ontology. Ethics, science, history, logic, aesthetics, institutions, and other domains keep their own native objects, practices, and standards."
+  ],
+  architecturalInheritance:[
+    "Full-stack computing encourages inspection across an entire architecture rather than treating one layer as the whole system.",
+    "FSP carries forward that discipline by tracing transformations, interfaces, dependencies, and downstream consequences across the full course of an inquiry.",
+    "The point is not that a human being is a software stack. The point is that inquiry can fail when we inspect one stage while ignoring how it was produced, what it licenses, what depends on it, or what follows from it."
+  ],
+  humanInformationArc:[
+    "Lived Doing",
+    "Noticing",
+    "Attention",
+    "Mapping",
+    "Inquiry",
+    "Representation",
+    "Evidence & Interpretation",
+    "Revision",
+    "Possibility",
+    "Judgment",
+    "Authorization",
+    "Action",
+    "Consequence",
+    "Authorial Return",
+    "Changed Lived Doing",
+    "REOPEN"
+  ],
+  publicInquiryArc:[
+    "Lived Doing",
+    "Noticing",
+    "Inquiry",
+    "Representation",
+    "Revision",
+    "Judgment",
+    "Action",
+    "Consequence",
+    "Authorial Return",
+    "REOPEN"
+  ],
+  antiReductionFirewall:[
+    "Human beings process information, but human inquiry is not exhausted by computation.",
+    "A representation of a person is not the person; a model of a situation is not the situation; a computationally generated possibility is not a recommendation or authorization.",
+    "Meaning, embodiment, affect, value, relationship, power, standing, agency, and authorship remain irreducible parts of the human inquiry architecture.",
+    "Shared architectural grammar does not imply shared domain ontology."
   ],
   constitutionalCommitments:[
     {
@@ -70,11 +116,20 @@ export const FSP_PUBLIC_ORIENTATION:FspPublicOrientation={
   ],
   inquiryArc:[
     "Lived Doing",
+    "Noticing",
+    "Attention",
+    "Mapping",
     "Inquiry",
     "Representation",
+    "Evidence & Interpretation",
     "Revision",
-    "Bounded Judgment",
+    "Possibility",
+    "Judgment",
+    "Authorization",
+    "Action",
+    "Consequence",
     "Authorial Return",
+    "Changed Lived Doing",
     "REOPEN"
   ],
   notClaims:[
@@ -103,10 +158,12 @@ export const FSP_PUBLIC_ORIENTATION:FspPublicOrientation={
     {
       id:"FULL-STACK",
       title:"Why call it full-stack?",
-      purpose:"Explain the metaphor without turning it into ontology.",
+      purpose:"Explain the architectural inheritance without turning persons into computers or the stack into ontology.",
       paragraphs:[
-        "Full-stack means following an inquiry from lived experience through representation, evidence, concepts, institutions, possibilities, judgment, and return.",
-        "Different domains instantiate that stack differently. What counts as evidence, authority, object, relation, or successful closure in physics may differ sharply from ethics, history, logic, or aesthetics."
+        "Full-stack is an architectural commitment, not merely a metaphor for complexity. Computer science contributes the discipline of following transformations across layers, interfaces, dependencies, and downstream effects rather than treating one layer as the whole system.",
+        "FSP applies that discipline to human inquiry from first noticing through attention, mapping, representation, evidence and interpretation, revision, possibility, judgment, authorization, action, consequence, Authorial Return, and changed lived Doing.",
+        "Different domains instantiate that architecture differently. What counts as evidence, authority, object, relation, action, or responsible closure in physics may differ sharply from ethics, history, logic, or aesthetics.",
+        "Human inquiry is not reducible to computation. Embodiment, salience, affect, meaning, value, relationship, institutional power, standing, agency, and authorship remain part of what must be followed."
       ]
     },
     {
@@ -162,7 +219,13 @@ export function validateFspPublicOrientation(o:FspPublicOrientation=FSP_PUBLIC_O
   for(const distinction of ["Map ≠ World ≠ Person","Generate ≠ Recommend ≠ Authorize","Possibility ≠ prediction","Historical explanation ≠ present justification"]){
     if(!o.governingDistinctions.includes(distinction)) failures.push("missing-distinction:"+distinction);
   }
-  if(o.inquiryArc.join(" -> ")!=="Lived Doing -> Inquiry -> Representation -> Revision -> Bounded Judgment -> Authorial Return -> REOPEN") failures.push("inquiry-arc-drift");
+  if(o.inquiryArc.join(" -> ")!=="Lived Doing -> Noticing -> Attention -> Mapping -> Inquiry -> Representation -> Evidence & Interpretation -> Revision -> Possibility -> Judgment -> Authorization -> Action -> Consequence -> Authorial Return -> Changed Lived Doing -> REOPEN") failures.push("inquiry-arc-drift");
+  if(o.humanInformationArc.join(" -> ")!==o.inquiryArc.join(" -> ")) failures.push("human-information-arc-drift");
+  if(!o.architecturalInheritance.some(x=>x.includes("full-stack computing"))) failures.push("missing-computing-architectural-inheritance");
+  if(!o.fullStackMeaning.some(x=>x.includes("architectural rather than reductionist"))) failures.push("missing-architectural-not-reductionist");
+  if(!o.antiReductionFirewall.some(x=>x.includes("not exhausted by computation"))) failures.push("missing-computational-reduction-firewall");
+  if(!o.antiReductionFirewall.some(x=>x.includes("Shared architectural grammar does not imply shared domain ontology"))) failures.push("missing-architectural-domain-firewall");
+  if(!o.humanInformationArc.includes("Authorization")||!o.humanInformationArc.includes("Consequence")||!o.humanInformationArc.includes("Changed Lived Doing")) failures.push("missing-downstream-human-arc");
   if(!o.noPrerequisiteBoundary.some(x=>x.includes("without first learning FSP"))) failures.push("missing-no-prerequisite-boundary");
   if(!o.notClaims.some(x=>x.includes("not another ethical theory"))) failures.push("missing-not-ethical-theory");
   if(!o.notClaims.some(x=>x.includes("not a universal philosophy-of-science theory"))) failures.push("missing-not-philsci-theory");

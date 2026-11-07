@@ -171,7 +171,24 @@ function renderOrientation():HTMLElement{
   const full=el("section","fsp-public__section");
   full.append(el("h2","","Why call it full-stack?"));
   for(const p of o.fullStackMeaning) full.append(el("p","",p));
-  full.append(el("p","fsp-public__notice",o.inquiryArc.join(" → ")));
+  full.append(el("p","fsp-public__notice",o.publicInquiryArc.join(" → ")));
+  const inheritance=el("div","fsp-public__grid");
+  for(const p of o.architecturalInheritance){
+    const c=el("article","fsp-public__card");
+    c.append(el("p","",p));
+    inheritance.append(c);
+  }
+  full.append(el("h3","","From full-stack computing to human inquiry"),inheritance);
+  const deepArc=el("section","fsp-public__section");
+  deepArc.append(
+    el("h3","","The fuller human information-transformation arc"),
+    el("p","fsp-public__lede",o.humanInformationArc.join(" → ")),
+    el("h3","","Anti-reduction firewall")
+  );
+  const firewall=el("ul","fsp-public__list");
+  for(const x of o.antiReductionFirewall) firewall.append(el("li","",x));
+  deepArc.append(firewall);
+  full.append(deepArc);
   main.append(full);
 
   const commitments=el("section","fsp-public__section");

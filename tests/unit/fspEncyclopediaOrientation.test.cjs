@@ -33,10 +33,36 @@ test('governing firewalls are public and ordinary-language readable',()=>{
   }
 });
 
-test('inquiry arc ends in Authorial Return and REOPEN',()=>{
+test('human information-transformation arc runs from lived noticing through consequence and return',()=>{
   assert.deepEqual(FSP_PUBLIC_ORIENTATION.inquiryArc,[
-    'Lived Doing','Inquiry','Representation','Revision','Bounded Judgment','Authorial Return','REOPEN'
+    'Lived Doing','Noticing','Attention','Mapping','Inquiry','Representation','Evidence & Interpretation','Revision',
+    'Possibility','Judgment','Authorization','Action','Consequence','Authorial Return','Changed Lived Doing','REOPEN'
   ]);
+  assert.deepEqual(FSP_PUBLIC_ORIENTATION.humanInformationArc,FSP_PUBLIC_ORIENTATION.inquiryArc);
+});
+
+test('full-stack has architectural computer-science inheritance rather than metaphor only',()=>{
+  const text=[...FSP_PUBLIC_ORIENTATION.fullStackMeaning,...FSP_PUBLIC_ORIENTATION.architecturalInheritance].join(' ');
+  assert.match(text,/computer science/i);
+  assert.match(text,/full-stack computing/i);
+  assert.match(text,/layers, interfaces, dependencies, and downstream/i);
+});
+
+test('anti-reduction firewall blocks computational theory of the person',()=>{
+  const text=FSP_PUBLIC_ORIENTATION.antiReductionFirewall.join(' ');
+  assert.match(text,/not exhausted by computation/i);
+  assert.match(text,/embodiment/i);
+  assert.match(text,/meaning/i);
+  assert.match(text,/agency/i);
+  assert.match(text,/authorship/i);
+  assert.match(text,/Shared architectural grammar does not imply shared domain ontology/);
+});
+
+test('public arc is compressed presentation, not semantic replacement',()=>{
+  assert.deepEqual(FSP_PUBLIC_ORIENTATION.publicInquiryArc,[
+    'Lived Doing','Noticing','Inquiry','Representation','Revision','Judgment','Action','Consequence','Authorial Return','REOPEN'
+  ]);
+  for(const step of FSP_PUBLIC_ORIENTATION.publicInquiryArc) assert.ok(FSP_PUBLIC_ORIENTATION.humanInformationArc.includes(step),step);
 });
 
 test('orientation states what FSP is not',()=>{
