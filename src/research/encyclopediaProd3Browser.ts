@@ -1,5 +1,5 @@
 
-import {ReaderState,initialReaderState,navigate,back,openFailure,openToolFromFailure,openProbe,openSources,openClaimCeiling,validateRegistry} from "./encyclopediaProd3Model";
+import {ReaderState,RegistryLike,initialReaderState,navigate,back,openFailure,openToolFromFailure,openProbe,openSources,openClaimCeiling,validateRegistry} from "./encyclopediaProd3Model";
 
 type AnyObj=Record<string,any>;
 const esc=(s:any)=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]||c));
@@ -21,7 +21,7 @@ function mkButton(label:string,onClick:()=>void,primary=false){
 }
 
 export async function mountProd3(root:HTMLElement){
-  const registry=await loadRegistry();
+  const registry=await loadRegistry() as AnyObj & RegistryLike;
   const validation=validateRegistry(registry);
   if(validation.length)throw new Error("registry validation failed: "+validation.join("; "));
   let state:ReaderState=initialReaderState();
