@@ -325,6 +325,31 @@
         "CE-12"
       ],
       "status": "CANONICAL_INDEX"
+    },
+    {
+      "id": "CT-TOOLS",
+      "family": "INDEX",
+      "title": "Twelve Tools",
+      "summary": "Browse the twelve canonical critical-thinking Tools as functional inquiry operators, each with a canonical question, failure modes, historical projection, and claim ceiling.",
+      "canonicalClaim": "The Tool Rack is a functional ecology, not a single-method checklist and not twelve competing verdicts.",
+      "relatedIds": [
+        "CT-T01",
+        "CT-T02",
+        "CT-T03",
+        "CT-T04",
+        "CT-T05",
+        "CT-T06",
+        "CT-T07",
+        "CT-T08",
+        "CT-T09",
+        "CT-T10",
+        "CT-T11",
+        "CT-T12"
+      ],
+      "claimCeilingIds": [
+        "CE-12"
+      ],
+      "status": "CANONICAL_INDEX"
     }
   ],
   "tools": [

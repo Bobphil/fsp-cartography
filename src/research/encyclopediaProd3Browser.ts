@@ -129,7 +129,7 @@ export async function mountProd3(root:HTMLElement){
       ["NODE","FSP-C01","FSP Constitution"],
       ["FAILURE","CT-F01","Failure Atlas"],
       ["NODE","SCI-ATLAS","Scientific Atlas"],
-      ["TOOL","CT-T01","Twelve Tools"]
+      ["NODE","CT-TOOLS","Twelve Tools"]
     ].forEach(([kind,id,label])=>{
       const b=mkButton(label,()=>go({kind,id,caseId:kind==="CASE"?id:undefined}));
       if(state.current.kind===kind&&state.current.id===id)b.setAttribute("aria-current","page");

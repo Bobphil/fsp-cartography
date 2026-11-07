@@ -41,3 +41,9 @@ Human browser certification remains pending until the Pages deployment is exerci
 
 Human browser testing exposed that the sidebar "Scientific Atlas" route opened the first dossier (Foucault) rather than a five-case Atlas index. The reader now routes Scientific Atlas to an explicit index exposing Foucault, Neptune/Vulcan, Galileo, Newton→Einstein, and DESI 2024→2026. This is treated as a usability/routing defect caught by human acceptance, not as user error.
 - DESI case → BAO/full-shape probe → source ledger → exact Return to probe → exact Return to DESI case — **PASS**
+
+- Claim ceiling CE-04 → exact Return to DESI case — **PASS**
+
+### Twelve Tools navigation correction
+
+Human browser testing exposed that the sidebar "Twelve Tools" route opened CT-T01 directly rather than a twelve-Tool index. The reader now routes Twelve Tools to an explicit canonical Tool index exposing CT-T01 through CT-T12. This is treated as a navigation/usability defect caught by human acceptance.

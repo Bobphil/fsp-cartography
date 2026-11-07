@@ -73,3 +73,14 @@ test("scientific atlas index exposes all five cases",()=>{
   assert.deepEqual(atlas.relatedIds,["CASE-SCI-01","CASE-SCI-02","CASE-SCI-03","CASE-SCI-04","CASE-SCI-05"]);
   for(const id of atlas.relatedIds)assert.ok(registry.cases.some(c=>c.id===id),id);
 });
+
+test("twelve tools index exposes all canonical tools",()=>{
+  const idx=registry.nodes.find(x=>x.id==="CT-TOOLS");
+  assert.ok(idx);
+  assert.equal(idx.relatedIds.length,12);
+  assert.deepEqual(idx.relatedIds,[
+    "CT-T01","CT-T02","CT-T03","CT-T04","CT-T05","CT-T06",
+    "CT-T07","CT-T08","CT-T09","CT-T10","CT-T11","CT-T12"
+  ]);
+  for(const id of idx.relatedIds)assert.ok(registry.tools.some(t=>t.id===id),id);
+});
