@@ -32,6 +32,44 @@ export async function mountProd3(root:HTMLElement){
   const renderNode=(main:HTMLElement,id:string)=>{
     const n=byId("nodes",id);if(!n)return renderMissing(main,id);
     main.innerHTML='<div class="panel"><div class="muted">'+esc(n.id)+' · '+esc(n.status)+'</div><h2>'+esc(n.title)+'</h2><p>'+esc(n.summary)+'</p><p><strong>Canonical claim:</strong> '+esc(n.canonicalClaim)+'</p></div>';
+    if(id==="CT-TOOLS"){
+      const sec=document.createElement("section");sec.className="panel";sec.innerHTML="<h3>Browse the twelve Tools</h3><p class=\"muted\">Choose by function and name; codes remain visible only as stable identifiers.</p>";
+      const grid=document.createElement("div");grid.className="grid";
+      for(const rid of n.relatedIds||[]){
+        const t=byId("tools",rid);
+        if(!t)continue;
+        const c=document.createElement("div");c.className="card";
+        c.innerHTML="<div class=\"muted\">"+esc(t.id)+"</div><strong>"+esc(t.title)+"</strong><p>"+esc(t.function)+"</p>";
+        c.append(mkButton("Open "+t.title,()=>go({kind:"TOOL",id:t.id})));
+        grid.append(c);
+      }
+      sec.append(grid);main.append(sec);
+      for(const cid of n.claimCeilingIds||[]){
+        const ca=document.createElement("div");ca.className="actions";
+        ca.append(mkButton("Claim ceiling "+cid,()=>{state=openClaimCeiling(state,registry,cid);render()}));
+        main.append(ca);
+      }
+      return;
+    }
+    if(id==="SCI-ATLAS"){
+      const sec=document.createElement("section");sec.className="panel";sec.innerHTML="<h3>Browse the five scientific dossiers</h3><p class=\"muted\">Choose by case title; codes remain available as stable identifiers.</p>";
+      const grid=document.createElement("div");grid.className="grid";
+      for(const rid of n.relatedIds||[]){
+        const cse=byId("cases",rid);
+        if(!cse)continue;
+        const c=document.createElement("div");c.className="card";
+        c.innerHTML="<div class=\"muted\">"+esc(cse.id)+"</div><strong>"+esc(cse.title)+"</strong><p>"+esc(cse.question)+"</p>";
+        c.append(mkButton("Open "+cse.title,()=>go({kind:"CASE",id:cse.id,caseId:cse.id})));
+        grid.append(c);
+      }
+      sec.append(grid);main.append(sec);
+      for(const cid of n.claimCeilingIds||[]){
+        const ca=document.createElement("div");ca.className="actions";
+        ca.append(mkButton("Claim ceiling "+cid,()=>{state=openClaimCeiling(state,registry,cid);render()}));
+        main.append(ca);
+      }
+      return;
+    }
     const a=document.createElement("div");a.className="actions";
     for(const rid of n.relatedIds||[]){
       const kind=rid.startsWith("CT-T")?"TOOL":rid.startsWith("CT-F")?"FAILURE":rid.startsWith("CASE-")?"CASE":"NODE";

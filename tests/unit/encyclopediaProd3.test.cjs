@@ -84,3 +84,13 @@ test("twelve tools index exposes all canonical tools",()=>{
   ]);
   for(const id of idx.relatedIds)assert.ok(registry.tools.some(t=>t.id===id),id);
 });
+
+test("tool index supports human-readable titles and functions",()=>{
+  const idx=registry.nodes.find(x=>x.id==="CT-TOOLS");
+  for(const id of idx.relatedIds){
+    const tool=registry.tools.find(t=>t.id===id);
+    assert.ok(tool);
+    assert.ok(tool.title && tool.title.length>3);
+    assert.ok(tool.function && tool.function.length>10);
+  }
+});

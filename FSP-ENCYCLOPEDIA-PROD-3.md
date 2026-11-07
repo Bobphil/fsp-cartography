@@ -47,3 +47,9 @@ Human browser testing exposed that the sidebar "Scientific Atlas" route opened t
 ### Twelve Tools navigation correction
 
 Human browser testing exposed that the sidebar "Twelve Tools" route opened CT-T01 directly rather than a twelve-Tool index. The reader now routes Twelve Tools to an explicit canonical Tool index exposing CT-T01 through CT-T12. This is treated as a navigation/usability defect caught by human acceptance.
+- Tool → failure → exact Return to originating Tool — **PASS**
+- Keyboard + narrow-window navigation and Return — **PASS**
+
+### Tool-index human-readable labeling correction
+
+Human browser testing showed that the twelve-Tool index was technically complete but presented choices primarily as stable IDs, forcing the reader to open Tool nodes to discover their names. The index now presents each Tool's stable ID, human-readable title, functional job, and an explicit named open action. The Scientific Atlas index receives the same human-readable case-card treatment.
