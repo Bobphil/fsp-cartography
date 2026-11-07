@@ -21,3 +21,14 @@ Status: IMPLEMENTATION IN PROGRESS
 - cross-project projections: 5
 
 Foucault remains explicitly source-ledger pending. Neptune/Vulcan remains partial. The reader must fail closed rather than invent provenance.
+
+### Stage 2
+
+- Browser renderer consumes the registry at runtime with no duplicate embedded content.
+- Exact return-stack navigation is implemented across node, Tool, failure, case, probe, source, and claim-ceiling views.
+- Failure Atlas routes symptom → primary Tool → claim ceiling.
+- Scientific cases render state timelines, transitions, controlled probes, source-ledger status, and claim ceilings.
+- Source ledgers fail closed when provenance is incomplete.
+- Deterministic unit harness covers registry population, return-stack behavior, case/probe/source routing, claim-ceiling routing, and DESI's 2024→2026 timeline.
+
+Human browser certification remains pending until the Pages deployment is exercised in a real browser.

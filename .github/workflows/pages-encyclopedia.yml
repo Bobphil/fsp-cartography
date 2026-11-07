@@ -42,7 +42,7 @@ jobs:
         run: npm run build:browser
 
       - name: Bundle CH1.2 Neptune/Vulcan pilot
-        run: npx esbuild src/research/encyclopediaPilot.ts --bundle --platform=browser --format=iife --target=es2020 --outfile=site/app.js
+        run: npx esbuild src/research/encyclopediaProd3.ts --bundle --platform=browser --format=iife --target=es2020 --outfile=site/app.js
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
