@@ -40,3 +40,4 @@ Human browser certification remains pending until the Pages deployment is exerci
 ### Scientific Atlas navigation correction
 
 Human browser testing exposed that the sidebar "Scientific Atlas" route opened the first dossier (Foucault) rather than a five-case Atlas index. The reader now routes Scientific Atlas to an explicit index exposing Foucault, Neptune/Vulcan, Galileo, Newton→Einstein, and DESI 2024→2026. This is treated as a usability/routing defect caught by human acceptance, not as user error.
+- DESI case → BAO/full-shape probe → source ledger → exact Return to probe → exact Return to DESI case — **PASS**
