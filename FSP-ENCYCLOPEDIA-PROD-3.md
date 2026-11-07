@@ -53,3 +53,7 @@ Human browser testing exposed that the sidebar "Twelve Tools" route opened CT-T0
 ### Tool-index human-readable labeling correction
 
 Human browser testing showed that the twelve-Tool index was technically complete but presented choices primarily as stable IDs, forcing the reader to open Tool nodes to discover their names. The index now presents each Tool's stable ID, human-readable title, functional job, and an explicit named open action. The Scientific Atlas index receives the same human-readable case-card treatment.
+
+### Top-level reader-index usability correction
+
+Human browser testing exposed three additional code-first or first-item entry defects: Home/Critical Thinking surfaced internal IDs rather than a reader-facing concept index; FSP Constitution surfaced only a narrow set of direct links; and Failure Atlas opened CT-F01 directly instead of a sixteen-failure index. The reader now provides explicit human-readable indexes for all three. Failure detail actions also display Tool names and claim-ceiling titles rather than bare IDs.

@@ -350,6 +350,85 @@
         "CE-12"
       ],
       "status": "CANONICAL_INDEX"
+    },
+    {
+      "id": "CT-HOME",
+      "family": "INDEX",
+      "title": "Critical Thinking",
+      "summary": "Enter the critical-thinking architecture through named concepts, Tool functions, failure modes, cases, and claim ceilings rather than internal IDs.",
+      "canonicalClaim": "Critical thinking is governed inquiry from representation through judgment, authorization, repair, and REOPEN.",
+      "relatedIds": [
+        "CT-00",
+        "CT-01",
+        "CT-02",
+        "CT-03",
+        "CT-04",
+        "CT-05",
+        "CT-06",
+        "CT-07",
+        "CT-08",
+        "CT-09"
+      ],
+      "claimCeilingIds": [
+        "CE-03",
+        "CE-10"
+      ],
+      "status": "CANONICAL_INDEX"
+    },
+    {
+      "id": "FSP-CONSTITUTION",
+      "family": "INDEX",
+      "title": "FSP Constitution",
+      "summary": "Browse the frozen constitutional distinctions that govern FSP inquiry across domains.",
+      "canonicalClaim": "Constitutional rules constrain what the system may represent, infer, authorize, and claim.",
+      "relatedIds": [
+        "FSP-C01",
+        "FSP-C02",
+        "FSP-C03",
+        "FSP-C04",
+        "FSP-C05",
+        "FSP-C06",
+        "FSP-C07",
+        "FSP-C08",
+        "FSP-C09",
+        "FSP-C10"
+      ],
+      "claimCeilingIds": [
+        "CE-01",
+        "CE-02",
+        "CE-10",
+        "CE-12"
+      ],
+      "status": "CANONICAL_INDEX"
+    },
+    {
+      "id": "CT-FAILURES",
+      "family": "INDEX",
+      "title": "Failure Atlas",
+      "summary": "Browse sixteen common inquiry failures by recognizable symptom, diagnostic question, primary Tool, and claim ceiling.",
+      "canonicalClaim": "Failure diagnosis improves inquiry by identifying what kind of reasoning work is needed; it does not itself determine a verdict.",
+      "relatedIds": [
+        "CT-F01",
+        "CT-F02",
+        "CT-F03",
+        "CT-F04",
+        "CT-F05",
+        "CT-F06",
+        "CT-F07",
+        "CT-F08",
+        "CT-F09",
+        "CT-F10",
+        "CT-F11",
+        "CT-F12",
+        "CT-F13",
+        "CT-F14",
+        "CT-F15",
+        "CT-F16"
+      ],
+      "claimCeilingIds": [
+        "CE-03"
+      ],
+      "status": "CANONICAL_INDEX"
     }
   ],
   "tools": [

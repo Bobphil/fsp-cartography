@@ -32,6 +32,53 @@ export async function mountProd3(root:HTMLElement){
   const renderNode=(main:HTMLElement,id:string)=>{
     const n=byId("nodes",id);if(!n)return renderMissing(main,id);
     main.innerHTML='<div class="panel"><div class="muted">'+esc(n.id)+' · '+esc(n.status)+'</div><h2>'+esc(n.title)+'</h2><p>'+esc(n.summary)+'</p><p><strong>Canonical claim:</strong> '+esc(n.canonicalClaim)+'</p></div>';
+    if(id==="CT-HOME"){
+      const sec=document.createElement("section");sec.className="panel";sec.innerHTML="<h3>Browse critical-thinking entries</h3><p class=\"muted\">Choose by question and concept. Stable IDs remain visible for reference, but are not the primary labels.</p>";
+      const grid=document.createElement("div");grid.className="grid";
+      for(const rid of n.relatedIds||[]){
+        const item=byId("nodes",rid); if(!item)continue;
+        const c=document.createElement("div");c.className="card";
+        c.innerHTML="<div class=\"muted\">"+esc(item.id)+"</div><strong>"+esc(item.title)+"</strong><p>"+esc(item.summary)+"</p>";
+        c.append(mkButton("Open "+item.title,()=>go({kind:"NODE",id:item.id})));
+        grid.append(c);
+      }
+      sec.append(grid);main.append(sec);
+      const more=document.createElement("div");more.className="actions";
+      more.append(
+        mkButton("Browse Twelve Tools",()=>go({kind:"NODE",id:"CT-TOOLS"})),
+        mkButton("Browse Failure Atlas",()=>go({kind:"NODE",id:"CT-FAILURES"})),
+        mkButton("Browse Scientific Atlas",()=>go({kind:"NODE",id:"SCI-ATLAS"}))
+      );
+      main.append(more);
+      return;
+    }
+
+    if(id==="FSP-CONSTITUTION"){
+      const sec=document.createElement("section");sec.className="panel";sec.innerHTML="<h3>Browse constitutional principles</h3><p class=\"muted\">Choose by principle name. Stable IDs remain available as reference identifiers.</p>";
+      const grid=document.createElement("div");grid.className="grid";
+      for(const rid of n.relatedIds||[]){
+        const item=byId("nodes",rid); if(!item)continue;
+        const c=document.createElement("div");c.className="card";
+        c.innerHTML="<div class=\"muted\">"+esc(item.id)+"</div><strong>"+esc(item.title)+"</strong><p>"+esc(item.canonicalClaim)+"</p>";
+        c.append(mkButton("Open "+item.title,()=>go({kind:"NODE",id:item.id})));
+        grid.append(c);
+      }
+      sec.append(grid);main.append(sec);return;
+    }
+
+    if(id==="CT-FAILURES"){
+      const sec=document.createElement("section");sec.className="panel";sec.innerHTML="<h3>Browse failure modes</h3><p class=\"muted\">Start from a recognizable reasoning symptom, then inspect the diagnostic question and Tool route.</p>";
+      const grid=document.createElement("div");grid.className="grid";
+      for(const rid of n.relatedIds||[]){
+        const f=byId("failures",rid); if(!f)continue;
+        const c=document.createElement("div");c.className="card";
+        c.innerHTML="<div class=\"muted\">"+esc(f.id)+"</div><strong>"+esc(f.title)+"</strong><p>"+esc(f.symptom)+"</p><p><em>"+esc(f.diagnosticQuestion)+"</em></p>";
+        c.append(mkButton("Open "+f.title,()=>go({kind:"FAILURE",id:f.id})));
+        grid.append(c);
+      }
+      sec.append(grid);main.append(sec);return;
+    }
+
     if(id==="CT-TOOLS"){
       const sec=document.createElement("section");sec.className="panel";sec.innerHTML="<h3>Browse the twelve Tools</h3><p class=\"muted\">Choose by function and name; codes remain visible only as stable identifiers.</p>";
       const grid=document.createElement("div");grid.className="grid";
@@ -107,12 +154,15 @@ export async function mountProd3(root:HTMLElement){
     const f=byId("failures",id);if(!f)return renderMissing(main,id);
     main.innerHTML='<div class="panel"><div class="muted">'+esc(f.id)+' · FAILURE ATLAS</div><h2>'+esc(f.title)+'</h2><p><strong>Symptom:</strong> '+esc(f.symptom)+'</p><p><strong>Diagnostic question:</strong> '+esc(f.diagnosticQuestion)+'</p></div>';
     const a=document.createElement("div");a.className="actions";
-    a.append(mkButton("Open primary Tool: "+f.primaryToolId,()=>{
+    const primary=byId("tools",f.primaryToolId);
+    const primaryTitle=f.primaryToolId==="FSP-C05"?"REOPEN":(primary?.title||f.primaryToolId);
+    a.append(mkButton("Open primary Tool: "+primaryTitle,()=>{
       if(f.primaryToolId==="FSP-C05")go({kind:"NODE",id:"FSP-C05"});
       else{state=openToolFromFailure(state,registry,id);render()}
     },true));
-    for(const tid of f.secondaryToolIds)a.append(mkButton("Also inspect "+tid,()=>go({kind:"TOOL",id:tid})));
-    a.append(mkButton("Claim ceiling",()=>{state=openClaimCeiling(state,registry,f.claimCeilingId);render()}));
+    for(const tid of f.secondaryToolIds){const t=byId("tools",tid);a.append(mkButton("Also inspect "+(t?.title||tid),()=>go({kind:"TOOL",id:tid})));}
+    const ceiling=byId("claimCeilings",f.claimCeilingId);
+    a.append(mkButton("Claim ceiling: "+(ceiling?.title||f.claimCeilingId),()=>{state=openClaimCeiling(state,registry,f.claimCeilingId);render()}));
     main.append(a);
   };
 
@@ -163,9 +213,9 @@ export async function mountProd3(root:HTMLElement){
     const nav=document.createElement("nav");nav.className="nav";nav.setAttribute("aria-label","Encyclopedia navigation");
     const group=document.createElement("div");group.className="group";
     [
-      ["NODE","CT-00","Home / Critical Thinking"],
-      ["NODE","FSP-C01","FSP Constitution"],
-      ["FAILURE","CT-F01","Failure Atlas"],
+      ["NODE","CT-HOME","Home / Critical Thinking"],
+      ["NODE","FSP-CONSTITUTION","FSP Constitution"],
+      ["NODE","CT-FAILURES","Failure Atlas"],
       ["NODE","SCI-ATLAS","Scientific Atlas"],
       ["NODE","CT-TOOLS","Twelve Tools"]
     ].forEach(([kind,id,label])=>{

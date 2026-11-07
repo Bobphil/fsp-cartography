@@ -94,3 +94,15 @@ test("tool index supports human-readable titles and functions",()=>{
     assert.ok(tool.function && tool.function.length>10);
   }
 });
+
+test("top-level indexes expose human-readable canonical entries",()=>{
+  const home=registry.nodes.find(x=>x.id==="CT-HOME");
+  const con=registry.nodes.find(x=>x.id==="FSP-CONSTITUTION");
+  const fail=registry.nodes.find(x=>x.id==="CT-FAILURES");
+  assert.equal(home.relatedIds.length,10);
+  assert.equal(con.relatedIds.length,10);
+  assert.equal(fail.relatedIds.length,16);
+  for(const id of home.relatedIds){const n=registry.nodes.find(x=>x.id===id);assert.ok(n?.title&&n?.summary);}
+  for(const id of con.relatedIds){const n=registry.nodes.find(x=>x.id===id);assert.ok(n?.title&&n?.canonicalClaim);}
+  for(const id of fail.relatedIds){const f=registry.failures.find(x=>x.id===id);assert.ok(f?.title&&f?.symptom&&f?.diagnosticQuestion);}
+});
