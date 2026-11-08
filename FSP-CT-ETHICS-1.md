@@ -268,6 +268,20 @@ The important habit is not memorizing the names. It is learning to notice **whic
 
 ---
 
+## Reconciliation note — judgment, remainder, and Return
+
+These recurring questions do not replace ethical theories or historical philosophers. They help us notice where an ethical inquiry is changing character. A judgment may be well supported without yet authorizing an intervention. A policy may be lawful without fully representing the people who live under it. A useful map may still leave something important out.
+
+As the course develops, we will therefore ask not only what judgment is supported, but also what remains outside the map, what the judgment authorizes, what happens when it becomes institutional, and what should return to lived action.
+
+> **Untranslated remainder ≠ irrelevant remainder.**
+
+> **Supported judgment ≠ unrestricted authorization.**
+
+> **Return means renewed responsibility in the changed situation, not merely repeating the original judgment.**
+
+---
+
 # 6. Historical Philosophers Are Not Tool Labels
 
 The Tools are modern FSP reconstructions for use in this course.
