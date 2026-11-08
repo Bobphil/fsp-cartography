@@ -692,7 +692,8 @@
         "FSP-JTS-FLNH-STANDING",
         "FSP-JTS-FLNH-TRANSLATION",
         "FSP-JTS-FLNH-REPAIR",
-        "FSP-JTS-FLNH-INSTITUTIONAL"
+        "FSP-JTS-FLNH-INSTITUTIONAL",
+        "FSP-JTS-FLNH-INTEGRATION"
       ],
       "claimCeilingIds": [
         "CE-03",
@@ -857,6 +858,29 @@
         "CE-12"
       ],
       "status": "PUBLIC_WORKED_LAYER"
+    },
+    {
+      "id": "FSP-JTS-FLNH-INTEGRATION",
+      "family": "JTS_INTEGRATION",
+      "title": "Five-Layer Vertical Integration",
+      "summary": "Worked vertical walkthrough showing how one Gulf Pines issue moves through state, standing, translation, repair, institutional amplification, and REOPEN without conceptual duplication.",
+      "canonicalClaim": "A usable Joint Task Space is one corrigible inquiry in which state, standing, translation, repair, and amplification remain distinct but continuously communicate.",
+      "relatedIds": [
+        "FSP-JTS-FLNH",
+        "FSP-JTS-FLNH-S2",
+        "FSP-JTS-FLNH-STANDING",
+        "FSP-JTS-FLNH-TRANSLATION",
+        "FSP-JTS-FLNH-REPAIR",
+        "FSP-JTS-FLNH-INSTITUTIONAL",
+        "FSP-JTS-FLNH-S3"
+      ],
+      "claimCeilingIds": [
+        "CE-03",
+        "CE-06",
+        "CE-10",
+        "CE-12"
+      ],
+      "status": "PUBLIC_INTEGRATION_PASS"
     }
   ],
   "tools": [
