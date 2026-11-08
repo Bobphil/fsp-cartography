@@ -437,10 +437,12 @@
       "summary": "Universal, domain-neutral entrance to Full-Stack Philosophy, its domains, cross-domain resources, and reader depths.",
       "canonicalClaim": "The Encyclopedia begins from plural domains and a corrigible shared governance grammar; Critical Thinking is one first-class entrance rather than the universal front door.",
       "relatedIds": [
-        "FSP-WHY",
-        "CT-HOME",
-        "SCI-ATLAS",
-        "FSP-CONSTITUTION"
+        "FSP-DOMAINS",
+        "FSP-CONSTITUTION",
+        "FSP-RESOURCES",
+        "FSP-ROUTES",
+        "FSP-ABOUT",
+        "FSP-WHY"
       ],
       "claimCeilingIds": [
         "CE-10",
@@ -500,6 +502,171 @@
         "CE-12"
       ],
       "status": "PUBLIC_DEEP"
+    },
+    {
+      "id": "FSP-DOMAINS",
+      "family": "INDEX",
+      "title": "Domains",
+      "summary": "Enter the Encyclopedia through domain libraries with their own native topologies, resources, evidence, and maturity states.",
+      "canonicalClaim": "Universal navigation is domain-neutral; domain-native navigation may differ by field.",
+      "relatedIds": [
+        "DOMAIN-SCIENCE-INQUIRY",
+        "DOMAIN-HISTORY-PHILOSOPHY",
+        "DOMAIN-ETHICS",
+        "DOMAIN-LOGIC-ARGUMENT",
+        "DOMAIN-AESTHETICS",
+        "DOMAIN-INSTITUTIONS-CONNECTED-DOING",
+        "DOMAIN-CORE",
+        "DOMAIN-FORMAL-EXECUTABLE"
+      ],
+      "claimCeilingIds": [
+        "CE-12"
+      ],
+      "status": "CANONICAL_INDEX"
+    },
+    {
+      "id": "FSP-RESOURCES",
+      "family": "INDEX",
+      "title": "Resources",
+      "summary": "Cross-domain canonical and public resources for orientation, critical thinking, Tools, failures, cases, and formal governance.",
+      "canonicalClaim": "Shared resources support cross-domain inspection without replacing domain-native inquiry.",
+      "relatedIds": [
+        "FSP-WHY",
+        "FSP-JTS",
+        "FSP-TRANSLATION",
+        "CT-HOME",
+        "CT-TOOLS",
+        "CT-FAILURES",
+        "SCI-ATLAS"
+      ],
+      "claimCeilingIds": [
+        "CE-12"
+      ],
+      "status": "CANONICAL_INDEX"
+    },
+    {
+      "id": "FSP-ROUTES",
+      "family": "INDEX",
+      "title": "Routes",
+      "summary": "Books, courses, laboratories, and workspaces that select and sequence canonical resources for particular purposes.",
+      "canonicalClaim": "Route ≠ canonical owner.",
+      "relatedIds": [],
+      "claimCeilingIds": [
+        "CE-12"
+      ],
+      "status": "CANONICAL_INDEX"
+    },
+    {
+      "id": "FSP-ABOUT",
+      "family": "INDEX",
+      "title": "About",
+      "summary": "How the FSP Encyclopedia is organized, governed, progressively disclosed, and kept corrigible.",
+      "canonicalClaim": "The Encyclopedia is a governed and revisable architecture, not a final ontology of inquiry.",
+      "relatedIds": [
+        "FSP-WHY",
+        "FSP-DOMAINS"
+      ],
+      "claimCeilingIds": [
+        "CE-10",
+        "CE-12"
+      ],
+      "status": "CANONICAL_INDEX"
+    },
+    {
+      "id": "DOMAIN-SCIENCE-INQUIRY",
+      "family": "DOMAIN",
+      "title": "Inquiry & Science",
+      "summary": "Domain landing page governed by FSP-ENCYCLOPEDIA-DOMAIN-NAV-1.",
+      "canonicalClaim": "Domain-native inquiry remains primary while selected cross-domain relations may be governed through shared FSP grammar.",
+      "relatedIds": [],
+      "claimCeilingIds": [
+        "CE-12"
+      ],
+      "status": "DOMAIN_LANDING"
+    },
+    {
+      "id": "DOMAIN-HISTORY-PHILOSOPHY",
+      "family": "DOMAIN",
+      "title": "History of Philosophy",
+      "summary": "Domain landing page governed by FSP-ENCYCLOPEDIA-DOMAIN-NAV-1.",
+      "canonicalClaim": "Domain-native inquiry remains primary while selected cross-domain relations may be governed through shared FSP grammar.",
+      "relatedIds": [],
+      "claimCeilingIds": [
+        "CE-12"
+      ],
+      "status": "DOMAIN_LANDING"
+    },
+    {
+      "id": "DOMAIN-ETHICS",
+      "family": "DOMAIN",
+      "title": "Ethics",
+      "summary": "Domain landing page governed by FSP-ENCYCLOPEDIA-DOMAIN-NAV-1.",
+      "canonicalClaim": "Domain-native inquiry remains primary while selected cross-domain relations may be governed through shared FSP grammar.",
+      "relatedIds": [],
+      "claimCeilingIds": [
+        "CE-12"
+      ],
+      "status": "DOMAIN_LANDING"
+    },
+    {
+      "id": "DOMAIN-LOGIC-ARGUMENT",
+      "family": "DOMAIN",
+      "title": "Logic & Argument",
+      "summary": "Domain landing page governed by FSP-ENCYCLOPEDIA-DOMAIN-NAV-1.",
+      "canonicalClaim": "Domain-native inquiry remains primary while selected cross-domain relations may be governed through shared FSP grammar.",
+      "relatedIds": [],
+      "claimCeilingIds": [
+        "CE-12"
+      ],
+      "status": "DOMAIN_LANDING"
+    },
+    {
+      "id": "DOMAIN-AESTHETICS",
+      "family": "DOMAIN",
+      "title": "Aesthetics",
+      "summary": "Domain landing page governed by FSP-ENCYCLOPEDIA-DOMAIN-NAV-1.",
+      "canonicalClaim": "Domain-native inquiry remains primary while selected cross-domain relations may be governed through shared FSP grammar.",
+      "relatedIds": [],
+      "claimCeilingIds": [
+        "CE-12"
+      ],
+      "status": "DOMAIN_LANDING"
+    },
+    {
+      "id": "DOMAIN-INSTITUTIONS-CONNECTED-DOING",
+      "family": "DOMAIN",
+      "title": "Institutions & Connected Doing",
+      "summary": "Domain landing page governed by FSP-ENCYCLOPEDIA-DOMAIN-NAV-1.",
+      "canonicalClaim": "Domain-native inquiry remains primary while selected cross-domain relations may be governed through shared FSP grammar.",
+      "relatedIds": [],
+      "claimCeilingIds": [
+        "CE-12"
+      ],
+      "status": "DOMAIN_LANDING"
+    },
+    {
+      "id": "DOMAIN-CORE",
+      "family": "DOMAIN",
+      "title": "FSP Core",
+      "summary": "Domain landing page governed by FSP-ENCYCLOPEDIA-DOMAIN-NAV-1.",
+      "canonicalClaim": "Domain-native inquiry remains primary while selected cross-domain relations may be governed through shared FSP grammar.",
+      "relatedIds": [],
+      "claimCeilingIds": [
+        "CE-12"
+      ],
+      "status": "DOMAIN_LANDING"
+    },
+    {
+      "id": "DOMAIN-FORMAL-EXECUTABLE",
+      "family": "DOMAIN",
+      "title": "Formal & Executable FSP",
+      "summary": "Domain landing page governed by FSP-ENCYCLOPEDIA-DOMAIN-NAV-1.",
+      "canonicalClaim": "Domain-native inquiry remains primary while selected cross-domain relations may be governed through shared FSP grammar.",
+      "relatedIds": [],
+      "claimCeilingIds": [
+        "CE-12"
+      ],
+      "status": "DOMAIN_LANDING"
     }
   ],
   "tools": [
