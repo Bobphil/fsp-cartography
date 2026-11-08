@@ -148,3 +148,16 @@ test("Florida nursing-home Joint Task Space pilot resolves",()=>{
   assert.ok(p.relatedIds.includes("FSP-TRANSLATION"));
   assert.ok(p.claimCeilingIds.includes("CE-10"));
 });
+
+
+test("Gulf Pines four-state progression resolves",()=>{
+  const ids=["FSP-JTS-FLNH-S0","FSP-JTS-FLNH-S1","FSP-JTS-FLNH-S2","FSP-JTS-FLNH-S3"];
+  for(const id of ids){
+    const n=registry.nodes.find(x=>x.id===id);
+    assert.ok(n,id);
+    assert.equal(n.family,"JTS_STATE");
+    assert.ok(n.canonicalClaim.length>10);
+  }
+  const p=registry.nodes.find(x=>x.id==="FSP-JTS-FLNH");
+  for(const id of ids)assert.ok(p.relatedIds.includes(id),id);
+});
