@@ -1,8 +1,8 @@
-# FSP-CT-CANONICAL-1
+# FSP-CT-CANONICAL-1.1
 
 ## Situated Human Inquiry, Assembly Histories, Reflective Critical Thinking, Governed Inquiry, Twelve-Tool Ecology, Failure Routing, Judgment/Authorization, Institutional Amplification, Claim Ceilings, REOPEN, and Return to Lived Doing
 
-**Status:** CANONICAL DRAFT — Encyclopedia owner  
+**Status:** CANONICAL DRAFT — CORRECTIVE 1.1 PASS — Encyclopedia owner  
 **Canonical owner:** FSP Encyclopedia  
 **Depends on:** FSP constitutional nodes FSP-C01–FSP-C10; CT-00–CT-09; CT-T01–CT-T12; CT-F01–CT-F16; CE-01–CE-12  
 **Projection rule:** Pedagogical adaptation ≠ conceptual redefinition.  
@@ -18,7 +18,7 @@ It is not a replacement for traditional critical thinking. It preserves logic, a
 
 The central claim is therefore modest but consequential:
 
-> **Critical thinking is not only the evaluation of arguments. It is the disciplined governance of how situated, fallible human inquirers construct and revise maps, move from evidence to bounded judgment, determine what that judgment licenses, act through social and institutional settings, and preserve conditions for correction.**
+> **Critical thinking is not only the evaluation of arguments. It is the disciplined governance of how situated, fallible human inquirers make aspects of situations inspectable, construct and revise maps where articulation is needed, move from evidence to bounded judgment, determine what that judgment licenses, act through social and institutional settings, and preserve conditions for correction.**
 
 This architecture is meant to be recognizable before it is technical. Human beings do not first encounter inquiry as a formal method. We encounter it as part of living: noticing, interpreting, anticipating, acting, being surprised, learning, revising, coordinating with others, and sometimes discovering that what seemed obvious was incomplete or wrong.
 
@@ -40,32 +40,33 @@ Perception can mislead. Attention is selective. Memory reconstructs. Categories 
 
 Yet human beings remain capable of correction because the world, other people, and the consequences of action can resist our expectations.
 
-A minimal lived-inquiry arc can therefore be represented as:
+A minimal lived-inquiry decomposition can therefore be represented as:
 
 ```text
-encounter
-→ notice
-→ distinguish
-→ interpret
-→ anticipate
-→ act
-→ encounter consequences or resistance
-→ revise
+encounter ↔ notice ↔ distinguish ↔ interpret
+        ↘ anticipate ↔ act ↔ consequence / resistance
+                     ↖ revise ↙
 ```
+
+These are recurring functions, not mandatory stages. In lived inquiry they may overlap, loop, occur concurrently, or become visible only retrospectively.
 
 This is not offered as a literal universal psychological sequence. It is a philosophical reconstruction of recurring features of situated human inquiry, informed by but not reducible to empirical work in perception, cognition, development, learning, social cognition, memory, embodiment, language, decision research, institutional studies, and related fields.
 
-### Claim ceiling
+### Local firewalls
 
 **A philosophical reconstruction of recurring inquiry structure ≠ a complete developmental or cognitive theory of human beings.**
+
+**Shared inquiry grammar ≠ universal developmental sequence or mechanism.**
 
 ---
 
 ## 3. From encounter to map
 
-Human beings cannot operate on an unmediated totality of the world. We work through selective representations.
+Human beings encounter the world from embodied, selective, historically formed perspectives. Much practical engagement is not first experienced as an explicit representation. When aspects of a situation become available for recall, articulation, comparison, reasoning, communication, modeling, coordination, or deliberate action, FSP treats that selective articulation as a **map** for governance purposes.
 
-A map may be perceptual, linguistic, conceptual, emotional, narrative, statistical, diagrammatic, institutional, computational, or social. It may be explicit or largely tacit. It may concern a physical environment, another person, a historical event, a moral situation, a scientific system, or ourselves.
+A map may be linguistic, conceptual, emotional, narrative, statistical, diagrammatic, institutional, computational, social, or otherwise articulable. It may be explicit or partly tacit. It may concern a physical environment, another person, a historical event, a moral situation, a scientific system, or ourselves.
+
+The term **map** does not commit FSP to the thesis that all cognition consists in internal mental representations. FSP remains neutral among competing cognitive architectures so long as the inquiry transition being governed can be made inspectable enough to assess what is being carried forward.
 
 This gives FSP its first constitutional firewall:
 
@@ -90,10 +91,12 @@ The corresponding failure modes are immediately human and recognizable:
 - **CT-F01 Map Substitution:** the representation is treated as the thing represented.
 - **CT-F02 Omission Failure:** relevant actors, facts, burdens, perspectives, or uncertainty never enter the map.
 
-### Claim ceilings
+### Claim ceilings and cognitive-architecture firewall
 
 **CE-01:** Map ≠ World.  
-**CE-02:** Map of Person ≠ Person.
+**CE-02:** Map of Person ≠ Person.  
+
+**Map language ≠ theory of cognitive architecture.**
 
 ---
 
@@ -107,7 +110,11 @@ We are formed through repeated interaction with caregivers, languages, practices
 
 FSP calls the path through which a present pattern of perception, judgment, identity, or practice has been assembled an **assembly history**.
 
-Assembly history does not imply that a person is merely the passive product of causes. Human beings also reinterpret, resist, adopt, revise, combine, and reject what they inherit. The point is to make formation inspectable.
+Assembly history does not imply that a person is merely the passive product of causes. Human beings also explore, select, resist, practice, improvise, reinterpret, adopt, revise, combine, and reject what they inherit. Their activity alters the environments, relationships, and practices that in turn continue to shape them.
+
+**Assembly therefore names reciprocal historical formation, not construction of a passive person from external parts.**
+
+The point is to make formation inspectable without erasing agency, embodiment, environmental feedback, or social dependence.
 
 The governing question is:
 
@@ -152,7 +159,9 @@ FSP therefore treats assembly history not as a hidden causal story behind “rea
 
 ## 6. Reflection makes inquiry inspectable
 
-Critical thinking becomes explicit when some part of our own inquiry can itself become an object of inquiry.
+Inquiry does not begin with reflection. Organisms can discriminate, learn, anticipate, act, and adjust without making those processes explicit objects of thought. Reflective inquiry begins when some aspect of this ongoing activity becomes thematically available for inspection, comparison, reason-giving, or deliberate revision.
+
+Critical thinking becomes explicit when some part of our ongoing inquiry can itself become an object of inquiry.
 
 We can ask:
 
@@ -250,23 +259,22 @@ These are not all ordinary formal fallacies. They are failures at different tran
 
 FSP therefore understands **governed inquiry** as the deliberate regulation of those transitions.
 
-A useful canonical arc is:
+A useful canonical decomposition is:
 
 ```text
 lived situation
-→ representation
-→ examination
-→ evidence and reasons
-→ alternatives
-→ bounded judgment
-→ standing
-→ authorization
-→ action or repair
-→ consequences
-→ REOPEN
+↔ selective articulation / map
+↔ examination
+↔ evidence and reasons
+↔ alternatives
+↔ bounded judgment
+↔ standing / authorization
+↔ action or repair
+↔ consequences
+↔ REOPEN
 ```
 
-The arc is not a mandatory linear algorithm. Inquiry may loop, branch, reverse, or re-enter earlier stages. The value of the map is diagnostic: it helps identify what kind of work is currently needed.
+These distinctions are analytic governance distinctions, not a claim that natural inquiry proceeds through separate stages. Inquiry may loop, branch, reverse, overlap, recurse, or reveal a transition only retrospectively. Acting can change what becomes perceptible; consequences can revise the map; habits can shape salience before explicit reasoning begins. The value of the decomposition is diagnostic: it helps identify what kind of work is currently needed.
 
 ---
 
@@ -569,17 +577,19 @@ The full FSP arc therefore returns to where it began:
 
 ```text
 Lived Doing
-→ situated inquiry
-→ map
-→ reflective inquiry
-→ governed inquiry
-→ bounded judgment
-→ authorized action
-→ consequences
-→ repair / REOPEN
-→ Authorial Return
-→ Lived Doing
+↔ situated inquiry
+↔ selective articulation / map
+↔ reflective inquiry
+↔ governed inquiry
+↔ bounded judgment
+↔ authorized action
+↔ consequences
+↔ repair / REOPEN
+↔ Authorial Return
+↔ Lived Doing
 ```
+
+The arrows mark recursive dependence and return, not a fixed psychological sequence.
 
 ---
 
@@ -672,11 +682,58 @@ The same constitutional firewalls remain in force, but domain ontology, evidence
 
 ---
 
-# PART XIII — ACCEPTANCE TESTS
+# PART XIII — SOURCE LEDGER
 
-## 20. Canonical acceptance criteria
+## 20. Source-ledger discipline for the opening triad
 
-FSP-CT-CANONICAL-1 passes only if all of the following remain true:
+The opening triad draws on three different kinds of support that must remain distinguishable.
+
+### EMPIRICAL REVIEW
+
+These sources support bounded claims about active learning, attention, memory, motor development, statistical learning, self-representation, social understanding, and organism–environment development. They do **not** empirically validate FSP as a whole.
+
+- Raz, G. & Saxe, R. (2020), “Learning in Infancy Is Active, Endogenously Motivated, and Depends on the Prefrontal Cortices,” *Annual Review of Developmental Psychology* 2:247–268.
+- “Neurodevelopment of Attention, Learning, and Memory Systems in Infancy,” *Annual Review of Developmental Psychology* 5 (2023).
+- Forest, T. A. et al. (2023), “Changes in statistical learning across development,” *Nature Reviews Psychology* 2:205–219.
+- Adolph, K. E. (2019), “Motor Development: Embodied, Embedded, Enculturated, and Enabling,” *Annual Review of Psychology* 70:141–164.
+- Southgate, V. (2024), “The Origins and Emergence of Self-Representation,” *Annual Review of Developmental Psychology* 6:109–131.
+- Rakoczy, H. (2022), “Foundations of theory of mind and its development in early childhood,” *Nature Reviews Psychology* 1:223–235.
+- Weiss, S. M. et al. (2024), “Trajectories of brain and behaviour development in the womb, at birth and through infancy,” *Nature Human Behaviour* 8:1251–1262.
+
+### PHILOSOPHICAL COMPARATOR
+
+These sources supply pressure tests and convergences. They do **not** entail FSP.
+
+- *Stanford Encyclopedia of Philosophy*, “Phenomenology.”
+- *Stanford Encyclopedia of Philosophy*, “Phenomenological Approaches to Self-Consciousness.”
+- *Stanford Encyclopedia of Philosophy*, “Pragmatism.”
+- *Stanford Encyclopedia of Philosophy*, “John Dewey.”
+- *Stanford Encyclopedia of Philosophy*, “Embodied Cognition.”
+- Meyer, R. & Brancazio, N. (2022), “Putting down the revolt: Enactivism as a philosophy of nature,” *Frontiers in Psychology* 13.
+
+### FSP RECONSTRUCTION
+
+The following are FSP's own reconstructive and governance claims:
+
+- situated human inquiry is a useful philosophical starting point for critical thinking;
+- assembly history makes formation inspectable without settling justification;
+- reflective inquiry makes some ongoing inquiry thematically available for deliberate examination;
+- maps are governance objects rather than commitments to one cognitive architecture;
+- transition distinctions are analytic and recursively realized rather than mandatory natural stages;
+- Tools, failure routing, standing constraints, claim ceilings, repair, and REOPEN govern vulnerable transitions;
+- shared inquiry grammar does not imply shared ontology, developmental sequence, or cognitive mechanism.
+
+### Source-ledger ceiling
+
+**Empirical support for components + philosophical convergence ≠ empirical confirmation of FSP as a whole.**
+
+---
+
+# PART XIV — ACCEPTANCE TESTS
+
+## 21. Canonical acceptance criteria
+
+FSP-CT-CANONICAL-1.1 passes only if all of the following remain true:
 
 1. **Human starting point:** Critical thinking begins from situated, fallible human inquiry rather than from abstract argument alone.
 2. **No psychological overclaim:** The lived-inquiry arc is explicitly a philosophical reconstruction, not a universal empirical developmental theory.
@@ -693,25 +750,30 @@ FSP-CT-CANONICAL-1 passes only if all of the following remain true:
 13. **Shared grammar boundary:** Cross-domain reuse does not imply shared ontology.
 14. **Projection governance:** Ethics and History of Inquiry inherit one canonical architecture while retaining domain-native evidence, ontology, authority, and cases.
 15. **No vocabulary inflation:** This build adds no thirteenth Tool, no seventeenth failure mode, and no new constitutional primitive merely to express the situated-inquirer foundation.
+16. **Representation neutrality:** Map language does not commit FSP to one theory of cognitive architecture.
+17. **Reciprocal formation:** Assembly history includes active self-formation and reciprocal organism–environment shaping.
+18. **Prereflective boundary:** Lived inquiry precedes explicit reflection; reflection makes some ongoing inquiry inspectable rather than creating inquiry from nothing.
+19. **Recursive realization:** Transition distinctions remain analytic governance distinctions rather than mandatory natural stages.
+20. **Source separation:** Empirical reviews, philosophical comparators, and FSP reconstruction remain explicitly distinguishable.
 
 ---
 
-# 21. Canonical compression
+# 22. Canonical compression
 
 For short public use, the architecture may be compressed to:
 
-> **Human beings are situated, fallible inquirers. We build partial maps of situations, other people, and ourselves; those maps have assembly histories; and we use them to reason, judge, and act before uncertainty disappears. Traditional critical thinking helps us test reasons, evidence, inference, and argument. FSP extends that work by governing the surrounding transitions: how maps are formed, what is omitted, what evidence licenses, whose perspective and standing matter, what a judgment authorizes, how institutions amplify decisions, and what consequences require repair or reopening. Its Tools do not supply automatic verdicts. They help human beings make more inspectable, bounded, revisable judgments and return those judgments to lived Doing.**
+> **Human beings are situated, fallible inquirers. We encounter situations through embodied, selective, historically formed perspectives. When aspects of those situations become available for articulation, comparison, reasoning, memory, communication, modeling, or coordination, FSP treats those selective articulations as maps; those maps and the capacities that produce and use them have assembly histories; and we reason, judge, and act before uncertainty disappears. Traditional critical thinking helps us test reasons, evidence, inference, and argument. FSP extends that work by governing the surrounding transitions: how maps are formed, what is omitted, what evidence licenses, whose perspective and standing matter, what a judgment authorizes, how institutions amplify decisions, and what consequences require repair or reopening. Its Tools do not supply automatic verdicts. They help human beings make more inspectable, bounded, revisable judgments and return those judgments to lived Doing.**
 
 That compression may be used as the conceptual seed for domain-specific introductions, but the present document remains the canonical owner.
 
 ---
 
-## 22. Final claim ceiling
+## 23. Final claim ceiling
 
-FSP-CT-CANONICAL-1 proposes a unified philosophical architecture for understanding critical thinking as governed situated inquiry.
+FSP-CT-CANONICAL-1.1 proposes a unified philosophical architecture for understanding critical thinking as governed situated inquiry.
 
-It does **not** establish that every person, culture, discipline, or institution follows one universal cognitive sequence. It does **not** replace empirical psychology, cognitive science, developmental research, history, ethics, logic, philosophy of science, or domain expertise. It does **not** claim that all domains share an ontology.
+It does **not** establish that every person, culture, discipline, or institution follows one universal cognitive sequence or that all cognition depends on one representational architecture. It does **not** replace empirical psychology, cognitive science, developmental research, history, ethics, logic, philosophy of science, or domain expertise. It does **not** claim that all domains share an ontology.
 
 Its stronger but bounded claim is this:
 
-> **Across many forms of human inquiry, recurring vulnerabilities arise when situated inquirers move from experience to representation, from representation to reasons, from reasons to judgment, from judgment to action, and from action to revision. Making those transitions inspectable—and governing them with Tools, failure diagnostics, claim ceilings, standing constraints, repair, and REOPEN—provides a reusable extension of critical thinking while preserving the differences that make each domain its own.**
+> **Across many forms of human inquiry, recurring vulnerabilities arise as situated inquirers move among lived engagement, selective articulation, reasons, judgments, standing, action, consequences, and revision. Making those transitions inspectable—and governing them with Tools, failure diagnostics, claim ceilings, standing constraints, repair, and REOPEN—provides a reusable extension of critical thinking while preserving the differences that make each domain its own.**
