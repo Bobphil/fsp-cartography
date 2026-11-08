@@ -687,7 +687,8 @@
         "FSP-JTS-FLNH-S0",
         "FSP-JTS-FLNH-S1",
         "FSP-JTS-FLNH-S2",
-        "FSP-JTS-FLNH-S3"
+        "FSP-JTS-FLNH-S3",
+        "FSP-JTS-FLNH-STANDING"
       ],
       "claimCeilingIds": [
         "CE-03",
@@ -761,6 +762,27 @@
         "CE-10"
       ],
       "status": "PUBLIC_WORKED_STATE"
+    },
+    {
+      "id": "FSP-JTS-FLNH-STANDING",
+      "family": "JTS_LAYER",
+      "title": "Standing and Authorization",
+      "summary": "Layer 2 governance ledger distinguishing evidential authority, moral standing, legal/institutional authority, recommendation standing, authorization standing, implementation power, and review.",
+      "canonicalClaim": "A Joint Task Space must govern the relations among evidence, standing, recommendation, authorization, implementation, and review rather than collapse participants into generic stakeholders.",
+      "relatedIds": [
+        "FSP-JTS-FLNH",
+        "FSP-JTS-FLNH-S0",
+        "FSP-JTS-FLNH-S1",
+        "FSP-JTS-FLNH-S2",
+        "FSP-JTS-FLNH-S3"
+      ],
+      "claimCeilingIds": [
+        "CE-06",
+        "CE-07",
+        "CE-08",
+        "CE-10"
+      ],
+      "status": "PUBLIC_WORKED_LAYER"
     }
   ],
   "tools": [
