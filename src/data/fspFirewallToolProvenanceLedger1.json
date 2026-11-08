@@ -1,0 +1,303 @@
+{
+  "schema_version": "1.0",
+  "registry_id": "FSP-FIREWALL-TOOL-PROVENANCE-LEDGER-1",
+  "status": "CANONICAL_VERSION_1",
+  "evidence_state_codes": {
+    "H": "historical_or_philosophical_recurrence",
+    "C": "fsp_conceptual_reconstruction",
+    "K": "worked_case_stress",
+    "X": "executable_or_formal_implementation",
+    "P": "protocol_ready_human_test",
+    "E": "external_empirical_support"
+  },
+  "firewalls": [
+    {
+      "key": "FW-01",
+      "label": "Map ≠ World ≠ Person",
+      "tool": "Attention / First Map Audit",
+      "evidence": [
+        "H",
+        "C",
+        "K",
+        "X"
+      ]
+    },
+    {
+      "key": "FW-02",
+      "label": "Authority approval ≠ sufficient justification",
+      "tool": "Examination / Reason-Giving Audit",
+      "evidence": [
+        "H",
+        "C",
+        "K",
+        "X"
+      ]
+    },
+    {
+      "key": "FW-03",
+      "label": "Formation ≠ justification",
+      "tool": "Formation / Practical-Wisdom Audit",
+      "evidence": [
+        "H",
+        "C",
+        "K"
+      ]
+    },
+    {
+      "key": "FW-04",
+      "label": "Remaining agency ≠ unlimited responsibility",
+      "tool": "Control / Moral Range Audit",
+      "evidence": [
+        "H",
+        "C",
+        "K",
+        "X"
+      ]
+    },
+    {
+      "key": "FW-05",
+      "label": "Good purpose ≠ sufficient authorization",
+      "tool": "Moral Authority / Common-Good Audit",
+      "evidence": [
+        "H",
+        "C",
+        "K",
+        "X"
+      ]
+    },
+    {
+      "key": "FW-06",
+      "label": "Power ≠ legitimacy",
+      "tool": "Legitimacy / Standing Audit",
+      "evidence": [
+        "H",
+        "C",
+        "K",
+        "X"
+      ]
+    },
+    {
+      "key": "FW-07",
+      "label": "Sympathy ≠ direct access",
+      "tool": "Perspective / Moral Visibility Audit",
+      "evidence": [
+        "H",
+        "C",
+        "K",
+        "X"
+      ]
+    },
+    {
+      "key": "FW-08",
+      "label": "Help ≠ authorized agency bypass",
+      "tool": "Respect / Agency Audit",
+      "evidence": [
+        "H",
+        "C",
+        "K",
+        "X"
+      ]
+    },
+    {
+      "key": "FW-09",
+      "label": "Benefit ≠ authorization",
+      "tool": "Consequence / Welfare / Harm Audit",
+      "evidence": [
+        "H",
+        "C",
+        "K",
+        "X"
+      ]
+    },
+    {
+      "key": "FW-10",
+      "label": "Origin ≠ validity",
+      "tool": "Background Power / Genealogy Audit",
+      "evidence": [
+        "H",
+        "C",
+        "K",
+        "X"
+      ]
+    },
+    {
+      "key": "FW-11",
+      "label": "Formal equality ≠ equal practical burden",
+      "tool": "Fair-Structure Audit",
+      "evidence": [
+        "H",
+        "C",
+        "K"
+      ]
+    },
+    {
+      "key": "FW-12",
+      "label": "Resource ≠ capability",
+      "tool": "Dependency / Effective-Capability Audit",
+      "evidence": [
+        "H",
+        "C",
+        "K",
+        "X"
+      ]
+    },
+    {
+      "key": "FW-13",
+      "label": "Instrument reading ≠ uninterpreted fact",
+      "tool": "Measurement / Provenance Audit",
+      "evidence": [
+        "H",
+        "C",
+        "K",
+        "X"
+      ]
+    },
+    {
+      "key": "FW-14",
+      "label": "Anomaly ≠ uniquely located refutation",
+      "tool": "Alternative / Auxiliary-Assumption Audit",
+      "evidence": [
+        "H",
+        "C",
+        "K",
+        "X",
+        "P"
+      ]
+    },
+    {
+      "key": "FW-15",
+      "label": "Model success ≠ ontology",
+      "tool": "Model / Claim-Ceiling Audit",
+      "evidence": [
+        "H",
+        "C",
+        "K",
+        "X"
+      ]
+    },
+    {
+      "key": "FW-16",
+      "label": "Shared vocabulary ≠ shared conceptual structure",
+      "tool": "Semantic / Framework Translation Audit",
+      "evidence": [
+        "H",
+        "C",
+        "K",
+        "X"
+      ]
+    },
+    {
+      "key": "FW-17",
+      "label": "Probe result ≠ historical fact",
+      "tool": "Controlled-Probe / Counterfactual Audit",
+      "evidence": [
+        "H",
+        "C",
+        "K",
+        "X"
+      ]
+    },
+    {
+      "key": "FW-18",
+      "label": "Institutional validation ≠ interpretive closure",
+      "tool": "Institutional Validation / Claim-Ceiling Audit",
+      "evidence": [
+        "H",
+        "C",
+        "K"
+      ]
+    },
+    {
+      "key": "FW-19",
+      "label": "Translation ≠ identity",
+      "tool": "Translation / Remainder Audit",
+      "evidence": [
+        "C",
+        "K",
+        "X",
+        "P"
+      ]
+    },
+    {
+      "key": "FW-20",
+      "label": "Coordination ≠ legitimate cooperation",
+      "tool": "Agency / Anti-Domination Audit",
+      "evidence": [
+        "C",
+        "K",
+        "X"
+      ]
+    },
+    {
+      "key": "FW-21",
+      "label": "Generate ≠ Recommend ≠ Authorize ≠ Implement",
+      "tool": "Authorization-State Audit",
+      "evidence": [
+        "C",
+        "K",
+        "X"
+      ]
+    },
+    {
+      "key": "FW-22",
+      "label": "Local usefulness ≠ safe institutional amplification",
+      "tool": "Institutional Amplification Audit",
+      "evidence": [
+        "C",
+        "K",
+        "X"
+      ]
+    },
+    {
+      "key": "FW-23",
+      "label": "Progressive disclosure ≠ semantic mutation",
+      "tool": "Projection / Compression Audit",
+      "evidence": [
+        "C",
+        "K",
+        "X"
+      ]
+    },
+    {
+      "key": "FW-24",
+      "label": "REOPEN ≠ rejection / perpetual reconsideration",
+      "tool": "REOPEN Audit",
+      "evidence": [
+        "C",
+        "K",
+        "X",
+        "P"
+      ]
+    },
+    {
+      "key": "FW-25",
+      "label": "Return ≠ summary / restoration",
+      "tool": "Return / Authorial Capability Audit",
+      "evidence": [
+        "C",
+        "K",
+        "X"
+      ]
+    },
+    {
+      "key": "FW-26",
+      "label": "FSP map ≠ inquiry itself",
+      "tool": "Meta-Governance / Constitutional REOPEN Audit",
+      "evidence": [
+        "C",
+        "K",
+        "X",
+        "P"
+      ]
+    }
+  ],
+  "provenance_status": {
+    "steven_turner": "PROVISIONAL_LINEAGE_SOURCE_BINDING_REQUIRED",
+    "ucp_simulation": "PARTIALLY_BOUND_EARLIER_TRANCHE_PENDING",
+    "translation_formalism": "BOUND",
+    "gulf_pines_jts": "BOUND",
+    "ethics_pressbook": "BOUND",
+    "inquiry_pressbook": "BOUND",
+    "human_validation": "PENDING"
+  }
+}
