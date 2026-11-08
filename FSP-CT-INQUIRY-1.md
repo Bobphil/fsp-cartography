@@ -262,6 +262,20 @@ The later chapters will deepen them through real historical cases.
 
 ---
 
+## Reconciliation note — native inquiry topology, remainder, and Return
+
+These six questions do not impose one scientific method on the historical episodes in this book. Different inquiries have different native topologies. A measurement program, anomaly, model comparison, thought experiment, framework transition, historical reconstruction, or contemporary collaborative science case may move differently.
+
+The common discipline is lighter: preserve provenance, inspect what licenses each transition, keep alternatives and remainder visible, bound the conclusion, and track what changes enough to REOPEN the inquiry.
+
+> **Shared governance grammar ≠ shared inquiry topology.**
+
+One additional question will therefore recur when a representation compresses a complex case:
+
+> **What did the current representation fail to carry forward?**
+
+---
+
 # 7. Models Are Powerful Without Being the World
 
 One of the most important distinctions in this course is:
