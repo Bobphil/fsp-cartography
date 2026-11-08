@@ -264,3 +264,20 @@ test("JTS freeze preserves Return routes through registry relations",()=>{
   const gate=registry.nodes.find(x=>x.id==="FSP-JTS-INTEGRATION-GATE-1");
   assert.ok(gate.relatedIds.includes("FSP-JTS-FLNH-INTEGRATION"));
 });
+
+
+test("Asteria Joint Task Space comparator resolves",()=>{
+  const n=registry.nodes.find(x=>x.id==="FSP-JTS-COMPARATOR-1");
+  assert.ok(n);
+  assert.equal(n.family,"JTS_COMPARATOR");
+  assert.equal(n.status,"COMPARATOR_PASS_WITH_PRESSURE");
+  assert.ok(n.relatedIds.includes("FSP-JTS-FLNH-INTEGRATION"));
+  assert.ok(n.relatedIds.includes("FSP-JTS-INTEGRATION-GATE-1"));
+  assert.ok(n.claimCeilingIds.includes("CE-04"));
+});
+
+test("Asteria comparator preserves five-layer baseline without sixth layer",()=>{
+  const n=registry.nodes.find(x=>x.id==="FSP-JTS-COMPARATOR-1");
+  assert.ok(/five-layer/i.test(n.summary));
+  assert.ok(/sixth layer/i.test(n.canonicalClaim));
+});
