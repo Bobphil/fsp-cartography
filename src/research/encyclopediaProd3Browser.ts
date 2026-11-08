@@ -106,6 +106,15 @@ export async function mountProd3(root:HTMLElement){
         x.innerHTML="<h3>What Inquiry & Science makes visible</h3><p>Observation, measurement, models, prediction, causal hypotheses, uncertainty, error, model comparison, and temporal revision.</p><h3>What Inquiry & Science contributes</h3><p>Evidence provenance, observation/inference separation, uncertainty representation, model plurality, causal restraint, controlled probes, and sensitivity to diachronic change.</p><h3>What Inquiry & Science does not own</h3><p>Scientific expertise does not by itself determine legitimate risk transfer, standing, international authorization, acceptable burden, moral priority, or political legitimacy.</p><p class=\"warning\"><strong>Model success ≠ ontology. Impact-model expertise ≠ mission authorization.</strong></p><h3>Worked entrances</h3><p><strong>Asteria-2047</strong> is the current cross-domain Joint Task Space comparator. The <strong>Scientific Atlas</strong> remains the deeper historical/diachronic entrance.</p>";
         main.append(x);
       }
+      else if(did==="HISTORY-PHILOSOPHY"){
+        const x=document.createElement("section");x.className="panel";
+        x.innerHTML="<h3>What History of Philosophy makes visible</h3><p>Situated problem contexts, public philosophical artifacts, native inquiry topologies, attribution, uptake, contest, sedimentation, and what becomes available for later inquiry.</p><h3>Native topologies</h3><p>Serial / reconstructive · dialogical / aporetic · genealogical / diagnostic · field / transition. The shared shell governs location, representation, attribution, typing, licensing, challenge, fork/REOPEN, and continuation without claiming every philosopher follows one sequence.</p><p class=\"warning\"><strong>Speaker utterance ≠ authorial commitment. Refutation ≠ positive doctrine. Origin ≠ validity.</strong></p><h3>What this domain contributes</h3><p>Context recovery, inquiry-topology preservation, reconstruction/endorsement separation, historical provenance, selective Carry Forward, and REOPEN across changing task spaces.</p><h3>What it does not own</h3><p>Historical reconstruction does not by itself determine truth, soundness, present justification, or contemporary authorization.</p><p class=\"warning\"><strong>Historical reconstruction ≠ present justification.</strong></p><h3>Worked entrance</h3><p><strong>What May We Carry Forward?</strong> and its SUPER workspace remain the current public routes.</p>";
+        main.append(x);
+      }else if(did==="LOGIC-ARGUMENT"){
+        const x=document.createElement("section");x.className="panel";
+        x.innerHTML="<h3>What Logic & Argument makes visible</h3><p>Claims, grounds, warrants, backing, qualifiers, rebuttals, support relations, defeaters, scope, provenance, and authority carried across an inference.</p><h3>Attack targets</h3><p>Ground · claim · warrant · backing · scope · provenance · authority. Different disagreements can therefore target different parts of the same argument.</p><h3>Selective REOPEN</h3><p>Linked support may fail when a required premise is defeated; convergent support may survive when an independent source remains. Challenge does not automatically reopen every dependent claim.</p><p class=\"warning\"><strong>Challenge ≠ automatic REOPEN.</strong></p><h3>What this domain contributes</h3><p>Inferential audit, typed support, attack targeting, warrant visibility, provenance, scope control, defeater handling, and dependency-sensitive revision.</p><h3>What it does not own</h3><p>Argument support does not by itself settle moral importance, institutional authorization, historical meaning, ontology, or policy.</p><p class=\"warning\"><strong>Supported argument ≠ authorized action. Governance integration ≠ new argumentation theory.</strong></p>";
+        main.append(x);
+      }
       if(d.availableNow.length){
         const now=document.createElement("section");now.className="panel";now.innerHTML="<h3>Available now</h3>";
         const ul=document.createElement("ul");for(const x of d.availableNow){const li=document.createElement("li");li.textContent=x;ul.append(li)}now.append(ul);main.append(now);
@@ -143,6 +152,16 @@ export async function mountProd3(root:HTMLElement){
         const a=document.createElement("div");a.className="actions";a.append(
           mkButton("Florida Nursing-Home Joint Task Space",()=>go({kind:"NODE",id:"FSP-JTS-FLNH"}),true),
           mkButton("Critical Thinking",()=>go({kind:"NODE",id:"CT-HOME"}))
+        );main.append(a);
+      }else if(did==="HISTORY-PHILOSOPHY"){
+        const a=document.createElement("div");a.className="actions";a.append(
+          mkButton("Critical Thinking",()=>go({kind:"NODE",id:"CT-HOME"})),
+          mkButton("Inquiry & Science",()=>go({kind:"NODE",id:"DOMAIN-SCIENCE-INQUIRY"}))
+        );main.append(a);
+      }else if(did==="LOGIC-ARGUMENT"){
+        const a=document.createElement("div");a.className="actions";a.append(
+          mkButton("Critical Thinking",()=>go({kind:"NODE",id:"CT-HOME"}),true),
+          mkButton("T02 · Reason-Giving Audit",()=>go({kind:"NODE",id:"CT-T02"}))
         );main.append(a);
       }
       if(d.notYetClaimed.length){
