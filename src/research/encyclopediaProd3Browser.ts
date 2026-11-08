@@ -32,6 +32,26 @@ export async function mountProd3(root:HTMLElement){
   const renderNode=(main:HTMLElement,id:string)=>{
     const n=byId("nodes",id);if(!n)return renderMissing(main,id);
     main.innerHTML='<div class="panel"><div class="muted">'+esc(n.id)+' · '+esc(n.status)+'</div><h2>'+esc(n.title)+'</h2><p>'+esc(n.summary)+'</p><p><strong>Canonical claim:</strong> '+esc(n.canonicalClaim)+'</p></div>';
+    if(id==="FSP-HOME"){
+      main.innerHTML='<div class="panel"><div class="muted">FSP Encyclopedia · HOME</div><h2>Full-Stack Philosophy</h2><p>FSP makes the interacting layers of human inquiry inspectable without pretending that every domain has the same ontology, evidence, authority, or method.</p><p><strong>Why FSP?</strong> Human inquiry does not happen only inside arguments. We notice selectively, build partial maps, use specialized tools, make judgments, act through institutions, and revise when consequences or evidence resist our expectations.</p><p><strong>Notice → Inspect → Govern → Bound → REOPEN → Return</strong></p><p class="warning"><strong>Shared grammar ≠ shared ontology.</strong> FSP itself remains corrigible: <strong>FSP map ≠ inquiry itself.</strong></p></div>';
+      const sec=document.createElement("section");sec.className="panel";sec.innerHTML="<h3>Choose an entrance</h3><p class=\"muted\">Start with a domain or cross-domain resource. Critical Thinking is one entrance, not the universal front door.</p>";
+      const grid=document.createElement("div");grid.className="grid";
+      [
+        ["CT-HOME","Critical Thinking","Extended critical thinking, Tools, Firewalls, Failure Atlas, claim ceilings, and REOPEN."],
+        ["SCI-ATLAS","Inquiry & Science","Scientific cases, source ledgers, probes, transitions, and claim ceilings."],
+        ["FSP-CONSTITUTION","FSP Core / Constitution","The governing distinctions that constrain representation, inference, authorization, and return."]
+      ].forEach(([rid,label,desc])=>{
+        const c=document.createElement("div");c.className="card";
+        c.innerHTML="<strong>"+esc(label)+"</strong><p>"+esc(desc)+"</p>";
+        c.append(mkButton("Open "+label,()=>go({kind:"NODE",id:rid})));
+        grid.append(c);
+      });
+      sec.append(grid);main.append(sec);
+      const depth=document.createElement("section");depth.className="panel";depth.innerHTML="<h3>Three reader depths</h3><p><strong>Quick:</strong> Why FSP? — orientation and the compact grammar.</p><p><strong>Standard:</strong> Extended Critical Thinking and Joint Task Spaces.</p><p><strong>Deep / Formal:</strong> translation governance, provenance, remainder, standing, authorization, and cross-domain interoperability.</p>";
+      main.append(depth);
+      return;
+    }
+
     if(id==="CT-HOME"){
       const sec=document.createElement("section");sec.className="panel";sec.innerHTML="<h3>Browse critical-thinking entries</h3><p class=\"muted\">Choose by question and concept. Stable IDs remain visible for reference, but are not the primary labels.</p>";
       const grid=document.createElement("div");grid.className="grid";
@@ -213,7 +233,8 @@ export async function mountProd3(root:HTMLElement){
     const nav=document.createElement("nav");nav.className="nav";nav.setAttribute("aria-label","Encyclopedia navigation");
     const group=document.createElement("div");group.className="group";
     [
-      ["NODE","CT-HOME","Home / Critical Thinking"],
+      ["NODE","FSP-HOME","Encyclopedia Home"],
+      ["NODE","CT-HOME","Critical Thinking"],
       ["NODE","FSP-CONSTITUTION","FSP Constitution"],
       ["NODE","CT-FAILURES","Failure Atlas"],
       ["NODE","SCI-ATLAS","Scientific Atlas"],
