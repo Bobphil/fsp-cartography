@@ -477,7 +477,8 @@
         "FSP-WHY",
         "FSP-TRANSLATION",
         "CT-HOME",
-        "FSP-JTS-FLNH"
+        "FSP-JTS-FLNH",
+        "FSP-JTS-COMPARATOR-1"
       ],
       "claimCeilingIds": [
         "CE-06",
@@ -579,7 +580,9 @@
       "title": "Inquiry & Science",
       "summary": "Domain landing page governed by FSP-ENCYCLOPEDIA-DOMAIN-NAV-1.",
       "canonicalClaim": "Domain-native inquiry remains primary while selected cross-domain relations may be governed through shared FSP grammar.",
-      "relatedIds": [],
+      "relatedIds": [
+        "FSP-JTS-COMPARATOR-1"
+      ],
       "claimCeilingIds": [
         "CE-12"
       ],
@@ -896,7 +899,8 @@
         "FSP-JTS-FLNH-STANDING",
         "FSP-JTS-FLNH-TRANSLATION",
         "FSP-JTS-FLNH-REPAIR",
-        "FSP-JTS-FLNH-INSTITUTIONAL"
+        "FSP-JTS-FLNH-INSTITUTIONAL",
+        "FSP-JTS-COMPARATOR-1"
       ],
       "claimCeilingIds": [
         "CE-03",
@@ -905,6 +909,28 @@
         "CE-12"
       ],
       "status": "PROVISIONAL_FREEZE_PASS"
+    },
+    {
+      "id": "FSP-JTS-COMPARATOR-1",
+      "family": "JTS_COMPARATOR",
+      "title": "Asteria-2047 Cross-Domain Comparator",
+      "summary": "Planetary-defense stress test of the Gulf Pines five-layer grammar under long-horizon uncertainty, model dependence, distributed authority, future-person standing, irreversibility, and risk transfer.",
+      "canonicalClaim": "The five-layer Joint Task Space grammar appears portable across Gulf Pines and Asteria-2047, with pressure concentrated inside existing layers rather than requiring a sixth layer.",
+      "relatedIds": [
+        "FSP-JTS-FLNH-INTEGRATION",
+        "FSP-JTS-INTEGRATION-GATE-1",
+        "FSP-JTS",
+        "DOMAIN-SCIENCE-INQUIRY"
+      ],
+      "claimCeilingIds": [
+        "CE-03",
+        "CE-04",
+        "CE-06",
+        "CE-07",
+        "CE-10",
+        "CE-12"
+      ],
+      "status": "COMPARATOR_PASS_WITH_PRESSURE"
     }
   ],
   "tools": [
