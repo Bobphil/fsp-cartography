@@ -442,7 +442,8 @@
         "FSP-RESOURCES",
         "FSP-ROUTES",
         "FSP-ABOUT",
-        "FSP-WHY"
+        "FSP-WHY",
+        "FSP-ENCYCLOPEDIA-COHERENCE-AUDIT-1"
       ],
       "claimCeilingIds": [
         "CE-10",
@@ -566,7 +567,8 @@
       "canonicalClaim": "The Encyclopedia is a governed and revisable architecture, not a final ontology of inquiry.",
       "relatedIds": [
         "FSP-WHY",
-        "FSP-DOMAINS"
+        "FSP-DOMAINS",
+        "FSP-ENCYCLOPEDIA-COHERENCE-AUDIT-1"
       ],
       "claimCeilingIds": [
         "CE-10",
@@ -931,6 +933,29 @@
         "CE-12"
       ],
       "status": "COMPARATOR_PASS_WITH_PRESSURE"
+    },
+    {
+      "id": "FSP-ENCYCLOPEDIA-COHERENCE-AUDIT-1",
+      "family": "ENCYCLOPEDIA_GATE",
+      "title": "Whole-Encyclopedia Coherence Audit",
+      "summary": "Public-coherence gate testing Home, Why FSP, domain entry, worked cases, Quick/Standard/Deep depth integrity, canonical ownership, Core/Formal boundaries, Return, and development-history firewall.",
+      "canonicalClaim": "The current FSP Encyclopedia public shell is coherent enough to serve as a baseline, subject to targeted repairs and future usability testing.",
+      "relatedIds": [
+        "FSP-HOME",
+        "FSP-WHY",
+        "FSP-DOMAINS",
+        "FSP-ABOUT",
+        "FSP-CONSTITUTION",
+        "DOMAIN-FORMAL-EXECUTABLE",
+        "FSP-JTS-FLNH",
+        "FSP-JTS-COMPARATOR-1"
+      ],
+      "claimCeilingIds": [
+        "CE-03",
+        "CE-10",
+        "CE-12"
+      ],
+      "status": "COHERENCE_PASS_TARGETED_REPAIRS"
     }
   ],
   "tools": [
