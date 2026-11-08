@@ -114,5 +114,18 @@ test("startup opens universal Encyclopedia Home rather than Critical Thinking",(
   assert.equal(s.current.id,"FSP-HOME");
   const home=registry.nodes.find(x=>x.id==="FSP-HOME");
   assert.ok(home);
-  assert.deepEqual(home.relatedIds,["CT-HOME","SCI-ATLAS","FSP-CONSTITUTION"]);
+  assert.deepEqual(home.relatedIds,["FSP-WHY","CT-HOME","SCI-ATLAS","FSP-CONSTITUTION"]);
+});
+
+
+test("three-depth FSP synthesis routes resolve",()=>{
+  const ids=["FSP-WHY","FSP-JTS","FSP-TRANSLATION"];
+  for(const id of ids){
+    const n=registry.nodes.find(x=>x.id===id);
+    assert.ok(n,id);
+    assert.ok(n.title.length>5);
+    assert.ok(n.summary.length>20);
+  }
+  const home=registry.nodes.find(x=>x.id==="FSP-HOME");
+  assert.ok(home.relatedIds.includes("FSP-WHY"));
 });
