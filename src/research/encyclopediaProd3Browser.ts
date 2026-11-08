@@ -1,6 +1,7 @@
 
 import {ReaderState,RegistryLike,initialReaderState,navigate,back,openFailure,openToolFromFailure,openProbe,openSources,openClaimCeiling,validateRegistry} from "./encyclopediaProd3Model";
 import {DOMAIN_PUBLIC_NAV} from "./fspEncyclopediaDomainNav";
+import {FIREWALL_PROVENANCE,evidenceLabels,provenanceEntry,validateFirewallProvenance} from "./fspFirewallToolProvenanceReader";
 
 type AnyObj=Record<string,any>;
 const esc=(s:any)=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]||c));
@@ -30,7 +31,46 @@ export async function mountProd3(root:HTMLElement){
   const go=(next:any)=>{state=navigate(state,next);render()};
   const goBack=()=>{state=back(state);render()};
 
+  const renderFirewallIndex=(main:HTMLElement)=>{
+    const failures=validateFirewallProvenance();
+    if(failures.length) throw new Error("Firewall provenance validation failed: "+failures.join("; "));
+    main.innerHTML='<div class="panel"><div class="muted">ENCYCLOPEDIA · FIREWALL PROVENANCE</div><h2>Why the gates exist</h2><p>Each Firewall records a transition that inquiry has learned not to cross silently. A Firewall is not normally a prohibition: it identifies the additional warrant, evidence, standing, or licensing argument needed to pass responsibly.</p><p class="warning"><strong>Firewall ≠ prohibition. You may cross, but show the license.</strong></p></div>';
+    const intro=document.createElement("section");intro.className="panel";intro.innerHTML="<h3>How to read this registry</h3><p>Open a Firewall to follow its recurrent failure, historical lineage, positive crossing warrant, Tool, worked cases, formal implementation, evidence state, claim ceiling, failure conditions, and REOPEN triggers.</p><p class=\"muted\">Evidence states: H historical recurrence · C FSP reconstruction · K worked case · X executable/formal implementation · P protocol-ready human test · E external empirical support.</p>";main.append(intro);
+    const grid=document.createElement("div");grid.className="grid";
+    for(const fw of FIREWALL_PROVENANCE){
+      const c=document.createElement("article");c.className="card";
+      c.innerHTML="<div class=\"muted\">"+esc(fw.key)+"</div><strong>"+esc(fw.label)+"</strong><p>"+esc(fw.recurrentFailure)+"</p><div>"+fw.evidence.map(x=>"<span class=\"tag\">"+esc(x)+"</span>").join("")+"</div>";
+      c.append(mkButton("Open provenance",()=>go({kind:"NODE",id:fw.key})));
+      grid.append(c);
+    }
+    main.append(grid);
+  };
+
+  const appendList=(parent:HTMLElement,heading:string,items:string[])=>{
+    const sec=document.createElement("section");sec.className="panel";sec.append(Object.assign(document.createElement("h3"),{textContent:heading}));
+    const ul=document.createElement("ul");for(const item of items){const li=document.createElement("li");li.textContent=item;ul.append(li)}sec.append(ul);parent.append(sec);
+  };
+
+  const renderFirewallProvenance=(main:HTMLElement,key:string)=>{
+    const fw=provenanceEntry(key);
+    main.innerHTML='<div class="panel"><div class="muted">'+esc(fw.key)+' · FIREWALL PROVENANCE</div><h2>'+esc(fw.label)+'</h2><p><strong>Protected transition:</strong> '+esc(fw.protectedTransition)+'</p><p><strong>Why this gate exists:</strong> '+esc(fw.recurrentFailure)+'</p></div>';
+    appendList(main,"Historical / disciplinary lineage",fw.lineage);
+    appendList(main,"Positive crossing warrant",fw.crossingWarrant);
+    const tool=document.createElement("section");tool.className="panel";tool.innerHTML="<h3>Associated Tool</h3><p><strong>"+esc(fw.tool)+"</strong></p>";main.append(tool);
+    appendList(main,"Worked cases",fw.cases);
+    appendList(main,"Formal implementation",fw.formalImplementation);
+    appendList(main,"Evidence state",evidenceLabels(fw));
+    const ceiling=document.createElement("section");ceiling.className="panel";ceiling.innerHTML="<h3>Claim ceiling</h3><p class=\"warning\"><strong>"+esc(fw.claimCeiling)+"</strong></p>";main.append(ceiling);
+    appendList(main,"What would count against this formulation",fw.failureConditions);
+    appendList(main,"REOPEN if",fw.reopenTriggers);
+    appendList(main,"Canonical sources",fw.canonicalSources);
+    const ret=document.createElement("section");ret.className="panel";ret.innerHTML="<h3>Return</h3><p>Return to the case, Tool, chapter, or domain that made this gate relevant. The provenance route deepens inspection; it does not replace the originating inquiry.</p>";
+    const a=document.createElement("div");a.className="actions";a.append(mkButton("← All Firewalls",()=>go({kind:"NODE",id:"FSP-FIREWALLS"}),true),mkButton("FSP Constitution",()=>go({kind:"NODE",id:"FSP-CONSTITUTION"})),mkButton("Why FSP?",()=>go({kind:"NODE",id:"FSP-WHY"})));ret.append(a);main.append(ret);
+  };
+
   const renderNode=(main:HTMLElement,id:string)=>{
+    if(id==="FSP-FIREWALLS"){renderFirewallIndex(main);return;}
+    if(/^FW-\\d{2}$/.test(id)){renderFirewallProvenance(main,id);return;}
     const n=byId("nodes",id);if(!n)return renderMissing(main,id);
     main.innerHTML='<div class="panel"><div class="muted">'+esc(n.id)+' · '+esc(n.status)+'</div><h2>'+esc(n.title)+'</h2><p>'+esc(n.summary)+'</p><p><strong>Canonical claim:</strong> '+esc(n.canonicalClaim)+'</p></div>';
     if(id==="FSP-HOME"){
@@ -42,7 +82,8 @@ export async function mountProd3(root:HTMLElement){
         ["FSP-CONSTITUTION","Core","Inspect the thin constitutional grammar shared across domains without replacing their native ontologies."],
         ["FSP-RESOURCES","Resources","Browse cross-domain resources such as Why FSP?, Critical Thinking, Tools, Failure Atlas, and the Scientific Atlas."],
         ["FSP-ROUTES","Routes","Follow books, courses, laboratories, and workspaces through canonical resources."],
-        ["FSP-ABOUT","About","See how the Encyclopedia is organized, governed, and kept corrigible."]
+        ["FSP-ABOUT","About","See how the Encyclopedia is organized, governed, and kept corrigible."],
+        ["FSP-FIREWALLS","Firewall Provenance","Inspect why each gate exists, what licenses crossing, and how the formulation remains open to REOPEN."]
       ].forEach(([rid,label,desc])=>{
         const c=document.createElement("div");c.className="card";
         c.innerHTML="<strong>"+esc(label)+"</strong><p>"+esc(desc)+"</p>";
@@ -189,7 +230,8 @@ export async function mountProd3(root:HTMLElement){
         ["CT-HOME","Critical Thinking","Traditional critical thinking extended into governed inquiry."],
         ["CT-TOOLS","Twelve Tools","Functional inquiry operators."],
         ["CT-FAILURES","Failure Atlas","Reasoning symptoms routed to repair."],
-        ["SCI-ATLAS","Scientific Atlas","Five comparative inquiry dossiers."]
+        ["SCI-ATLAS","Scientific Atlas","Five comparative inquiry dossiers."],
+        ["FSP-FIREWALLS","Firewall Provenance","Historical lineage, crossing warrants, Tools, cases, evidence states, claim ceilings, and REOPEN triggers."]
       ].forEach(([rid,label,desc])=>{const c=document.createElement("div");c.className="card";c.innerHTML="<strong>"+esc(label)+"</strong><p>"+esc(desc)+"</p>";c.append(mkButton("Open "+label,()=>go({kind:"NODE",id:rid})));grid.append(c)});
       main.append(grid);return;
     }
@@ -587,6 +629,7 @@ export async function mountProd3(root:HTMLElement){
       ["NODE","FSP-RESOURCES","Resources"],
       ["NODE","FSP-ROUTES","Routes"],
       ["NODE","FSP-ABOUT","About"],
+      ["NODE","FSP-FIREWALLS","Firewalls"],
       ["NODE","FSP-WHY","Why FSP?"],
       ["NODE","CT-HOME","Critical Thinking"]
     ].forEach(([kind,id,label])=>{
