@@ -138,3 +138,13 @@ test("universal Encyclopedia information architecture resolves",()=>{
   assert.equal(domains.relatedIds.length,8);
   for(const id of domains.relatedIds)assert.ok(registry.nodes.some(x=>x.id===id),id);
 });
+
+
+test("Florida nursing-home Joint Task Space pilot resolves",()=>{
+  const p=registry.nodes.find(x=>x.id==="FSP-JTS-FLNH");
+  assert.ok(p);
+  assert.equal(p.family,"PILOT");
+  assert.ok(p.relatedIds.includes("FSP-JTS"));
+  assert.ok(p.relatedIds.includes("FSP-TRANSLATION"));
+  assert.ok(p.claimCeilingIds.includes("CE-10"));
+});
