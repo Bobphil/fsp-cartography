@@ -3,7 +3,7 @@ export interface ReaderLocation{kind:RegistryKind;id:string;caseId?:string}
 export interface ReaderState{current:ReaderLocation;stack:ReaderLocation[]}
 export interface RegistryLike{nodes:Array<{id:string}>;tools:Array<{id:string;failureIds:string[]}>;failures:Array<{id:string;primaryToolId:string;secondaryToolIds:string[];claimCeilingId:string}>;cases:Array<{id:string;probes:Array<{id:string}>;sourceIds:string[];claimCeilingIds:string[]}>;claimCeilings:Array<{id:string}>;sources:Array<{id:string}>}
 const clone=<T>(x:T):T=>JSON.parse(JSON.stringify(x));
-export function initialReaderState():ReaderState{return{current:{kind:"NODE",id:"CT-00"},stack:[]}}
+export function initialReaderState():ReaderState{return{current:{kind:"NODE",id:"FSP-HOME"},stack:[]}}
 export function navigate(state:ReaderState,next:ReaderLocation):ReaderState{return{current:clone(next),stack:[...state.stack,clone(state.current)]}}
 export function back(state:ReaderState):ReaderState{if(!state.stack.length)return clone(state);const stack=state.stack.slice();const current=stack.pop()!;return{current,stack}}
 export function openFailure(state:ReaderState,failureId:string):ReaderState{return navigate(state,{kind:"FAILURE",id:failureId})}
