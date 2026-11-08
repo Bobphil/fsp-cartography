@@ -2,9 +2,9 @@
 
 ## Extended Critical Thinking, Joint Task Spaces, and Cooperation Without Convergence
 
-**Status:** CANONICAL REASON-FOR-BEING ESSAY — DRAFT 3 · ADVERSARIAL POSITIONING PATCH  
+**Status:** CANONICAL REASON-FOR-BEING ESSAY — FROZEN · VERSION 1  
 **Role:** Long-form architectural and philosophical repository paper for the FSP Encyclopedia  
-**Supersedes:** FSP-REASON-FOR-BEING-2 as the current canonical freeze candidate; earlier drafts remain preserved  
+**Supersedes:** FSP-REASON-FOR-BEING-2 as the frozen canonical repository paper; earlier drafts remain preserved  
 **Claim ceiling:** Architectural and philosophical synthesis grounded in the current FSP Encyclopedia, Gulf Pines, Asteria-2047, executable governance tests, and coherence audits. It does not establish universal applicability or empirical superiority.
 
 ---
