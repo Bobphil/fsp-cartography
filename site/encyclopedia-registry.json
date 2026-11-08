@@ -642,7 +642,8 @@
       "summary": "Domain landing page governed by FSP-ENCYCLOPEDIA-DOMAIN-NAV-1.",
       "canonicalClaim": "Domain-native inquiry remains primary while selected cross-domain relations may be governed through shared FSP grammar.",
       "relatedIds": [
-        "FSP-JTS-FLNH"
+        "FSP-JTS-FLNH",
+        "FSP-JTS-FLNH-INSTITUTIONAL"
       ],
       "claimCeilingIds": [
         "CE-12"
@@ -690,7 +691,8 @@
         "FSP-JTS-FLNH-S3",
         "FSP-JTS-FLNH-STANDING",
         "FSP-JTS-FLNH-TRANSLATION",
-        "FSP-JTS-FLNH-REPAIR"
+        "FSP-JTS-FLNH-REPAIR",
+        "FSP-JTS-FLNH-INSTITUTIONAL"
       ],
       "claimCeilingIds": [
         "CE-03",
@@ -827,6 +829,29 @@
       "claimCeilingIds": [
         "CE-03",
         "CE-06",
+        "CE-08",
+        "CE-10",
+        "CE-12"
+      ],
+      "status": "PUBLIC_WORKED_LAYER"
+    },
+    {
+      "id": "FSP-JTS-FLNH-INSTITUTIONAL",
+      "family": "JTS_LAYER",
+      "title": "Institutional Amplification and Regulatory REOPEN",
+      "summary": "Layer 5 governance for facility-level amplification, policy sedimentation, metric governance, upward evidence translation, regulatory remainder debt, and multi-level REOPEN.",
+      "canonicalClaim": "Institutional amplification turns judgments into environments, so governance must track what changes when bounded local judgments become policy, metrics, defaults, or regulation and how those structures remain corrigible.",
+      "relatedIds": [
+        "FSP-JTS-FLNH",
+        "FSP-JTS-FLNH-STANDING",
+        "FSP-JTS-FLNH-TRANSLATION",
+        "FSP-JTS-FLNH-REPAIR",
+        "DOMAIN-INSTITUTIONS-CONNECTED-DOING"
+      ],
+      "claimCeilingIds": [
+        "CE-03",
+        "CE-06",
+        "CE-07",
         "CE-08",
         "CE-10",
         "CE-12"
