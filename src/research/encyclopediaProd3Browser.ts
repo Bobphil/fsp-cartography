@@ -1,5 +1,6 @@
 
 import {ReaderState,RegistryLike,initialReaderState,navigate,back,openFailure,openToolFromFailure,openProbe,openSources,openClaimCeiling,validateRegistry} from "./encyclopediaProd3Model";
+import {DOMAIN_PUBLIC_NAV} from "./fspEncyclopediaDomainNav";
 
 type AnyObj=Record<string,any>;
 const esc=(s:any)=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]||c));
@@ -34,12 +35,14 @@ export async function mountProd3(root:HTMLElement){
     main.innerHTML='<div class="panel"><div class="muted">'+esc(n.id)+' · '+esc(n.status)+'</div><h2>'+esc(n.title)+'</h2><p>'+esc(n.summary)+'</p><p><strong>Canonical claim:</strong> '+esc(n.canonicalClaim)+'</p></div>';
     if(id==="FSP-HOME"){
       main.innerHTML='<div class="panel"><div class="muted">FSP Encyclopedia · HOME</div><h2>Full-Stack Philosophy</h2><p>FSP makes the interacting layers of human inquiry inspectable without pretending that every domain has the same ontology, evidence, authority, or method.</p><p><strong>Why FSP?</strong> Human inquiry does not happen only inside arguments. We notice selectively, build partial maps, use specialized tools, make judgments, act through institutions, and revise when consequences or evidence resist our expectations.</p><p><strong>Notice → Inspect → Govern → Bound → REOPEN → Return</strong></p><p class="warning"><strong>Shared grammar ≠ shared ontology.</strong> FSP itself remains corrigible: <strong>FSP map ≠ inquiry itself.</strong></p></div>';
-      const sec=document.createElement("section");sec.className="panel";sec.innerHTML="<h3>Choose an entrance</h3><p class=\"muted\">Start with a domain or cross-domain resource. Critical Thinking is one entrance, not the universal front door.</p>";
+      const sec=document.createElement("section");sec.className="panel";sec.innerHTML="<h3>Explore the Encyclopedia</h3><p class=\"muted\">Begin with domains, shared core resources, course and research routes, or the short Why FSP? orientation.</p>";
       const grid=document.createElement("div");grid.className="grid";
       [
-        ["CT-HOME","Critical Thinking","Extended critical thinking, Tools, Firewalls, Failure Atlas, claim ceilings, and REOPEN."],
-        ["SCI-ATLAS","Inquiry & Science","Scientific cases, source ledgers, probes, transitions, and claim ceilings."],
-        ["FSP-CONSTITUTION","FSP Core / Constitution","The governing distinctions that constrain representation, inference, authorization, and return."]
+        ["FSP-DOMAINS","Domains","Enter Inquiry & Science, Ethics, History of Philosophy, Logic & Argument, Aesthetics, Institutions & Connected Doing, Core, and Formal / Executable FSP."],
+        ["FSP-CONSTITUTION","Core","Inspect the thin constitutional grammar shared across domains without replacing their native ontologies."],
+        ["FSP-RESOURCES","Resources","Browse cross-domain resources such as Why FSP?, Critical Thinking, Tools, Failure Atlas, and the Scientific Atlas."],
+        ["FSP-ROUTES","Routes","Follow books, courses, laboratories, and workspaces through canonical resources."],
+        ["FSP-ABOUT","About","See how the Encyclopedia is organized, governed, and kept corrigible."]
       ].forEach(([rid,label,desc])=>{
         const c=document.createElement("div");c.className="card";
         c.innerHTML="<strong>"+esc(label)+"</strong><p>"+esc(desc)+"</p>";
@@ -56,6 +59,104 @@ export async function mountProd3(root:HTMLElement){
       );
       depth.append(da);main.append(depth);
       return;
+    }
+
+    if(id==="FSP-DOMAINS"){
+      main.innerHTML='<div class="panel"><div class="muted">ENCYCLOPEDIA · DOMAINS</div><h2>Domains</h2><p>FSP is multi-domain by design. Each domain retains its native objects, evidence, methods, and forms of authority while exposing selected inquiry relations through the shared governance grammar.</p><p class="warning"><strong>Shared grammar ≠ shared domain ontology.</strong></p></div>';
+      const sec=document.createElement("section");sec.className="panel";sec.innerHTML="<h3>Domain libraries</h3>";
+      const grid=document.createElement("div");grid.className="grid";
+      for(const d of DOMAIN_PUBLIC_NAV){
+        const c=document.createElement("div");c.className="card";
+        const label=d.domainId==="SCIENCE-INQUIRY"?"Inquiry & Science":
+          d.domainId==="HISTORY-PHILOSOPHY"?"History of Philosophy":
+          d.domainId==="ETHICS"?"Ethics":
+          d.domainId==="LOGIC-ARGUMENT"?"Logic & Argument":
+          d.domainId==="AESTHETICS"?"Aesthetics":
+          d.domainId==="INSTITUTIONS-CONNECTED-DOING"?"Institutions & Connected Doing":
+          d.domainId==="CORE"?"FSP Core":"Formal & Executable FSP";
+        c.innerHTML="<strong>"+esc(label)+"</strong><div class=\"tag\">"+esc(d.readerStatus)+"</div><p>"+esc(d.summary)+"</p>";
+        c.append(mkButton("Open "+label,()=>go({kind:"NODE",id:"DOMAIN-"+d.domainId})));
+        grid.append(c);
+      }
+      sec.append(grid);main.append(sec);return;
+    }
+
+    if(id.startsWith("DOMAIN-")){
+      const did=id.slice("DOMAIN-".length);
+      const d=DOMAIN_PUBLIC_NAV.find(x=>x.domainId===did);
+      if(!d)return renderMissing(main,id);
+      const label=did==="SCIENCE-INQUIRY"?"Inquiry & Science":
+        did==="HISTORY-PHILOSOPHY"?"History of Philosophy":
+        did==="ETHICS"?"Ethics":
+        did==="LOGIC-ARGUMENT"?"Logic & Argument":
+        did==="AESTHETICS"?"Aesthetics":
+        did==="INSTITUTIONS-CONNECTED-DOING"?"Institutions & Connected Doing":
+        did==="CORE"?"FSP Core":"Formal & Executable FSP";
+      main.innerHTML='<div class="panel"><div class="muted">DOMAIN · '+esc(d.readerStatus)+'</div><h2>'+esc(label)+'</h2><p>'+esc(d.summary)+'</p></div>';
+      if(d.availableNow.length){
+        const now=document.createElement("section");now.className="panel";now.innerHTML="<h3>Available now</h3>";
+        const ul=document.createElement("ul");for(const x of d.availableNow){const li=document.createElement("li");li.textContent=x;ul.append(li)}now.append(ul);main.append(now);
+      }
+      if(d.resources.length){
+        const rs=document.createElement("section");rs.className="panel";rs.innerHTML="<h3>Public resources</h3>";
+        for(const r of d.resources){
+          const c=document.createElement("div");c.className="card";
+          c.innerHTML="<strong>"+esc(r.title)+"</strong><p>"+esc(r.description)+"</p>";
+          if(r.external){
+            const a=document.createElement("a");a.href=r.href;a.target="_blank";a.rel="noopener";a.textContent="Open "+r.title;c.append(a);
+          }else if(did==="SCIENCE-INQUIRY"){
+            c.append(mkButton("Open Inquiry & Science",()=>go({kind:"NODE",id:"SCI-ATLAS"})));
+          }
+          rs.append(c);
+        }
+        main.append(rs);
+      }
+      if(did==="CORE"){
+        const a=document.createElement("div");a.className="actions";a.append(mkButton("Open FSP Constitution",()=>go({kind:"NODE",id:"FSP-CONSTITUTION"}),true),mkButton("Why FSP?",()=>go({kind:"NODE",id:"FSP-WHY"})));main.append(a);
+      }else if(did==="SCIENCE-INQUIRY"){
+        const a=document.createElement("div");a.className="actions";a.append(mkButton("Browse Scientific Atlas",()=>go({kind:"NODE",id:"SCI-ATLAS"}),true));main.append(a);
+      }else if(did==="FORMAL-EXECUTABLE"){
+        const a=document.createElement("div");a.className="actions";a.append(mkButton("Translation Governance",()=>go({kind:"NODE",id:"FSP-TRANSLATION"}),true));main.append(a);
+      }else if(did==="INSTITUTIONS-CONNECTED-DOING"){
+        const a=document.createElement("div");a.className="actions";a.append(mkButton("Joint Task Spaces",()=>go({kind:"NODE",id:"FSP-JTS"}),true));main.append(a);
+      }
+      if(d.notYetClaimed.length){
+        const n=document.createElement("section");n.className="panel";n.innerHTML="<h3>Current boundary</h3>";
+        const ul=document.createElement("ul");for(const x of d.notYetClaimed){const li=document.createElement("li");li.textContent=x;ul.append(li)}n.append(ul);main.append(n);
+      }
+      return;
+    }
+
+    if(id==="FSP-RESOURCES"){
+      main.innerHTML='<div class="panel"><div class="muted">ENCYCLOPEDIA · RESOURCES</div><h2>Resources</h2><p>Cross-domain resources expose shared governance concepts without replacing domain-native inquiry.</p></div>';
+      const grid=document.createElement("div");grid.className="grid";
+      [
+        ["FSP-WHY","Why FSP?","A short orientation to the reason for the project."],
+        ["FSP-JTS","Extended Critical Thinking & Joint Task Spaces","The Standard account of governed inquiry and cooperation without convergence."],
+        ["FSP-TRANSLATION","Translation Governance","Deep/Formal treatment of provenance, remainder, standing, and interoperability."],
+        ["CT-HOME","Critical Thinking","Traditional critical thinking extended into governed inquiry."],
+        ["CT-TOOLS","Twelve Tools","Functional inquiry operators."],
+        ["CT-FAILURES","Failure Atlas","Reasoning symptoms routed to repair."],
+        ["SCI-ATLAS","Scientific Atlas","Five comparative inquiry dossiers."]
+      ].forEach(([rid,label,desc])=>{const c=document.createElement("div");c.className="card";c.innerHTML="<strong>"+esc(label)+"</strong><p>"+esc(desc)+"</p>";c.append(mkButton("Open "+label,()=>go({kind:"NODE",id:rid})));grid.append(c)});
+      main.append(grid);return;
+    }
+
+    if(id==="FSP-ROUTES"){
+      main.innerHTML='<div class="panel"><div class="muted">ENCYCLOPEDIA · ROUTES</div><h2>Routes</h2><p>Books, courses, laboratories, and workspaces are routes through canonical resources. A route may select, compress, and sequence material without becoming a competing canonical owner.</p><p class="warning"><strong>Route ≠ canonical owner.</strong></p></div>';
+      const sec=document.createElement("section");sec.className="panel";sec.innerHTML="<h3>Available public routes</h3>";
+      for(const d of DOMAIN_PUBLIC_NAV){
+        for(const r of d.resources.filter(x=>x.external)){
+          const c=document.createElement("div");c.className="card";c.innerHTML="<strong>"+esc(r.title)+"</strong><p>"+esc(r.description)+"</p>";
+          const a=document.createElement("a");a.href=r.href;a.target="_blank";a.rel="noopener";a.textContent="Open "+r.title;c.append(a);sec.append(c);
+        }
+      }
+      main.append(sec);return;
+    }
+
+    if(id==="FSP-ABOUT"){
+      main.innerHTML='<div class="panel"><div class="muted">ENCYCLOPEDIA · ABOUT</div><h2>About the FSP Encyclopedia</h2><p>The Encyclopedia is a public, multi-domain knowledge and inquiry architecture. It connects canonical concepts, cases, Tools, sources, comparisons, courses, applications, and formal models while preserving provenance, standing, domain-native meaning, claim ceilings, and Return.</p><p>Its purpose is not to impose one master ontology. It is to make heterogeneous forms of inquiry more mutually inspectable and selectively interoperable.</p><p><strong>One canonical owner, many projections.</strong></p><p><strong>Progressive disclosure ≠ semantic mutation.</strong></p><p><strong>FSP map ≠ inquiry itself.</strong></p><p>The Encyclopedia therefore remains corrigible: when a domain, case, or user exposes a systematic failure in the shared grammar, the grammar itself may REOPEN.</p></div>';
+      const a=document.createElement("div");a.className="actions";a.append(mkButton("Why FSP?",()=>go({kind:"NODE",id:"FSP-WHY"}),true),mkButton("Browse Domains",()=>go({kind:"NODE",id:"FSP-DOMAINS"})));main.append(a);return;
     }
 
     if(id==="FSP-WHY"){
@@ -273,12 +374,13 @@ export async function mountProd3(root:HTMLElement){
     const group=document.createElement("div");group.className="group";
     [
       ["NODE","FSP-HOME","Encyclopedia Home"],
+      ["NODE","FSP-DOMAINS","Domains"],
+      ["NODE","FSP-CONSTITUTION","Core"],
+      ["NODE","FSP-RESOURCES","Resources"],
+      ["NODE","FSP-ROUTES","Routes"],
+      ["NODE","FSP-ABOUT","About"],
       ["NODE","FSP-WHY","Why FSP?"],
-      ["NODE","CT-HOME","Critical Thinking"],
-      ["NODE","FSP-CONSTITUTION","FSP Constitution"],
-      ["NODE","CT-FAILURES","Failure Atlas"],
-      ["NODE","SCI-ATLAS","Scientific Atlas"],
-      ["NODE","CT-TOOLS","Twelve Tools"]
+      ["NODE","CT-HOME","Critical Thinking"]
     ].forEach(([kind,id,label])=>{
       const b=mkButton(label,()=>go({kind,id,caseId:kind==="CASE"?id:undefined}));
       if(state.current.kind===kind&&state.current.id===id)b.setAttribute("aria-current","page");
