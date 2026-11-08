@@ -688,7 +688,8 @@
         "FSP-JTS-FLNH-S1",
         "FSP-JTS-FLNH-S2",
         "FSP-JTS-FLNH-S3",
-        "FSP-JTS-FLNH-STANDING"
+        "FSP-JTS-FLNH-STANDING",
+        "FSP-JTS-FLNH-TRANSLATION"
       ],
       "claimCeilingIds": [
         "CE-03",
@@ -781,6 +782,29 @@
         "CE-07",
         "CE-08",
         "CE-10"
+      ],
+      "status": "PUBLIC_WORKED_LAYER"
+    },
+    {
+      "id": "FSP-JTS-FLNH-TRANSLATION",
+      "family": "JTS_LAYER",
+      "title": "Translation and Remainder",
+      "summary": "Layer 3 governance for cross-domain translation, provenance, observation/inference status, remainder, translation loss, and remainder debt.",
+      "canonicalClaim": "Cross-domain interoperability requires preserving domain-native meaning, provenance, claim ceilings, and remainder rather than treating translation as lossless identity.",
+      "relatedIds": [
+        "FSP-JTS-FLNH",
+        "FSP-JTS-FLNH-STANDING",
+        "FSP-JTS-FLNH-S0",
+        "FSP-JTS-FLNH-S1",
+        "FSP-JTS-FLNH-S2",
+        "FSP-JTS-FLNH-S3",
+        "FSP-TRANSLATION"
+      ],
+      "claimCeilingIds": [
+        "CE-03",
+        "CE-06",
+        "CE-10",
+        "CE-12"
       ],
       "status": "PUBLIC_WORKED_LAYER"
     }
