@@ -292,3 +292,11 @@ test("domain deepening anchors remain routable",()=>{
   assert.ok(registry.nodes.some(x=>x.id==="FSP-JTS-COMPARATOR-1"));
   assert.ok(registry.nodes.some(x=>x.id==="SCI-ATLAS"));
 });
+
+
+test("History and Logic domain deepening remains routable",()=>{
+  for(const id of ["DOMAIN-HISTORY-PHILOSOPHY","DOMAIN-LOGIC-ARGUMENT","CT-HOME"]){
+    assert.ok(registry.nodes.some(x=>x.id===id),id);
+  }
+  assert.ok(registry.nodes.some(x=>x.id==="CT-T02"));
+});
