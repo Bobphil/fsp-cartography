@@ -256,6 +256,7 @@ export async function mountProd3(root:HTMLElement){
         mkButton("Five-Layer Integration",()=>go({kind:"NODE",id:"FSP-JTS-FLNH-INTEGRATION"})),
         mkButton("Integration Freeze Gate",()=>go({kind:"NODE",id:"FSP-JTS-INTEGRATION-GATE-1"})),
         mkButton("Asteria-2047 Comparator",()=>go({kind:"NODE",id:"FSP-JTS-COMPARATOR-1"})),
+        mkButton("Whole-Encyclopedia Coherence Audit",()=>go({kind:"NODE",id:"FSP-ENCYCLOPEDIA-COHERENCE-AUDIT-1"})),
         mkButton("Inspect Translation Governance",()=>go({kind:"NODE",id:"FSP-TRANSLATION"})),
         mkButton("Browse Ethics domain",()=>go({kind:"NODE",id:"DOMAIN-ETHICS"})),
         mkButton("Browse Institutions domain",()=>go({kind:"NODE",id:"DOMAIN-INSTITUTIONS-CONNECTED-DOING"}))
@@ -368,6 +369,19 @@ export async function mountProd3(root:HTMLElement){
         mkButton("Integration Freeze Gate",()=>go({kind:"NODE",id:"FSP-JTS-INTEGRATION-GATE-1"})),
         mkButton("Joint Task Spaces",()=>go({kind:"NODE",id:"FSP-JTS"})),
         mkButton("Inquiry & Science",()=>go({kind:"NODE",id:"DOMAIN-SCIENCE-INQUIRY"}))
+      );
+      main.append(a);return;
+    }
+
+    if(id==="FSP-ENCYCLOPEDIA-COHERENCE-AUDIT-1"){
+      main.innerHTML='<div class="panel"><div class="muted">ENCYCLOPEDIA · PUBLIC COHERENCE GATE</div><h2>Whole-Encyclopedia Coherence Audit</h2><p><strong>Verdict: PASS — coherent with targeted repairs.</strong></p><p>The audit tests whether a first-time reader can move through the public architecture without knowing the project’s development history.</p><h3>Canonical public spine</h3><p><strong>HOME → WHY FSP? → DOMAIN → WORKED CASE → CORE / FORMAL → RETURN</strong></p><h3>Reader questions</h3><p>What is this? Why does it exist? Where do I go? What does each domain contribute? Can I see it working? How deep do I need to go? What is Core? What is Formal? Can I return? What remains uncertain?</p><h3>Top-level navigation</h3><p>Encyclopedia Home · Domains · Core · Resources · Routes · About · Why FSP? · Critical Thinking</p><p><strong>Critical Thinking remains an entrance, not the universal front door.</strong></p><h3>Depth integrity</h3><p><strong>Quick</strong> preserves purpose, uncertainty, standing, claim ceiling, REOPEN, and Return.<br><strong>Standard</strong> adds Joint Task Space, translation, remainder, repair, authorization, and institutional effects.<br><strong>Deep</strong> adds provenance, typed objects, invariants, regression gates, and grammar-level REOPEN.</p><p class="warning"><strong>Progressive disclosure ≠ semantic mutation.</strong></p><h3>Canonical ownership</h3><p><strong>One canonical owner, many projections.</strong> Domains and course routes may project a concept, Tool, or claim ceiling without silently redefining it.</p><h3>Development-history firewall</h3><p>Commit chronology, PROD labels, acceptance-run history, migration history, and internal build names remain useful for development and audit but should not be reader prerequisites.</p><p><strong>Development provenance ≠ reader prerequisite.</strong></p><h3>Current targeted repairs</h3><p>Human-readable Tool labels should increasingly precede codes; worked-case entrances should remain prominent; Aesthetics should remain honestly planned; Logic & Argument still lacks a dedicated public executable explorer; History of Philosophy remains externally routed; depth labels should remain consistent; public pages should continue reducing build-code exposure.</p><h3>Claim ceiling</h3><p>Architectural coherence does not establish universal usability, accessibility certification, empirical learning gains, or public comprehension without user testing.</p><p class="warning"><strong>Architectural coherence ≠ empirical validation.</strong></p></div>';
+      const a=document.createElement("div");a.className="actions";
+      a.append(
+        mkButton("Encyclopedia Home",()=>go({kind:"NODE",id:"FSP-HOME"}),true),
+        mkButton("Why FSP?",()=>go({kind:"NODE",id:"FSP-WHY"})),
+        mkButton("Browse Domains",()=>go({kind:"NODE",id:"FSP-DOMAINS"})),
+        mkButton("About",()=>go({kind:"NODE",id:"FSP-ABOUT"})),
+        mkButton("Formal & Executable",()=>go({kind:"NODE",id:"DOMAIN-FORMAL-EXECUTABLE"}))
       );
       main.append(a);return;
     }
