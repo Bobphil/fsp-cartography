@@ -325,7 +325,7 @@ https://pressbooks.pub/ethicalhistory/chapter/chapter-1/
 
 ```text
 ETHICS_CT_FRONTMATTER_URL
-PENDING — capture exact Pressbooks-generated permalink
+https://pressbooks.pub/ethicalhistory/front-matter/how-we-will-think-through-ethical-problems/
 ```
 
 ### Existing general orientation page
@@ -540,11 +540,11 @@ PACKAGE_READY
 
 Current state:
 
-> **PACKAGE_READY**
+> **URL_CAPTURED**
 
-The public book root and Chapter 1 URL are bound.
+The public book root, new front-matter URL, and Chapter 1 URL are now bound.
 
-The new front-matter URL and existing orientation-page URL remain pending capture from the live Pressbooks interface.
+The existing orientation-page URL remains pending capture from the live Pressbooks interface.
 
 ---
 
