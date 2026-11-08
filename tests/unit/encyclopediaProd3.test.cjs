@@ -224,3 +224,43 @@ test("Gulf Pines five-layer integration resolves",()=>{
   const p=registry.nodes.find(x=>x.id==="FSP-JTS-FLNH");
   assert.ok(p.relatedIds.includes("FSP-JTS-FLNH-INTEGRATION"));
 });
+
+
+test("FSP JTS integration gate provisional freeze resolves",()=>{
+  const gate=registry.nodes.find(x=>x.id==="FSP-JTS-INTEGRATION-GATE-1");
+  assert.ok(gate);
+  assert.equal(gate.family,"JTS_GATE");
+  assert.equal(gate.status,"PROVISIONAL_FREEZE_PASS");
+  for(const id of [
+    "FSP-JTS-FLNH",
+    "FSP-JTS-FLNH-INTEGRATION",
+    "FSP-JTS-FLNH-STANDING",
+    "FSP-JTS-FLNH-TRANSLATION",
+    "FSP-JTS-FLNH-REPAIR",
+    "FSP-JTS-FLNH-INSTITUTIONAL"
+  ]) assert.ok(gate.relatedIds.includes(id),id);
+  assert.ok(gate.claimCeilingIds.includes("CE-12"));
+});
+
+test("JTS freeze preserves five-layer canonical ownership",()=>{
+  const ownership={
+    "FSP-JTS-FLNH-S2":"JTS_STATE",
+    "FSP-JTS-FLNH-STANDING":"JTS_LAYER",
+    "FSP-JTS-FLNH-TRANSLATION":"JTS_LAYER",
+    "FSP-JTS-FLNH-REPAIR":"JTS_LAYER",
+    "FSP-JTS-FLNH-INSTITUTIONAL":"JTS_LAYER",
+    "FSP-JTS-FLNH-INTEGRATION":"JTS_INTEGRATION"
+  };
+  for(const [id,family] of Object.entries(ownership)){
+    const n=registry.nodes.find(x=>x.id===id);
+    assert.ok(n,id);
+    assert.equal(n.family,family,id);
+  }
+});
+
+test("JTS freeze preserves Return routes through registry relations",()=>{
+  const integration=registry.nodes.find(x=>x.id==="FSP-JTS-FLNH-INTEGRATION");
+  assert.ok(integration.relatedIds.includes("FSP-JTS-FLNH"));
+  const gate=registry.nodes.find(x=>x.id==="FSP-JTS-INTEGRATION-GATE-1");
+  assert.ok(gate.relatedIds.includes("FSP-JTS-FLNH-INTEGRATION"));
+});
