@@ -195,3 +195,15 @@ test("Gulf Pines Layer 4 repair strategy and sequencing resolves",()=>{
   const p=registry.nodes.find(x=>x.id==="FSP-JTS-FLNH");
   assert.ok(p.relatedIds.includes("FSP-JTS-FLNH-REPAIR"));
 });
+
+
+test("Gulf Pines Layer 5 institutional amplification resolves",()=>{
+  const n=registry.nodes.find(x=>x.id==="FSP-JTS-FLNH-INSTITUTIONAL");
+  assert.ok(n);
+  assert.equal(n.family,"JTS_LAYER");
+  assert.ok(n.relatedIds.includes("FSP-JTS-FLNH-REPAIR"));
+  assert.ok(n.relatedIds.includes("DOMAIN-INSTITUTIONS-CONNECTED-DOING"));
+  assert.ok(n.claimCeilingIds.includes("CE-12"));
+  const p=registry.nodes.find(x=>x.id==="FSP-JTS-FLNH");
+  assert.ok(p.relatedIds.includes("FSP-JTS-FLNH-INSTITUTIONAL"));
+});
