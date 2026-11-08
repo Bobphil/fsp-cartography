@@ -307,3 +307,35 @@ test("Formal About and Why deepening routes remain intact",()=>{
     assert.ok(registry.nodes.some(x=>x.id===id),id);
   }
 });
+
+
+test("whole Encyclopedia coherence audit resolves",()=>{
+  const n=registry.nodes.find(x=>x.id==="FSP-ENCYCLOPEDIA-COHERENCE-AUDIT-1");
+  assert.ok(n);
+  assert.equal(n.family,"ENCYCLOPEDIA_GATE");
+  assert.equal(n.status,"COHERENCE_PASS_TARGETED_REPAIRS");
+  for(const id of ["FSP-HOME","FSP-WHY","FSP-DOMAINS","FSP-ABOUT","FSP-JTS-FLNH","FSP-JTS-COMPARATOR-1"]){
+    assert.ok(n.relatedIds.includes(id),id);
+  }
+});
+
+test("whole Encyclopedia top-level navigation contract remains canonical",()=>{
+  const home=registry.nodes.find(x=>x.id==="FSP-HOME");
+  assert.ok(home);
+  for(const id of ["FSP-DOMAINS","FSP-CONSTITUTION","FSP-RESOURCES","FSP-ROUTES","FSP-ABOUT","FSP-WHY"]){
+    assert.ok(home.relatedIds.includes(id),id);
+  }
+});
+
+test("whole Encyclopedia worked-case anchors remain discoverable",()=>{
+  assert.ok(registry.nodes.some(x=>x.id==="FSP-JTS-FLNH"));
+  assert.ok(registry.nodes.some(x=>x.id==="FSP-JTS-COMPARATOR-1"));
+  assert.ok(registry.nodes.some(x=>x.id==="DOMAIN-ETHICS"));
+  assert.ok(registry.nodes.some(x=>x.id==="DOMAIN-SCIENCE-INQUIRY"));
+});
+
+test("whole Encyclopedia depth and formal boundaries remain routable",()=>{
+  for(const id of ["FSP-WHY","FSP-JTS","FSP-TRANSLATION","DOMAIN-FORMAL-EXECUTABLE","FSP-CONSTITUTION"]){
+    assert.ok(registry.nodes.some(x=>x.id===id),id);
+  }
+});
