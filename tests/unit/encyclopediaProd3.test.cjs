@@ -207,3 +207,20 @@ test("Gulf Pines Layer 5 institutional amplification resolves",()=>{
   const p=registry.nodes.find(x=>x.id==="FSP-JTS-FLNH");
   assert.ok(p.relatedIds.includes("FSP-JTS-FLNH-INSTITUTIONAL"));
 });
+
+
+test("Gulf Pines five-layer integration resolves",()=>{
+  const n=registry.nodes.find(x=>x.id==="FSP-JTS-FLNH-INTEGRATION");
+  assert.ok(n);
+  assert.equal(n.family,"JTS_INTEGRATION");
+  for(const id of [
+    "FSP-JTS-FLNH-S2",
+    "FSP-JTS-FLNH-STANDING",
+    "FSP-JTS-FLNH-TRANSLATION",
+    "FSP-JTS-FLNH-REPAIR",
+    "FSP-JTS-FLNH-INSTITUTIONAL",
+    "FSP-JTS-FLNH-S3"
+  ]) assert.ok(n.relatedIds.includes(id),id);
+  const p=registry.nodes.find(x=>x.id==="FSP-JTS-FLNH");
+  assert.ok(p.relatedIds.includes("FSP-JTS-FLNH-INTEGRATION"));
+});
