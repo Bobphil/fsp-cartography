@@ -300,3 +300,10 @@ test("History and Logic domain deepening remains routable",()=>{
   }
   assert.ok(registry.tools.some(x=>x.id==="CT-T02"));
 });
+
+
+test("Formal About and Why deepening routes remain intact",()=>{
+  for(const id of ["DOMAIN-FORMAL-EXECUTABLE","FSP-ABOUT","FSP-WHY","FSP-JTS-INTEGRATION-GATE-1","FSP-JTS-COMPARATOR-1"]){
+    assert.ok(registry.nodes.some(x=>x.id===id),id);
+  }
+});
