@@ -93,6 +93,19 @@ export async function mountProd3(root:HTMLElement){
         did==="INSTITUTIONS-CONNECTED-DOING"?"Institutions & Connected Doing":
         did==="CORE"?"FSP Core":"Formal & Executable FSP";
       main.innerHTML='<div class="panel"><div class="muted">DOMAIN · '+esc(d.readerStatus)+'</div><h2>'+esc(label)+'</h2><p>'+esc(d.summary)+'</p></div>';
+      if(did==="ETHICS"){
+        const x=document.createElement("section");x.className="panel";
+        x.innerHTML="<h3>What Ethics makes visible</h3><p>Reasons for action, duties and permissions, harm and benefit, dignity, agency, standing, fairness, dependency, capability, legitimacy, power, and the distribution of burdens and benefits.</p><h3>What Ethics contributes</h3><p>Standing analysis, burden visibility, legitimacy questions, capability analysis, reasons for exception, justification of limits, and normative conflict made explicit rather than hidden.</p><h3>What Ethics does not own</h3><p>Ethics does not by itself determine infection probability, staffing capacity, legal authority, epidemiological causation, operational feasibility, or empirical success.</p><p class=\"warning\"><strong>Moral relevance ≠ empirical determination. Ethical judgment ≠ unrestricted authorization.</strong></p><h3>Worked entrance</h3><p><strong>Gulf Pines</strong> is the current canonical Ethics/Institutions Joint Task Space.</p>";
+        main.append(x);
+      }else if(did==="INSTITUTIONS-CONNECTED-DOING"){
+        const x=document.createElement("section");x.className="panel";
+        x.innerHTML="<h3>What Institutions makes visible</h3><p>Roles, permissions, procedures, defaults, metrics, incentives, reporting channels, authority, resource flows, enforcement, memory, and persistence.</p><h3>What Institutions contributes</h3><p>Practical power, formal authority, role-bounded responsibility, implementation capacity, institutional amplification, policy sedimentation, feedback channels, regulatory learning, exception structures, and multi-level coordination.</p><h3>What Institutions does not own</h3><p>Institutional authority does not by itself settle empirical truth, moral legitimacy, lived experience, scientific explanation, or domain-native meaning.</p><p class=\"warning\"><strong>Power ≠ legitimacy. Operational authority ≠ moral completeness.</strong></p><h3>Worked entrance</h3><p><strong>Gulf Pines Layer 5</strong> shows how local judgments become rules and how implementation effects can travel upward into institutional and regulatory REOPEN.</p>";
+        main.append(x);
+      }else if(did==="SCIENCE-INQUIRY"){
+        const x=document.createElement("section");x.className="panel";
+        x.innerHTML="<h3>What Inquiry & Science makes visible</h3><p>Observation, measurement, models, prediction, causal hypotheses, uncertainty, error, model comparison, and temporal revision.</p><h3>What Inquiry & Science contributes</h3><p>Evidence provenance, observation/inference separation, uncertainty representation, model plurality, causal restraint, controlled probes, and sensitivity to diachronic change.</p><h3>What Inquiry & Science does not own</h3><p>Scientific expertise does not by itself determine legitimate risk transfer, standing, international authorization, acceptable burden, moral priority, or political legitimacy.</p><p class=\"warning\"><strong>Model success ≠ ontology. Impact-model expertise ≠ mission authorization.</strong></p><h3>Worked entrances</h3><p><strong>Asteria-2047</strong> is the current cross-domain Joint Task Space comparator. The <strong>Scientific Atlas</strong> remains the deeper historical/diachronic entrance.</p>";
+        main.append(x);
+      }
       if(d.availableNow.length){
         const now=document.createElement("section");now.className="panel";now.innerHTML="<h3>Available now</h3>";
         const ul=document.createElement("ul");for(const x of d.availableNow){const li=document.createElement("li");li.textContent=x;ul.append(li)}now.append(ul);main.append(now);
@@ -114,13 +127,17 @@ export async function mountProd3(root:HTMLElement){
       if(did==="CORE"){
         const a=document.createElement("div");a.className="actions";a.append(mkButton("Open FSP Constitution",()=>go({kind:"NODE",id:"FSP-CONSTITUTION"}),true),mkButton("Why FSP?",()=>go({kind:"NODE",id:"FSP-WHY"})));main.append(a);
       }else if(did==="SCIENCE-INQUIRY"){
-        const a=document.createElement("div");a.className="actions";a.append(mkButton("Browse Scientific Atlas",()=>go({kind:"NODE",id:"SCI-ATLAS"}),true));main.append(a);
+        const a=document.createElement("div");a.className="actions";a.append(
+          mkButton("Browse Scientific Atlas",()=>go({kind:"NODE",id:"SCI-ATLAS"}),true),
+          mkButton("Asteria-2047 Comparator",()=>go({kind:"NODE",id:"FSP-JTS-COMPARATOR-1"}))
+        );main.append(a);
       }else if(did==="FORMAL-EXECUTABLE"){
         const a=document.createElement("div");a.className="actions";a.append(mkButton("Translation Governance",()=>go({kind:"NODE",id:"FSP-TRANSLATION"}),true));main.append(a);
       }else if(did==="INSTITUTIONS-CONNECTED-DOING"){
         const a=document.createElement("div");a.className="actions";a.append(
           mkButton("Joint Task Spaces",()=>go({kind:"NODE",id:"FSP-JTS"}),true),
-          mkButton("Florida Nursing-Home Pilot",()=>go({kind:"NODE",id:"FSP-JTS-FLNH"}))
+          mkButton("Florida Nursing-Home Pilot",()=>go({kind:"NODE",id:"FSP-JTS-FLNH"})),
+          mkButton("Institutional Amplification",()=>go({kind:"NODE",id:"FSP-JTS-FLNH-INSTITUTIONAL"}))
         );main.append(a);
       }else if(did==="ETHICS"){
         const a=document.createElement("div");a.className="actions";a.append(
