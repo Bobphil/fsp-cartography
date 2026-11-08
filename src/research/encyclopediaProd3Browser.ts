@@ -210,6 +210,7 @@ export async function mountProd3(root:HTMLElement){
         mkButton("Repair / Strategy Layer",()=>go({kind:"NODE",id:"FSP-JTS-FLNH-REPAIR"})),
         mkButton("Institutional Amplification Layer",()=>go({kind:"NODE",id:"FSP-JTS-FLNH-INSTITUTIONAL"})),
         mkButton("Five-Layer Integration",()=>go({kind:"NODE",id:"FSP-JTS-FLNH-INTEGRATION"})),
+        mkButton("Integration Freeze Gate",()=>go({kind:"NODE",id:"FSP-JTS-INTEGRATION-GATE-1"})),
         mkButton("Inspect Translation Governance",()=>go({kind:"NODE",id:"FSP-TRANSLATION"})),
         mkButton("Browse Ethics domain",()=>go({kind:"NODE",id:"DOMAIN-ETHICS"})),
         mkButton("Browse Institutions domain",()=>go({kind:"NODE",id:"DOMAIN-INSTITUTIONS-CONNECTED-DOING"}))
@@ -299,6 +300,17 @@ export async function mountProd3(root:HTMLElement){
         mkButton("Layer 3 · Translation",()=>go({kind:"NODE",id:"FSP-JTS-FLNH-TRANSLATION"})),
         mkButton("Layer 4 · Repair",()=>go({kind:"NODE",id:"FSP-JTS-FLNH-REPAIR"})),
         mkButton("Layer 5 · Amplification",()=>go({kind:"NODE",id:"FSP-JTS-FLNH-INSTITUTIONAL"}))
+      );
+      main.append(a);return;
+    }
+
+    if(id==="FSP-JTS-INTEGRATION-GATE-1"){
+      main.innerHTML='<div class="panel"><div class="muted">JOINT TASK SPACE · INTEGRATION FREEZE GATE</div><h2>FSP-JTS-INTEGRATION-GATE-1</h2><p><strong>Verdict: PASS — PROVISIONAL FREEZE.</strong></p><p>This gate tests whether the five-layer Gulf Pines architecture functions as one usable, corrigible Joint Task Space rather than five adjacent modules.</p><h3>Frozen ownership</h3><p><strong>State:</strong> what changed?<br><strong>Standing:</strong> who may know, recommend, authorize, implement?<br><strong>Translation:</strong> what travels, what is compressed, what remains?<br><strong>Repair:</strong> what can be tried, bundled, ordered, stopped?<br><strong>Amplification:</strong> what happens when judgment becomes policy, metric, default, or regulation?</p><h3>Carry-forward invariant</h3><p><strong>No layer may inherit a stronger claim than the prior layer licensed.</strong></p><h3>Compression gate</h3><p><strong>Quick:</strong> what changed → who may decide → what repair → what would REOPEN.</p><p><strong>Standard:</strong> adds state history, standing partition, translation/remainder, sequencing, authorization expiry, institutional effects.</p><p><strong>Deep:</strong> adds full provenance, formal objects, remainder debt, action-state transitions, amplification, and grammar-level REOPEN.</p><p class="warning"><strong>Progressive disclosure ≠ semantic mutation.</strong></p><h3>Return integrity</h3><p>Every deep route must preserve a way back to the Gulf Pines case, the relevant state, and the bounded human decision context.</p><p><strong>Inspection depth must not erase lived context.</strong></p><h3>REOPEN integrity</h3><p>A valid REOPEN needs a trigger, changed condition, target layer or state, preserved provenance, and bounded reason for revision.</p><p class="warning"><strong>Current judgment ≠ final closure.</strong></p><h3>Anti-pipeline rule</h3><p>The five layers are routable governance functions, not a mandatory linear checklist. A case may move Layer 5 → Layer 3, Layer 4 → Layer 2, or Layer 2 → REOPEN when the topology requires it.</p><h3>Governance-load rule</h3><p><strong>More governance ≠ better governance.</strong> Quick, Standard, and Deep projections should be used according to stakes and complexity.</p><h3>Freeze invariants</h3><p>State ≠ Standing · Standing ≠ Translation · Translation ≠ Repair · Repair ≠ Authorization · Authorization ≠ Implementation · Implementation ≠ Success · Local success ≠ safe institutional amplification · Shared grammar ≠ shared ontology · Remainder remains representable · Claim ceilings survive movement · Return and REOPEN remain intact.</p><h3>What the PASS licenses</h3><p>Gulf Pines may now serve as the canonical Joint Task Space reference implementation and the five-layer grammar may be used as the comparator baseline for a second domain.</p><h3>What the PASS does not license</h3><p>It does not establish universal applicability, optimality, empirical superiority, or that every case needs all five layers.</p><h3>Reopen conditions</h3><p>Reopen this freeze if a comparator domain cannot fit without distortion, layers duplicate one another, Quick compression changes meaning, standing is lost in translation, repair bypasses authorization, institutional feedback cannot return, remainder cannot be represented, governance burden becomes excessive, or a new primitive is repeatedly required.</p></div>';
+      const a=document.createElement("div");a.className="actions";
+      a.append(
+        mkButton("Five-Layer Integration",()=>go({kind:"NODE",id:"FSP-JTS-FLNH-INTEGRATION"}),true),
+        mkButton("Gulf Pines Pilot",()=>go({kind:"NODE",id:"FSP-JTS-FLNH"})),
+        mkButton("Joint Task Spaces",()=>go({kind:"NODE",id:"FSP-JTS"}))
       );
       main.append(a);return;
     }
