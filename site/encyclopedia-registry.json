@@ -683,7 +683,11 @@
         "FSP-JTS",
         "FSP-TRANSLATION",
         "DOMAIN-ETHICS",
-        "DOMAIN-INSTITUTIONS-CONNECTED-DOING"
+        "DOMAIN-INSTITUTIONS-CONNECTED-DOING",
+        "FSP-JTS-FLNH-S0",
+        "FSP-JTS-FLNH-S1",
+        "FSP-JTS-FLNH-S2",
+        "FSP-JTS-FLNH-S3"
       ],
       "claimCeilingIds": [
         "CE-03",
@@ -693,6 +697,70 @@
         "CE-12"
       ],
       "status": "PUBLIC_PILOT"
+    },
+    {
+      "id": "FSP-JTS-FLNH-S0",
+      "family": "JTS_STATE",
+      "title": "Early Signal",
+      "summary": "Early symptom cluster with uncertain cause, scale, and staffing implications.",
+      "canonicalClaim": "Early cluster ≠ confirmed facility-wide outbreak.",
+      "relatedIds": [
+        "FSP-JTS-FLNH"
+      ],
+      "claimCeilingIds": [
+        "CE-03",
+        "CE-06",
+        "CE-10"
+      ],
+      "status": "PUBLIC_WORKED_STATE"
+    },
+    {
+      "id": "FSP-JTS-FLNH-S1",
+      "family": "JTS_STATE",
+      "title": "Widening Map",
+      "summary": "Confirmed transmission widens the map to resident capability, family knowledge, and staffing feasibility.",
+      "canonicalClaim": "Confirmed transmission ≠ one uniform restriction.",
+      "relatedIds": [
+        "FSP-JTS-FLNH"
+      ],
+      "claimCeilingIds": [
+        "CE-03",
+        "CE-06",
+        "CE-10"
+      ],
+      "status": "PUBLIC_WORKED_STATE"
+    },
+    {
+      "id": "FSP-JTS-FLNH-S2",
+      "family": "JTS_STATE",
+      "title": "Intervention Pressure",
+      "summary": "Rising cases turn the task toward legitimacy, authorization, unequal burden, and review conditions.",
+      "canonicalClaim": "Benefit ≠ authorization; uniform rule ≠ equal practical burden.",
+      "relatedIds": [
+        "FSP-JTS-FLNH"
+      ],
+      "claimCeilingIds": [
+        "CE-03",
+        "CE-06",
+        "CE-10"
+      ],
+      "status": "PUBLIC_WORKED_STATE"
+    },
+    {
+      "id": "FSP-JTS-FLNH-S3",
+      "family": "JTS_STATE",
+      "title": "Revised Bounded Judgment",
+      "summary": "Declining transmission and visible intervention harms require differentiated recovery and narrowed authorization.",
+      "canonicalClaim": "Improved conditions ≠ final closure.",
+      "relatedIds": [
+        "FSP-JTS-FLNH"
+      ],
+      "claimCeilingIds": [
+        "CE-03",
+        "CE-06",
+        "CE-10"
+      ],
+      "status": "PUBLIC_WORKED_STATE"
     }
   ],
   "tools": [
