@@ -84,6 +84,53 @@ Inquiry should return to the person, practice, community, or institution whose a
 - Authority ≠ truth
 - Current judgment ≠ final closure
 
+
+## How the pieces work together
+
+FSP's public grammar is easier to understand when its main devices are distinguished by function:
+
+- **ABCD broadens attention** before a map is treated as adequate.
+- **Traditional critical thinking tests reasons, evidence, inference, and alternatives.**
+- **FSP Tools selectively inspect recurring pressure points.**
+- **Firewalls govern transitions** where inquiry is tempted to carry more across than has been licensed.
+- **Claim ceilings bound conclusions** by asking what does not yet follow.
+- **REOPEN preserves corrigibility** when evidence, consequences, changed conditions, or better explanations matter.
+- **Authorial Return returns inquiry to lived Doing** rather than leaving judgment inside a framework, model, institution, or tool.
+
+A Firewall is therefore not normally a prohibition. It is a controlled checkpoint:
+
+> **You may cross, but show the license.**
+
+For example, **Observed behavior ≠ known intention** does not prohibit interpreting another person's motive. It prevents an inference about motive from being silently treated as direct observation.
+
+The compact public grammar is:
+
+```text
+Notice → Inspect → Govern → Bound → REOPEN → Return
+```
+
+This grammar extends traditional critical thinking by governing transitions before and after argument as well as the argument itself.
+
+## FSP is corrigible too
+
+FSP applies its own Map/World distinction recursively.
+
+Its Tools, Firewalls, failure routes, and governance grammar are themselves a selective map of recurring inquiry pressures.
+
+Therefore:
+
+> **FSP map ≠ inquiry itself.**
+
+and:
+
+> **Governance grammar ≠ final structure of inquiry.**
+
+If the framework systematically obscures a domain-native distinction, produces recurrent translation loss, collapses differences that matter, creates unnecessary complexity, or fails new cases, the grammar itself must be eligible for **REOPEN**.
+
+This is not a retreat from governance. It is what governed inquiry requires when applied to its own architecture.
+
+The deeper canonical treatment is owned by **FSP-CT-META-GOVERNANCE-1**.
+
 ## What FSP is not
 
 FSP is not:
