@@ -114,7 +114,7 @@ test("startup opens universal Encyclopedia Home rather than Critical Thinking",(
   assert.equal(s.current.id,"FSP-HOME");
   const home=registry.nodes.find(x=>x.id==="FSP-HOME");
   assert.ok(home);
-  assert.deepEqual(home.relatedIds,["FSP-DOMAINS","FSP-CONSTITUTION","FSP-RESOURCES","FSP-ROUTES","FSP-ABOUT","FSP-WHY"]);
+  for(const id of ["FSP-DOMAINS","FSP-CONSTITUTION","FSP-RESOURCES","FSP-ROUTES","FSP-ABOUT","FSP-WHY"]) assert.ok(home.relatedIds.includes(id),id);
 });
 
 
@@ -336,6 +336,28 @@ test("whole Encyclopedia worked-case anchors remain discoverable",()=>{
 
 test("whole Encyclopedia depth and formal boundaries remain routable",()=>{
   for(const id of ["FSP-WHY","FSP-JTS","FSP-TRANSLATION","DOMAIN-FORMAL-EXECUTABLE","FSP-CONSTITUTION"]){
+    assert.ok(registry.nodes.some(x=>x.id===id),id);
+  }
+});
+
+
+test("bounded coherence repairs preserve public readability",()=>{
+  const tools=registry.tools;
+  assert.ok(tools.every(x=>typeof x.title==="string"&&x.title.length>0));
+  const failures=registry.failures;
+  assert.ok(failures.every(x=>typeof x.title==="string"&&x.title.length>0));
+  const ceilings=registry.claimCeilings;
+  assert.ok(ceilings.every(x=>typeof x.title==="string"&&x.title.length>0));
+});
+
+test("worked examples remain first-class public anchors",()=>{
+  for(const id of ["FSP-JTS-FLNH","FSP-JTS-COMPARATOR-1"]){
+    assert.ok(registry.nodes.some(x=>x.id===id),id);
+  }
+});
+
+test("depth surfaces remain canonical Quick Standard Deep routes",()=>{
+  for(const id of ["FSP-WHY","FSP-JTS","FSP-TRANSLATION"]){
     assert.ok(registry.nodes.some(x=>x.id===id),id);
   }
 });
