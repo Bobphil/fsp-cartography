@@ -437,6 +437,7 @@
       "summary": "Universal, domain-neutral entrance to Full-Stack Philosophy, its domains, cross-domain resources, and reader depths.",
       "canonicalClaim": "The Encyclopedia begins from plural domains and a corrigible shared governance grammar; Critical Thinking is one first-class entrance rather than the universal front door.",
       "relatedIds": [
+        "FSP-WHY",
         "CT-HOME",
         "SCI-ATLAS",
         "FSP-CONSTITUTION"
@@ -446,6 +447,59 @@
         "CE-12"
       ],
       "status": "CANONICAL_INDEX"
+    },
+    {
+      "id": "FSP-WHY",
+      "family": "ORIENTATION",
+      "title": "Why FSP?",
+      "summary": "A quick public explanation of why FSP extends critical thinking into governed inquiry across representations, domains, institutions, and correction.",
+      "canonicalClaim": "FSP helps heterogeneous inquiries become mutually inspectable without requiring one shared ontology, method, or worldview.",
+      "relatedIds": [
+        "FSP-JTS",
+        "CT-HOME",
+        "FSP-HOME"
+      ],
+      "claimCeilingIds": [
+        "CE-10",
+        "CE-12"
+      ],
+      "status": "PUBLIC_QUICK"
+    },
+    {
+      "id": "FSP-JTS",
+      "family": "RESOURCE",
+      "title": "Extended Critical Thinking and Joint Task Spaces",
+      "summary": "Standard-depth explanation of ABCD, Tools, Firewalls, claim ceilings, REOPEN, cooperation without convergence, and Joint Task Spaces.",
+      "canonicalClaim": "Extended Critical Thinking embeds traditional critical thinking inside a governed inquiry architecture that can support cooperation without convergence.",
+      "relatedIds": [
+        "FSP-WHY",
+        "FSP-TRANSLATION",
+        "CT-HOME"
+      ],
+      "claimCeilingIds": [
+        "CE-06",
+        "CE-10",
+        "CE-12"
+      ],
+      "status": "PUBLIC_STANDARD"
+    },
+    {
+      "id": "FSP-TRANSLATION",
+      "family": "FORMAL",
+      "title": "Translation Governance and Cross-Domain Interoperability",
+      "summary": "Deep/Formal reference for provenance, remainder, standing, authorization, translation invariants, and grammar-level REOPEN.",
+      "canonicalClaim": "Cross-domain interoperability requires governed translation that preserves provenance, remainder, standing, claim ceilings, authorization state, and correction routes.",
+      "relatedIds": [
+        "FSP-JTS",
+        "FSP-CONSTITUTION",
+        "FSP-HOME"
+      ],
+      "claimCeilingIds": [
+        "CE-06",
+        "CE-10",
+        "CE-12"
+      ],
+      "status": "PUBLIC_DEEP"
     }
   ],
   "tools": [
