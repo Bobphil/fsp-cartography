@@ -183,3 +183,15 @@ test("Gulf Pines Layer 3 translation and remainder resolves",()=>{
   const p=registry.nodes.find(x=>x.id==="FSP-JTS-FLNH");
   assert.ok(p.relatedIds.includes("FSP-JTS-FLNH-TRANSLATION"));
 });
+
+
+test("Gulf Pines Layer 4 repair strategy and sequencing resolves",()=>{
+  const n=registry.nodes.find(x=>x.id==="FSP-JTS-FLNH-REPAIR");
+  assert.ok(n);
+  assert.equal(n.family,"JTS_LAYER");
+  assert.ok(n.relatedIds.includes("FSP-JTS-FLNH-S2"));
+  assert.ok(n.relatedIds.includes("FSP-JTS-FLNH-TRANSLATION"));
+  assert.ok(n.claimCeilingIds.includes("CE-06"));
+  const p=registry.nodes.find(x=>x.id==="FSP-JTS-FLNH");
+  assert.ok(p.relatedIds.includes("FSP-JTS-FLNH-REPAIR"));
+});
