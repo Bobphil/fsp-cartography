@@ -161,3 +161,14 @@ test("Gulf Pines four-state progression resolves",()=>{
   const p=registry.nodes.find(x=>x.id==="FSP-JTS-FLNH");
   for(const id of ids)assert.ok(p.relatedIds.includes(id),id);
 });
+
+
+test("Gulf Pines Layer 2 standing and authorization resolves",()=>{
+  const n=registry.nodes.find(x=>x.id==="FSP-JTS-FLNH-STANDING");
+  assert.ok(n);
+  assert.equal(n.family,"JTS_LAYER");
+  assert.ok(n.relatedIds.includes("FSP-JTS-FLNH-S2"));
+  assert.ok(n.claimCeilingIds.includes("CE-06"));
+  const p=registry.nodes.find(x=>x.id==="FSP-JTS-FLNH");
+  assert.ok(p.relatedIds.includes("FSP-JTS-FLNH-STANDING"));
+});
