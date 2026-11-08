@@ -114,7 +114,7 @@ test("startup opens universal Encyclopedia Home rather than Critical Thinking",(
   assert.equal(s.current.id,"FSP-HOME");
   const home=registry.nodes.find(x=>x.id==="FSP-HOME");
   assert.ok(home);
-  assert.deepEqual(home.relatedIds,["FSP-WHY","CT-HOME","SCI-ATLAS","FSP-CONSTITUTION"]);
+  assert.deepEqual(home.relatedIds,["FSP-DOMAINS","FSP-CONSTITUTION","FSP-RESOURCES","FSP-ROUTES","FSP-ABOUT","FSP-WHY"]);
 });
 
 
@@ -128,4 +128,13 @@ test("three-depth FSP synthesis routes resolve",()=>{
   }
   const home=registry.nodes.find(x=>x.id==="FSP-HOME");
   assert.ok(home.relatedIds.includes("FSP-WHY"));
+});
+
+
+test("universal Encyclopedia information architecture resolves",()=>{
+  const ids=["FSP-DOMAINS","FSP-CONSTITUTION","FSP-RESOURCES","FSP-ROUTES","FSP-ABOUT","FSP-WHY"];
+  for(const id of ids)assert.ok(registry.nodes.some(x=>x.id===id),id);
+  const domains=registry.nodes.find(x=>x.id==="FSP-DOMAINS");
+  assert.equal(domains.relatedIds.length,8);
+  for(const id of domains.relatedIds)assert.ok(registry.nodes.some(x=>x.id===id),id);
 });
