@@ -211,6 +211,7 @@ export async function mountProd3(root:HTMLElement){
         mkButton("Institutional Amplification Layer",()=>go({kind:"NODE",id:"FSP-JTS-FLNH-INSTITUTIONAL"})),
         mkButton("Five-Layer Integration",()=>go({kind:"NODE",id:"FSP-JTS-FLNH-INTEGRATION"})),
         mkButton("Integration Freeze Gate",()=>go({kind:"NODE",id:"FSP-JTS-INTEGRATION-GATE-1"})),
+        mkButton("Asteria-2047 Comparator",()=>go({kind:"NODE",id:"FSP-JTS-COMPARATOR-1"})),
         mkButton("Inspect Translation Governance",()=>go({kind:"NODE",id:"FSP-TRANSLATION"})),
         mkButton("Browse Ethics domain",()=>go({kind:"NODE",id:"DOMAIN-ETHICS"})),
         mkButton("Browse Institutions domain",()=>go({kind:"NODE",id:"DOMAIN-INSTITUTIONS-CONNECTED-DOING"}))
@@ -311,6 +312,18 @@ export async function mountProd3(root:HTMLElement){
         mkButton("Five-Layer Integration",()=>go({kind:"NODE",id:"FSP-JTS-FLNH-INTEGRATION"}),true),
         mkButton("Gulf Pines Pilot",()=>go({kind:"NODE",id:"FSP-JTS-FLNH"})),
         mkButton("Joint Task Spaces",()=>go({kind:"NODE",id:"FSP-JTS"}))
+      );
+      main.append(a);return;
+    }
+
+    if(id==="FSP-JTS-COMPARATOR-1"){
+      main.innerHTML='<div class="panel"><div class="muted">JOINT TASK SPACE · CROSS-DOMAIN COMPARATOR</div><h2>Asteria-2047</h2><p><strong>Verdict: PASS — PORTABLE WITH PRESSURE.</strong></p><p>Asteria-2047 is a fictional planetary-defense scenario used to test whether the Gulf Pines five-layer grammar survives a radically different inquiry topology: decades-long uncertainty, distributed international authority, model dependence, future-person standing, possible irreversibility, and cross-border risk transfer.</p><h3>Scenario</h3><p>A newly discovered near-Earth object may impact Earth in 2047. Current probability is material but uncertain; physical composition is incompletely known; intervention works better with lead time; waiting improves information but may reduce options.</p><h3>Layer 1 — State</h3><p>The state is partly a distribution over possible futures rather than a simple description of present conditions. Probability, orbit uncertainty, time remaining, model sensitivity, physical characterization, intervention windows, and geographic risk corridor all matter.</p><p class="warning"><strong>Nontrivial probability ≠ predicted impact.</strong></p><h3>Layer 2 — Standing</h3><p>Scientific expertise, national authority, international coordination, affected populations, lower-capacity states, and future persons all have different forms of standing and authority.</p><p><strong>Low technical capability ≠ low standing.</strong></p><h3>Layer 3 — Translation</h3><p>Observation → orbit model → impact probability → risk corridor → consequence forecast → mission recommendation. Each transition adds assumptions and remainder.</p><p class="warning"><strong>Observation ≠ orbit model ≠ impact probability ≠ policy recommendation.</strong></p><h3>Layer 4 — Repair</h3><p>Observation, reconnaissance, deflection, consequence management, governance, and research strategies must be sequenced under a tension between better information and shrinking intervention time.</p><p><strong>More information ≠ always better if waiting destroys intervention options.</strong></p><p><strong>Global expected-risk reduction ≠ legitimate unilateral risk transfer.</strong></p><h3>Layer 5 — Amplification</h3><p>Notification thresholds, mission-planning thresholds, national protocols, funding rules, model standards, and communication practices can become institutional infrastructure and require REOPEN as technology and evidence change.</p><p><strong>Threshold crossing ≠ complete decision justification.</strong></p><h3>New stressors</h3><p>Probabilistic standing · future-person standing · risk transfer · model plurality · distributed Return.</p><p>These stress the existing layers but do not yet require a sixth layer.</p><h3>Comparator result</h3><p>Gulf Pines and Asteria differ radically in scale, time horizon, evidence, authority, affected populations, reversibility, and model dependence, yet both remain governable through <strong>STATE → STANDING → TRANSLATION → REPAIR → AMPLIFICATION → REOPEN</strong>.</p><p class="warning"><strong>This does not establish universal portability.</strong></p></div>';
+      const a=document.createElement("div");a.className="actions";
+      a.append(
+        mkButton("Gulf Pines Integration",()=>go({kind:"NODE",id:"FSP-JTS-FLNH-INTEGRATION"}),true),
+        mkButton("Integration Freeze Gate",()=>go({kind:"NODE",id:"FSP-JTS-INTEGRATION-GATE-1"})),
+        mkButton("Joint Task Spaces",()=>go({kind:"NODE",id:"FSP-JTS"})),
+        mkButton("Inquiry & Science",()=>go({kind:"NODE",id:"DOMAIN-SCIENCE-INQUIRY"}))
       );
       main.append(a);return;
     }
