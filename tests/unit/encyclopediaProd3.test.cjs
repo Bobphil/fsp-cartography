@@ -281,3 +281,14 @@ test("Asteria comparator preserves five-layer baseline without sixth layer",()=>
   assert.ok(/five-layer/i.test(n.summary));
   assert.ok(/sixth layer/i.test(n.canonicalClaim));
 });
+
+
+test("domain deepening anchors remain routable",()=>{
+  for(const id of ["DOMAIN-ETHICS","DOMAIN-INSTITUTIONS-CONNECTED-DOING","DOMAIN-SCIENCE-INQUIRY"]){
+    assert.ok(registry.nodes.some(x=>x.id===id),id);
+  }
+  assert.ok(registry.nodes.some(x=>x.id==="FSP-JTS-FLNH"));
+  assert.ok(registry.nodes.some(x=>x.id==="FSP-JTS-FLNH-INSTITUTIONAL"));
+  assert.ok(registry.nodes.some(x=>x.id==="FSP-JTS-COMPARATOR-1"));
+  assert.ok(registry.nodes.some(x=>x.id==="SCI-ATLAS"));
+});
