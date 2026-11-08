@@ -2,11 +2,12 @@
 
 ## Situated Human Inquiry, Assembly Histories, Reflective Critical Thinking, Governed Inquiry, Twelve-Tool Ecology, Failure Routing, Judgment/Authorization, Institutional Amplification, Claim Ceilings, REOPEN, and Return to Lived Doing
 
-**Status:** CANONICAL DRAFT — CORRECTIVE 1.1 PASS — Encyclopedia owner  
+**Status:** FROZEN CANONICAL FOUNDATION — FSP-CT-CANONICAL-1.1 — Encyclopedia owner  
 **Canonical owner:** FSP Encyclopedia  
 **Depends on:** FSP constitutional nodes FSP-C01–FSP-C10; CT-00–CT-09; CT-T01–CT-T12; CT-F01–CT-F16; CE-01–CE-12  
 **Projection rule:** Pedagogical adaptation ≠ conceptual redefinition.  
 **Scope rule:** Shared inquiry grammar ≠ shared domain ontology.
+**Freeze authority:** FSP-CT-CANONICAL-FREEZE-REGRESSION-1 — 6/6 comparator/projection PASS.
 
 ---
 
