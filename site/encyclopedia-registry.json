@@ -693,7 +693,8 @@
         "FSP-JTS-FLNH-TRANSLATION",
         "FSP-JTS-FLNH-REPAIR",
         "FSP-JTS-FLNH-INSTITUTIONAL",
-        "FSP-JTS-FLNH-INTEGRATION"
+        "FSP-JTS-FLNH-INTEGRATION",
+        "FSP-JTS-INTEGRATION-GATE-1"
       ],
       "claimCeilingIds": [
         "CE-03",
@@ -872,7 +873,8 @@
         "FSP-JTS-FLNH-TRANSLATION",
         "FSP-JTS-FLNH-REPAIR",
         "FSP-JTS-FLNH-INSTITUTIONAL",
-        "FSP-JTS-FLNH-S3"
+        "FSP-JTS-FLNH-S3",
+        "FSP-JTS-INTEGRATION-GATE-1"
       ],
       "claimCeilingIds": [
         "CE-03",
@@ -881,6 +883,28 @@
         "CE-12"
       ],
       "status": "PUBLIC_INTEGRATION_PASS"
+    },
+    {
+      "id": "FSP-JTS-INTEGRATION-GATE-1",
+      "family": "JTS_GATE",
+      "title": "Five-Layer Integration Freeze Gate",
+      "summary": "Freeze-and-test gate for Gulf Pines five-layer usability, non-duplication, Quick/Standard/Deep compression, Return/REOPEN integrity, and cross-layer carry-forward.",
+      "canonicalClaim": "The Gulf Pines five-layer architecture is provisionally frozen as a canonical Joint Task Space reference implementation, subject to explicit reopen conditions under cross-domain stress or usability failure.",
+      "relatedIds": [
+        "FSP-JTS-FLNH",
+        "FSP-JTS-FLNH-INTEGRATION",
+        "FSP-JTS-FLNH-STANDING",
+        "FSP-JTS-FLNH-TRANSLATION",
+        "FSP-JTS-FLNH-REPAIR",
+        "FSP-JTS-FLNH-INSTITUTIONAL"
+      ],
+      "claimCeilingIds": [
+        "CE-03",
+        "CE-06",
+        "CE-10",
+        "CE-12"
+      ],
+      "status": "PROVISIONAL_FREEZE_PASS"
     }
   ],
   "tools": [
