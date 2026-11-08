@@ -476,7 +476,8 @@
       "relatedIds": [
         "FSP-WHY",
         "FSP-TRANSLATION",
-        "CT-HOME"
+        "CT-HOME",
+        "FSP-JTS-FLNH"
       ],
       "claimCeilingIds": [
         "CE-06",
@@ -602,7 +603,9 @@
       "title": "Ethics",
       "summary": "Domain landing page governed by FSP-ENCYCLOPEDIA-DOMAIN-NAV-1.",
       "canonicalClaim": "Domain-native inquiry remains primary while selected cross-domain relations may be governed through shared FSP grammar.",
-      "relatedIds": [],
+      "relatedIds": [
+        "FSP-JTS-FLNH"
+      ],
       "claimCeilingIds": [
         "CE-12"
       ],
@@ -638,7 +641,9 @@
       "title": "Institutions & Connected Doing",
       "summary": "Domain landing page governed by FSP-ENCYCLOPEDIA-DOMAIN-NAV-1.",
       "canonicalClaim": "Domain-native inquiry remains primary while selected cross-domain relations may be governed through shared FSP grammar.",
-      "relatedIds": [],
+      "relatedIds": [
+        "FSP-JTS-FLNH"
+      ],
       "claimCeilingIds": [
         "CE-12"
       ],
@@ -667,6 +672,27 @@
         "CE-12"
       ],
       "status": "DOMAIN_LANDING"
+    },
+    {
+      "id": "FSP-JTS-FLNH",
+      "family": "PILOT",
+      "title": "Florida Nursing-Home Joint Task Space",
+      "summary": "A cross-domain Gulf Pines pilot testing cooperation without convergence across residents, families, staffing, clinical/public health, regulation, institutions, historical evidence, and ethical judgment.",
+      "canonicalClaim": "A governed Joint Task Space can coordinate heterogeneous evidence, standing, constraints, and action without collapsing them into one ontology or one authority.",
+      "relatedIds": [
+        "FSP-JTS",
+        "FSP-TRANSLATION",
+        "DOMAIN-ETHICS",
+        "DOMAIN-INSTITUTIONS-CONNECTED-DOING"
+      ],
+      "claimCeilingIds": [
+        "CE-03",
+        "CE-06",
+        "CE-08",
+        "CE-10",
+        "CE-12"
+      ],
+      "status": "PUBLIC_PILOT"
     }
   ],
   "tools": [
