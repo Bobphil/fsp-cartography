@@ -332,7 +332,7 @@ https://pressbooks.pub/ethicalhistory/front-matter/how-we-will-think-through-eth
 
 ```text
 ETHICS_ORIENTATION_URL
-PENDING — capture exact live orientation permalink before editing
+https://pressbooks.pub/ethicalhistory/front-matter/introduction/
 ```
 
 ## Important ceiling
@@ -540,11 +540,9 @@ PACKAGE_READY
 
 Current state:
 
-> **URL_CAPTURED**
+> **ORIENTATION_BOUND**
 
-The public book root, new front-matter URL, and Chapter 1 URL are now bound.
-
-The existing orientation-page URL remains pending capture from the live Pressbooks interface.
+The public book root, existing orientation URL, new governed-critical-thinking front-matter URL, and Chapter 1 URL are now bound.
 
 ---
 
