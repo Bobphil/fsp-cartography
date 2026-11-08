@@ -48,8 +48,47 @@ export async function mountProd3(root:HTMLElement){
       });
       sec.append(grid);main.append(sec);
       const depth=document.createElement("section");depth.className="panel";depth.innerHTML="<h3>Three reader depths</h3><p><strong>Quick:</strong> Why FSP? — orientation and the compact grammar.</p><p><strong>Standard:</strong> Extended Critical Thinking and Joint Task Spaces.</p><p><strong>Deep / Formal:</strong> translation governance, provenance, remainder, standing, authorization, and cross-domain interoperability.</p>";
-      main.append(depth);
+      const da=document.createElement("div");da.className="actions";
+      da.append(
+        mkButton("Why FSP?",()=>go({kind:"NODE",id:"FSP-WHY"}),true),
+        mkButton("Standard explanation",()=>go({kind:"NODE",id:"FSP-JTS"})),
+        mkButton("Deep / Formal",()=>go({kind:"NODE",id:"FSP-TRANSLATION"}))
+      );
+      depth.append(da);main.append(depth);
       return;
+    }
+
+    if(id==="FSP-WHY"){
+      main.innerHTML='<div class="panel"><div class="muted">QUICK · WHY FSP?</div><h2>Why Full-Stack Philosophy?</h2><p>Human inquiry does not happen only inside arguments. We notice selectively, build partial maps, inherit categories, use specialized tools, make judgments, act through institutions, and revise when evidence or consequences resist our expectations.</p><p>FSP keeps familiar critical-thinking practices—logic, evidence, inference, alternatives, and source evaluation—and extends them with questions about representation, provenance, standing, authorization, consequences, repair, and reopening.</p><p><strong>Notice → Inspect → Govern → Bound → REOPEN → Return</strong></p><p class="warning"><strong>Shared grammar ≠ shared ontology.</strong></p><p>Different people and domains can therefore make enough of their inquiry mutually inspectable to cooperate without having to converge on one worldview.</p><p><strong>FSP map ≠ inquiry itself.</strong> The framework must also REOPEN when its own grammar fails.</p></div>';
+      const a=document.createElement("div");a.className="actions";
+      a.append(
+        mkButton("Read the Standard explanation",()=>go({kind:"NODE",id:"FSP-JTS"}),true),
+        mkButton("Explore Critical Thinking",()=>go({kind:"NODE",id:"CT-HOME"})),
+        mkButton("Return to Encyclopedia Home",()=>go({kind:"NODE",id:"FSP-HOME"}))
+      );
+      main.append(a);return;
+    }
+
+    if(id==="FSP-JTS"){
+      main.innerHTML='<div class="panel"><div class="muted">STANDARD · EXTENDED CRITICAL THINKING</div><h2>Extended Critical Thinking and Joint Task Spaces</h2><p><strong>Extended Critical Thinking</strong> is traditional critical thinking embedded within a governed inquiry architecture. It preserves argument analysis, logic, evidence, causal reasoning, source evaluation, alternatives, and counterexamples, while extending inquiry upstream into attention, maps, provenance, framing, perspective, and background conditions and downstream into standing, authorization, institutional amplification, consequences, capability, repair, and REOPEN.</p><h3>How the parts work together</h3><p><strong>ABCD</strong> broadens attention. <strong>Tools</strong> selectively inspect recurring pressure points. <strong>Firewalls</strong> govern transitions where inquiry may carry more across than has been licensed. <strong>Claim ceilings</strong> ask what does not yet follow. <strong>REOPEN</strong> preserves corrigibility. <strong>Authorial Return</strong> returns judgment to lived human Doing.</p><p>A Firewall is not normally a prohibition. It is a checkpoint: <strong>You may cross, but show the license.</strong></p><h3>Cooperation without convergence</h3><p>People, disciplines, and institutions may disagree about metaphysics, values, methods, or final explanations and still coordinate if they can make relevant observations, assumptions, uncertainties, standing, authorization boundaries, and revision conditions mutually inspectable.</p><h3>Joint Task Spaces</h3><p>A Joint Task Space is a governed coordination surface where heterogeneous participants contribute domain-native maps, evidence, constraints, uncertainties, recommendations, permissions, and repair conditions without surrendering their local identities.</p><p><strong>domain-native inquiry → translation with provenance + remainder → shared task representation → Tool-guided inspection → Firewall-governed transitions → bounded joint judgment → standing / authorization → coordinated action → consequences → REOPEN</strong></p><h3>Continuous intercommunication</h3><p>The aim is not a final synthesis. It is sustained, auditable movement among partial syntheses as inquiry changes.</p><p class="warning"><strong>Translation ≠ identity. Compression ≠ semantic equivalence.</strong></p></div>';
+      const a=document.createElement("div");a.className="actions";
+      a.append(
+        mkButton("Inspect Deep / Formal translation governance",()=>go({kind:"NODE",id:"FSP-TRANSLATION"}),true),
+        mkButton("Why FSP?",()=>go({kind:"NODE",id:"FSP-WHY"})),
+        mkButton("Critical Thinking",()=>go({kind:"NODE",id:"CT-HOME"}))
+      );
+      main.append(a);return;
+    }
+
+    if(id==="FSP-TRANSLATION"){
+      main.innerHTML='<div class="panel"><div class="muted">DEEP / FORMAL · TRANSLATION GOVERNANCE</div><h2>Translation Governance and Cross-Domain Interoperability</h2><p>The Deep layer treats translation as a governed object rather than a neutral transfer. A cross-domain representation may need to expose source domain, source object, provenance, observation status, inference status, assumptions, translated representation, remainder, claim ceiling, standing, recommendation status, authorization status, REOPEN conditions, and Return target.</p><h3>Remainder</h3><p><strong>Remainder</strong> records what cannot be carried cleanly into the shared representation without loss, controversy, uncertainty, or distortion. Possible states include DOMAIN_NATIVE_ONLY, PARTIALLY_TRANSLATED, CONTESTED, UNKNOWN, and DEFERRED.</p><p class="warning"><strong>Untranslated remainder ≠ irrelevant remainder.</strong></p><h3>Standing</h3><p>Standing remains separate from knowledge, expertise, causal power, institutional role, practical ability, and legitimacy. Expertise may support a claim without authorizing a decision; institutional power may authorize a decision without making every associated factual claim true.</p><h3>Authorization states</h3><p><strong>GENERATED → POSSIBLE → RECOMMENDED → AUTHORIZED → IMPLEMENTED → REVIEWED</strong></p><p><strong>Generate ≠ Recommend ≠ Authorize.</strong></p><h3>Translation invariants</h3><p>Provenance must not disappear; translation must not silently strengthen a claim; remainder must be recordable; domain-native meaning must remain recoverable; standing must not be inferred from expertise alone; recommendation must not become authorization silently; shared fields must not imply ontological identity; consequential transfers preserve REOPEN and Return.</p><h3>Grammar-level REOPEN</h3><p>The grammar itself must reopen under recurring translation loss, domain-native mismatch, false equivalence, standing error, excessive complexity, omitted actors or capabilities, failed adversarial cases, or framework-induced closure.</p><p class="warning"><strong>Formal translatability ≠ exhaustive representability.</strong></p></div>';
+      const a=document.createElement("div");a.className="actions";
+      a.append(
+        mkButton("Return to Standard explanation",()=>go({kind:"NODE",id:"FSP-JTS"}),true),
+        mkButton("FSP Constitution",()=>go({kind:"NODE",id:"FSP-CONSTITUTION"})),
+        mkButton("Encyclopedia Home",()=>go({kind:"NODE",id:"FSP-HOME"}))
+      );
+      main.append(a);return;
     }
 
     if(id==="CT-HOME"){
@@ -234,6 +273,7 @@ export async function mountProd3(root:HTMLElement){
     const group=document.createElement("div");group.className="group";
     [
       ["NODE","FSP-HOME","Encyclopedia Home"],
+      ["NODE","FSP-WHY","Why FSP?"],
       ["NODE","CT-HOME","Critical Thinking"],
       ["NODE","FSP-CONSTITUTION","FSP Constitution"],
       ["NODE","CT-FAILURES","Failure Atlas"],
