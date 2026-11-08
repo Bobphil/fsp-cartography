@@ -689,7 +689,8 @@
         "FSP-JTS-FLNH-S2",
         "FSP-JTS-FLNH-S3",
         "FSP-JTS-FLNH-STANDING",
-        "FSP-JTS-FLNH-TRANSLATION"
+        "FSP-JTS-FLNH-TRANSLATION",
+        "FSP-JTS-FLNH-REPAIR"
       ],
       "claimCeilingIds": [
         "CE-03",
@@ -803,6 +804,30 @@
       "claimCeilingIds": [
         "CE-03",
         "CE-06",
+        "CE-10",
+        "CE-12"
+      ],
+      "status": "PUBLIC_WORKED_LAYER"
+    },
+    {
+      "id": "FSP-JTS-FLNH-REPAIR",
+      "family": "JTS_LAYER",
+      "title": "Repair, Strategy Families, and Sequencing",
+      "summary": "Layer 4 governance for strategy families, sequencing, reversibility, repair bundles, Generate/Recommend/Authorize separation, stop conditions, and repair debt.",
+      "canonicalClaim": "FSP moves from diagnosed pressure to governed strategy families, sequenced repair, bounded authorization, monitored implementation, and REOPEN rather than directly from problem to solution.",
+      "relatedIds": [
+        "FSP-JTS-FLNH",
+        "FSP-JTS-FLNH-STANDING",
+        "FSP-JTS-FLNH-TRANSLATION",
+        "FSP-JTS-FLNH-S0",
+        "FSP-JTS-FLNH-S1",
+        "FSP-JTS-FLNH-S2",
+        "FSP-JTS-FLNH-S3"
+      ],
+      "claimCeilingIds": [
+        "CE-03",
+        "CE-06",
+        "CE-08",
         "CE-10",
         "CE-12"
       ],
