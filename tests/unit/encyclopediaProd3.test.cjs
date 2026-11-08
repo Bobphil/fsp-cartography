@@ -172,3 +172,14 @@ test("Gulf Pines Layer 2 standing and authorization resolves",()=>{
   const p=registry.nodes.find(x=>x.id==="FSP-JTS-FLNH");
   assert.ok(p.relatedIds.includes("FSP-JTS-FLNH-STANDING"));
 });
+
+
+test("Gulf Pines Layer 3 translation and remainder resolves",()=>{
+  const n=registry.nodes.find(x=>x.id==="FSP-JTS-FLNH-TRANSLATION");
+  assert.ok(n);
+  assert.equal(n.family,"JTS_LAYER");
+  assert.ok(n.relatedIds.includes("FSP-TRANSLATION"));
+  assert.ok(n.claimCeilingIds.includes("CE-12"));
+  const p=registry.nodes.find(x=>x.id==="FSP-JTS-FLNH");
+  assert.ok(p.relatedIds.includes("FSP-JTS-FLNH-TRANSLATION"));
+});
