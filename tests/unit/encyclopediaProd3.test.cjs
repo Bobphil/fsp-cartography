@@ -23,7 +23,7 @@ test("failure atlas routes to primary Tool and exact return restores prior conte
   s=model.openToolFromFailure(s,registry,"CT-F03");
   assert.equal(s.current.id,"CT-T02");
   s=model.back(s);assert.equal(s.current.id,"CT-F03");
-  s=model.back(s);assert.equal(s.current.id,"CT-00");
+  s=model.back(s);assert.equal(s.current.id,"FSP-HOME");
 });
 
 test("case to probe to sources preserves exact return stack",()=>{
@@ -105,4 +105,14 @@ test("top-level indexes expose human-readable canonical entries",()=>{
   for(const id of home.relatedIds){const n=registry.nodes.find(x=>x.id===id);assert.ok(n?.title&&n?.summary);}
   for(const id of con.relatedIds){const n=registry.nodes.find(x=>x.id===id);assert.ok(n?.title&&n?.canonicalClaim);}
   for(const id of fail.relatedIds){const f=registry.failures.find(x=>x.id===id);assert.ok(f?.title&&f?.symptom&&f?.diagnosticQuestion);}
+});
+
+
+test("startup opens universal Encyclopedia Home rather than Critical Thinking",()=>{
+  const s=model.initialReaderState();
+  assert.equal(s.current.kind,"NODE");
+  assert.equal(s.current.id,"FSP-HOME");
+  const home=registry.nodes.find(x=>x.id==="FSP-HOME");
+  assert.ok(home);
+  assert.deepEqual(home.relatedIds,["CT-HOME","SCI-ATLAS","FSP-CONSTITUTION"]);
 });
