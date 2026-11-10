@@ -2,6 +2,7 @@
 import {ReaderState,RegistryLike,initialReaderState,navigate,back,openFailure,openToolFromFailure,openProbe,openSources,openClaimCeiling,validateRegistry} from "./encyclopediaProd3Model";
 import {DOMAIN_PUBLIC_NAV} from "./fspEncyclopediaDomainNav";
 import {FIREWALL_PROVENANCE,evidenceLabels,provenanceEntry,validateFirewallProvenance} from "./fspFirewallToolProvenanceReader";
+import {TRANSFORMATION_OBSERVATORY_CASES,observatoryCase,transitionFor,possibilityDelta} from "./transformationObservatory";
 
 type AnyObj=Record<string,any>;
 const esc=(s:any)=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]||c));
@@ -10,7 +11,7 @@ const CSS=`
 :root{--ink:#172033;--muted:#667085;--line:#d8dee9;--soft:#eef2f8;--accent:#243b67;--danger:#8b2c2c}
 *{box-sizing:border-box}body{margin:0;color:var(--ink);font:16px/1.62 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#fff}
 button,a{font:inherit}button{cursor:pointer}.app{max-width:1240px;margin:auto;padding:1rem}.top{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:1rem}.top h1{margin:.1rem 0}.muted{color:var(--muted)}.layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:1.5rem;margin-top:1.25rem}.nav{position:sticky;top:1rem;align-self:start}.nav button{display:block;width:100%;text-align:left;border:0;background:transparent;padding:.55rem .65rem;border-radius:.45rem}.nav button:hover,.nav button:focus-visible{background:var(--soft)}.nav button[aria-current="page"]{background:var(--accent);color:#fff}.panel{border:1px solid var(--line);border-radius:.75rem;padding:1rem;margin:0 0 1rem}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.8rem}.card{border:1px solid var(--line);border-radius:.65rem;padding:.85rem;background:#fff}.tag{display:inline-block;background:var(--soft);border-radius:999px;padding:.15rem .5rem;margin:.1rem .25rem .1rem 0;font-size:.82rem}.actions{display:flex;gap:.55rem;flex-wrap:wrap;margin:.75rem 0}.actions button,.nav .return{border:1px solid var(--accent);background:#fff;color:var(--accent);border-radius:.45rem;padding:.45rem .7rem}.actions .primary,.nav .return{background:var(--accent);color:#fff}.warning{border-left:4px solid var(--danger);padding-left:.8rem}.timeline{border-left:3px solid var(--line);margin-left:.4rem;padding-left:1rem}.timeline .state{margin:0 0 1rem}.source a{overflow-wrap:anywhere}.stack{font-size:.9rem;color:var(--muted)}:focus-visible{outline:3px solid #1f6feb;outline-offset:3px}
-@media(max-width:760px){.layout{grid-template-columns:1fr}.nav{position:static}.top{display:block}.nav .group{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}}
+.obs-tabs{display:flex;gap:.45rem;flex-wrap:wrap;margin:.7rem 0 1rem}.obs-tabs button[aria-current="page"]{background:var(--accent);color:#fff}.obs-timeline{display:flex;gap:.45rem;align-items:stretch;overflow-x:auto;padding:.5rem 0 1rem}.obs-state{min-width:185px;flex:1;border:1px solid var(--line);border-radius:.65rem;padding:.75rem;background:#fff}.obs-arrow{align-self:center;min-width:135px;border:1px solid var(--accent);background:var(--soft);color:var(--accent);border-radius:.5rem;padding:.55rem}.obs-arrow[aria-pressed="true"]{background:var(--accent);color:#fff}.obs-status{font-weight:700}.obs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.7rem}.obs-list{margin:.35rem 0;padding-left:1.25rem}.obs-ceiling{border-left:4px solid var(--danger);padding-left:.8rem}@media(max-width:760px){.layout{grid-template-columns:1fr}.nav{position:static}.top{display:block}.nav .group{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}}
 `;
 
 async function loadRegistry():Promise<AnyObj>{
@@ -68,8 +69,115 @@ export async function mountProd3(root:HTMLElement){
     const a=document.createElement("div");a.className="actions";a.append(mkButton("← All Firewalls",()=>go({kind:"NODE",id:"FSP-FIREWALLS"}),true),mkButton("FSP Constitution",()=>go({kind:"NODE",id:"FSP-CONSTITUTION"})),mkButton("Why FSP?",()=>go({kind:"NODE",id:"FSP-WHY"})));ret.append(a);main.append(ret);
   };
 
+  const renderTransformationObservatory=(main:HTMLElement)=>{
+    let selectedCaseId=TRANSFORMATION_OBSERVATORY_CASES[0].id;
+    let selectedTransitionId=TRANSFORMATION_OBSERVATORY_CASES[0].transitions[0].id;
+    let selectedTab:"TIMELINE"|"ACCESS"|"POSSIBILITY"|"CONSEQUENCES"|"REOPEN"="TIMELINE";
+
+    const paint=()=>{
+      const c=observatoryCase(selectedCaseId);
+      if(!c.transitions.some(t=>t.id===selectedTransitionId)) selectedTransitionId=c.transitions[0].id;
+      const t=transitionFor(selectedCaseId,selectedTransitionId);
+      const delta=possibilityDelta(selectedCaseId,selectedTransitionId);
+      main.replaceChildren();
+
+      const intro=document.createElement("section");intro.className="panel";
+      intro.innerHTML='<div class="muted">FSP · TRANSFORMATION OBSERVATORY</div><h2>See transformations instead of hiding them inside conclusions</h2><p>Choose a case, follow the state timeline, and click any transition arrow to inspect what licenses the move, what changed in the possibility space, what consequences appear at different scales, and what would REOPEN the judgment.</p><p class="warning"><strong>Shared relation grammar ≠ shared ontology.</strong></p>';
+      main.append(intro);
+
+      const selector=document.createElement("section");selector.className="panel";
+      const h=document.createElement("h3");h.textContent="Four-case pilot";selector.append(h);
+      const buttons=document.createElement("div");buttons.className="obs-tabs";
+      for(const item of TRANSFORMATION_OBSERVATORY_CASES){
+        const b=mkButton(item.title,()=>{selectedCaseId=item.id;selectedTransitionId=item.transitions[0].id;selectedTab="TIMELINE";paint()});
+        b.setAttribute("aria-current",item.id===selectedCaseId?"page":"false");
+        buttons.append(b);
+      }
+      selector.append(buttons);
+      const q=document.createElement("p");q.innerHTML="<strong>Inquiry question:</strong> "+esc(c.question);selector.append(q);
+      const summary=document.createElement("p");summary.textContent=c.summary;selector.append(summary);
+      main.append(selector);
+
+      const tabs=document.createElement("div");tabs.className="obs-tabs";
+      const tabDefs:[typeof selectedTab,string][]=[
+        ["TIMELINE","Timeline + Bridge"],
+        ["ACCESS","Agents & Access"],
+        ["POSSIBILITY","Possibility Change"],
+        ["CONSEQUENCES","Consequences"],
+        ["REOPEN","REOPEN"]
+      ];
+      for(const [tab,label] of tabDefs){
+        const b=mkButton(label,()=>{selectedTab=tab;paint()});
+        b.setAttribute("aria-current",selectedTab===tab?"page":"false");
+        tabs.append(b);
+      }
+      main.append(tabs);
+
+      if(selectedTab==="TIMELINE"){
+        const timeline=document.createElement("section");timeline.className="panel";
+        timeline.innerHTML="<h3>Case timeline</h3><p class=\"muted\">States are bounded descriptions. Arrows are claims that require evidence and assumptions.</p>";
+        const row=document.createElement("div");row.className="obs-timeline";
+        c.states.forEach((st,index)=>{
+          const box=document.createElement("div");box.className="obs-state";
+          box.innerHTML="<div class=\"muted\">"+esc(st.id)+"</div><strong>"+esc(st.label)+"</strong><p>"+esc(st.summary)+"</p>";
+          row.append(box);
+          if(index<c.transitions.length){
+            const tr=c.transitions[index];
+            const a=mkButton("→ "+tr.label,()=>{selectedTransitionId=tr.id;paint()});
+            a.classList.add("obs-arrow");a.setAttribute("aria-pressed",tr.id===selectedTransitionId?"true":"false");row.append(a);
+          }
+        });
+        timeline.append(row);main.append(timeline);
+
+        const inspector=document.createElement("section");inspector.className="panel";
+        inspector.innerHTML="<div class=\"muted\">"+esc(t.id)+" · BRIDGE INSPECTOR</div><h3>"+esc(t.label)+"</h3><p><strong>Relation:</strong> "+esc(t.relation)+"</p><p><strong>Bridge burden:</strong> "+esc(t.bridgeBurden)+"</p>";
+        const grid=document.createElement("div");grid.className="obs-grid";
+        const cols:[string,string[]][]=[["Evidence",t.evidence],["Assumptions",t.assumptions],["Remainder",t.remainder],["REOPEN",t.reopen]];
+        for(const [label,items] of cols){const card=document.createElement("div");card.className="card";card.innerHTML="<strong>"+esc(label)+"</strong><ul class=\"obs-list\">"+items.map(x=>"<li>"+esc(x)+"</li>").join("")+"</ul>";grid.append(card)}
+        inspector.append(grid);
+        const ceiling=document.createElement("p");ceiling.className="obs-ceiling";ceiling.innerHTML="<strong>Claim ceiling:</strong> "+esc(t.claimCeiling);inspector.append(ceiling);
+        main.append(inspector);
+      }
+
+      if(selectedTab==="ACCESS"){
+        const sec=document.createElement("section");sec.className="panel";sec.innerHTML="<h3>Agents & Access</h3><p class=\"muted\">Who has access to what, by which route, and what remains unavailable?</p>";
+        const grid=document.createElement("div");grid.className="obs-grid";
+        for(const a of c.agents){
+          const card=document.createElement("div");card.className="card";
+          card.innerHTML="<strong>"+esc(a.actor)+"</strong><div class=\"muted\">"+esc(a.role)+"</div><p><strong>Accessible</strong></p><ul>"+a.accessible.map(x=>"<li>"+esc(x)+"</li>").join("")+"</ul><p><strong>Mediated</strong></p><ul>"+a.mediated.map(x=>"<li>"+esc(x)+"</li>").join("")+"</ul><p><strong>Not accessible</strong></p><ul>"+a.notAccessible.map(x=>"<li>"+esc(x)+"</li>").join("")+"</ul>";
+          grid.append(card);
+        }
+        sec.append(grid);main.append(sec);
+      }
+
+      if(selectedTab==="POSSIBILITY"){
+        const sec=document.createElement("section");sec.className="panel";sec.innerHTML="<h3>Possibility-space change</h3><p><strong>Selected transition:</strong> "+esc(t.label)+"</p><p class=\"muted\">Transformation is represented as a change in what becomes open, closed, or retained—not as automatic improvement.</p>";
+        const grid=document.createElement("div");grid.className="obs-grid";
+        for(const [label,items] of [["Opened",delta.opened],["Closed",delta.closed],["Retained",delta.retained]] as [string,string[]][]){
+          const card=document.createElement("div");card.className="card";card.innerHTML="<strong>"+label+"</strong>"+(items.length?"<ul>"+items.map(x=>"<li>"+esc(x)+"</li>").join("")+"</ul>":"<p class=\"muted\">None represented in this bounded model.</p>");grid.append(card);
+        }
+        sec.append(grid);main.append(sec);
+      }
+
+      if(selectedTab==="CONSEQUENCES"){
+        const sec=document.createElement("section");sec.className="panel";sec.innerHTML="<h3>Multi-scale consequences</h3><p class=\"muted\">A gain at one scale need not be a gain at every scale.</p>";
+        const grid=document.createElement("div");grid.className="obs-grid";
+        for(const x of c.consequences){const card=document.createElement("div");card.className="card";card.innerHTML="<div class=\"muted\">"+esc(x.scale)+"</div><strong>"+esc(x.status)+"</strong><p>"+esc(x.effect)+"</p>";grid.append(card)}
+        sec.append(grid);main.append(sec);
+      }
+
+      if(selectedTab==="REOPEN"){
+        const sec=document.createElement("section");sec.className="panel";
+        sec.innerHTML="<h3>Return / REOPEN</h3><p><strong>Current bounded judgment:</strong> "+esc(c.currentJudgment)+"</p><p class=\"obs-ceiling\"><strong>Case claim ceiling:</strong> "+esc(c.globalClaimCeiling)+"</p><h4>What would change the judgment?</h4><ul>"+c.reopenPrompt.map(x=>"<li>"+esc(x)+"</li>").join("")+"</ul><p class=\"muted\">REOPEN is not rejection. It records the evidence or condition under which the current judgment should be revisited.</p>";
+        main.append(sec);
+      }
+    };
+    paint();
+  };
+
   const renderNode=(main:HTMLElement,id:string)=>{
     if(id==="FSP-FIREWALLS"){renderFirewallIndex(main);return;}
+    if(id==="FSP-TRANSFORMATION-OBSERVATORY"){renderTransformationObservatory(main);return;}
     if(/^FW-\\d{2}$/.test(id)){renderFirewallProvenance(main,id);return;}
     const n=byId("nodes",id);if(!n)return renderMissing(main,id);
     main.innerHTML='<div class="panel"><div class="muted">'+esc(n.id)+' · '+esc(n.status)+'</div><h2>'+esc(n.title)+'</h2><p>'+esc(n.summary)+'</p><p><strong>Canonical claim:</strong> '+esc(n.canonicalClaim)+'</p></div>';
@@ -83,7 +191,8 @@ export async function mountProd3(root:HTMLElement){
         ["FSP-RESOURCES","Resources","Browse cross-domain resources such as Why FSP?, Critical Thinking, Tools, Failure Atlas, and the Scientific Atlas."],
         ["FSP-ROUTES","Routes","Follow books, courses, laboratories, and workspaces through canonical resources."],
         ["FSP-ABOUT","About","See how the Encyclopedia is organized, governed, and kept corrigible."],
-        ["FSP-FIREWALLS","Firewall Provenance","Inspect why each gate exists, what licenses crossing, and how the formulation remains open to REOPEN."]
+        ["FSP-FIREWALLS","Firewall Provenance","Inspect why each gate exists, what licenses crossing, and how the formulation remains open to REOPEN."],
+        ["FSP-TRANSFORMATION-OBSERVATORY","Transformation Observatory","Watch transformations unfold across biology, ecology, reproduction, and consciousness; inspect every consequential arrow."]
       ].forEach(([rid,label,desc])=>{
         const c=document.createElement("div");c.className="card";
         c.innerHTML="<strong>"+esc(label)+"</strong><p>"+esc(desc)+"</p>";
@@ -631,6 +740,7 @@ export async function mountProd3(root:HTMLElement){
       ["NODE","FSP-ABOUT","About"],
       ["NODE","FSP-FIREWALLS","Firewalls"],
       ["NODE","FSP-WHY","Why FSP?"],
+      ["NODE","FSP-TRANSFORMATION-OBSERVATORY","Transformation Observatory"],
       ["NODE","CT-HOME","Critical Thinking"]
     ].forEach(([kind,id,label])=>{
       const b=mkButton(label,()=>go({kind,id,caseId:kind==="CASE"?id:undefined}));
