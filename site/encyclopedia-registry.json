@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "buildId": "FSP-ENCYCLOPEDIA-PROD-3",
+  "buildId": "FSP-TRANSFORMATION-OBSERVATORY-1",
   "generatedFrom": "FSP-ENCYCLOPEDIA-PROD-2",
   "canonicalOwner": "FSP Encyclopedia",
   "routeContract": {
@@ -443,7 +443,8 @@
         "FSP-ROUTES",
         "FSP-ABOUT",
         "FSP-WHY",
-        "FSP-ENCYCLOPEDIA-COHERENCE-AUDIT-1"
+        "FSP-ENCYCLOPEDIA-COHERENCE-AUDIT-1",
+        "FSP-TRANSFORMATION-OBSERVATORY"
       ],
       "claimCeilingIds": [
         "CE-10",
@@ -956,6 +957,22 @@
         "CE-12"
       ],
       "status": "COHERENCE_PASS_TARGETED_REPAIRS"
+    },
+    {
+      "id": "FSP-TRANSFORMATION-OBSERVATORY",
+      "family": "RESEARCH",
+      "title": "Transformation Observatory",
+      "summary": "Interactive four-case pilot for seeing how states change, what licenses each transition, how possibility spaces shift, what consequences appear across scales, and what would REOPEN the current judgment.",
+      "canonicalClaim": "FSP makes transformations inspectable by exposing states, transition warrants, access relations, possibility changes, multi-scale consequences, claim ceilings, and REOPEN conditions without requiring shared domain ontology.",
+      "relatedIds": [
+        "FSP-TRANSLATION",
+        "FSP-C05",
+        "FSP-WHY"
+      ],
+      "claimCeilingIds": [
+        "CE-10"
+      ],
+      "status": "PUBLIC_PILOT"
     }
   ],
   "tools": [
