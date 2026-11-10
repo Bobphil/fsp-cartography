@@ -61,7 +61,7 @@ test("experiment handoff retains ethics and authorization", () => {
   assert.ok(text.includes("ExperimentProposal = {"));
   assert.ok(text.includes("standingIssues"));
   assert.ok(text.includes("authorizationNeeded"));
-  assert.ok(text.includes("physical claims require real-world evidence"));
+  assert.ok(text.includes("Physical claims require real-world evidence"));
 });
 
 test("data layers stay separated", () => {
