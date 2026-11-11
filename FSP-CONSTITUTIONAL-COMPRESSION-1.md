@@ -907,6 +907,63 @@ It is not evidence that all domains share one ontology or mechanism.
 
 ---
 
+## 22.1 Constitutional Infrastructure and Distinctive Governance Surface
+
+The constitutional infrastructure and the preferred compressed governance surface now need to be distinguished explicitly.
+
+```text
+CONSTITUTIONAL INFRASTRUCTURE
+
+Partial Map
+Relation
+Transition
+License / Warrant
+Claim Ceiling
+Authorization
+Remainder
+Return
+
+        ↓ compression
+
+DISTINCTIVE GOVERNANCE SURFACE
+
+Portability
+→ Ceiling
+→ Authorization
+→ Return
+↺
+
+Remainder visible throughout
+```
+
+The infrastructure answers what FSP must be able to reconstruct when stakes, disagreement, opacity, translation burden, or automation require decompression.
+
+The governance surface answers what the shortest currently defensible FSP route is for ordinary use.
+
+> **Governance compression ≠ constitutional replacement.**
+
+## 22.2 Completion Horizon
+
+FSP's constitutional compression is not itself a complete scientific or philosophical theory of cognition, meaning, agency, consciousness, inquiry, or the domains it governs.
+
+Its stronger long-horizon role is translational and integrative:
+
+> **FSP is a translational and governance architecture designed to make heterogeneous partial inquiries mutually inspectable, selectively interoperable, recursively corrigible, and progressively integrable. If relevant domain inquiries mature sufficiently, and if their cross-domain bridges are warranted rather than assumed, FSP or a successor architecture could support increasingly comprehensive—and perhaps in principle complete—accounts.**
+
+This is a research horizon, not a present possession.
+
+Therefore:
+
+> **Present architectural sufficiency ≠ present theoretical completeness.**
+
+> **Present partiality ≠ permanent fragmentation.**
+
+> **Integration ≠ completeness.**
+
+> **Formal unification ≠ empirical completion.**
+
+> **FSP is committed to the inquiry, not to the permanent survival of its current vocabulary.**
+
 # 23. Claim Ceiling
 
 This build does not establish:
