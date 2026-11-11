@@ -30,6 +30,9 @@ export interface FspPublicOrientation{
   inquiryArc:string[];
   notClaims:string[];
   noPrerequisiteBoundary:string[];
+  presentStatus:string[];
+  completionHorizon:string[];
+  successorPrinciple:string;
   sections:FspOrientationSection[];
 }
 
@@ -180,6 +183,16 @@ export const FSP_PUBLIC_ORIENTATION:FspPublicOrientation={
     "Courses may use FSP distinctions quietly where they clarify disciplinary development without making FSP itself the course subject.",
     "The Encyclopedia may expose deeper FSP architecture for readers who want it, but domain-native inquiry remains primary."
   ],
+  presentStatus:[
+    "FSP is presently a translational and governance architecture for situated inquiry.",
+    "FSP is not presently a complete scientific or philosophical theory of cognition, meaning, agency, consciousness, or inquiry."
+  ],
+  completionHorizon:[
+    "Increasingly mature domain accounts may become selectively interoperable through warranted translation rather than assumed unity.",
+    "A future FSP or successor could support increasingly comprehensive synthesis only where domain theories, bridge relations, claim ceilings, and remainders earn that integration.",
+    "Present partiality does not establish permanent fragmentation, and present architectural breadth does not establish completeness."
+  ],
+  successorPrinciple:"FSP is committed to the inquiry, not to the permanent survival of its current vocabulary.",
   sections:[
     {
       id:"WHY",
@@ -316,6 +329,10 @@ export function validateFspPublicOrientation(o:FspPublicOrientation=FSP_PUBLIC_O
   if(!o.noPrerequisiteBoundary.some(x=>x.includes("without first learning FSP"))) failures.push("missing-no-prerequisite-boundary");
   if(!o.notClaims.some(x=>x.includes("not another ethical theory"))) failures.push("missing-not-ethical-theory");
   if(!o.notClaims.some(x=>x.includes("not a universal philosophy-of-science theory"))) failures.push("missing-not-philsci-theory");
+  if(!o.presentStatus.some(x=>x.includes("translational and governance architecture"))) failures.push("missing-present-status");
+  if(!o.presentStatus.some(x=>x.includes("not presently a complete"))) failures.push("missing-present-completeness-ceiling");
+  if(!o.completionHorizon.some(x=>x.includes("successor"))) failures.push("missing-completion-horizon");
+  if(!o.successorPrinciple.includes("not to the permanent survival")) failures.push("missing-successor-principle");
   if(!o.fullStackMeaning.some(x=>x.includes("not a universal ontology"))) failures.push("missing-domain-ontology-firewall");
   if(new Set(o.sections.map(x=>x.id)).size!==o.sections.length) failures.push("duplicate-section-id");
   return {passes:failures.length===0,failures:[...new Set(failures)].sort()};
