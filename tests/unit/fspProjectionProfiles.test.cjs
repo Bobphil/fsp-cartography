@@ -114,3 +114,11 @@ test('hidden facets remain distinct from visible facets',()=>{
     assert.equal(p.expose.some(x=>p.hideByDefault.includes(x)),false);
   }
 });
+
+test('compiled projection packages preserve four-move semantics and remainder invariant',()=>{
+  const packages=compileAllNeptuneVulcanPackages(FIVE_CASE_ATLAS);
+  for(const p of packages){
+    assert.deepEqual(p.governance.fourMovePreservation.moveIds,['PORTABILITY','CEILING','AUTHORIZATION','RETURN']);
+    assert.match(p.governance.fourMovePreservation.remainderInvariant,/cross-cutting/i);
+  }
+});
