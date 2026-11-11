@@ -769,7 +769,33 @@ That compression may be used as the conceptual seed for domain-specific introduc
 
 ---
 
-## 23. Final claim ceiling
+### 22.1 Shortest Governance Route
+
+For compressed public, classroom, or operational use, the surrounding governance can be represented as:
+
+```text
+PORTABILITY
+→ CEILING
+→ AUTHORIZATION
+→ RETURN
+↺
+
+REMAINDER VISIBLE THROUGHOUT
+```
+
+This is a routing compression, not a replacement for traditional critical thinking, the Twelve Tools, the Failure Atlas, standing analysis, or the fuller constitutional architecture.
+
+- **Portability:** does the warrant survive when a result is carried into a changed target, scale, representation, role, institution, or action context?
+- **Ceiling:** what is the strongest conclusion that still follows?
+- **Authorization:** who, if anyone, may recommend, decide, impose, resist, intervene, or implement?
+- **Return:** what happened when the judgment or action re-entered lived Doing, and what should reopen?
+- **Remainder:** what did not cross, remains unresolved, or must stay visible throughout?
+
+> **Four-move governance ≠ four-step psychology.**
+
+> **Compression ≠ deletion of deeper Tools, failures, warrants, standing, provenance, or domain methods.**
+
+# 23. Final claim ceiling
 
 FSP-CT-CANONICAL-1.1 proposes a unified philosophical architecture for understanding critical thinking as governed situated inquiry.
 
