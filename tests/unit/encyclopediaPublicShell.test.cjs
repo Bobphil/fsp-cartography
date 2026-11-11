@@ -1,6 +1,7 @@
 const test=require('node:test');
 const assert=require('node:assert/strict');
 const {PUBLIC_ARCHITECTURE}=require('../../dist/research/encyclopediaPublicArchitecture.js');
+const {routeFromHash}=require('../../dist/research/encyclopediaPublicShell.js');
 
 test('public shell architecture has five primary index entrances',()=>{
   assert.deepEqual(PUBLIC_ARCHITECTURE.home.primaryEntrances,['CHAPTER','CASE','CONCEPT','TOOL','COMPARISON']);
@@ -27,4 +28,10 @@ test('public indexes expose concepts tools and comparisons without state identif
 test('public shell content keeps comparison grammar bounded',()=>{
   assert.ok(PUBLIC_ARCHITECTURE.constitutionalRules.includes('Shared comparison grammar does not imply historical sameness.'));
   assert.ok(PUBLIC_ARCHITECTURE.constitutionalRules.includes('No public presentation may exceed the applicable canonical claim ceiling.'));
+});
+
+test('governance and research routes are available without changing existing route identities',()=>{
+  assert.deepEqual(routeFromHash('#/governance'),{kind:'GOVERNANCE'});
+  assert.deepEqual(routeFromHash('#/research'),{kind:'RESEARCH'});
+  assert.deepEqual(routeFromHash('#/reader/CH1.2/NEPTUNE-VULCAN'),{kind:'READER',sectionId:'CH1.2',caseId:'NEPTUNE-VULCAN'});
 });
