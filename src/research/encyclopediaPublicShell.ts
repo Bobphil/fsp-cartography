@@ -13,6 +13,8 @@ import { narrativeForCase } from "./fspInquiryNarrative";
 import { ENCYCLOPEDIA_SCOPE, EncyclopediaDomainId } from "./fspEncyclopediaScope";
 import { DOMAIN_PUBLIC_NAV, TOP_LEVEL_PUBLIC_NAV, publicDomain } from "./fspEncyclopediaDomainNav";
 import { FSP_PUBLIC_ORIENTATION } from "./fspEncyclopediaOrientation";
+import { FOUR_MOVE_GOVERNANCE } from "./fourMoveGovernance";
+import { RESEARCH_PUBLIC_NAV } from "./fspEncyclopediaDomainNav";
 
 type PublicRoute =
   | {kind:"HOME"}
@@ -23,6 +25,8 @@ type PublicRoute =
   | {kind:"RESOURCES"}
   | {kind:"ROUTES"}
   | {kind:"ABOUT"}
+  | {kind:"GOVERNANCE"}
+  | {kind:"RESEARCH"}
   | {kind:"CHAPTERS"}
   | {kind:"CHAPTER";id:string}
   | {kind:"CASES"}
@@ -50,6 +54,8 @@ function routeFromHash(hash:string):PublicRoute{
   if(raw[0]==="resources") return {kind:"RESOURCES"};
   if(raw[0]==="routes") return {kind:"ROUTES"};
   if(raw[0]==="about") return {kind:"ABOUT"};
+  if(raw[0]==="governance") return {kind:"GOVERNANCE"};
+  if(raw[0]==="research") return {kind:"RESEARCH"};
   if(raw[0]==="chapters") return raw[1]?{kind:"CHAPTER",id:raw[1]}:{kind:"CHAPTERS"};
   if(raw[0]==="cases") return raw[1]?{kind:"CASE",id:raw[1]}:{kind:"CASES"};
   if(raw[0]==="concepts") return raw[1]?{kind:"CONCEPT",id:raw[1]}:{kind:"CONCEPTS"};
@@ -368,6 +374,39 @@ function renderAbout():HTMLElement{
   main.append(section); return main;
 }
 
+
+function renderGovernance():HTMLElement{
+  const main=el("main");
+  main.append(hero("Governance","The shortest FSP route","A compressed routing layer for carrying local results into new contexts without losing claim limits, authorization, remainder, or return."));
+  const grid=el("div","fsp-public__grid");
+  for(const move of FOUR_MOVE_GOVERNANCE.moves){
+    const c=el("article","fsp-public__card");
+    c.append(el("div","fsp-public__eyebrow",move.id),el("h3","",move.publicLabel),el("p","",move.publicQuestion),el("p","fsp-public__meta",move.purpose));
+    grid.append(c);
+  }
+  main.append(grid,el("p","fsp-public__notice",FOUR_MOVE_GOVERNANCE.remainderInvariant.question));
+  return main;
+}
+
+function renderResearch():HTMLElement{
+  const main=el("main");
+  main.append(hero("Research","Research architecture","Governance, comparators, domain architectures, and the Completion Horizon are separated so external theories do not become FSP modules by accumulation."));
+  const groups:[string,readonly string[]][]=[
+    ["Governance Core",RESEARCH_PUBLIC_NAV.governanceCore],
+    ["Comparators",RESEARCH_PUBLIC_NAV.comparators],
+    ["Domain Architectures",RESEARCH_PUBLIC_NAV.domainArchitectures],
+    ["Completion Horizon",RESEARCH_PUBLIC_NAV.completionHorizon]
+  ];
+  const grid=el("div","fsp-public__grid");
+  for(const [title,items] of groups){
+    const c=el("article","fsp-public__card");
+    c.append(el("h3","",title),pills([...items]));
+    grid.append(c);
+  }
+  main.append(grid,el("p","fsp-public__notice",RESEARCH_PUBLIC_NAV.completionHorizonClaimCeiling));
+  return main;
+}
+
 function renderChapters():HTMLElement{
   const main=el("main"); main.append(hero("Four-chapter sequence","Read the argument","Each chapter uses familiar scientific cases to expose a different problem in changing inquiry."));
   const grid=el("div","fsp-public__grid");
@@ -507,6 +546,8 @@ export function mountPublicEncyclopedia(root:HTMLElement):{render:()=>void}{
     else if(route.kind==="RESOURCES") main=renderResources();
     else if(route.kind==="ROUTES") main=renderRoutes();
     else if(route.kind==="ABOUT") main=renderAbout();
+    else if(route.kind==="GOVERNANCE") main=renderGovernance();
+    else if(route.kind==="RESEARCH") main=renderResearch();
     else if(route.kind==="CHAPTERS") main=renderChapters();
     else if(route.kind==="CHAPTER") main=renderChapter(route.id);
     else if(route.kind==="CASES") main=renderCases();
