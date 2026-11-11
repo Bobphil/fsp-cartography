@@ -120,6 +120,15 @@ export const DOMAIN_PUBLIC_NAV:DomainPublicNav[]=[
   }
 ];
 
+
+export const RESEARCH_PUBLIC_NAV={
+  governanceCore:["Four-Move Governance","Constitutional Compression","Recomposition","Return / Remainder"],
+  comparators:["Simon","Brandom","Price","Ismael","Nagel","Levin","Quine / Putnam"],
+  domainArchitectures:["Objective Phenomenology","Heterogeneous Intelligence","Recursive Scale","Ontological Interoperability","Transformation","Medicine","Institutions","AI"],
+  completionHorizon:["Integration Ladder","Open Remainders","Successor Architectures","Comprehensive Synthesis Criteria"],
+  completionHorizonClaimCeiling:"Research horizon, not present theoretical completeness."
+} as const;
+
 export const TOP_LEVEL_PUBLIC_NAV=[
   {label:"Domains",href:"#/domains"},
   {label:"Core",href:"#/core"},
@@ -141,6 +150,8 @@ export function validateDomainPublicNav():{passes:boolean;failures:string[]}{
   for(const id of scopeIds) if(!navIds.includes(id)) failures.push("missing-domain:"+id);
   if(new Set(navIds).size!==navIds.length) failures.push("duplicate-domain");
   if(TOP_LEVEL_PUBLIC_NAV.map(x=>x.label).join(",")!=="Domains,Core,Resources,Routes,About") failures.push("top-nav-drift");
+  if(RESEARCH_PUBLIC_NAV.governanceCore.length<4) failures.push("research-governance-nav-incomplete");
+  if(!RESEARCH_PUBLIC_NAV.completionHorizonClaimCeiling.includes("not present theoretical completeness")) failures.push("completion-horizon-ceiling-missing");
   const science=publicDomain("SCIENCE-INQUIRY");
   for(const label of ["Chapters","Cases","Concepts","Tools","Comparisons"]) if(!science.nativeNavigation.some(x=>x.label===label)) failures.push("science-nav-missing:"+label);
   const hoi=publicDomain("HISTORY-PHILOSOPHY");
