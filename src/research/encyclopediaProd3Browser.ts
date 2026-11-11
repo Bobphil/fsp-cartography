@@ -1,6 +1,6 @@
 
 import {ReaderState,RegistryLike,initialReaderState,navigate,back,openFailure,openToolFromFailure,openProbe,openSources,openClaimCeiling,validateRegistry} from "./encyclopediaProd3Model";
-import {DOMAIN_PUBLIC_NAV} from "./fspEncyclopediaDomainNav";
+import {DOMAIN_PUBLIC_NAV,PUBLIC_RESEARCH_RESOURCES} from "./fspEncyclopediaDomainNav";
 import {FIREWALL_PROVENANCE,evidenceLabels,provenanceEntry,validateFirewallProvenance} from "./fspFirewallToolProvenanceReader";
 import {TRANSFORMATION_OBSERVATORY_CASES,observatoryCase,transitionFor,possibilityDelta} from "./transformationObservatory";
 import {WorkbenchInquiry,blankWorkbenchInquiry,addWorkbenchState,addWorkbenchTransition,removeLastWorkbenchState,removeLastWorkbenchTransition,updateWorkbenchInquiry,workbenchTransitionReadout,validateWorkbenchInquiry,exportWorkbenchInquiry,parseList} from "./transformationWorkbench";
@@ -447,6 +447,11 @@ export async function mountProd3(root:HTMLElement){
         ["SCI-ATLAS","Scientific Atlas","Five comparative inquiry dossiers."],
         ["FSP-FIREWALLS","Firewall Provenance","Historical lineage, crossing warrants, Tools, cases, evidence states, claim ceilings, and REOPEN triggers."]
       ].forEach(([rid,label,desc])=>{const c=document.createElement("div");c.className="card";c.innerHTML="<strong>"+esc(label)+"</strong><p>"+esc(desc)+"</p>";c.append(mkButton("Open "+label,()=>go({kind:"NODE",id:rid})));grid.append(c)});
+      for(const r of PUBLIC_RESEARCH_RESOURCES){
+        const c=document.createElement("div");c.className="card";
+        c.innerHTML="<div class=\"muted\">RESEARCH REFERENCE · "+esc(r.status)+"</div><strong>"+esc(r.title)+"</strong><p>"+esc(r.description)+"</p>";
+        const a=document.createElement("a");a.href=r.href;a.target="_blank";a.rel="noopener";a.textContent="Open bibliography";c.append(a);grid.append(c);
+      }
       main.append(grid);return;
     }
 
