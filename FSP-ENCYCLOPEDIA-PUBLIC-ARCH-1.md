@@ -226,6 +226,62 @@ The public architecture freezes these rules:
 7. Every public path that deepens inspection preserves an Authorial Return route.
 8. No public presentation may exceed the applicable canonical claim ceiling.
 
+## 11.1 Four-Move Governance Overlay
+
+The public architecture now inherits the preferred governance compression without replacing the existing reader route.
+
+```text
+PORTABILITY
+→ CEILING
+→ AUTHORIZATION
+→ RETURN
+↺
+
+REMAINDER VISIBLE THROUGHOUT
+```
+
+At public depth these appear as ordinary-language questions:
+
+1. **Will it still hold here?**
+2. **What does it actually justify?**
+3. **Who may act?**
+4. **What happened, and what should reopen?**
+5. **What did not cross or remains unresolved?**
+
+The overlay maps onto the existing public architecture:
+
+- transition detail → Portability;
+- claim-ceiling view → Ceiling;
+- standing / decision / authority context → Authorization;
+- state change / return path → Return;
+- source ledger / unresolved field → Remainder.
+
+No new canonical route is created.
+
+## 11.2 Research Navigation Reclassification
+
+The Research entrance should distinguish four classes:
+
+```text
+RESEARCH
+├── Governance Core
+├── Comparators
+├── Domain Architectures
+└── Completion Horizon
+```
+
+**Governance Core** contains Four-Move Governance, Constitutional Compression, Recomposition, Return, and Remainder.
+
+**Comparators** contains Simon, Brandom, Price, Ismael, Nagel, Levin, Quine/Putnam, and later external comparators.
+
+**Domain Architectures** contains Objective Phenomenology, Heterogeneous Intelligence, Recursive Scale, Ontological Interoperability, Transformation, Medicine, Institutions, AI, and later research programmes.
+
+**Completion Horizon** contains research about progressive integration, open remainders, successor architectures, and criteria for comprehensive synthesis.
+
+The Completion Horizon is research-facing. It must not imply present theoretical completeness.
+
+> **Present architectural sufficiency ≠ present theoretical completeness.**
+
 ## 12. Production consequence
 
 With this architecture frozen, CH1.2 can later be polished without having to carry every explanation inside its prose. A sentence can remain readable while exposing structured routes to:
