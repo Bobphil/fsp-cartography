@@ -1,4 +1,5 @@
 import { CanonicalCaseDossier } from "./fiveCaseAtlas";
+import { FOUR_MOVE_GOVERNANCE } from "./fourMoveGovernance";
 import {
   NEPTUNE_VULCAN_PROBE_BINDINGS,
   EcosystemReturnToken,
@@ -50,6 +51,7 @@ export interface ClassroomPackage {
     title:string;
     fields:OutputCardField[];
     completionRule:string;
+    governanceCoverage:{moveIds:string[];remainderInvariant:string};
   };
   journalHandoff?:{
     enabled:boolean;
@@ -151,7 +153,11 @@ export function compileNeptuneVulcanClassroomPackage(
         {fieldId:"uncertainty",label:"What remains uncertain",required:true,author:"STUDENT"},
         {fieldId:"reopen",label:"I would REOPEN this judgment if…",required:true,author:"STUDENT"}
       ],
-      completionRule:"All four required fields must be student-authored; no field may be auto-filled from the canonical claim ceiling."
+      completionRule:"All four required fields must be student-authored; no field may be auto-filled from the canonical claim ceiling.",
+      governanceCoverage:{
+        moveIds:FOUR_MOVE_GOVERNANCE.moves.map(x=>x.id),
+        remainderInvariant:FOUR_MOVE_GOVERNANCE.remainderInvariant.rule
+      }
     },
     journalHandoff:{
       enabled:true,
@@ -176,6 +182,8 @@ export function validateClassroomPackage(pkg:ClassroomPackage):ClassroomValidati
     else if(f.author!=="STUDENT") failures.push(`nonstudent-output-field:${id}`);
   }
   if(!pkg.outputCard.completionRule.includes("student-authored")) failures.push("output-authorship-not-enforced");
+  if(pkg.outputCard.governanceCoverage.moveIds.join(",")!=="PORTABILITY,CEILING,AUTHORIZATION,RETURN") failures.push("output-four-move-drift");
+  if(!pkg.outputCard.governanceCoverage.remainderInvariant.toLowerCase().includes("cross-cutting")) failures.push("output-remainder-invariant-drift");
   if(!pkg.returnRule.includes("student")) failures.push("missing-learner-return");
   return {passes:failures.length===0,failures:[...new Set(failures)].sort()};
 }
