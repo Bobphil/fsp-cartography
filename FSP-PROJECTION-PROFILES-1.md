@@ -304,6 +304,36 @@ canonical object
 
 This is the production corridor that prevents downstream environments from becoming independent semantic systems.
 
+## 10.1 Shared Four-Move Governance Preservation Invariants
+
+Across Encyclopedia, Classroom, VR, Application, and Research projections, the profile layer must preserve the semantic functions of the preferred governance compression:
+
+```text
+PORTABILITY
+→ CEILING
+→ AUTHORIZATION
+→ RETURN
+↺
+
+REMAINDER VISIBLE THROUGHOUT
+```
+
+A projection need not expose these labels verbatim. It must, however, preserve enough canonical structure that the following remain recoverable:
+
+- what local result is being carried and into what destination context;
+- whether the relevant warrant survives that crossing;
+- what claim ceiling applies;
+- whether judgment is distinct from recommendation, permission, consent, authority, or implementation;
+- what remainder remains visible;
+- what consequences and REOPEN conditions constitute Return;
+- what provenance supports the projected material.
+
+The compiler must fail closed if a projection silently strengthens the canonical claim, hides decision-relevant remainder, collapses judgment into authorization, or removes a required Return path.
+
+> **Projection simplification ≠ semantic deletion.**
+
+> **Four-move preservation ≠ four mandatory user-interface fields.**
+
 ## 11. Claim ceiling
 
 FSP-PROJECTION-PROFILES-1 certifies production requirements for projecting canonical FSP objects into five environments.
