@@ -1,5 +1,6 @@
 import { CanonicalCaseDossier } from "./fiveCaseAtlas";
 import { CHAPTER_SECTIONS, ChapterId } from "./encyclopediaNavigation";
+import { FOUR_MOVE_GOVERNANCE, FourMoveGovernanceModel } from "./fourMoveGovernance";
 
 export type PublicObjectKind =
   | "HOME"
@@ -102,6 +103,13 @@ export interface PublicArchitecture {
     canonicalAuthority:string;
   };
   constitutionalRules:string[];
+  governance:FourMoveGovernanceModel;
+  researchNavigation:{
+    governanceCore:string[];
+    comparators:string[];
+    domainArchitectures:string[];
+    completionHorizon:string[];
+  };
 }
 
 export interface PublicArchitectureValidation {
@@ -458,6 +466,13 @@ export const PUBLIC_ARCHITECTURE:PublicArchitecture={
     publicEntryPoints:["case dossier","state","transition","probe context","concept explanation"],
     canonicalAuthority:"CanonicalCaseDossier.sourceLedger"
   },
+  governance:FOUR_MOVE_GOVERNANCE,
+  researchNavigation:{
+    governanceCore:["Four-Move Governance","Constitutional Compression","Recomposition","Return / Remainder"],
+    comparators:["Simon","Brandom","Price","Ismael","Nagel","Levin","Quine / Putnam"],
+    domainArchitectures:["Objective Phenomenology","Heterogeneous Intelligence","Recursive Scale","Ontological Interoperability","Transformation","Medicine","Institutions","AI"],
+    completionHorizon:["Integration Ladder","Open Remainders","Successor Architectures","Comprehensive Synthesis Criteria"]
+  },
   constitutionalRules:[
     "Public architecture indexes and explains canonical objects; it does not redefine Atlas field semantics.",
     "Chapter-to-Atlas semantic edges remain governed by encyclopediaNavigation.ts.",
@@ -486,6 +501,12 @@ export function validatePublicArchitecture(
   if(architecture.chapters.length!==4) failures.push("public-chapter-count");
   if(architecture.cases.length!==5) failures.push("public-case-count");
   if(new Set(architecture.readerDepths.map(d=>d.depth)).size!==3) failures.push("reader-depth-count");
+  if(architecture.governance.moves.map(x=>x.id).join(",")!=="PORTABILITY,CEILING,AUTHORIZATION,RETURN") failures.push("four-move-governance-drift");
+  if(!architecture.governance.remainderInvariant.rule.toLowerCase().includes("cross-cutting")) failures.push("remainder-invariant-missing");
+  for(const key of ["governanceCore","comparators","domainArchitectures","completionHorizon"] as const){
+    if(!architecture.researchNavigation[key].length) failures.push(`research-nav-empty:${key}`);
+  }
+
 
   for(const chapter of architecture.chapters){
     if(!chapterIds.has(chapter.chapterId)) failures.push(`${chapter.chapterId}:unknown-chapter`);
