@@ -31,6 +31,26 @@ The journal handoff is explicitly downstream and reflective. It may support tran
 
 This bridge is intentionally generic enough to support the existing FSP course ecology. Course-specific bindings can later map Ethics, History/Philosophy of Science, Intro Philosophy, or other packages into the same grammar without making one course the universal model.
 
+### Four-Move Recoverability Contract
+
+The common classroom grammar now inherits the preferred governance compression without forcing identical labels into every chapter or course.
+
+A valid learner Output Card must make recoverable:
+
+1. **Portability / transfer:** what from the source text, historical case, Tool, model, or prior result actually carries into the present case;
+2. **Claim Ceiling / bounded judgment:** what the learner's analysis supports and what it does not yet establish;
+3. **Authorization / standing, where applicable:** who may recommend, decide, impose, resist, intervene, or implement;
+4. **Remainder:** what remains unresolved, omitted, uncertain, untranslated, or contested;
+5. **Consequential Return / REOPEN:** what would matter if the judgment guided action or further inquiry, and what would require reopening it.
+
+These are semantic requirements, not mandatory headings. Chapter-specific Tools and workbook mechanics remain primary.
+
+> **Tool = local inquiry operator.**
+
+> **Four-move governance = common classroom envelope.**
+
+The Personal Ethics Journal or other reflective handoff remains downstream and may not replace the bounded judgment produced in the workbook.
+
 ### Claim ceiling
 
 This build certifies classroom packaging structure, not instructional efficacy. Time budgets, prompt difficulty, rubric quality, and transfer remain testable.
