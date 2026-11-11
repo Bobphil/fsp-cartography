@@ -1,4 +1,5 @@
 import { CanonicalCaseDossier } from "./fiveCaseAtlas";
+import { FOUR_MOVE_GOVERNANCE } from "./fourMoveGovernance";
 import {
   EcosystemEnvironment,
   EcosystemReturnToken,
@@ -99,6 +100,10 @@ export interface ProjectionPackage {
     bindingClaimCeilingPolicy:string;
     forbiddenMutations:string[];
     completionCriteria:string[];
+    fourMovePreservation:{
+      moveIds:string[];
+      remainderInvariant:string;
+    };
   };
 }
 
@@ -285,7 +290,11 @@ export function compileProjectionPackage(
     governance:{
       bindingClaimCeilingPolicy:binding.claimCeilingPolicy,
       forbiddenMutations:structuredClone(profile.forbiddenMutations),
-      completionCriteria:structuredClone(profile.completionCriteria)
+      completionCriteria:structuredClone(profile.completionCriteria),
+      fourMovePreservation:{
+        moveIds:FOUR_MOVE_GOVERNANCE.moves.map(x=>x.id),
+        remainderInvariant:FOUR_MOVE_GOVERNANCE.remainderInvariant.rule
+      }
     }
   };
 }
@@ -321,6 +330,8 @@ export function validateProjectionPackage(
   if(pkg.return.token.environment!==pkg.environment) failures.push("return-environment-mismatch");
   if(JSON.stringify(pkg.return.requiredFields)!==JSON.stringify(profile.requiredReturnFields)) failures.push("return-fields-drift");
   if(pkg.return.artifactType!==profile.returnArtifact) failures.push("return-artifact-drift");
+  if(pkg.governance.fourMovePreservation.moveIds.join(",")!=="PORTABILITY,CEILING,AUTHORIZATION,RETURN") failures.push("four-move-preservation-drift");
+  if(!pkg.governance.fourMovePreservation.remainderInvariant.toLowerCase().includes("cross-cutting")) failures.push("remainder-invariant-drift");
 
   return {passes:failures.length===0,failures:[...new Set(failures)].sort()};
 }
