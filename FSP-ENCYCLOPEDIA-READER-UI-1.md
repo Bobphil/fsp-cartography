@@ -33,6 +33,36 @@ The claim ceiling is a first-class screen with both **May not infer** and **REOP
 
 A persistent **Return to reading** action restores the exact origin token preserved by the certified reader shell.
 
+## Four-Move presentation mapping
+
+The human-facing reader may surface the governance compression in ordinary language without altering reader-state authority.
+
+Recommended public labels:
+
+- **Portability:** “Will it still hold here?”
+- **Ceiling:** “What does it justify?”
+- **Authorization:** “Who may act?”
+- **Return:** “What happened, and what would make us reconsider?”
+- **Remainder:** “What remains unresolved or left out?”
+
+These are optional presentation labels. They do not replace the existing screens.
+
+The fixed reader sequence remains:
+
+`prose → case card → state timeline → transition detail → controlled probe → source ledger → claim ceiling → exact return to prose`
+
+### Reader semantic-drift guards
+
+The reader fails this specification if:
+
+- Portability becomes generic “context matters”;
+- Claim Ceiling becomes mere uncertainty;
+- Authorization becomes implementation readiness;
+- Return becomes summary or generic feedback;
+- Remainder becomes only “unknowns”;
+- the new labels add a mandatory click to the certified reader path;
+- a public label strengthens the canonical claim.
+
 ## Responsive and accessibility baseline
 
 The renderer uses semantic article/main/aside/section structure, keyboard-operable native controls, visible focus treatment, `aria-current` for active timeline steps, and a single-column layout below 760px.
