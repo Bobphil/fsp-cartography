@@ -535,6 +535,57 @@ Its bounded purpose is to give students a small set of recurring inquiry habits 
 
 ---
 
+# PART II-A — FOUR-MOVE GOVERNANCE RECONCILIATION
+
+The two six-question routines remain the student-facing Pressbook surface.
+
+They should **not** be replaced by a four-item FSP checklist.
+
+Instead, the recent constitutional compression is the deeper semantic structure that the six questions project differently in each domain:
+
+```text
+PORTABILITY
+→ CEILING
+→ AUTHORIZATION
+→ RETURN
+↺
+
+REMAINDER VISIBLE THROUGHOUT
+```
+
+## Ethics mapping
+
+The six Ethics questions collectively preserve the four-move architecture:
+
+- **What is my map? / What shaped the situation?** → prepares Portability by identifying what is being carried into judgment and what may have been omitted.
+- **What are the reasons? / What is my claim ceiling?** → Ceiling.
+- **Who is affected and who has standing?** → standing and the preconditions of Authorization.
+- **What would REOPEN this?** → Return / REOPEN.
+- omitted persons, burdens, uncertainty, and unresolved conflict → Remainder.
+
+The explicit Ethics firewall remains:
+
+> **Supported judgment ≠ unrestricted authorization.**
+
+## Inquiry mapping
+
+The six Inquiry questions preserve the same deeper architecture through domain-native scientific inquiry:
+
+- **What was observed or made measurable? / What inference was licensed?** → Portability from observation or measurement into claim.
+- **What alternatives remained? / What is the claim ceiling?** → Ceiling + Remainder.
+- **What shaped the inquiry?** → transition conditions, instrumentation, model dependence, institutions, and context.
+- **What would REOPEN the case?** → Return / REOPEN.
+
+Authorization remains backgrounded unless an inquiry result crosses into institutional, public, policy, or intervention contexts.
+
+## Compression firewall
+
+> **Six student questions ≠ six new canonical primitives.**
+
+> **Four-move governance ≠ four mandatory Pressbook headings.**
+
+> **Shared governance architecture ≠ identical classroom presentation.**
+
 # PART III — PROGRESSIVE-DISCLOSURE ROUTING
 
 ## Layer 1 — Pressbook Introduction
