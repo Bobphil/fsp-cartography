@@ -121,6 +121,18 @@ export const DOMAIN_PUBLIC_NAV:DomainPublicNav[]=[
 ];
 
 
+export const PUBLIC_RESEARCH_RESOURCES:DomainPublicResource[]=[
+  {
+    resourceId:"FSP-RESEARCH-BIBLIOGRAPHY-2026-11",
+    title:"FSP Research Bibliography — 60 Annotated Entries",
+    description:"A durable annotated bibliography for the recent FSP research arm and formalism expansion, with DOI or stable links, short annotations, FSP build cross-references, and Read first / Skim / Reference only priorities.",
+    href:"https://github.com/Bobphil/fsp-cartography/blob/main/FSP-RESEARCH-BIBLIOGRAPHY-2026-11.md",
+    external:true,
+    kind:"REFERENCE",
+    status:"Available now"
+  }
+];
+
 export const RESEARCH_PUBLIC_NAV={
   governanceCore:["Four-Move Governance","Constitutional Compression","Recomposition","Return / Remainder"],
   comparators:["Simon","Brandom","Price","Ismael","Nagel","Levin","Quine / Putnam"],
@@ -151,6 +163,7 @@ export function validateDomainPublicNav():{passes:boolean;failures:string[]}{
   if(new Set(navIds).size!==navIds.length) failures.push("duplicate-domain");
   if(TOP_LEVEL_PUBLIC_NAV.map(x=>x.label).join(",")!=="Domains,Core,Resources,Routes,About") failures.push("top-nav-drift");
   if(RESEARCH_PUBLIC_NAV.governanceCore.length<4) failures.push("research-governance-nav-incomplete");
+  if(!PUBLIC_RESEARCH_RESOURCES.some(r=>r.resourceId==="FSP-RESEARCH-BIBLIOGRAPHY-2026-11"&&r.external&&r.kind==="REFERENCE")) failures.push("research-bibliography-missing");
   if(!RESEARCH_PUBLIC_NAV.completionHorizonClaimCeiling.includes("not present theoretical completeness")) failures.push("completion-horizon-ceiling-missing");
   const science=publicDomain("SCIENCE-INQUIRY");
   for(const label of ["Chapters","Cases","Concepts","Tools","Comparisons"]) if(!science.nativeNavigation.some(x=>x.label===label)) failures.push("science-nav-missing:"+label);
