@@ -96,3 +96,10 @@ test('source policy keeps canonical authority in Atlas ledger',()=>{
 test('public architecture forbids claim-strength inflation',()=>{
   assert.ok(PUBLIC_ARCHITECTURE.constitutionalRules.includes('No public presentation may exceed the applicable canonical claim ceiling.'));
 });
+
+test('public architecture embeds the four-move router without changing canonical ownership',()=>{
+  assert.deepEqual(PUBLIC_ARCHITECTURE.governance.moves.map(x=>x.id),['PORTABILITY','CEILING','AUTHORIZATION','RETURN']);
+  assert.match(PUBLIC_ARCHITECTURE.governance.remainderInvariant.rule,/cross-cutting/i);
+  assert.ok(PUBLIC_ARCHITECTURE.researchNavigation.governanceCore.includes('Four-Move Governance'));
+  assert.ok(PUBLIC_ARCHITECTURE.researchNavigation.completionHorizon.includes('Open Remainders'));
+});
