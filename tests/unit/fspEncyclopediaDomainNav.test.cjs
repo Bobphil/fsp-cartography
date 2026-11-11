@@ -6,7 +6,8 @@ const {
   publicDomain,
   readerStatusFor,
   validateDomainPublicNav,
-  RESEARCH_PUBLIC_NAV
+  RESEARCH_PUBLIC_NAV,
+  PUBLIC_RESEARCH_RESOURCES
 }=require('../../dist/research/fspEncyclopediaDomainNav.js');
 
 test('domain public navigation validates',()=>{
@@ -63,4 +64,13 @@ test('research navigation separates governance comparators domains and completio
   assert.ok(RESEARCH_PUBLIC_NAV.domainArchitectures.includes('Objective Phenomenology'));
   assert.ok(RESEARCH_PUBLIC_NAV.completionHorizon.includes('Successor Architectures'));
   assert.match(RESEARCH_PUBLIC_NAV.completionHorizonClaimCeiling,/not present theoretical completeness/i);
+});
+
+test('public research resources expose the durable 60-entry bibliography',()=>{
+  const b=PUBLIC_RESEARCH_RESOURCES.find(x=>x.resourceId==='FSP-RESEARCH-BIBLIOGRAPHY-2026-11');
+  assert.ok(b);
+  assert.equal(b.kind,'REFERENCE');
+  assert.equal(b.external,true);
+  assert.match(b.title,/60 Annotated Entries/);
+  assert.match(b.href,/FSP-RESEARCH-BIBLIOGRAPHY-2026-11\.md$/);
 });
