@@ -575,6 +575,49 @@ Do not maintain a second Canvas copy that can drift.
 
 ---
 
+# 15A. Four-Move Projection Contract
+
+The Pressbook front-matter introductions now inherit the shared governance semantics:
+
+```text
+PORTABILITY
+→ CEILING
+→ AUTHORIZATION
+→ RETURN
+
+REMAINDER VISIBLE THROUGHOUT
+```
+
+This is a **hidden projection contract**, not a replacement for the six-question routines.
+
+## Front matter must preserve
+
+- enough context to ask what carries into a case;
+- one explicit boundedness / claim-ceiling habit;
+- the judgment ≠ authorization distinction where domain-relevant;
+- unresolved remainder without treating incompleteness as failure;
+- REOPEN / Return as the route back into continued inquiry.
+
+## Front matter must not do
+
+- introduce four new required headings;
+- teach the Twelve Tools;
+- turn the Pressbook into an FSP prerequisite;
+- present Completion Horizon as course content;
+- imply that deeper FSP architecture replaces historical or domain-native methods.
+
+## Completion-Horizon routing rule
+
+The Completion Horizon belongs only in optional Encyclopedia depth.
+
+A Pressbook may use a restrained GO DEEPER link such as:
+
+**Explore the broader FSP research programme**
+
+but required student prose should not claim or teach that FSP will become a complete theory of cognition, meaning, agency, consciousness, or inquiry.
+
+> **Research horizon ≠ Pressbook learning objective.**
+
 # 16. Production Acceptance Tests
 
 ## Placement
