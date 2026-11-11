@@ -11,7 +11,7 @@ import { mountEncyclopediaReader } from "./encyclopediaReaderBrowser";
 import { ENCYCLOPEDIA_PILOT } from "./encyclopediaPilotConfig";
 import { narrativeForCase } from "./fspInquiryNarrative";
 import { ENCYCLOPEDIA_SCOPE, EncyclopediaDomainId } from "./fspEncyclopediaScope";
-import { DOMAIN_PUBLIC_NAV, TOP_LEVEL_PUBLIC_NAV, publicDomain } from "./fspEncyclopediaDomainNav";
+import { DOMAIN_PUBLIC_NAV, TOP_LEVEL_PUBLIC_NAV, PUBLIC_RESEARCH_RESOURCES, publicDomain } from "./fspEncyclopediaDomainNav";
 import { FSP_PUBLIC_ORIENTATION } from "./fspEncyclopediaOrientation";
 import { FOUR_MOVE_GOVERNANCE } from "./fourMoveGovernance";
 import { RESEARCH_PUBLIC_NAV } from "./fspEncyclopediaDomainNav";
@@ -338,6 +338,11 @@ function renderResources():HTMLElement{
   const main=el("main");
   main.append(hero("Resources","What you can open now","A cross-domain index of resources that are already public and verified."));
   const grid=el("div","fsp-public__grid");
+  for(const r of PUBLIC_RESEARCH_RESOURCES){
+    const c=el("article","fsp-public__card");
+    c.append(el("div","fsp-public__eyebrow","Research reference"),el("h3","",r.title),el("p","",r.description),link("Open bibliography",r.href));
+    grid.append(c);
+  }
   for(const d of DOMAIN_PUBLIC_NAV){
     for(const r of d.resources){
       const scope=ENCYCLOPEDIA_SCOPE.domains.find(x=>x.domainId===d.domainId);
@@ -403,7 +408,17 @@ function renderResearch():HTMLElement{
     c.append(el("h3","",title),pills([...items]));
     grid.append(c);
   }
-  main.append(grid,el("p","fsp-public__notice",RESEARCH_PUBLIC_NAV.completionHorizonClaimCeiling));
+  main.append(grid);
+  const resources=el("section","fsp-public__section");
+  resources.append(el("h2","","Research resources"));
+  const resourceGrid=el("div","fsp-public__grid");
+  for(const r of PUBLIC_RESEARCH_RESOURCES){
+    const c=el("article","fsp-public__card");
+    c.append(el("div","fsp-public__eyebrow",r.status),el("h3","",r.title),el("p","",r.description),link("Open bibliography",r.href));
+    resourceGrid.append(c);
+  }
+  resources.append(resourceGrid);
+  main.append(resources,el("p","fsp-public__notice",RESEARCH_PUBLIC_NAV.completionHorizonClaimCeiling));
   return main;
 }
 
