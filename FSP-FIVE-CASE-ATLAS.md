@@ -441,7 +441,57 @@ The Atlas does not establish:
 - that retrospective encoding reproduces the first-person experience of historical actors;
 - that common representation implies common ontology.
 
-## 12. Encyclopedia role
+## 12. Four-Move Governance Overlay
+
+Each canonical dossier may expose the same governance strip without changing its historical topology.
+
+### Foucault
+
+- **Portability:** what moves from experimental discrimination into a claim about rival optical theories?
+- **Ceiling:** what does the terrestrial light-speed result establish, and what does it not settle by itself?
+- **Authorization:** what inferential authority should later historians or philosophers grant the experiment?
+- **Return:** how do later theoretical developments change the significance of the result?
+- **Remainder:** which theoretical and historical questions remain open?
+
+### Neptune / Vulcan
+
+- **Portability:** when may anomaly-resolution success travel from one planetary case to another?
+- **Ceiling:** successful auxiliary introduction in one case ≠ warranted auxiliary in every analogous case.
+- **Authorization:** what evidential authority should an anomaly be granted in revising theory or adding entities?
+- **Return:** how does general relativity reopen the earlier settlement?
+- **Remainder:** what could not be resolved within the inherited Newtonian framework?
+
+### Galileo
+
+- **Portability:** what moves from telescopic observation into cosmological and institutional claims?
+- **Ceiling:** observation alone does not settle every interpretive or theological conclusion.
+- **Authorization:** observational expertise ≠ unrestricted institutional authority.
+- **Return:** how do later evidential and institutional developments alter the settlement?
+- **Remainder:** what interpretive and standing conflicts remain?
+
+### Newton → Einstein
+
+- **Portability:** which Newtonian results survive into a changed conceptual framework?
+- **Ceiling:** limiting recovery ≠ theoretical identity.
+- **Authorization:** predictive success does not by itself decide every ontological interpretation.
+- **Return:** later tests and theory development revise the successor framework.
+- **Remainder:** what remains open about ontology, interpretation, and regime boundaries?
+
+### DESI 2024 → 2026
+
+- **Portability:** how do detector, calibration, statistical model, and cosmological inference carry warrant across a long measurement chain?
+- **Ceiling:** high bridge burden ≠ weak inference; current evidence ≠ final cosmological closure.
+- **Authorization:** cosmological inference does not automatically authorize broader metaphysical claims.
+- **Return:** successive releases update the live alternatives and claim ceiling.
+- **Remainder:** model dependence, calibration burden, and unresolved cosmological alternatives remain explicit.
+
+### Overlay firewall
+
+> **Shared governance questions ≠ historical sameness.**
+
+The overlay is comparative metadata. It does not alter canonical states, source ledgers, transitions, or case-specific claim ceilings.
+
+## 13. Encyclopedia role
 
 The four-chapter sequence provides the narrative argument.
 
