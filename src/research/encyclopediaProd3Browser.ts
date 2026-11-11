@@ -435,7 +435,7 @@ export async function mountProd3(root:HTMLElement){
     }
 
     if(id==="FSP-RESOURCES"){
-      main.innerHTML='<div class="panel"><div class="muted">ENCYCLOPEDIA · RESOURCES</div><h2>Resources</h2><p>Cross-domain resources expose shared governance concepts without replacing domain-native inquiry.</p></div>';
+      main.innerHTML='<div class="panel"><div class="muted">ENCYCLOPEDIA · RESOURCES</div><h2>Resources</h2><p>Cross-domain resources expose shared governance concepts without replacing domain-native inquiry.</p></div><section class="panel"><div class="muted">RESEARCH REFERENCE · DURABLE 60-ENTRY ANNOTATED BIBLIOGRAPHY</div><h3>FSP Research Bibliography — 60 Annotated Entries</h3><p>Annotated research sources supporting the recent FSP comparator, governance, consciousness, biology, inquiry, interoperability, and authorization work. Each entry includes a DOI or stable link, a short annotation, the FSP build(s) it supports, and a Read first / Skim / Reference only priority.</p><p><a href="https://github.com/Bobphil/fsp-cartography/blob/main/FSP-RESEARCH-BIBLIOGRAPHY-2026-11.md" target="_blank" rel="noopener"><strong>Open the 60-entry annotated research bibliography</strong></a></p></section>';
       const grid=document.createElement("div");grid.className="grid";
       [
         ["FSP-WHY","Why FSP?","A short orientation to the reason for the project."],
@@ -457,7 +457,7 @@ export async function mountProd3(root:HTMLElement){
     }
 
     if(id==="FSP-ROUTES"){
-      main.innerHTML='<div class="panel"><div class="muted">ENCYCLOPEDIA · ROUTES</div><h2>Routes</h2><p>Books, courses, laboratories, and workspaces are routes through canonical resources. A route may select, compress, and sequence material without becoming a competing canonical owner.</p><p class="warning"><strong>Route ≠ canonical owner.</strong></p></div>';
+      main.innerHTML='<div class="panel"><div class="muted">ENCYCLOPEDIA · ROUTES</div><h2>Routes</h2><p>Books, courses, laboratories, and workspaces are routes through canonical resources. A route may select, compress, and sequence material without becoming a competing canonical owner.</p><p class="warning"><strong>Route ≠ canonical owner.</strong></p></div><section class="panel"><div class="muted">RESEARCH ROUTE</div><h3>FSP Research Bibliography — 60 Annotated Entries</h3><p>A durable research route into the sources behind the recent FSP builds.</p><p><a href="https://github.com/Bobphil/fsp-cartography/blob/main/FSP-RESEARCH-BIBLIOGRAPHY-2026-11.md" target="_blank" rel="noopener"><strong>Open bibliography</strong></a></p></section>';
       const sec=document.createElement("section");sec.className="panel";sec.innerHTML="<h3>Available public routes</h3>";
       for(const d of DOMAIN_PUBLIC_NAV){
         for(const r of d.resources.filter(x=>x.external)){
