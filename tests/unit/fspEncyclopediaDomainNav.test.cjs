@@ -5,7 +5,8 @@ const {
   TOP_LEVEL_PUBLIC_NAV,
   publicDomain,
   readerStatusFor,
-  validateDomainPublicNav
+  validateDomainPublicNav,
+  RESEARCH_PUBLIC_NAV
 }=require('../../dist/research/fspEncyclopediaDomainNav.js');
 
 test('domain public navigation validates',()=>{
@@ -54,4 +55,12 @@ test('all scope domains have landing definitions',()=>{
 test('planned domains do not fabricate working resources',()=>{
   assert.equal(publicDomain('AESTHETICS').resources.length,0);
   assert.equal(publicDomain('LOGIC-ARGUMENT').resources.length,0);
+});
+
+test('research navigation separates governance comparators domains and completion horizon',()=>{
+  assert.ok(RESEARCH_PUBLIC_NAV.governanceCore.includes('Four-Move Governance'));
+  assert.ok(RESEARCH_PUBLIC_NAV.comparators.includes('Price'));
+  assert.ok(RESEARCH_PUBLIC_NAV.domainArchitectures.includes('Objective Phenomenology'));
+  assert.ok(RESEARCH_PUBLIC_NAV.completionHorizon.includes('Successor Architectures'));
+  assert.match(RESEARCH_PUBLIC_NAV.completionHorizonClaimCeiling,/not present theoretical completeness/i);
 });
