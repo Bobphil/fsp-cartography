@@ -1,3 +1,4 @@
+import { FOUR_MOVE_GOVERNANCE, FourMoveId } from "./fourMoveGovernance";
 import { CHAPTER_SECTIONS, NavigationTarget } from "./encyclopediaNavigation";
 import {
   CanonicalCaseDossier,
@@ -46,6 +47,7 @@ export interface ReaderPanelModel {
   sections:Array<{heading:string;items:string[]}>;
   actions:ReaderActionModel[];
   timeline?:{nodes:TimelineNodeModel[];edges:TimelineEdgeModel[]};
+  governanceCue?:{move:FourMoveId;label:string;question:string;remainderReminder:string};
 }
 
 export interface ProsePanelModel {
@@ -56,6 +58,18 @@ export interface ProsePanelModel {
   caseId:string;
   caseTitle:string;
   inspectLabel:string;
+}
+
+
+function governanceCue(move:FourMoveId):ReaderPanelModel["governanceCue"]{
+  const m=FOUR_MOVE_GOVERNANCE.moves.find(x=>x.id===move);
+  if(!m) throw new Error("unknown governance cue: "+move);
+  return {
+    move,
+    label:m.publicLabel,
+    question:m.publicQuestion,
+    remainderReminder:FOUR_MOVE_GOVERNANCE.remainderInvariant.question
+  };
 }
 
 function dossierFor(caseId:string,dossiers:CanonicalCaseDossier[]):CanonicalCaseDossier{
@@ -150,6 +164,7 @@ function statePanel(
       {heading:"Current claim ceiling",items:state.claimCeiling}
     ],
     timeline:fullTimeline(session,dossier),
+    governanceCue:governanceCue("PORTABILITY"),
     actions:[
       ...sourceActions,
       {id:"ceiling",label:"See case claim ceiling",kind:"CASE_CLAIM_CEILING",targetId:dossier.caseId},
@@ -249,6 +264,7 @@ function ceilingPanel(
     title:"How far may this inquiry carry us?",
     lede:dossier.caseClaimCeiling.join(" "),
     notice:"The claim ceiling is a stopping rule against turning strong evidence or a useful reconstruction into a stronger conclusion than the case warrants.",
+    governanceCue:governanceCue("CEILING"),
     sections:[
       {heading:"May not infer",items:dossier.mayNotInfer},
       {heading:"REOPEN if",items:dossier.reopenConditions}
@@ -270,6 +286,7 @@ export function buildReaderPanel(
       eyebrow:"Case card",
       title:dossier.title,
       lede:dossier.canonicalQuestion,
+      governanceCue:governanceCue("PORTABILITY"),
       sections:[
         {heading:"Why this case matters",items:dossier.philosophicalRole},
         {heading:"What to watch for",items:["The same kind of local repair can be rationally available in more than one inquiry without becoming a universal rule for what scientists should revise."]},
@@ -289,6 +306,7 @@ export function buildReaderPanel(
       eyebrow:`${dossier.title} · state timeline`,
       title:"Follow the inquiry through time",
       lede:"Each node is a complete inquiry state; each edge records a governed revision rather than mere chronological succession.",
+      governanceCue:governanceCue("PORTABILITY"),
       timeline:fullTimeline(session,dossier),
       sections:[
         {heading:"How to use this timeline",items:["Start with a chapter-routed transition. Open the probe only after you have seen the historical change it is meant to illuminate. Disabled items belong to the larger case but are outside this chapter’s current aperture."]}
