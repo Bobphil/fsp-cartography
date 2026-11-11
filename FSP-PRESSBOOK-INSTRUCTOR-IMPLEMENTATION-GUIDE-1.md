@@ -81,6 +81,44 @@ Shared rule:
 
 ---
 
+# 2A. Four-Move Instructor Crosswalk
+
+Faculty may use the four-move governance compression as a preparation aid:
+
+```text
+PORTABILITY
+→ CEILING
+→ AUTHORIZATION
+→ RETURN
+↺
+
+REMAINDER VISIBLE THROUGHOUT
+```
+
+This is not a student memorization target.
+
+For each chapter, ask:
+
+1. **Portability** — What is being carried from text, case, model, history, or prior chapter into this judgment?
+2. **Ceiling** — What is the strongest conclusion students have actually earned?
+3. **Authorization** — Does this chapter need a distinction between judgment and who may act? If not, omit it.
+4. **Return** — Where should the student return: action, changed understanding, later historical development, repair, or REOPEN?
+5. **Remainder** — What must remain visible because it was not resolved?
+
+## Instructor anti-overload rule
+
+If a chapter already has a distinctive domain-native mechanic, the four moves remain in instructor preparation rather than becoming five new student prompts.
+
+> **Recoverable governance ≠ visible governance labels everywhere.**
+
+## Completion Horizon
+
+The instructor may understand the larger research ambition: FSP is building a translational/governance architecture through which mature domain accounts might someday support more comprehensive synthesis.
+
+Do not teach this as established course content unless the course explicitly enters the research layer.
+
+> **Present Pressbook use ≠ comprehensive-theory claim.**
+
 # 3. Ethics — whole-course chapter map
 
 | Chapter | Domain-native center | Primary Tool/function | Firewall | Claim ceiling | Remainder | Authorization | Return target | Encyclopedia |
