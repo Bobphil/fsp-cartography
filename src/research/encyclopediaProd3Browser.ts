@@ -452,6 +452,7 @@ export async function mountProd3(root:HTMLElement){
         c.innerHTML="<div class=\"muted\">RESEARCH REFERENCE · "+esc(r.status)+"</div><strong>"+esc(r.title)+"</strong><p>"+esc(r.description)+"</p>";
         const a=document.createElement("a");a.href=r.href;a.target="_blank";a.rel="noopener";a.textContent="Open bibliography";c.append(a);grid.append(c);
       }
+      const life=document.createElement("div");life.className="card";life.innerHTML="<div class=\"muted\">STUDENT PILOT · REVIEW BUILD</div><strong>FSP Life Navigation Prototype</strong><p>HERE → THERE → BRIDGE → TEST → RETURN: a low-stakes student-facing pilot for examining one possible future while preserving privacy, self-authorship, evidence, remainder, and revision.</p>";const la=document.createElement("a");la.href="./life-navigation.html";la.textContent="Open Life Navigation pilot";life.append(la);grid.append(life);
       main.append(grid);return;
     }
 
