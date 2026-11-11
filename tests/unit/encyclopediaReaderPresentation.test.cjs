@@ -122,3 +122,14 @@ test('reader presentation never changes the canonical Atlas objects',()=>{
   buildReaderPanel(s,FIVE_CASE_ATLAS);
   assert.equal(JSON.stringify(FIVE_CASE_ATLAS),before);
 });
+
+test('reader presentation exposes governance cues without changing reader route',()=>{
+  let s=enter('CH1.2','NEPTUNE-VULCAN');
+  let m=buildReaderPanel(s,FIVE_CASE_ATLAS);
+  assert.equal(m.governanceCue.move,'PORTABILITY');
+  assert.match(m.governanceCue.remainderReminder,/remain/i);
+  s=openClaimCeiling(s,FIVE_CASE_ATLAS);
+  m=buildReaderPanel(s,FIVE_CASE_ATLAS);
+  assert.equal(m.governanceCue.move,'CEILING');
+  assert.ok(m.actions.some(x=>x.kind==='RETURN'));
+});
