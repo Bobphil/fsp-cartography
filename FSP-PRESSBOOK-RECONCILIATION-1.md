@@ -853,6 +853,52 @@ Rule:
 
 ---
 
+# 17A. Four-Move Governance Reconciliation
+
+The recent constitutional compression changes the hidden governance grammar but does not require a Pressbook rewrite.
+
+```text
+PRESSBOOK STUDENT SURFACE
+domain-native narrative + six-question routine
+        ↓
+WORKBOOK
+chapter-specific Tool / move
+        ↓
+OUTPUT CARD
+Portability + Ceiling + Authorization when relevant + Remainder + Return
+        ↓
+JOURNAL
+reflective lived authorship
+```
+
+The four moves function as a **cross-course semantic envelope**:
+
+## Portability
+
+Ask what from the philosopher, historical episode, case, measurement, model, or prior result may responsibly be carried into the present judgment.
+
+## Ceiling
+
+State the strongest conclusion earned.
+
+## Authorization
+
+In Ethics, progressively distinguish judgment, recommendation, consent, standing, authority, and implementation.
+
+In Inquiry, use Authorization only when epistemic results cross into public, institutional, technological, policy, or intervention contexts.
+
+## Return
+
+Return the bounded judgment to consequences, changed conditions, successor inquiry, and explicit REOPEN.
+
+## Remainder
+
+Keep unresolved persons, burdens, alternatives, translation loss, uncertainty, and contested standing visible throughout.
+
+### Reconciliation rule
+
+> **The Pressbooks teach the domain; the four moves govern transfer through the domain.**
+
 # 18. Encyclopedia link contract
 
 Student-facing links should use human-readable labels.
