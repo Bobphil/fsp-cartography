@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "buildId": "FSP-TRANSFORMATION-OBSERVATORY-1",
+  "buildId": "FSP-TRANSFORMATION-WORKBENCH-0",
   "generatedFrom": "FSP-ENCYCLOPEDIA-PROD-2",
   "canonicalOwner": "FSP Encyclopedia",
   "routeContract": {
@@ -961,18 +961,50 @@
     {
       "id": "FSP-TRANSFORMATION-OBSERVATORY",
       "family": "RESEARCH",
-      "title": "Transformation Observatory",
-      "summary": "Interactive four-case pilot for seeing how states change, what licenses each transition, how possibility spaces shift, what consequences appear across scales, and what would REOPEN the current judgment.",
+      "title": "Transformation Observatory — Guided Pilot",
+      "summary": "Interactive worked-case reader for learning how FSP inspects transformations. It does not automatically analyze arbitrary questions; use the Workbench to author your own map.",
       "canonicalClaim": "FSP makes transformations inspectable by exposing states, transition warrants, access relations, possibility changes, multi-scale consequences, claim ceilings, and REOPEN conditions without requiring shared domain ontology.",
       "relatedIds": [
         "FSP-TRANSLATION",
         "FSP-C05",
-        "FSP-WHY"
+        "FSP-WHY",
+        "FSP-TRANSFORMATION-OBSERVATORY-GUIDE",
+        "FSP-TRANSFORMATION-WORKBENCH"
       ],
       "claimCeilingIds": [
         "CE-10"
       ],
       "status": "PUBLIC_PILOT"
+    },
+    {
+      "id": "FSP-TRANSFORMATION-OBSERVATORY-GUIDE",
+      "family": "RESEARCH",
+      "title": "Transformation Observatory Guide",
+      "summary": "Plain-language guide to what the current Guided Pilot is, what it is not, and how to benefit from its worked cases before building a user-authored map.",
+      "canonicalClaim": "The Guided Pilot teaches transformation inspection through worked cases; it does not automatically analyze arbitrary user questions.",
+      "relatedIds": [
+        "FSP-TRANSFORMATION-OBSERVATORY",
+        "FSP-TRANSFORMATION-WORKBENCH"
+      ],
+      "claimCeilingIds": [
+        "CE-10"
+      ],
+      "status": "PUBLIC_GUIDE"
+    },
+    {
+      "id": "FSP-TRANSFORMATION-WORKBENCH",
+      "family": "RESEARCH",
+      "title": "Transformation Observatory Workbench",
+      "summary": "Bring-your-own-question authoring surface for constructing states, transition claims, evidence, assumptions, alternatives, claim ceilings, possibility changes, and REOPEN conditions.",
+      "canonicalClaim": "The Workbench makes a user-authored transformation map inspectable; it does not yet infer or validate that map automatically.",
+      "relatedIds": [
+        "FSP-TRANSFORMATION-OBSERVATORY",
+        "FSP-TRANSFORMATION-OBSERVATORY-GUIDE"
+      ],
+      "claimCeilingIds": [
+        "CE-10"
+      ],
+      "status": "PUBLIC_V0"
     }
   ],
   "tools": [
