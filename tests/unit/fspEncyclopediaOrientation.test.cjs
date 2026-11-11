@@ -128,3 +128,10 @@ test('orientation now exposes phenomenal existential explanation and complexity 
   const ids=new Set(FSP_PUBLIC_ORIENTATION.sections.map(x=>x.id));
   for(const id of ['PHENOMENAL-DOING','EXISTENTIAL-INQUIRY','HUMAN-CENTER','EXPLANATION-MEANING','COMPLEXITY-COMPARATOR']) assert.ok(ids.has(id),id);
 });
+
+test('orientation distinguishes present governance architecture from completion horizon',()=>{
+  assert.ok(FSP_PUBLIC_ORIENTATION.presentStatus.some(x=>/translational and governance architecture/i.test(x)));
+  assert.ok(FSP_PUBLIC_ORIENTATION.presentStatus.some(x=>/not presently a complete/i.test(x)));
+  assert.ok(FSP_PUBLIC_ORIENTATION.completionHorizon.some(x=>/successor/i.test(x)));
+  assert.match(FSP_PUBLIC_ORIENTATION.successorPrinciple,/not to the permanent survival/i);
+});
