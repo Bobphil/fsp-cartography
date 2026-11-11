@@ -3,6 +3,7 @@ import {ReaderState,RegistryLike,initialReaderState,navigate,back,openFailure,op
 import {DOMAIN_PUBLIC_NAV} from "./fspEncyclopediaDomainNav";
 import {FIREWALL_PROVENANCE,evidenceLabels,provenanceEntry,validateFirewallProvenance} from "./fspFirewallToolProvenanceReader";
 import {TRANSFORMATION_OBSERVATORY_CASES,observatoryCase,transitionFor,possibilityDelta} from "./transformationObservatory";
+import {WorkbenchInquiry,blankWorkbenchInquiry,addWorkbenchState,addWorkbenchTransition,removeLastWorkbenchState,removeLastWorkbenchTransition,updateWorkbenchInquiry,workbenchTransitionReadout,validateWorkbenchInquiry,exportWorkbenchInquiry,parseList} from "./transformationWorkbench";
 
 type AnyObj=Record<string,any>;
 const esc=(s:any)=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]||c));
@@ -11,7 +12,7 @@ const CSS=`
 :root{--ink:#172033;--muted:#667085;--line:#d8dee9;--soft:#eef2f8;--accent:#243b67;--danger:#8b2c2c}
 *{box-sizing:border-box}body{margin:0;color:var(--ink);font:16px/1.62 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#fff}
 button,a{font:inherit}button{cursor:pointer}.app{max-width:1240px;margin:auto;padding:1rem}.top{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:1rem}.top h1{margin:.1rem 0}.muted{color:var(--muted)}.layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:1.5rem;margin-top:1.25rem}.nav{position:sticky;top:1rem;align-self:start}.nav button{display:block;width:100%;text-align:left;border:0;background:transparent;padding:.55rem .65rem;border-radius:.45rem}.nav button:hover,.nav button:focus-visible{background:var(--soft)}.nav button[aria-current="page"]{background:var(--accent);color:#fff}.panel{border:1px solid var(--line);border-radius:.75rem;padding:1rem;margin:0 0 1rem}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.8rem}.card{border:1px solid var(--line);border-radius:.65rem;padding:.85rem;background:#fff}.tag{display:inline-block;background:var(--soft);border-radius:999px;padding:.15rem .5rem;margin:.1rem .25rem .1rem 0;font-size:.82rem}.actions{display:flex;gap:.55rem;flex-wrap:wrap;margin:.75rem 0}.actions button,.nav .return{border:1px solid var(--accent);background:#fff;color:var(--accent);border-radius:.45rem;padding:.45rem .7rem}.actions .primary,.nav .return{background:var(--accent);color:#fff}.warning{border-left:4px solid var(--danger);padding-left:.8rem}.timeline{border-left:3px solid var(--line);margin-left:.4rem;padding-left:1rem}.timeline .state{margin:0 0 1rem}.source a{overflow-wrap:anywhere}.stack{font-size:.9rem;color:var(--muted)}:focus-visible{outline:3px solid #1f6feb;outline-offset:3px}
-.obs-tabs{display:flex;gap:.45rem;flex-wrap:wrap;margin:.7rem 0 1rem}.obs-tabs button[aria-current="page"]{background:var(--accent);color:#fff}.obs-timeline{display:flex;gap:.45rem;align-items:stretch;overflow-x:auto;padding:.5rem 0 1rem}.obs-state{min-width:185px;flex:1;border:1px solid var(--line);border-radius:.65rem;padding:.75rem;background:#fff}.obs-arrow{align-self:center;min-width:135px;border:1px solid var(--accent);background:var(--soft);color:var(--accent);border-radius:.5rem;padding:.55rem}.obs-arrow[aria-pressed="true"]{background:var(--accent);color:#fff}.obs-status{font-weight:700}.obs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.7rem}.obs-list{margin:.35rem 0;padding-left:1.25rem}.obs-ceiling{border-left:4px solid var(--danger);padding-left:.8rem}@media(max-width:760px){.layout{grid-template-columns:1fr}.nav{position:static}.top{display:block}.nav .group{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}}
+.obs-tabs{display:flex;gap:.45rem;flex-wrap:wrap;margin:.7rem 0 1rem}.obs-tabs button[aria-current="page"]{background:var(--accent);color:#fff}.obs-timeline{display:flex;gap:.45rem;align-items:stretch;overflow-x:auto;padding:.5rem 0 1rem}.obs-state{min-width:185px;flex:1;border:1px solid var(--line);border-radius:.65rem;padding:.75rem;background:#fff}.obs-arrow{align-self:center;min-width:135px;border:1px solid var(--accent);background:var(--soft);color:var(--accent);border-radius:.5rem;padding:.55rem}.obs-arrow[aria-pressed="true"]{background:var(--accent);color:#fff}.obs-status{font-weight:700}.obs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.7rem}.obs-list{margin:.35rem 0;padding-left:1.25rem}.obs-ceiling{border-left:4px solid var(--danger);padding-left:.8rem}.workbench-form label{display:block;margin:.75rem 0}.workbench-form input,.workbench-form textarea,.workbench-form select{width:100%;padding:.55rem;border:1px solid var(--line);border-radius:.4rem;font:inherit}.workbench-form textarea{min-height:82px}.workbench-actions{display:flex;gap:.5rem;flex-wrap:wrap;margin:.75rem 0}.workbench-output{white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9rem;background:var(--soft);padding:.75rem;border-radius:.5rem;overflow:auto}@media(max-width:760px){.layout{grid-template-columns:1fr}.nav{position:static}.top{display:block}.nav .group{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}}
 `;
 
 async function loadRegistry():Promise<AnyObj>{
@@ -69,6 +70,107 @@ export async function mountProd3(root:HTMLElement){
     const a=document.createElement("div");a.className="actions";a.append(mkButton("← All Firewalls",()=>go({kind:"NODE",id:"FSP-FIREWALLS"}),true),mkButton("FSP Constitution",()=>go({kind:"NODE",id:"FSP-CONSTITUTION"})),mkButton("Why FSP?",()=>go({kind:"NODE",id:"FSP-WHY"})));ret.append(a);main.append(ret);
   };
 
+  const renderTransformationGuide=(main:HTMLElement)=>{
+    main.innerHTML='<section class="panel"><div class="muted">TRANSFORMATION OBSERVATORY · GUIDE</div><h2>What this is—and how to benefit from using it</h2><p>The current Transformation Observatory is a <strong>guided interactive reader</strong>. It does not yet take any question and automatically analyze it for you. Instead, it lets you explore four worked cases and learn how FSP makes change visible by separating states, transitions, evidence, assumptions, consequences, claim ceilings, and REOPEN conditions.</p><p class="warning"><strong>Use the Guided Pilot to learn how to inspect a transformation. Use the Workbench to build your own map.</strong></p></section>';
+
+    const sections=[
+      ["1. Start with a case that resembles your question","Choose the worked case closest to the kind of change you care about. Maternal effects help with transmission across generations; climate plasticity helps with environment→response→population questions; mate choice helps with signal→preference→long-run divergence; the psychedelic case helps with acute state→meaning→durable change."],
+      ["2. Read the timeline as a proposed explanation","The boxes are bounded states. The arrows are not facts merely because they are drawn. Each arrow is a claim that one state is connected to the next in some specific way."],
+      ["3. Click the arrow","The Bridge Inspector shows the relation being claimed, the evidence supporting it, the assumptions carrying the inference, the bridge burden, what remains unresolved, the claim ceiling, and what would REOPEN the judgment."],
+      ["4. Look for the weak transition","The most useful part of a case is often the arrow carrying the most assumptions or the largest jump in scale. That is where a new measurement, comparison, or experiment may be most valuable."],
+      ["5. Use Possibility Change","Opened, Closed, and Retained possibilities show how a transformation changes what can happen next. These are bounded descriptions, not exhaustive maps of the world."],
+      ["6. Use Agents & Access","Ask who can observe what directly, what is mediated through instruments or testimony, and what remains unavailable. Different access does not automatically mean error, and one access route does not replace every other."],
+      ["7. Check consequences at several scales","A change can help at one scale and harm at another. The Observatory therefore keeps organism, offspring, population, social, personal, or other consequences distinct."],
+      ["8. Finish with REOPEN","The last readout gives the current bounded judgment, the strongest claim the case licenses, and the evidence that should make you reconsider it. REOPEN turns uncertainty into a next inquiry step."],
+      ["9. Take the method to your own question","After exploring a case, open the Workbench. Enter your own question, add the states you think matter, connect them with transitions, and fill in evidence, assumptions, alternatives, claim ceilings, and REOPEN conditions. The Workbench does not decide the map for you; it helps you make your map inspectable."],
+      ["10. Scale up by linking smaller inquiries","Do not begin with an entire ecosystem, organization, or lifetime. Start with one important transition. When that is clear, create another bounded map whose starting state is the previous map's outcome. Explanation grows by linked inspectable transitions rather than one enormous diagram."]
+    ];
+    for(const [title,body] of sections){
+      const sec=document.createElement("section");sec.className="panel";sec.innerHTML="<h3>"+esc(title)+"</h3><p>"+esc(body)+"</p>";main.append(sec);
+    }
+    const close=document.createElement("section");close.className="panel";
+    close.innerHTML='<h3>The habit the Observatory is meant to teach</h3><p><strong>Show the states. Inspect the arrows. Check the evidence. Expose the assumptions. Follow the consequences. Bound the conclusion. Say what would make you reconsider.</strong></p><p>That is enough to make many difficult questions clearer even before new data are collected.</p>';
+    const a=document.createElement("div");a.className="actions";a.append(mkButton("Open Guided Pilot",()=>go({kind:"NODE",id:"FSP-TRANSFORMATION-OBSERVATORY"}),true),mkButton("Bring your own question",()=>go({kind:"NODE",id:"FSP-TRANSFORMATION-WORKBENCH"})));close.append(a);main.append(close);
+  };
+
+  const renderTransformationWorkbench=(main:HTMLElement)=>{
+    const key="fsp-transformation-workbench-v0";
+    let inquiry:WorkbenchInquiry=blankWorkbenchInquiry("");
+    try{const stored=window.localStorage.getItem(key);if(stored)inquiry=JSON.parse(stored)}catch{}
+    let selectedTransitionId=inquiry.transitions[0]?.id||"";
+
+    const save=()=>{try{window.localStorage.setItem(key,JSON.stringify(inquiry))}catch{}};
+    const field=(label:string,el:HTMLElement)=>{const wrap=document.createElement("label");const strong=document.createElement("strong");strong.textContent=label;wrap.append(strong,el);return wrap};
+    const input=(value="")=>{const x=document.createElement("input");x.value=value;return x};
+    const area=(value="")=>{const x=document.createElement("textarea");x.value=value;return x};
+
+    const paint=()=>{
+      main.replaceChildren();
+      const intro=document.createElement("section");intro.className="panel";
+      intro.innerHTML='<div class="muted">TRANSFORMATION OBSERVATORY · WORKBENCH V0</div><h2>Bring your own question</h2><p>This version lets you build and inspect your own transformation map. It does <strong>not</strong> automatically infer states or explanations from your question. You supply the proposed map; the Workbench makes its transitions inspectable and preserves claim ceilings and REOPEN.</p><p class="warning"><strong>Your map ≠ the world. A transition you enter ≠ a validated explanation.</strong></p>';
+      const ia=document.createElement("div");ia.className="actions";ia.append(mkButton("How to use the Observatory",()=>go({kind:"NODE",id:"FSP-TRANSFORMATION-OBSERVATORY-GUIDE"})));intro.append(ia);main.append(intro);
+
+      const qsec=document.createElement("section");qsec.className="panel workbench-form";qsec.innerHTML="<h3>1. Bound the inquiry</h3>";
+      const title=input(inquiry.title),question=area(inquiry.question);
+      qsec.append(field("Map title",title),field("What transformation are you trying to understand?",question));
+      const qsave=mkButton("Save inquiry boundary",()=>{inquiry=updateWorkbenchInquiry(inquiry,{title:title.value,question:question.value});save();paint()},true);qsec.append(qsave);main.append(qsec);
+
+      const ssec=document.createElement("section");ssec.className="panel workbench-form";ssec.innerHTML="<h3>2. Add states</h3><p class=\"muted\">Use a bounded description of what the system is like before, during, or after a change. Two states are enough to begin.</p>";
+      const slabel=input(),ssummary=area(),sposs=area();sposs.placeholder="One possibility per line, or separate with semicolons";
+      ssec.append(field("State label",slabel),field("State description",ssummary),field("Possibilities available in this state",sposs));
+      const sa=document.createElement("div");sa.className="workbench-actions";
+      sa.append(mkButton("Add state",()=>{inquiry=addWorkbenchState(inquiry,slabel.value,ssummary.value,parseList(sposs.value));save();paint()},true),mkButton("Remove last state",()=>{inquiry=removeLastWorkbenchState(inquiry);selectedTransitionId=inquiry.transitions[0]?.id||"";save();paint()}));ssec.append(sa);
+      if(inquiry.states.length){
+        const row=document.createElement("div");row.className="obs-timeline";
+        inquiry.states.forEach(st=>{const c=document.createElement("div");c.className="obs-state";c.innerHTML="<div class=\"muted\">"+esc(st.id)+"</div><strong>"+esc(st.label)+"</strong><p>"+esc(st.summary)+"</p>";row.append(c)});ssec.append(row);
+      }
+      main.append(ssec);
+
+      const tsec=document.createElement("section");tsec.className="panel workbench-form";tsec.innerHTML="<h3>3. Connect two states</h3><p class=\"muted\">The arrow is a claim. Make the evidence, assumptions, alternatives, ceiling, and REOPEN condition visible.</p>";
+      if(inquiry.states.length>=2){
+        const from=document.createElement("select"),to=document.createElement("select");
+        for(const st of inquiry.states){for(const sel of [from,to]){const o=document.createElement("option");o.value=st.id;o.textContent=st.id+" · "+st.label;sel.append(o)}}
+        to.selectedIndex=Math.min(1,to.options.length-1);
+        const label=input(),relation=input(),evidence=area(),assumptions=area(),alternatives=area(),remainder=area(),ceiling=area(),reopen=area();
+        relation.placeholder="e.g. causes, enables, constrains, correlates, transmits";
+        tsec.append(field("From",from),field("To",to),field("What change does this arrow claim?",label),field("Relation type",relation),field("Evidence",evidence),field("Assumptions",assumptions),field("Competing explanations / alternatives",alternatives),field("What remains unresolved?",remainder),field("Claim ceiling",ceiling),field("What would REOPEN this transition?",reopen));
+        const ta=document.createElement("div");ta.className="workbench-actions";
+        ta.append(mkButton("Add transition",()=>{inquiry=addWorkbenchTransition(inquiry,{from:from.value,to:to.value,label:label.value,relation:relation.value,evidence:parseList(evidence.value),assumptions:parseList(assumptions.value),alternatives:parseList(alternatives.value),remainder:parseList(remainder.value),claimCeiling:ceiling.value,reopen:parseList(reopen.value)});selectedTransitionId=inquiry.transitions[inquiry.transitions.length-1].id;save();paint()},true),mkButton("Remove last transition",()=>{inquiry=removeLastWorkbenchTransition(inquiry);selectedTransitionId=inquiry.transitions[0]?.id||"";save();paint()}));
+        tsec.append(ta);
+      }else{
+        const p=document.createElement("p");p.className="warning";p.textContent="Add at least two states before creating a transition.";tsec.append(p);
+      }
+      main.append(tsec);
+
+      if(inquiry.transitions.length){
+        const isec=document.createElement("section");isec.className="panel";isec.innerHTML="<h3>4. Inspect a transition</h3>";
+        const buttons=document.createElement("div");buttons.className="obs-tabs";
+        for(const t of inquiry.transitions){const b=mkButton(t.id+" · "+t.label,()=>{selectedTransitionId=t.id;paint()});b.setAttribute("aria-current",selectedTransitionId===t.id?"page":"false");buttons.append(b)}isec.append(buttons);
+        if(!inquiry.transitions.some(t=>t.id===selectedTransitionId))selectedTransitionId=inquiry.transitions[0].id;
+        const r=workbenchTransitionReadout(inquiry,selectedTransitionId);
+        const t=r.transition;
+        const head=document.createElement("div");head.className="card";head.innerHTML="<strong>"+esc(r.from.label)+" → "+esc(r.to.label)+"</strong><p>"+esc(t.label)+"</p><p><strong>Relation:</strong> "+esc(t.relation||"Not specified")+"</p>";isec.append(head);
+        const grid=document.createElement("div");grid.className="obs-grid";
+        const blocks:[string,string[]][]=[["Evidence",t.evidence],["Assumptions",t.assumptions],["Alternatives",t.alternatives],["Remainder",t.remainder],["REOPEN",t.reopen],["Opened possibilities",r.possibilityDelta.opened],["Closed possibilities",r.possibilityDelta.closed]];
+        for(const [name,items] of blocks){const c=document.createElement("div");c.className="card";c.innerHTML="<strong>"+esc(name)+"</strong>"+(items.length?"<ul>"+items.map(x=>"<li>"+esc(x)+"</li>").join("")+"</ul>":"<p class=\"muted\">None recorded.</p>");grid.append(c)}isec.append(grid);
+        const cp=document.createElement("p");cp.className="obs-ceiling";cp.innerHTML="<strong>Claim ceiling:</strong> "+esc(t.claimCeiling||"Not yet recorded.");isec.append(cp);main.append(isec);
+      }
+
+      const rsec=document.createElement("section");rsec.className="panel workbench-form";rsec.innerHTML="<h3>5. Return / REOPEN the whole inquiry</h3>";
+      const judgment=area(inquiry.currentJudgment),globalCeiling=area(inquiry.globalClaimCeiling),globalReopen=area(inquiry.reopenPrompt.join("\n"));
+      rsec.append(field("Current bounded judgment",judgment),field("Overall claim ceiling",globalCeiling),field("What would REOPEN the inquiry?",globalReopen));
+      const ra=document.createElement("div");ra.className="workbench-actions";
+      ra.append(mkButton("Save Return",()=>{inquiry=updateWorkbenchInquiry(inquiry,{currentJudgment:judgment.value,globalClaimCeiling:globalCeiling.value,reopenPrompt:parseList(globalReopen.value)});save();paint()},true),mkButton("Reset Workbench",()=>{inquiry=blankWorkbenchInquiry("");selectedTransitionId="";save();paint()}));
+      rsec.append(ra);main.append(rsec);
+
+      const v=validateWorkbenchInquiry(inquiry);
+      const out=document.createElement("section");out.className="panel";
+      out.innerHTML="<h3>6. Readout / export</h3>"+(v.length?"<p class=\"warning\"><strong>Map still needs work:</strong></p><ul>"+v.map(x=>"<li>"+esc(x)+"</li>").join("")+"</ul>":"<p><strong>Minimum structural checks pass.</strong> This means the map is inspectable—not that its claims are true.</p>");
+      const pre=document.createElement("pre");pre.className="workbench-output";pre.textContent=exportWorkbenchInquiry(inquiry);out.append(pre);main.append(out);
+    };
+    paint();
+  };
+
   const renderTransformationObservatory=(main:HTMLElement)=>{
     let selectedCaseId=TRANSFORMATION_OBSERVATORY_CASES[0].id;
     let selectedTransitionId=TRANSFORMATION_OBSERVATORY_CASES[0].transitions[0].id;
@@ -82,7 +184,8 @@ export async function mountProd3(root:HTMLElement){
       main.replaceChildren();
 
       const intro=document.createElement("section");intro.className="panel";
-      intro.innerHTML='<div class="muted">FSP · TRANSFORMATION OBSERVATORY</div><h2>See transformations instead of hiding them inside conclusions</h2><p>Choose a case, follow the state timeline, and click any transition arrow to inspect what licenses the move, what changed in the possibility space, what consequences appear at different scales, and what would REOPEN the judgment.</p><p class="warning"><strong>Shared relation grammar ≠ shared ontology.</strong></p>';
+      intro.innerHTML='<div class="muted">FSP · TRANSFORMATION OBSERVATORY · GUIDED PILOT</div><h2>See transformations instead of hiding them inside conclusions</h2><p>This Guided Pilot contains four worked cases. Choose a case, follow the state timeline, and click any transition arrow to inspect what licenses the move, what changed in the possibility space, what consequences appear at different scales, and what would REOPEN the judgment.</p><p class="warning"><strong>This Guided Pilot does not automatically analyze a question you type. Shared relation grammar ≠ shared ontology.</strong></p>';
+      const introActions=document.createElement("div");introActions.className="actions";introActions.append(mkButton("What this is / How to benefit",()=>go({kind:"NODE",id:"FSP-TRANSFORMATION-OBSERVATORY-GUIDE"}),true),mkButton("Bring your own question",()=>go({kind:"NODE",id:"FSP-TRANSFORMATION-WORKBENCH"})));intro.append(introActions);
       main.append(intro);
 
       const selector=document.createElement("section");selector.className="panel";
@@ -178,6 +281,8 @@ export async function mountProd3(root:HTMLElement){
   const renderNode=(main:HTMLElement,id:string)=>{
     if(id==="FSP-FIREWALLS"){renderFirewallIndex(main);return;}
     if(id==="FSP-TRANSFORMATION-OBSERVATORY"){renderTransformationObservatory(main);return;}
+    if(id==="FSP-TRANSFORMATION-OBSERVATORY-GUIDE"){renderTransformationGuide(main);return;}
+    if(id==="FSP-TRANSFORMATION-WORKBENCH"){renderTransformationWorkbench(main);return;}
     if(/^FW-\\d{2}$/.test(id)){renderFirewallProvenance(main,id);return;}
     const n=byId("nodes",id);if(!n)return renderMissing(main,id);
     main.innerHTML='<div class="panel"><div class="muted">'+esc(n.id)+' · '+esc(n.status)+'</div><h2>'+esc(n.title)+'</h2><p>'+esc(n.summary)+'</p><p><strong>Canonical claim:</strong> '+esc(n.canonicalClaim)+'</p></div>';
@@ -741,6 +846,7 @@ export async function mountProd3(root:HTMLElement){
       ["NODE","FSP-FIREWALLS","Firewalls"],
       ["NODE","FSP-WHY","Why FSP?"],
       ["NODE","FSP-TRANSFORMATION-OBSERVATORY","Transformation Observatory"],
+      ["NODE","FSP-TRANSFORMATION-WORKBENCH","TO Workbench"],
       ["NODE","CT-HOME","Critical Thinking"]
     ].forEach(([kind,id,label])=>{
       const b=mkButton(label,()=>go({kind,id,caseId:kind==="CASE"?id:undefined}));
