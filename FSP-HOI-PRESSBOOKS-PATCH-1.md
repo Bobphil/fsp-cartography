@@ -30,6 +30,35 @@ Each numbered chapter receives:
 - Optional deeper exploration through canonical Encyclopedia links.
 - Return to the whole inquiry plus the existing SUPER workspace.
 
+## Four-Move handoff reconciliation
+
+The thin History of Inquiry patch should now make each chapter handoff recoverable through the shared governance envelope without inserting FSP terminology into every page.
+
+At chapter boundaries, the production patch may ask in ordinary language:
+
+- **Portability:** What from this episode may responsibly travel forward?
+- **Ceiling:** What does this episode establish, and what does it not yet establish?
+- **Return:** What later episode, evidence, concept, or institutional change reopens the settlement?
+- **Remainder:** What remains historically or theoretically unresolved?
+
+Authorization is added only when the inquiry crosses into public, institutional, or intervention authority.
+
+### Handoff rule
+
+A chapter handoff should preserve at least three functions:
+
+1. one licensed carry-forward;
+2. one bounded claim or unresolved remainder;
+3. one later reopening or return path.
+
+Do not require the four labels to appear verbatim.
+
+### Completion-Horizon firewall
+
+The historical Pressbook may point optionally to deeper Encyclopedia research, but it must not turn historical progression into a story of inevitable convergence toward FSP.
+
+> **Later integration possibility ≠ teleological history.**
+
 ## Idempotence and rollback
 
 Every fragment has stable START and END comments keyed by node ID. Search for the START marker before insertion. If present, do not insert again. Rollback removes only content between matching markers.
