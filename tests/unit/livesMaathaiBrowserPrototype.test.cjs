@@ -45,7 +45,7 @@ test('Lives route exposes topology-sensitive Maathai modules without Aristotle o
 test('early browser states preserve hidden-future behavior',()=>{
   const p=loadPrototypeData();
   const early=p.vr.scenes.find(s=>s.sceneId==='SITUATED_ENTRY');
-  assert.deepEqual(early.revealClaimIds,['M-C1']);
+  assert.deepEqual(Array.from(early.revealClaimIds),['M-C1']);
   assert.ok(early.hiddenClaimIds.includes('M-C5'));
   assert.ok(early.hiddenClaimIds.includes('M-C6'));
   const reveal=p.vr.scenes.find(s=>s.sceneId==='HISTORICAL_REVEAL');
@@ -61,7 +61,7 @@ test('browser prototype provides plain-language provenance and capability-change
   assert.match(app,/What became newly possible/);
   assert.match(app,/New limits that now matter/);
   const c=p.route.deep.claims.find(x=>x.claimId==='M-C2');
-  assert.deepEqual(c.sourceIds,['WM-S02','WM-S03']);
+  assert.deepEqual(Array.from(c.sourceIds),['WM-S02','WM-S03']);
 });
 
 test('VR browser sequence ends with Authorial Return then OFF',()=>{
