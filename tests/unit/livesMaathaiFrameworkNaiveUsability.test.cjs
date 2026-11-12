@@ -13,9 +13,9 @@ test('framework-naive orientation defines all seven distinctions in plain langua
     'Where we are in the life',
     'What we can say now',
     'Where that statement comes from',
-    'What became newly possible',
+    'What could now be done that could not be done before\?',
     'What you are not being shown yet',
-    'What might carry to another situation',
+    'What pattern might apply somewhere else\?',
     'What you take away'
   ]) assert.match(s,new RegExp(phrase));
 });
@@ -35,11 +35,13 @@ test('supported statements and sources are presented as different interface obje
   assert.match(s,/Maathai speaking or writing/);
   assert.match(s,/Document from the time/);
   assert.match(s,/Later historical or institutional source/);
+  assert.match(s,/Why this source matters here/);
 });
 
-test('capability change is explained as newly reachable action rather than framework jargon',()=>{
+test('capability change is explained as newly reachable action and not automatically progress',()=>{
   const s=app();
-  assert.match(s,/What became newly possible/);
+  assert.match(s,/What could now be done that could not be done before\?/);
+  assert.match(s,/New capability can also bring new costs or constraints/);
   assert.match(spec(),/reachable action/);
 });
 
@@ -50,17 +52,19 @@ test('hidden future explains the purpose of withholding later outcomes',()=>{
   assert.match(s,/Hidden future/);
 });
 
-test('portability is introduced as structural transfer rather than copying a tactic',()=>{
+test('portability is introduced as a pattern to test rather than copying a tactic',()=>{
   const s=app();
-  assert.match(s,/What might carry to another situation/);
-  assert.match(s,/A structural lesson, not a recipe/);
+  assert.match(s,/What pattern might apply somewhere else\?/);
+  assert.match(s,/A pattern to test, not a recipe to copy/);
+  assert.match(s,/FSP deeper label: structural relation/);
   assert.match(s,/What should not be copied from the case/);
 });
 
 test('Return is learner-authored and requires difference uncertainty and a forward question',()=>{
   const s=app();
   assert.match(s,/What you take away — in your own words/);
-  assert.match(s,/What structural relation did you notice/);
+  assert.match(s,/There is no single correct takeaway/);
+  assert.match(s,/What pattern did you notice that might matter somewhere else\?/);
   assert.match(s,/What is importantly different in another context/);
   assert.match(s,/What remains uncertain/);
   assert.match(s,/What question would you carry forward/);
