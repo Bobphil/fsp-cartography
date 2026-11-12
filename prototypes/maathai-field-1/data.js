@@ -36,6 +36,12 @@ window.FSP_MAATHAI_FIELD_1={
 {"depth":3,"label":"requires institutional mediation","radius":340},
 {"depth":4,"label":"requires substantial structural change","radius":430}
 ],
+"temporalLens":[
+{"mode":"FREEZE","maxDepth":1,"label":"Freeze","purpose":"Hold the historical present and maximize close inspection of relations, evidence, constraints, and gate prerequisites.","decomposition":"MAXIMUM"},
+{"mode":"SLOW","maxDepth":2,"label":"Slow","purpose":"Expose near-term capability and relationship development without collapsing uncertainty.","decomposition":"STRONG"},
+{"mode":"NORMAL","maxDepth":3,"label":"Normal","purpose":"Expose the middle field where institutional mediation and authorization dependencies become visible.","decomposition":"BALANCED"},
+{"mode":"ACCELERATE","maxDepth":4,"label":"Accelerate","purpose":"Expose structurally distant possibilities together with the larger contingency stack required to make them present.","decomposition":"CONTINGENCY_STACK"}
+],
 "pathProjection":[
 {"pathId":"P-RESEARCH","temporalDepth":1,"distanceMeaning":"Can be attempted using capabilities substantially already present.","requirements":[{"label":"Scientific expertise","status":"PRESENT","explanation":"Documented scientific and academic capability is already present."},{"label":"Time and observational access","status":"PARTIAL","explanation":"Investigation requires time and access to environmental observations."}]},
 {"pathId":"P-TEACH","temporalDepth":1,"distanceMeaning":"Can be attempted through existing academic and communication roles.","requirements":[{"label":"Scientific expertise","status":"PRESENT","explanation":"Scientific training is already present."},{"label":"Audience / teaching channel","status":"PRESENT","explanation":"University role supplies an existing communication setting."}]},
