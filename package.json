@@ -11,6 +11,7 @@
     "test:acceptance": "npm run build && node --test tests/acceptance/*.test.cjs",
     "test:micro": "npm run build && node --test tests/micro/*.test.cjs",
     "test:unit": "npm run build && node --test tests/unit/*.test.cjs",
-    "prototype:maathai-field": "npm run build && node scripts/build-maathai-field-prototype.cjs"
+    "prototype:maathai-field": "npm run build && node scripts/build-maathai-field-prototype.cjs",
+    "prototype:maathai-field2": "npm run build && node scripts/build-maathai-field2-prototype.cjs"
   }
 }
