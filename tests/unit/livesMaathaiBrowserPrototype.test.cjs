@@ -58,7 +58,7 @@ test('browser prototype provides plain-language provenance and capability-change
   const app=appSource();
   assert.match(app,/Supported statements/);
   assert.match(app,/Where those statements come from/);
-  assert.match(app,/What became newly possible/);
+  assert.match(app,/What could now be done that could not be done before/);
   assert.match(app,/New limits that now matter/);
   const c=p.route.deep.claims.find(x=>x.claimId==='M-C2');
   assert.deepEqual(Array.from(c.sourceIds),['WM-S02','WM-S03']);
@@ -75,7 +75,7 @@ test('VR browser sequence ends with Authorial Return then OFF',()=>{
 
 test('browser return UI requires relation difference uncertainty and carry-forward question',()=>{
   const app=appSource();
-  assert.match(app,/What structural relation did you notice/);
+  assert.match(app,/What pattern did you notice that might matter somewhere else/);
   assert.match(app,/What is importantly different in another context/);
   assert.match(app,/What remains uncertain/);
   assert.match(app,/What question would you carry forward/);
