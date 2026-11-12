@@ -13,11 +13,11 @@ test('framework-naive orientation defines all seven distinctions in plain langua
     'Where we are in the life',
     'What we can say now',
     'Where that statement comes from',
-    'What could now be done that could not be done before\?',
+    'What could now be done that could not be done before?',
     'What you are not being shown yet',
-    'What pattern might apply somewhere else\?',
+    'What pattern might apply somewhere else?',
     'What you take away'
-  ]) assert.match(s,new RegExp(phrase));
+  ]) assert.ok(s.includes(phrase),phrase);
 });
 
 test('timeline uses bounded-period language rather than requiring state vocabulary',()=>{
@@ -40,7 +40,7 @@ test('supported statements and sources are presented as different interface obje
 
 test('capability change is explained as newly reachable action and not automatically progress',()=>{
   const s=app();
-  assert.match(s,/What could now be done that could not be done before\?/);
+  assert.ok(s.includes('What could now be done that could not be done before?'));
   assert.match(s,/New capability can also bring new costs or constraints/);
   assert.match(spec(),/reachable action/);
 });
@@ -54,7 +54,7 @@ test('hidden future explains the purpose of withholding later outcomes',()=>{
 
 test('portability is introduced as a pattern to test rather than copying a tactic',()=>{
   const s=app();
-  assert.match(s,/What pattern might apply somewhere else\?/);
+  assert.ok(s.includes('What pattern might apply somewhere else?'));
   assert.match(s,/A pattern to test, not a recipe to copy/);
   assert.match(s,/FSP deeper label: structural relation/);
   assert.match(s,/What should not be copied from the case/);
@@ -64,7 +64,7 @@ test('Return is learner-authored and requires difference uncertainty and a forwa
   const s=app();
   assert.match(s,/What you take away — in your own words/);
   assert.match(s,/There is no single correct takeaway/);
-  assert.match(s,/What pattern did you notice that might matter somewhere else\?/);
+  assert.ok(s.includes('What pattern did you notice that might matter somewhere else?'));
   assert.match(s,/What is importantly different in another context/);
   assert.match(s,/What remains uncertain/);
   assert.match(s,/What question would you carry forward/);
