@@ -10,6 +10,7 @@
     "test": "npm run build && node --test tests/acceptance/*.test.cjs tests/micro/*.test.cjs tests/unit/*.test.cjs",
     "test:acceptance": "npm run build && node --test tests/acceptance/*.test.cjs",
     "test:micro": "npm run build && node --test tests/micro/*.test.cjs",
-    "test:unit": "npm run build && node --test tests/unit/*.test.cjs"
+    "test:unit": "npm run build && node --test tests/unit/*.test.cjs",
+    "prototype:maathai-field": "npm run build && node scripts/build-maathai-field-prototype.cjs"
   }
 }
