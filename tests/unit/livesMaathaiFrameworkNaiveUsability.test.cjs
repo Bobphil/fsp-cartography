@@ -69,7 +69,7 @@ test('Return is learner-authored and requires difference uncertainty and a forwa
 test('plain-language patch preserves person and phenomenology firewalls',()=>{
   const s=app();
   assert.match(s,/not Maathai as a whole/);
-  assert.match(s,/cannot give you Maathai's exact first-person experience/);
+  assert.ok(s.includes("cannot give you Maathai\\'s exact first-person experience") || s.includes("cannot give you Maathai's exact first-person experience"));
 });
 
 test('usability specification explicitly distinguishes design pass from human evidence',()=>{
