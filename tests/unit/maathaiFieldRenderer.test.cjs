@@ -7,6 +7,9 @@ const {
   MAATHAI_1976_FIELD_PROJECTION,
   temporalProjectionForPath,
   gateDecomposition,
+  temporalLensProfile,
+  visiblePathsForTemporalMode,
+  contingencyBurden,
   radialPosition,
   validateMaathaiFieldProjection
 }=require('../../dist/research/maathaiFieldRenderer.js');
@@ -49,6 +52,26 @@ test('radial geometry moves possibilities outward with temporal depth',()=>{
   assert.ok(b.radius>a.radius);
 });
 
+test('temporal lens expands horizon in ordered Freeze Slow Normal Accelerate modes',()=>{
+  assert.equal(temporalLensProfile('FREEZE').maxDepth,1);
+  assert.equal(temporalLensProfile('SLOW').maxDepth,2);
+  assert.equal(temporalLensProfile('NORMAL').maxDepth,3);
+  assert.equal(temporalLensProfile('ACCELERATE').maxDepth,4);
+  assert.ok(visiblePathsForTemporalMode('FREEZE').every(p=>p.temporalDepth===1));
+  assert.ok(visiblePathsForTemporalMode('SLOW').some(p=>p.temporalDepth===2));
+  assert.ok(!visiblePathsForTemporalMode('SLOW').some(p=>p.temporalDepth===3));
+  assert.ok(visiblePathsForTemporalMode('ACCELERATE').some(p=>p.pathId==='P-ADVOCATE'));
+});
+
+test('distant possibilities expose larger unresolved contingency stacks without becoming probabilities',()=>{
+  const near=contingencyBurden('P-RESEARCH');
+  const distant=contingencyBurden('P-ADVOCATE');
+  assert.ok(distant.unresolvedCount>near.unresolvedCount);
+  assert.ok(distant.burden>near.burden);
+  assert.ok(distant.unresolved.some(r=>r.status==='ABSENT'));
+  assert.ok(distant.unresolved.some(r=>r.status==='UNKNOWN'));
+});
+
 test('non-deployed SVG prototype exists outside site tree',()=>{
   const dir=path.join(root,'prototypes/maathai-field-1');
   assert.equal(dir.includes(path.join('site',path.sep)),false);
@@ -56,8 +79,13 @@ test('non-deployed SVG prototype exists outside site tree',()=>{
   const app=fs.readFileSync(path.join(dir,'app.js'),'utf8');
   assert.match(html,/NON-DEPLOYED/);
   assert.match(html,/Distance means more must change first/);
+  assert.match(html,/Freeze/);
+  assert.match(html,/Slow/);
+  assert.match(html,/Accelerate/);
   assert.match(app,/window\.FSP_MAATHAI_FIELD_1/);
   assert.match(app,/What is already present \/ still needed/);
+  assert.match(app,/visibleByTime/);
+  assert.match(app,/Contingency stack/);
 });
 
 test('renderer offers gate decomposition provenance remainder scaffold fading and Return',()=>{
