@@ -1,0 +1,13 @@
+{
+  "baselineId": "FSP-LIVES-USABILITY-PILOT-1.0",
+  "status": "FROZEN FOR FIRST FIVE FRAMEWORK-NAIVE PARTICIPANTS",
+  "participantSurface": "./index.html",
+  "observerSurface": "./observer.html",
+  "canonicalDossierOwner": "FSP-LIVES-IN-TRANSFORMATION-PILOT-1",
+  "publicRouteContract": "FSP-LIVES-PUBLIC-ROUTE-1",
+  "vrProjectionContract": "FSP-VR-MAATHAI-2.0-PROJECTION-1",
+  "dataCollection": "observer localStorage only; participant surface collects nothing automatically",
+  "navigation": "unlinked from main Encyclopedia",
+  "robots": "noindex,nofollow",
+  "freezeRule": "Do not change participant-facing wording during participants 1-5. If a material patch is required, increment the baseline version and restart the baseline cohort."
+}
