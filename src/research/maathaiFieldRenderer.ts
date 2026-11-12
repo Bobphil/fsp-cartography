@@ -12,10 +12,19 @@ export interface TemporalPathProjection{
   distanceMeaning:string;
   requirements:GateRequirement[];
 }
+export type TemporalLensMode="FREEZE"|"SLOW"|"NORMAL"|"ACCELERATE";
+export interface TemporalLensProfile{
+  mode:TemporalLensMode;
+  maxDepth:1|2|3|4;
+  label:string;
+  purpose:string;
+  decomposition:"MAXIMUM"|"STRONG"|"BALANCED"|"CONTINGENCY_STACK";
+}
 export interface MaathaiFieldProjection{
   sceneId:string;
   centerLocusId:string;
   timeRings:Array<{depth:0|1|2|3|4;label:string;radius:number}>;
+  temporalLens:TemporalLensProfile[];
   pathProjection:TemporalPathProjection[];
   horizonLabel:string;
 }
@@ -31,6 +40,12 @@ export const MAATHAI_1976_FIELD_PROJECTION:MaathaiFieldProjection={
     {depth:2,label:"requires capability or relationship development",radius:245},
     {depth:3,label:"requires institutional mediation",radius:340},
     {depth:4,label:"requires substantial structural change",radius:430}
+  ],
+  temporalLens:[
+    {mode:"FREEZE",maxDepth:1,label:"Freeze",purpose:"Hold the historical present and maximize close inspection of relations, evidence, constraints, and gate prerequisites.",decomposition:"MAXIMUM"},
+    {mode:"SLOW",maxDepth:2,label:"Slow",purpose:"Expose near-term capability and relationship development without collapsing uncertainty.",decomposition:"STRONG"},
+    {mode:"NORMAL",maxDepth:3,label:"Normal",purpose:"Expose the middle field where institutional mediation and authorization dependencies become visible.",decomposition:"BALANCED"},
+    {mode:"ACCELERATE",maxDepth:4,label:"Accelerate",purpose:"Expose structurally distant possibilities together with the larger contingency stack required to make them present.",decomposition:"CONTINGENCY_STACK"}
   ],
   pathProjection:[
     {pathId:"P-RESEARCH",temporalDepth:1,distanceMeaning:"Can be attempted using capabilities substantially already present.",requirements:[
@@ -88,6 +103,30 @@ export function gateDecomposition(pathId:string){
     unknown:p.requirements.filter(r=>r.status==="UNKNOWN")
   };
 }
+export function temporalLensProfile(mode:TemporalLensMode){
+  const p=MAATHAI_1976_FIELD_PROJECTION.temporalLens.find(x=>x.mode===mode);
+  if(!p) throw new Error("missing-temporal-lens:"+mode);
+  return structuredClone(p);
+}
+export function visiblePathsForTemporalMode(mode:TemporalLensMode){
+  const lens=temporalLensProfile(mode);
+  return MAATHAI_1976_FIELD_PROJECTION.pathProjection
+    .filter(p=>p.temporalDepth<=lens.maxDepth)
+    .map(p=>structuredClone(p));
+}
+export function contingencyBurden(pathId:string){
+  const p=temporalProjectionForPath(pathId);
+  const unresolved=p.requirements.filter(r=>r.status!=="PRESENT");
+  const weights:Record<RequirementStatus,number>={PRESENT:0,PARTIAL:1,ABSENT:2,UNKNOWN:2};
+  return {
+    pathId,
+    temporalDepth:p.temporalDepth,
+    requirementCount:p.requirements.length,
+    unresolvedCount:unresolved.length,
+    burden:unresolved.reduce((sum,r)=>sum+weights[r.status],0),
+    unresolved:structuredClone(unresolved)
+  };
+}
 export function radialPosition(pathId:string,indexWithinDepth:number,totalWithinDepth:number){
   const p=temporalProjectionForPath(pathId);
   const ring=MAATHAI_1976_FIELD_PROJECTION.timeRings.find(r=>r.depth===p.temporalDepth)!;
@@ -105,6 +144,10 @@ export function validateMaathaiFieldProjection(scene:VisualScene=MAATHAI_1976_VI
     if(p.temporalDepth<1||p.temporalDepth>4) failures.push("invalid-depth:"+p.pathId);
     if(!p.requirements.length) failures.push("missing-requirements:"+p.pathId);
   }
+  const expectedModes:TemporalLensMode[]=["FREEZE","SLOW","NORMAL","ACCELERATE"];
+  for(const mode of expectedModes) if(!MAATHAI_1976_FIELD_PROJECTION.temporalLens.some(x=>x.mode===mode)) failures.push("missing-temporal-mode:"+mode);
+  const depths=expectedModes.map(mode=>temporalLensProfile(mode).maxDepth);
+  if(depths.join(",")!=="1,2,3,4") failures.push("temporal-mode-depth-order");
   const advocate=gateDecomposition("P-ADVOCATE");
   if(!advocate.absent.some(r=>r.kind==="AUTHORITY")) failures.push("advocacy-authority-not-decomposed");
   return {passes:failures.length===0,failures};
