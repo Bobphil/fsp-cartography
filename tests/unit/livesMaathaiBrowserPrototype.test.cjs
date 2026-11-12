@@ -13,12 +13,13 @@ function loadPrototypeData(){
   vm.runInNewContext(code,context);
   return context.window.FSP_LIVES_MAATHAI_PROTOTYPE;
 }
+function appSource(){return fs.readFileSync(path.join(protoDir,'app.js'),'utf8')}
 
 test('prototype lives outside deployed site tree and is explicitly marked non-deployed',()=>{
   assert.equal(protoDir.includes(path.join('site',path.sep)),false);
   const html=fs.readFileSync(path.join(protoDir,'index.html'),'utf8');
-  assert.match(html,/NON-DEPLOYED/);
   assert.match(html,/noindex,nofollow/);
+  assert.match(appSource(),/NON-DEPLOYED/);
 });
 
 test('prototype is compiled from canonical Lives and VR projection owners',()=>{
@@ -52,13 +53,13 @@ test('early browser states preserve hidden-future behavior',()=>{
   assert.ok(reveal.hiddenClaimIds.includes('M-C4'));
 });
 
-test('browser prototype provides provenance inspection and capability delta content',()=>{
+test('browser prototype provides plain-language provenance and capability-change content',()=>{
   const p=loadPrototypeData();
-  const app=fs.readFileSync(path.join(protoDir,'app.js'),'utf8');
-  assert.match(app,/Claims and provenance/);
-  assert.match(app,/Recoverable provenance/);
-  assert.match(app,/Capability delta/);
-  assert.match(app,/New constraints/);
+  const app=appSource();
+  assert.match(app,/Supported statements/);
+  assert.match(app,/Where those statements come from/);
+  assert.match(app,/What became newly possible/);
+  assert.match(app,/New limits that now matter/);
   const c=p.route.deep.claims.find(x=>x.claimId==='M-C2');
   assert.deepEqual(c.sourceIds,['WM-S02','WM-S03']);
 });
@@ -72,14 +73,14 @@ test('VR browser sequence ends with Authorial Return then OFF',()=>{
   assert.equal(p.vr.lifeNavigationOptional,true);
 });
 
-test('browser return UI requires structural relation difference remainder and carry-forward question',()=>{
-  const app=fs.readFileSync(path.join(protoDir,'app.js'),'utf8');
-  assert.match(app,/Structural relation/);
-  assert.match(app,/Contextual difference/);
-  assert.match(app,/Remainder/);
-  assert.match(app,/Carry-forward question/);
-  assert.match(app,/RETURN READY/);
-  assert.match(app,/No personal recommendation is generated/);
+test('browser return UI requires relation difference uncertainty and carry-forward question',()=>{
+  const app=appSource();
+  assert.match(app,/What structural relation did you notice/);
+  assert.match(app,/What is importantly different in another context/);
+  assert.match(app,/What remains uncertain/);
+  assert.match(app,/What question would you carry forward/);
+  assert.match(app,/YOUR RETURN IS BOUNDED ENOUGH/);
+  assert.match(app,/No personal recommendation has been generated/);
 });
 
 test('local prototype build command regenerates data from compiled research models',()=>{
