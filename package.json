@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "build:browser": "tsc -p tsconfig.browser.json",
+    "prototype:lives": "npm run build && node scripts/build-lives-maathai-prototype.cjs",
     "test": "npm run build && node --test tests/acceptance/*.test.cjs tests/micro/*.test.cjs tests/unit/*.test.cjs",
     "test:acceptance": "npm run build && node --test tests/acceptance/*.test.cjs",
     "test:micro": "npm run build && node --test tests/micro/*.test.cjs",
