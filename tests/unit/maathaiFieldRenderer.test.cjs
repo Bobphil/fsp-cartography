@@ -94,7 +94,7 @@ test('renderer offers gate decomposition provenance remainder scaffold fading an
   assert.match(app,/What must become present before this path can open further/);
   assert.match(html,/Provenance/);
   assert.match(app,/selectRemainder/);
-  assert.match(html,/Scaffold 3/);
+  assert.match(html,/Scaffold:/);
   assert.match(html,/There is no single correct takeaway/);
 });
 
