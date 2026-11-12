@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Observer · Lives Usability Pilot</title>
+<style>
+:root{--ink:#172033;--muted:#657085;--line:#d8deea;--wash:#f7f8fb;--accent:#294b82;--good:#226645}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);font:16px/1.5 system-ui,sans-serif}.wrap{max-width:980px;margin:auto;padding:28px 22px 80px}h1,h2{font-family:Georgia,serif}.meta,.note{background:var(--wash);border:1px solid var(--line);border-radius:14px;padding:1rem}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.8rem}.field{margin:.9rem 0}.field label,.q label{display:block;font-weight:700;margin-bottom:.3rem}input,select,textarea{width:100%;font:inherit;padding:.6rem;border:1px solid #bbc5d5;border-radius:8px}textarea{min-height:82px}.q{border-top:1px solid var(--line);padding:1.1rem 0}.q h3{margin:.1rem 0 .65rem}.errors{display:flex;gap:.65rem;flex-wrap:wrap}.errors label{font-weight:400}.errors input{width:auto}.actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}button,a.btn{font:inherit;border:1px solid var(--accent);border-radius:999px;padding:.6rem .95rem;text-decoration:none;background:#fff;color:var(--accent);cursor:pointer}button.primary{background:var(--accent);color:#fff}.saved{color:var(--good);font-weight:700}.small{font-size:.86rem;color:var(--muted)}code{background:#eef1f6;padding:.1rem .3rem;border-radius:5px}
+</style>
+</head>
+<body>
+<main class="wrap">
+<div class="meta">
+<div><strong>Baseline:</strong> FSP-LIVES-USABILITY-PILOT-1.0</div>
+<div><strong>Participant surface:</strong> <a href="./" target="_blank">open in a separate tab</a></div>
+<div class="small">Do not teach FSP vocabulary before the task. Do not change participant wording between participants 1–5.</div>
+</div>
+
+<h1>Observer / Researcher View</h1>
+
+<section>
+<h2>Neutral recruitment message</h2>
+<div class="note">
+<p>I’m testing a new browser-based historical learning interface. I’m looking for people who have not used Full-Stack Philosophy before. The test is about whether the interface communicates clearly, not about your knowledge or performance. You’ll explore a short historical case and then answer seven questions about what you thought the page meant. Participation is voluntary, and you may stop at any time.</p>
+</div>
+
+<h2>Participant introduction / consent script</h2>
+<div class="note">
+<p>Thank you for helping test this interface. We are testing the interface, not you. Please use it in your normal way. I will not explain unfamiliar terms while you are exploring, because we need to know what the interface communicates by itself. If something is confusing, please say so. You may stop at any time. I will record your answers about the interface and brief usability notes; please do not share personal information that is not needed for the test.</p>
+<p class="small">For formal institutional or publishable human-subject research, confirm the applicable IRB/human-subject requirements before treating these observations as research data.</p>
+</div>
+</section>
+
+<form id="observer-form">
+<h2>Session record</h2>
+<div class="grid">
+<div class="field"><label>Participant ID</label><input name="participantId" required placeholder="P01"></div>
+<div class="field"><label>Date</label><input type="date" name="date"></div>
+<div class="field"><label>Observer</label><input name="observer"></div>
+<div class="field"><label>Prior FSP exposure</label><select name="priorExposure"><option>none</option><option>uncertain</option><option>some</option></select></div>
+</div>
+
+<div id="questions"></div>
+
+<h2>Observed error codes</h2>
+<div class="errors" id="errors"></div>
+
+<h2>Free observation</h2>
+<div class="field"><label>Longest hesitation</label><textarea name="longestHesitation"></textarea></div>
+<div class="field"><label>Label misunderstood</label><textarea name="labelMisunderstood"></textarea></div>
+<div class="field"><label>Self-correction</label><textarea name="selfCorrection"></textarea></div>
+<div class="field"><label>Attempted click that was not interactive</label><textarea name="attemptedClick"></textarea></div>
+<div class="field"><label>Change suggested before next participant</label><textarea name="changeSuggested"></textarea></div>
+
+<div class="actions">
+<button class="primary" type="submit">Save session locally</button>
+<button type="button" id="export">Export all sessions as CSV</button>
+<button type="button" id="clear">Clear local sessions</button>
+</div>
+<p id="save-status"></p>
+</form>
+
+<section>
+<h2>Frozen pass thresholds</h2>
+<div class="note">
+<p>A distinction passes if at least <strong>4 of 5</strong> readers can explain it in ordinary language without being supplied the FSP term.</p>
+<ul>
+<li>At least 5 of 7 distinctions must pass overall.</li>
+<li>Timeline period must pass.</li>
+<li>Hidden future must pass.</li>
+<li>Source vs. statement may collapse in no more than one reader.</li>
+<li>Portability may become direct imitation in no more than one reader.</li>
+<li>Return may become a single-correct-answer task in no more than one reader.</li>
+</ul>
+</div>
+</section>
+</main>
+<script src="./observer.js"></script>
+</body>
+</html>
