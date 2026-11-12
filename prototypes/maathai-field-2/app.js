@@ -192,6 +192,18 @@ function updateStyles(){
     ref.group.style.opacity=inRange?"1":ghost?".34":".06";
     ref.group.style.pointerEvents=inRange||pinned?"all":"none";
     ref.line.setAttribute("class","path-line "+(pathData(id).state==="CONDITIONAL"?"conditional ":"")+(pinned?"pinned ":"")+(traced&&!pinned?"trace ":""));
+    var terminal=pointFor(id);
+    if(state.expandedGatePathId===id){
+      var block=firstBlocking(id);
+      if(block){
+        var stop=requirementPoint(id,block.fraction);
+        ref.line.setAttribute("x2",stop.x);
+        ref.line.setAttribute("y2",stop.y);
+      }
+    }else{
+      ref.line.setAttribute("x2",terminal.x);
+      ref.line.setAttribute("y2",terminal.y);
+    }
     ref.node.setAttribute("class","path-node "+(pinned?"pinned":""));
     var showBeads=state.level>=3 || state.selectedPathId===id || pinned || state.expandedGatePathId===id;
     ref.beads.style.opacity=showBeads?"1":state.level>=2?".32":"0";
