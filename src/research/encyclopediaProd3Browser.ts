@@ -284,6 +284,54 @@ export async function mountProd3(root:HTMLElement){
     if(id==="FSP-TRANSFORMATION-OBSERVATORY-GUIDE"){renderTransformationGuide(main);return;}
     if(id==="FSP-TRANSFORMATION-WORKBENCH"){renderTransformationWorkbench(main);return;}
     if(/^FW-\\d{2}$/.test(id)){renderFirewallProvenance(main,id);return;}
+    if(id==="FSP-FULL-STACK-ESSAY"){
+      main.innerHTML='<section class="panel"><div class="muted">PUBLIC ORIENTATION · WHY FULL-STACK?</div><h2>Why We Need a Full-Stack Philosophy</h2><p class="muted">Knowledge, difference, cooperation, and the problem of living well together.</p><p>We live with partial knowledge, highly specialized sciences, different moral and cultural worlds, and shared problems that do not wait for comprehensive agreement. FSP asks how we can understand enough to act responsibly together without pretending that every map, discipline, or worldview is the same.</p><p><strong>EXPERIENCE → INQUIRE → DECOMPRESS → LEARN → COMPARE → ACT → RETURN</strong></p><p class="warning"><strong>Better inquiry is not the final destination. It is part of the equipment for better governed Doing.</strong></p></section>';
+
+      const cases=document.createElement("section");cases.className="panel";
+      cases.innerHTML="<h3>Four human entrances</h3><p class=\"muted\">Begin with a recognizable problem. The deeper FSP architecture is available only when it helps.</p>";
+      const grid=document.createElement("div");grid.className="grid";
+      [
+        ["Medicine & Public Health","How does evidence move from laboratory and population studies to a decision affecting an actual person?","FSP-JTS-FLNH"],
+        ["Science Across Disciplines","How can specialized sciences combine results without pretending their models and vocabularies are identical?","SCI-ATLAS"],
+        ["Art, Culture & Interpretation","How can different ways of seeing remain genuinely different while becoming mutually inspectable?","DOMAIN-AESTHETICS"],
+        ["Maathai & Shared Action","How can people cooperate on an important real-world task without first agreeing about religion, politics, morality, or the good life?","FSP-JTS"]
+      ].forEach(([title,body,target])=>{
+        const card=document.createElement("article");card.className="card";
+        card.innerHTML="<strong>"+esc(title)+"</strong><p>"+esc(body)+"</p>";
+        card.append(mkButton("Explore",()=>go({kind:"NODE",id:target})));
+        grid.append(card);
+      });
+      cases.append(grid);main.append(cases);
+
+      const stack=document.createElement("section");stack.className="panel";
+      stack.innerHTML='<h3>The full stack</h3><p><strong>Lived Doing → Attention → Representation → Evidence → Inference → Specialized Inquiry → Translation → Comparison → Judgment → Authorization → Cooperation → Action → Consequence → Return → REOPEN → Lived Doing again</strong></p><p>Most disciplines and philosophical traditions specialize in parts of this sequence. FSP\'s distinctive ambition is to keep the crossings visible—especially where evidence becomes interpretation, models move between domains, judgment becomes authorization, or individual conclusions become institutional action.</p><p class="warning"><strong>Shared governance grammar ≠ shared ontology, method, value system, or final interpretation.</strong></p>';
+      main.append(stack);
+
+      const plural=document.createElement("section");plural.className="panel";
+      plural.innerHTML='<h3>Pluralism and convergence create opposite pressures</h3><p><strong>Pluralism:</strong> many maps may fragment coordination. FSP asks where sufficient overlap exists for responsible cooperation without manufacturing false convergence.</p><p><strong>Convergence:</strong> one dominant map may become invisible as a map. FSP asks what remainder, alternative, affected person, or suppressed possibility has become difficult to see.</p><p><strong>COOPERATION ≠ CONVERGENCE</strong><br><strong>OVERLAP ≠ CONSENSUS</strong><br><strong>CONVERGENCE ≠ CLOSURE</strong></p>';
+      main.append(plural);
+
+      const translation=document.createElement("section");translation.className="panel";
+      translation.innerHTML='<h3>Why science, aesthetics, and culture all belong here</h3><p>Science increasingly depends on disciplined translation across specialties: a model, measurement, trial, or population result must move into another domain without silently gaining stronger meaning.</p><p>Aesthetic and cultural inquiry pose a different problem. Several maps may disclose different aspects of the same work, practice, or history without one method legitimately absorbing all the others.</p><p>FSP therefore seeks <strong>portability without totalization</strong>: make enough of a map inspectable to support inquiry or cooperation while preserving what does not travel cleanly.</p>';
+      main.append(translation);
+
+      const coop=document.createElement("section");coop.className="panel";
+      coop.innerHTML='<h3>From understanding to cooperation</h3><p>When people remain divided about ultimate reasons, the practical question becomes: <strong>What can these agents responsibly do together now?</strong></p><p>A Joint Task Space identifies a bounded objective, each participant\'s reasons and constraints, standing and authorization, the shared action corridor, burdens, consequences, and REOPEN conditions.</p><p>Sometimes critical thinking helps decide among claims. Sometimes it helps redesign the task so that responsible cooperation becomes possible without ideological conversion.</p>';
+      const coopActions=document.createElement("div");coopActions.className="actions";
+      coopActions.append(mkButton("Joint Task Spaces",()=>go({kind:"NODE",id:"FSP-JTS"}),true),mkButton("Translation Governance",()=>go({kind:"NODE",id:"FSP-TRANSLATION"})),mkButton("Firewall Provenance",()=>go({kind:"NODE",id:"FSP-FIREWALLS"})));
+      coop.append(coopActions);main.append(coop);
+
+      const flourish=document.createElement("section");flourish.className="panel";
+      flourish.innerHTML='<h3>Why any of this matters</h3><p>People seek health, security, belonging, freedom, competence, meaning, creativity, care, and futures worth inhabiting. They disagree about how these goods should be understood and ranked.</p><p>FSP does not impose one official theory of the good life. It asks: <strong>Better in what respect? Better for whom? According to whose map? Who bears the cost? Which capabilities expand? What happens after we act?</strong></p><p>Inquiry therefore returns to consequence. Success along one dimension is not total success.</p>';
+      main.append(flourish);
+
+      const returnSec=document.createElement("section");returnSec.className="panel";
+      returnSec.innerHTML='<h3>Return</h3><p>The public route is intentionally progressive:</p><p><strong>human problem → case → extended critical thinking → translation → cooperation → capability / authorization → consequence → Return → optional formal depth</strong></p><p>This orientation is a map of why FSP exists, not evidence that FSP is empirically superior or universally portable.</p>';
+      const ra=document.createElement("div");ra.className="actions";
+      ra.append(mkButton("Return Home",()=>go({kind:"NODE",id:"FSP-HOME"}),true),mkButton("Why FSP? · Short orientation",()=>go({kind:"NODE",id:"FSP-WHY"})),mkButton("Critical Thinking",()=>go({kind:"NODE",id:"CT-HOME"})));
+      returnSec.append(ra);main.append(returnSec);
+      return;
+    }
     const n=byId("nodes",id);if(!n)return renderMissing(main,id);
     main.innerHTML='<div class="panel"><div class="muted">'+esc(n.id)+' · '+esc(n.status)+'</div><h2>'+esc(n.title)+'</h2><p>'+esc(n.summary)+'</p><p><strong>Canonical claim:</strong> '+esc(n.canonicalClaim)+'</p></div>';
     if(id==="FSP-HOME"){
@@ -293,6 +341,7 @@ export async function mountProd3(root:HTMLElement){
       [
         ["FSP-DOMAINS","Domains","Enter Inquiry & Science, Ethics, History of Philosophy, Logic & Argument, Aesthetics, Institutions & Connected Doing, Core, and Formal / Executable FSP."],
         ["FSP-CONSTITUTION","Core","Inspect the thin constitutional grammar shared across domains without replacing their native ontologies."],
+        ["FSP-FULL-STACK-ESSAY","Why We Need a Full-Stack Philosophy","Start with the human problem: partial knowledge, specialized expertise, different values, and shared tasks that require responsible action without complete convergence."],
         ["FSP-RESOURCES","Resources","Browse cross-domain resources such as Why FSP?, Critical Thinking, Tools, Failure Atlas, and the Scientific Atlas."],
         ["FSP-ROUTES","Routes","Follow books, courses, laboratories, and workspaces through canonical resources."],
         ["FSP-ABOUT","About","See how the Encyclopedia is organized, governed, and kept corrigible."],
@@ -312,6 +361,7 @@ export async function mountProd3(root:HTMLElement){
         mkButton("Standard explanation",()=>go({kind:"NODE",id:"FSP-JTS"})),
         mkButton("Deep / Formal",()=>go({kind:"NODE",id:"FSP-TRANSLATION"}))
       );
+      da.prepend(mkButton("Long-form public orientation",()=>go({kind:"NODE",id:"FSP-FULL-STACK-ESSAY"}),true));
       depth.append(da);main.append(depth);
       return;
     }
