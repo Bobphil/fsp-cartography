@@ -141,7 +141,7 @@ export function validateDevelopmentalEntry(){
   const failures:string[]=[];
   if(DEVELOPMENTAL_STAGES.length!==13) failures.push("stage-count");
   if(DEVELOPMENTAL_STAGES[0].id!=="D0_PEDAGOGICAL_ZERO") failures.push("bad-start");
-  if(DEVELOPMENTAL_STAGES.at(-1)?.id!=="D12_LIFE_LOTTERY_HANDOFF") failures.push("bad-handoff");
+  if(DEVELOPMENTAL_STAGES[DEVELOPMENTAL_STAGES.length-1]?.id!=="D12_LIFE_LOTTERY_HANDOFF") failures.push("bad-handoff");
   for(let i=0;i<DEVELOPMENTAL_STAGES.length-1;i++){
     if(DEVELOPMENTAL_STAGES[i].next!==DEVELOPMENTAL_STAGES[i+1].id) failures.push("broken-sequence:"+DEVELOPMENTAL_STAGES[i].id);
   }
