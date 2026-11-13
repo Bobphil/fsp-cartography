@@ -170,3 +170,27 @@ This is distinct from:
 This orientation explains the purpose and public constitutional commitments of FSP.
 
 It does not attempt a complete academic defense, intellectual history, comparator analysis, or formal derivation of FSP. Those belong in deeper research and reference layers.
+
+## Long-form public orientation route
+
+The `What is FSP?` entrance should offer a second, narrative route:
+
+> **Why We Need a Full-Stack Philosophy**
+
+This route is owned by `FSP-ENCYCLOPEDIA-FULL-STACK-ESSAY-1.md`.
+
+It explains the larger human purpose of FSP through four case apertures:
+- medicine / public health;
+- cross-disciplinary science;
+- aesthetics / cultural difference;
+- Maathai / cooperation without convergence.
+
+The long-form route should precede formal decompression for readers who want to understand why the architecture matters before learning its internal vocabulary.
+
+Public progression:
+
+`human problem → case → extended critical thinking → translation → cooperation → capability / authorization → consequence → Return → optional formal depth`
+
+Firewall:
+
+> **Public orientation ≠ requirement to learn FSP terminology before entering a domain.**
