@@ -1046,3 +1046,29 @@ RELATION
 ```
 
 **Compression is successful only if decompression remains available when reality, stakes, or disagreement demand it.**
+
+# Constitutional Amendment: Cooperation Without Convergence
+
+FSP adopts the standing principle:
+
+> **COOPERATION ≠ CONVERGENCE**
+
+and:
+
+> **SHARED ACTION ≠ SHARED ULTIMATE REASONS**
+
+For bounded real-world task spaces, differently situated agents may coordinate responsibly without converging on one morality, religion, metaphysics, ideology, or theory of flourishing. The governing question is:
+
+> **What can these agents responsibly do together now while preserving the disagreements that remain unresolved?**
+
+This requires explicit Joint Task Space governance, overlapping authorization, bounded coalitions, preserved dissent/nonparticipation, distributional inspection, consequential Return, and REOPEN.
+
+The practical bridge rule is:
+
+> **COOPERATION WITHOUT CONVERGENCE**
+
+as the coordination analogue of:
+
+> **PORTABILITY WITHOUT TOTALIZATION**
+
+Use FSP-CONSTITUTIONAL-AMENDMENT-COOPERATION-1.md as the standing decompression guide. Future constitutional and application work should not assume the default path better inquiry → convergence → cooperation; it must also preserve better inquiry → clearer differences → governed translation → overlapping authorization → bounded cooperation → consequential Return.
