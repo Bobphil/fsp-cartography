@@ -293,3 +293,24 @@ concept → tool → case object → source → claim ceiling → return
 The same architecture can then be used for all four chapters and all five dossiers.
 
 The next production step after certification should be a **public shell implementation**, not immediate prose expansion: Home + chapter index + case index + concept/tool index + comparison index, all linking to the already-running CH1.2 pilot as the first complete vertical slice.
+
+## 2.1 Full-stack public orientation essay
+
+The public `What is FSP?` entrance now contains a long-form narrative route owned by `FSP-ENCYCLOPEDIA-FULL-STACK-ESSAY-1.md`.
+
+Its function is to connect the technical architecture to its broader human purpose:
+
+`situated experience → inquiry → specialization → translation → pluralistic cooperation → capability / authorization → action → consequence → flourishing-oriented Return`
+
+The preferred public case apertures are:
+1. **Medicine / public health** — evidence, population-to-person translation, authorization, consequence.
+2. **Cross-disciplinary science** — portability without totalization.
+3. **Aesthetics / cultural difference** — plural maps without forced closure.
+4. **Maathai** — cooperation without convergence, bounded shared tasks, capability accumulation.
+
+These are explanatory apertures, not new canonical case dossiers. Where canonical case objects exist, deeper navigation must resolve to them; otherwise the essay remains an orientation example with an explicit claim ceiling.
+
+Reader-depth behavior:
+- **Read:** continuous essay and four human examples.
+- **Inspect:** expose concepts, firewalls, Joint Task Spaces, Cooperation Without Convergence, Dark Coherence, Capability ≠ Authorization, Return, and REOPEN.
+- **Formal:** route to the relevant constitutional and executable owners.
