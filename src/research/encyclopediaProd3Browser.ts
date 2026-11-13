@@ -293,8 +293,8 @@ export async function mountProd3(root:HTMLElement){
       [
         ["Medicine & Public Health","How does evidence move from laboratory and population studies to a decision affecting an actual person?","FSP-JTS-FLNH"],
         ["Science Across Disciplines","How can specialized sciences combine results without pretending their models and vocabularies are identical?","SCI-ATLAS"],
-        ["Art, Culture & Interpretation","How can different ways of seeing remain genuinely different while becoming mutually inspectable?","DOMAIN-AESTHETICS"],
-        ["Maathai & Shared Action","How can people cooperate on an important real-world task without first agreeing about religion, politics, morality, or the good life?","FSP-JTS"]
+        ["Art, Culture & Interpretation","How can different ways of seeing remain genuinely different while becoming mutually inspectable?","FSP-AESTHETICS-CULTURAL-APERTURE"],
+        ["Maathai & Shared Action","How can people cooperate on an important real-world task without first agreeing about religion, politics, morality, or the good life?","FSP-MAATHAI-APERTURE"]
       ].forEach(([title,body,target])=>{
         const card=document.createElement("article");card.className="card";
         card.innerHTML="<strong>"+esc(title)+"</strong><p>"+esc(body)+"</p>";
@@ -331,6 +331,30 @@ export async function mountProd3(root:HTMLElement){
       ra.append(mkButton("Return Home",()=>go({kind:"NODE",id:"FSP-HOME"}),true),mkButton("Why FSP? · Short orientation",()=>go({kind:"NODE",id:"FSP-WHY"})),mkButton("Critical Thinking",()=>go({kind:"NODE",id:"CT-HOME"})));
       returnSec.append(ra);main.append(returnSec);
       return;
+    }
+    if(id==="FSP-AESTHETICS-CULTURAL-APERTURE"){
+      main.innerHTML='<section class="panel"><div class="muted">PUBLIC CASE APERTURE · AESTHETICS / CULTURE</div><h2>Different Maps Without Forced Closure</h2><p>Imagine a museum exhibiting an object that one community regards as sacred while another treats it primarily as art. A curator may emphasize provenance and historical significance; an artist may emphasize form; members of the originating community may emphasize ritual use, custodial obligation, or cultural standing.</p><p>The problem is not solved merely by declaring every interpretation equally correct, nor by allowing one vocabulary to absorb all the others.</p><p class="warning"><strong>Shared inspectability ≠ forced interpretive convergence.</strong></p></section>';
+      const q=document.createElement("section");q.className="panel";
+      q.innerHTML='<h3>Extended critical-thinking questions</h3><p>Which claims are historical? Which are aesthetic? Which concern sacred use, ownership, standing, or public access? What evidence supports each? What does insider knowledge reveal? What can outsider comparison reveal? What is lost when one map translates the other?</p><p><strong>Insider understanding ≠ automatic moral authorization.</strong><br><strong>Outsider criticism ≠ complete understanding.</strong></p>';
+      main.append(q);
+      const deeper=document.createElement("section");deeper.className="panel";
+      deeper.innerHTML='<h3>Go deeper</h3><p>This aperture does not claim that the Aesthetics domain is already complete. It uses one bounded cultural-interpretive problem to expose translation, standing, provenance, remainder, and claim ceilings.</p>';
+      const a=document.createElement("div");a.className="actions";
+      a.append(mkButton("Translation Governance",()=>go({kind:"NODE",id:"FSP-TRANSLATION"}),true),mkButton("Firewall Provenance",()=>go({kind:"NODE",id:"FSP-FIREWALLS"})),mkButton("Aesthetics domain status",()=>go({kind:"NODE",id:"DOMAIN-AESTHETICS"})),mkButton("Return to Full-Stack Essay",()=>go({kind:"NODE",id:"FSP-FULL-STACK-ESSAY"})));
+      deeper.append(a);main.append(deeper);return;
+    }
+
+    if(id==="FSP-MAATHAI-APERTURE"){
+      main.innerHTML='<section class="panel"><div class="muted">PUBLIC CASE APERTURE · MAATHAI / SHARED ACTION</div><h2>Cooperation Without Convergence</h2><p>Tree planting can matter for many different reasons: firewood, soil protection, water, household labor, livelihood, ecological restoration, women\'s capability, civic organization, cultural continuity, or democratic standing.</p><p>Participants do not need one comprehensive moral, religious, or political theory before beginning a bounded shared task.</p><p><strong>different reasons → bounded shared task → coordinated Doing → consequence → capability accumulation → widened task space</strong></p><p class="warning"><strong>SHARED ACTION ≠ SHARED ULTIMATE REASONS. OVERLAP ≠ CONVERGENCE.</strong></p></section>';
+      const j=document.createElement("section");j.className="panel";
+      j.innerHTML='<h3>What FSP makes inspectable</h3><p>What is the bounded task? What does each participant independently authorize? What constraints must be preserved? Where does the common action corridor end? Who bears burdens? What new capabilities and relationships emerge? What remains unresolved after successful cooperation?</p><p>The Maathai pattern does not imply that every disagreement can be bridged or that every coalition is just. It shows how consequential shared Doing can sometimes begin before comprehensive agreement.</p>';
+      main.append(j);
+      const deeper=document.createElement("section");deeper.className="panel";
+      deeper.innerHTML='<h3>Go deeper</h3><p>Use Joint Task Spaces for the general cooperation architecture, or open the existing Maathai Lives pilot for the historical/transformational experience.</p>';
+      const a=document.createElement("div");a.className="actions";
+      a.append(mkButton("Joint Task Spaces",()=>go({kind:"NODE",id:"FSP-JTS"}),true),mkButton("Translation Governance",()=>go({kind:"NODE",id:"FSP-TRANSLATION"})),mkButton("Return to Full-Stack Essay",()=>go({kind:"NODE",id:"FSP-FULL-STACK-ESSAY"})));
+      const ext=document.createElement("a");ext.href="./pilot/lives-maathai/";ext.textContent="Open Maathai Lives pilot";ext.className="primary";ext.style.cssText="display:inline-block;text-decoration:none;border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:.45rem;padding:.45rem .7rem";
+      a.append(ext);deeper.append(a);main.append(deeper);return;
     }
     const n=byId("nodes",id);if(!n)return renderMissing(main,id);
     main.innerHTML='<div class="panel"><div class="muted">'+esc(n.id)+' · '+esc(n.status)+'</div><h2>'+esc(n.title)+'</h2><p>'+esc(n.summary)+'</p><p><strong>Canonical claim:</strong> '+esc(n.canonicalClaim)+'</p></div>';
