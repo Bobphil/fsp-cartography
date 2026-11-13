@@ -53,3 +53,19 @@ test('deployed public reader exposes long-form full-stack orientation and four h
     'human problem → case → extended critical thinking → translation → cooperation → capability / authorization → consequence → Return → optional formal depth'
   ]) assert.ok(source.includes(phrase),phrase);
 });
+
+test('all four full-stack public apertures have deeper routes and Return',()=>{
+  const fs=require('node:fs');
+  const path=require('node:path');
+  const source=fs.readFileSync(path.join(__dirname,'../../src/research/encyclopediaProd3Browser.ts'),'utf8');
+  for(const phrase of [
+    'FSP-JTS-FLNH',
+    'SCI-ATLAS',
+    'FSP-AESTHETICS-CULTURAL-APERTURE',
+    'FSP-MAATHAI-APERTURE',
+    'Return to Full-Stack Essay',
+    'Translation Governance',
+    'Joint Task Spaces',
+    'Open Maathai Lives pilot'
+  ]) assert.ok(source.includes(phrase),phrase);
+});
