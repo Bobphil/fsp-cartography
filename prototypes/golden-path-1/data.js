@@ -1,0 +1,1 @@
+window.FSP_GOLDEN_PATH_1={stages:"GENERATED_BY_COMPILER"};
