@@ -620,3 +620,44 @@ This document should be referenced by future FSP-VR and multimodal FSP builds wh
 The governing question remains:
 
 > **Are we actually showing and enabling this distinction—or have we merely written its name somewhere in the interface?**
+
+# 17. Cooperation Without Convergence / FIND OVERLAP
+
+FSP-VR adopts **FIND OVERLAP** as a reusable experiential operation.
+
+Experience:
+- two or more agents retain visibly distinct normative / evaluative fields;
+- separate reason paths remain attached to each agent;
+- a shared action corridor appears only where their independently authorized actions overlap;
+- proposed changes can widen, narrow, or eliminate that corridor;
+- disagreement remains visible after coordination.
+
+Learner operations:
+- select agents / maps;
+- expose relevant authorization sets;
+- inspect constraints and prohibitions;
+- invoke **FIND OVERLAP**;
+- modify scope, procedure, governance, consent, timing, distribution, reversibility, or oversight;
+- inspect whether overlap changes;
+- authorize only the bounded shared task;
+- Return with unresolved disagreement preserved.
+
+Stable firewalls:
+
+> **OVERLAP ≠ CONVERGENCE**
+>
+> **COOPERATION ≠ ENDORSEMENT**
+>
+> **TASK-LOCAL AGREEMENT ≠ WORLDVIEW AGREEMENT**
+
+Visual rule:
+
+> **Do not use a merge animation that implies worldview unification.**
+
+The common corridor should be shown as a bounded practical overlap inside non-identical normative worlds.
+
+Regression question:
+
+> **What can these agents responsibly do together now without pretending that they agree about everything else?**
+
+Canonical governance: FSP-CONSTITUTIONAL-AMENDMENT-COOPERATION-1.md.
