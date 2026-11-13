@@ -14,6 +14,7 @@
     "prototype:maathai-field": "npm run build && node scripts/build-maathai-field-prototype.cjs",
     "prototype:maathai-field2": "npm run build && node scripts/build-maathai-field2-prototype.cjs",
     "prototype:maathai-field3": "npm run build && node scripts/build-maathai-field3-prototype.cjs",
-    "prototype:developmental-entry": "npm run build && node scripts/build-developmental-entry-prototype.cjs"
+    "prototype:developmental-entry": "npm run build && node scripts/build-developmental-entry-prototype.cjs",
+    "prototype:golden-path": "npm run build && node scripts/build-golden-path-prototype.cjs"
   }
 }
