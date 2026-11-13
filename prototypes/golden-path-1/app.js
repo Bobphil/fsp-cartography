@@ -1,0 +1,47 @@
+(function(){
+"use strict";
+var P=window.FSP_GOLDEN_PATH_1;if(!P){document.body.innerHTML="<p>Run npm run prototype:golden-path.</p>";return;}
+var stages=P.stages,index=0,scaffold=3,acquired=[],spontaneous=[],freezeUsed=false,tracesInspected=false,reopened=false,evidenceCompared=false,ceilingEncountered=false;
+var stageEl=document.getElementById("stage"),panel=document.getElementById("panel"),label=document.getElementById("stage-label");
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]})}
+function current(){return stages[index]}
+function addOp(op,sp){if(!acquired.includes(op))acquired.push(op);if(sp&&!spontaneous.includes(op))spontaneous.push(op);if(op==="FREEZE_EXPAND")freezeUsed=true;if(op==="TRACE_BACKWARD")tracesInspected=true;if(op==="PLACE_SIDE_BY_SIDE")evidenceCompared=true;if(op==="HIT_BOUNDARY")ceilingEncountered=true;}
+function clear(){stageEl.className="stage";stageEl.innerHTML=""}
+function center(title,body){var d=document.createElement("div");d.className="center";d.innerHTML="<h1>"+esc(title)+"</h1><p>"+esc(body)+"</p>";stageEl.appendChild(d)}
+function obj(cls,x,y,t){var d=document.createElement("div");d.className="obj "+cls;d.style.left=x+"%";d.style.top=y+"%";d.style.transform="translate(-50%,-50%)";d.textContent=t||"";stageEl.appendChild(d);return d}
+function prompt(text){if(!text)return;var p=document.createElement("div");p.className="promptbox";p.textContent=text;stageEl.appendChild(p)}
+function scaffoldPrompt(s){
+ if(s.id!=="GP4_EXPECTATION_FAILURE")return s.prompt;
+ if(scaffold===3)return "Freeze?";
+ if(scaffold===2)return "⏸";
+ return null;
+}
+function panelHtml(s){
+ return "<h2>"+esc(s.label)+"</h2><div class=notice><strong>Current operation</strong><br>"+s.operation.map(esc).join(" · ")+"</div>"+
+ "<p><strong>What this scene must make possible</strong></p><ul><li>"+esc(s.contract.perceive)+"</li><li>"+esc(s.contract.act)+"</li><li>"+esc(s.contract.change)+"</li></ul>"+
+ "<p><strong>Learned distinctions</strong></p><ul>"+s.learnedDistinctions.map(function(x){return "<li>"+esc(x)+"</li>"}).join("")+"</ul>"+
+ s.firewalls.map(function(x){return "<div class=firewall>"+esc(x)+"</div>"}).join("")+
+ "<p class=small><strong>Acquired:</strong> "+(acquired.length?acquired.join(", "):"none yet")+"<br><strong>Spontaneous:</strong> "+(spontaneous.length?spontaneous.join(", "):"none yet")+"</p>";
+}
+function render(){
+ var s=current();clear();label.textContent=s.id+" · "+s.label;panel.innerHTML=panelHtml(s);
+ if(s.id==="GP0_ZERO"){center("Something happens.","Turn toward what draws your attention.");var o=obj("",72,38,"event");o.style.width="34px";o.style.height="34px";o.onclick=function(){addOp("TURN_RELOCATE",scaffold===0);o.textContent="noticed";panel.innerHTML=panelHtml(s)}}
+ else if(s.id==="GP1_DOING"){center("Try acting.","One thing follows you. One thing does not.");var hand=obj("",38,62,"moves");var inert=obj("block",68,45,"doesn't");stageEl.onclick=function(e){if(e.target===stageEl||e.target===hand){addOp("REACH_ACT",scaffold===0);hand.style.left=(28+Math.random()*25)+"%";hand.style.top=(50+Math.random()*20)+"%";panel.innerHTML=panelHtml(s)}}}
+ else if(s.id==="GP2_OTHER_AGENCY"){center("Not everything is yours to command.","Try. Signal. Wait.");var block=obj("block",28,62,"resists");var other=obj("other",70,40,"other");block.onclick=function(){addOp("ENCOUNTER_RESISTANCE",scaffold===0);block.style.transform="translate(-50%,-50%) scale(.97)"};other.onclick=function(){addOp("SIGNAL_WAIT",scaffold===0);other.style.left=(60+Math.random()*20)+"%";other.style.top=(32+Math.random()*28)+"%";panel.innerHTML=panelHtml(s)}}
+ else if(s.id==="GP3_DEPENDENCY"){center("You can signal. You cannot command.","Try the signal several times.");obj("",32,64,"you");var care=obj("care",72,36,"care");var sig=document.createElement("div");sig.className="pulse";sig.title="signal";stageEl.appendChild(sig);sig.onclick=function(){addOp("SIGNAL_WAIT",scaffold===0);if(Math.random()>.4){care.style.left="54%";care.style.top="51%"}else{care.style.left="74%";care.style.top="34%"};panel.innerHTML=panelHtml(s)}}
+ else if(s.id==="GP4_EXPECTATION_FAILURE"){center("The pattern fails.","You expected a response. None came.");obj("",34,62,"you");obj("care",72,34,"absent");var t=scaffoldPrompt(s);prompt(t);if(scaffold<=1){var a=document.createElement("div");a.className="pulse";a.style.background="#8b4545";stageEl.appendChild(a)}stageEl.onclick=function(){if(scaffold<3||t){addOp("FREEZE_EXPAND",scaffold===0);stageEl.style.filter="saturate(.55)";prompt("Frozen: inspect what made the expectation reasonable.");panel.innerHTML=panelHtml(s)}}}
+ else if(s.id==="GP5_FREEZE_TRACE"){center("Hold the moment open.","What made you expect a response?");["success","success","failed now"].forEach(function(t,i){var tr=document.createElement("div");tr.className="trace "+(i===2?"current fail":"");tr.style.left="18%";tr.style.top=(34+i*15)+"%";tr.style.width=(i===2?"44":"58")+"%";tr.title=t;tr.onclick=function(){addOp("TRACE_BACKWARD",scaffold===0);tr.style.height="8px";panel.innerHTML=panelHtml(s)};stageEl.appendChild(tr);var l=document.createElement("div");l.className="label";l.style.left="78%";l.style.top=(32+i*15)+"%";l.textContent=t;stageEl.appendChild(l)})}
+ else if(s.id==="GP6_REOPEN"){center("Reopen the failed expectation.","Revise only what the failure puts under pressure.");["what happened","what I expected","what remains unknown","revise"].forEach(function(t,i){var c=document.createElement("div");c.className="card";c.style.position="absolute";c.style.left=(12+(i%2)*43)+"%";c.style.top=(28+Math.floor(i/2)*28)+"%";c.style.width="34%";c.textContent=t;c.onclick=function(){addOp("OPEN_DRILL_DOWN",scaffold===0);reopened=true;c.style.borderWidth="3px";panel.innerHTML=panelHtml(s)};stageEl.appendChild(c)})}
+ else if(s.id==="GP7_SOCIAL_EVALUATION"){center("Watch what they do.","One helps. One obstructs. What do you notice?");obj("care",24,65,"helper");obj("",50,34,"goal");obj("other",76,65,"hinderer");stageEl.onclick=function(e){if(e.target.classList.contains("obj")){addOp("REACH_ACT",scaffold===0);e.target.style.outline="4px solid rgba(35,75,123,.18)";panel.innerHTML=panelHtml(s)}}}
+ else if(s.id==="GP8_EVIDENCE"){var g=document.createElement("div");g.className="evidence-grid";["Observation","Interpretation","Alternative","Replication","Claim ceiling"].forEach(function(t,i){var c=document.createElement("div");c.className="card";c.innerHTML="<strong>"+t+"</strong><p class=small>"+(["What was observed.","What researchers proposed.","Other plausible account.","What later studies found.","What does not yet follow."][i])+"</p>";c.onclick=function(){addOp("OPEN_DRILL_DOWN",scaffold===0);if(i>0){addOp("PLACE_SIDE_BY_SIDE",scaffold===0);evidenceCompared=true}c.style.transform="translateY(-8px)";panel.innerHTML=panelHtml(s)};g.appendChild(c)});stageEl.appendChild(g)}
+ else if(s.id==="GP9_CLAIM_CEILING"){center("How far does the evidence carry the claim?","Try extending the inference.");var line=document.createElement("div");line.className="claim-line";stageEl.appendChild(line);var ceil=document.createElement("div");ceil.className="ceiling";stageEl.appendChild(ceil);var spec=document.createElement("div");spec.className="spec";spec.style.display="none";stageEl.appendChild(spec);var b=document.createElement("button");b.textContent="Extend claim";b.style.position="absolute";b.style.left="46%";b.style.top="68%";b.onclick=function(){addOp("HIT_BOUNDARY",scaffold===0);ceilingEncountered=true;spec.style.display="block";prompt("Beyond this boundary the claim is speculation, not supported inference.");panel.innerHTML=panelHtml(s)};stageEl.appendChild(b)}
+ else if(s.id==="GP10_FADED_TRANSFER"){center("A new case.","A result appears surprising. No instruction is given.");var ops=document.createElement("div");ops.className="ops";ops.style.position="absolute";ops.style.left="50%";ops.style.top="65%";ops.style.transform="translateX(-50%)";["FREEZE_EXPAND","OPEN_DRILL_DOWN","PLACE_SIDE_BY_SIDE","HIT_BOUNDARY"].forEach(function(op){var b=document.createElement("button");b.textContent=op.replaceAll("_"," ");b.onclick=function(){addOp(op,true);b.classList.add("active");panel.innerHTML=panelHtml(s)};ops.appendChild(b)});stageEl.appendChild(ops)}
+ else if(s.id==="GP11_LIFE_LOTTERY_HANDOFF"){stageEl.classList.add("lottery");center("Every human Doing develops somewhere.","You do not choose where you begin.");prompt("Next: enter a statistically grounded situated beginning.");}
+ document.getElementById("back").disabled=index===0;document.getElementById("next").disabled=index===stages.length-1;
+}
+document.getElementById("next").onclick=function(){if(index<stages.length-1){index++;render()}};
+document.getElementById("back").onclick=function(){if(index>0){index--;render()}};
+document.getElementById("reset").onclick=function(){index=0;scaffold=3;acquired=[];spontaneous=[];freezeUsed=false;tracesInspected=false;reopened=false;evidenceCompared=false;ceilingEncountered=false;document.querySelectorAll("[data-scaffold]").forEach(function(b){b.classList.toggle("active",b.dataset.scaffold==="3")});render()};
+document.querySelectorAll("[data-scaffold]").forEach(function(b){b.onclick=function(){scaffold=Number(b.dataset.scaffold);document.querySelectorAll("[data-scaffold]").forEach(function(x){x.classList.remove("active")});b.classList.add("active");render()}});
+render();
+})();
