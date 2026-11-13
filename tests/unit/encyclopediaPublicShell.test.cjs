@@ -35,3 +35,21 @@ test('governance and research routes are available without changing existing rou
   assert.deepEqual(routeFromHash('#/research'),{kind:'RESEARCH'});
   assert.deepEqual(routeFromHash('#/reader/CH1.2/NEPTUNE-VULCAN'),{kind:'READER',sectionId:'CH1.2',caseId:'NEPTUNE-VULCAN'});
 });
+
+
+test('deployed public reader exposes long-form full-stack orientation and four human apertures',()=>{
+  const fs=require('node:fs');
+  const path=require('node:path');
+  const source=fs.readFileSync(path.join(__dirname,'../../src/research/encyclopediaProd3Browser.ts'),'utf8');
+  for(const phrase of [
+    'FSP-FULL-STACK-ESSAY',
+    'Why We Need a Full-Stack Philosophy',
+    'EXPERIENCE → INQUIRE → DECOMPRESS → LEARN → COMPARE → ACT → RETURN',
+    'Medicine & Public Health',
+    'Science Across Disciplines',
+    'Art, Culture & Interpretation',
+    'Maathai & Shared Action',
+    'COOPERATION ≠ CONVERGENCE',
+    'human problem → case → extended critical thinking → translation → cooperation → capability / authorization → consequence → Return → optional formal depth'
+  ]) assert.ok(source.includes(phrase),phrase);
+});
