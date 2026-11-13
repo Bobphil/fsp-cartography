@@ -1,0 +1,54 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Observer · Horizon Perception Pilot 1.0</title>
+<style>
+:root{--ink:#152036;--muted:#667289;--line:#d9dfeb;--panel:#f6f8fb;--accent:#244b7d;--bad:#8b3e3e}
+*{box-sizing:border-box}body{margin:0;font:15px/1.5 system-ui,sans-serif;color:var(--ink)}.wrap{max-width:1120px;margin:auto;padding:20px}.card{border:1px solid var(--line);border-radius:14px;padding:15px;margin:14px 0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.q{background:var(--panel);padding:12px;border-radius:10px}label{display:block;font-weight:600;margin:.4rem 0}input,select,textarea{width:100%;font:inherit;padding:.5rem;border:1px solid var(--line);border-radius:8px}textarea{min-height:92px}.scores{display:grid;grid-template-columns:2fr .7fr;gap:8px;align-items:center}.errors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}.errors label{font-weight:400}.actions{display:flex;gap:8px;flex-wrap:wrap}button{font:inherit;border:1px solid var(--line);background:#fff;border-radius:999px;padding:.5rem .8rem;cursor:pointer}.primary{background:var(--accent);color:#fff}.small{font-size:.84rem;color:var(--muted)}.warn{border-left:4px solid var(--bad);padding-left:10px}@media(max-width:800px){.grid,.errors{grid-template-columns:1fr}}
+</style></head><body><div class="wrap">
+<h1>Observer · FSP-VR-HORIZON-PERCEPTION-PILOT-1.0</h1>
+<p class="warn"><strong>Freeze the protocol.</strong> Do not explain the intended meaning of horizon compression during participants 1–5.</p>
+
+<div class="card"><h2>Participant</h2><div class="grid">
+<div><label>Participant code</label><input id="code" placeholder="P01"></div>
+<div><label>Date</label><input id="date" type="date"></div>
+<div><label>Prior FSP exposure</label><select id="exposure"><option>No</option><option>Yes</option></select></div>
+<div><label>Pilot version</label><input id="version" value="1.0" readonly></div>
+</div></div>
+
+<div class="card"><h2>Use verbatim</h2>
+<p><strong>Orientation:</strong> You are looking at possible things that might become possible from a historical situation. Some are available sooner; others require more things to change first. Explore the display as it seems natural to you.</p>
+<ol>
+<li>Freeze: “What possibilities seem available from here?”</li>
+<li>Accelerate: “What changed?”</li>
+<li>Inspect advocacy: “Why does this possibility seem farther away than the ones near the center?”</li>
+<li>Pin + Freeze: “What happened to the advocacy possibility?”</li>
+<li>“Did anything about the possibility itself change?”</li>
+<li>“Is it now easier to reach, harder to reach, or unchanged?”</li>
+<li>“Is it now more likely, less likely, or unchanged?”</li>
+<li>“Why do you think it moved visually?”</li>
+<li>“Without accelerating again, what would have to change before it became more reachable?”</li>
+</ol>
+<p><strong>Transfer:</strong> A = available now; B = requires several missing conditions; C = we know very little. Ask: “Which is most like the retained advocacy marker?”</p>
+</div>
+
+<div class="card"><h2>D1–D5 scoring</h2><div id="scores" class="scores">
+<div>D1 · Distant possibility remains identifiable</div><select data-score="D1"><option value="0">0</option><option value="1">1</option><option value="2">2</option></select>
+<div>D2 · Compression ≠ temporal nearness</div><select data-score="D2"><option value="0">0</option><option value="1">1</option><option value="2">2</option></select>
+<div>D3 · Compression ≠ probability increase</div><select data-score="D3"><option value="0">0</option><option value="1">1</option><option value="2">2</option></select>
+<div>D4 · Missing contingencies still matter</div><select data-score="D4"><option value="0">0</option><option value="1">1</option><option value="2">2</option></select>
+<div>D5 · Retained marker = present attentional availability</div><select data-score="D5"><option value="0">0</option><option value="1">1</option><option value="2">2</option></select>
+</div><p><strong>Total:</strong> <span id="total">0</span>/10</p></div>
+
+<div class="card"><h2>Error codes</h2><div class="errors" id="errors">
+</div></div>
+
+<div class="card"><h2>Notes</h2>
+<label>Spontaneous wording</label><textarea id="wording"></textarea>
+<label>Transfer choice</label><select id="transfer"><option value=""></option><option>A</option><option>B</option><option>C</option></select>
+<label>Observer notes</label><textarea id="notes"></textarea>
+</div>
+
+<div class="actions"><button id="save" class="primary">Save locally</button><button id="export">Export CSV</button><button id="clear">Clear form</button></div>
+<p class="small">Data are stored only in this browser's localStorage unless you explicitly export the CSV. No automatic network submission is implemented.</p>
+<script src="./observer.js"></script>
+</div></body></html>
