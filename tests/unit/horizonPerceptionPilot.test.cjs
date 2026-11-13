@@ -86,7 +86,8 @@ test('observer capture is local-only and includes all semantic error codes',()=>
   const js=fs.readFileSync(path.join(proto,'observer.js'),'utf8');
   for(const code of ['HP-TIME-NEAR','HP-PROB-UP','HP-FEAS-UP','HP-RECOMMEND','HP-DESTINY','HP-CONTINGENCY-LOSS','HP-IDENTITY-LOSS','HP-ATTN-FAIL','HP-PANEL-DEPENDENCE']) assert.match(js,new RegExp(code));
   assert.match(js,/localStorage/);
-  assert.match(js,/Export CSV/);
+  const html=fs.readFileSync(path.join(proto,'observer.html'),'utf8');
+  assert.match(html,/Export CSV/);
   assert.doesNotMatch(js,/fetch\(/);
   assert.doesNotMatch(js,/XMLHttpRequest/);
 });
