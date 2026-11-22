@@ -147,3 +147,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-ENCYCLOPEDIA-NAVIGATION-1` adds bidirectional routing between the four-chapter philosophy-of-science sequence and the Five-Case Atlas. Every chapter section now links to canonical dossier states, transitions, controlled probes, source-ledger entries, and/or case claim ceilings, with reverse lookup from Atlas objects back to all narrative uses. The map is intended for later Pressbooks, web, and VR routing.
+
+
+`FSP-GENEALOGY-COMPLEXITY-1` reconstructs one important conceptual lineage for FSP simulation and governance: von Neumann/Burks on recursive organization, Schelling on micromotives and unintended macrostructure, Lorenz on nonlinear sensitivity and compression risk, Farmer on endogenous complex-system dynamics, Palmer on ensemble prediction and uncertainty, and Parker/Saltelli as near comparators for adequacy-for-purpose and model-accountability. The build freezes an originality firewall: FSP does not claim these discoveries; its candidate contribution is to govern how model outputs cross into claims, authorization, action, consequence, Return, and selective REOPEN.
