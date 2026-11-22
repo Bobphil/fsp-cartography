@@ -150,3 +150,6 @@ These research constructs are not part of the frozen Cartography kernel unless s
 
 
 `FSP-GENEALOGY-COMPLEXITY-1` reconstructs one important conceptual lineage for FSP simulation and governance: von Neumann/Burks on recursive organization, Schelling on micromotives and unintended macrostructure, Lorenz on nonlinear sensitivity and compression risk, Farmer on endogenous complex-system dynamics, Palmer on ensemble prediction and uncertainty, and Parker/Saltelli as near comparators for adequacy-for-purpose and model-accountability. The build freezes an originality firewall: FSP does not claim these discoveries; its candidate contribution is to govern how model outputs cross into claims, authorization, action, consequence, Return, and selective REOPEN.
+
+
+`FSP-VR-ELENA-HARNESS-1` is now preserved under `prototypes/elena-harness-1/`: a twelve-state deterministic 2D/2.5D governed-crossing harness with frozen fixtures, reducer and constitutional invariants, framework-naive trial protocol, browser-run report, and the three observed perceptual micro-patches. The Node regression suite is 11/11 PASS; the developer Chromium pass is PASS WITH MICRO-PATCHES; independent framework-naive human validation remains PENDING.
