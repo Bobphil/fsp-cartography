@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FSP-VR Elena Harness 1</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">FSP-VR-ELENA-HARNESS-1</div>
+      <h1>Elena governed-crossing harness</h1>
+    </div>
+    <div class="top-actions">
+      <button id="locateBtn">Locate me</button>
+      <button id="trialBtn">Naive trial</button>
+      <button id="resetBtn">Reset</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="progress-wrap" aria-label="Twelve state progression">
+      <div id="progress" class="progress"></div>
+    </section>
+
+    <section class="workspace">
+      <aside class="state-panel">
+        <div id="stateNumber" class="state-number"></div>
+        <h2 id="stateTitle"></h2>
+        <p id="purpose" class="purpose"></p>
+        <div class="prompt-card">
+          <div class="label">Current prompt</div>
+          <p id="prompt"></p>
+        </div>
+        <div class="lesson-card">
+          <div class="label">Constitutional distinction</div>
+          <p id="lesson"></p>
+        </div>
+        <div id="actionButtons" class="action-buttons"></div>
+      </aside>
+
+      <section class="field-shell">
+        <div class="field-label past">Provenance / inherited history</div>
+        <div class="field-label present">Active task field</div>
+        <div class="field-label future">Possible consequence / next crossing</div>
+        <div id="field" class="field" role="region" aria-live="polite"></div>
+        <div id="explanation" class="explanation"></div>
+      </section>
+    </section>
+
+    <section class="inspectors">
+      <div class="inspector">
+        <div class="label">Visible now</div>
+        <ul id="visibleList"></ul>
+      </div>
+      <div class="inspector">
+        <div class="label">Hidden / recoverable</div>
+        <ul id="hiddenList"></ul>
+      </div>
+      <div class="inspector">
+        <div class="label">Invariant status</div>
+        <div id="invariantStatus"></div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="trialDialog">
+    <form method="dialog" id="trialForm">
+      <h2>Framework-naive trial</h2>
+      <p>Answer in ordinary language. FSP terms are not required.</p>
+      <div id="trialQuestions"></div>
+      <menu>
+        <button value="cancel">Close</button>
+        <button type="button" id="scoreTrialBtn">Score locally</button>
+      </menu>
+      <div id="trialResult" class="trial-result"></div>
+    </form>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
