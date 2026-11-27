@@ -933,6 +933,12 @@ export async function mountProd3(root:HTMLElement){
       if(state.current.kind===kind&&state.current.id===id)b.setAttribute("aria-current","page");
       group.append(b);
     });
+    // Public review area: separate static route, preserving canonical reader state.
+    const development=document.createElement("a");
+    development.href="./works-in-development/";
+    development.textContent="Works in Development";
+    development.style.cssText="display:block;padding:.55rem .65rem;border-radius:.45rem";
+    group.append(development);
     nav.append(group);
     if(state.stack.length){const rb=mkButton("← Return to prior context",goBack,true);rb.classList.add("return");nav.append(rb)}
     const main=document.createElement("main");main.tabIndex=-1;
